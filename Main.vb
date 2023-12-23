@@ -239,6 +239,15 @@ Public Class Main
         Arduino.WriteLine("n")
         Arduino.WriteLine("h")
         Arduino.Close() 'Terminates Arduino-VB communication.
+        WriteLine(1, "Responses on Lever 1: " & ResponseCount(0))
+        WriteLine(1, "Response rate on Lever 1: " & ResponseCount(0) / (lblTime.Text / 60))
+        WriteLine(1, "Responses on Lever 2: " & ResponseCount(1))
+        WriteLine(1, "Response rate on Lever 2: " & ResponseCount(1) / (lblTime.Text / 60))
+        WriteLine(1, "Reinforcers on Lever 1: " & RefCount(0))
+        WriteLine(1, "Reinforcer rate on Lever 1: " & RefCount(0) / (lblTime.Text / 60))
+        WriteLine(1, "Reinforcers on Lever 2: " & RefCount(1))
+        WriteLine(1, "Reinforcer rate on Lever 2: " & RefCount(1) / (lblTime.Text / 60))
+        WriteLine(1, "Total time in minutes: " & lblTime.Text / 60)
         WriteLine(1, "END") 'Signals that the session has ended on the data file.
         FileClose(1) 'Closes data file.
         End
