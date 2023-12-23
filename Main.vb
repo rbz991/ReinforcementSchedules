@@ -296,4 +296,9 @@ Public Class Main
         If SetUp.rdoSL2T.Checked = True Then Arduino.WriteLine("t")
         If SetUp.rdoSL2H.Checked = True Then Arduino.WriteLine("h")
     End Sub
+
+    Private Sub test()
+
+    End Sub
+
 End Class
