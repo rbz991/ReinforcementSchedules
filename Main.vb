@@ -235,9 +235,8 @@ Public Class Main
         tmrLever2.Enabled = False
         refRdy(1) = True
     End Sub
-    Private Sub Finish() 'This
-        Arduino.WriteLine("n")
-        Arduino.WriteLine("h")
+    Private Sub Finish()
+        Arduino.WriteLine("nhtabcd") 'Turns off every output on the Arduino.
         Arduino.Close() 'Terminates Arduino-VB communication.
         WriteLine(1, "Responses on Lever 1: " & ResponseCount(0))
         WriteLine(1, "Response rate on Lever 1: " & ResponseCount(0) / (lblTime.Text / 60))
