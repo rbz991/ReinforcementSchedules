@@ -120,10 +120,20 @@ Public Class Main
     Private Sub Reinforce(Lever As Integer) 'This registers reinforcer deliveries and sets up the next reinforcer conditions.
         If Lever = 0 And SetUp.chkDL1.Checked = True Then
             tmrDelay1.Enabled = True
-            If SetUp.rdoDL1S.Checked = True Then Arduino.WriteLine("T")
+            If SetUp.rdoDL1U.Checked = False Then
+                If SetUp.rdoDL1L1.Checked = True Then Arduino.WriteLine("A")
+                If SetUp.rdoDL1L2.Checked = True Then Arduino.WriteLine("B")
+                If SetUp.rdoDL1Tone.Checked = True Then Arduino.WriteLine("T")
+                If SetUp.rdoDL1House.Checked = True Then Arduino.WriteLine("H")
+            End If
         ElseIf Lever = 1 And SetUp.chkDL2.Checked = True Then
             tmrDelay2.Enabled = True
-            If SetUp.rdoDL2S.Checked = True Then Arduino.WriteLine("T")
+            If SetUp.rdoDL2U.Checked = False Then
+                If SetUp.rdoDL2L1.Checked = True Then Arduino.WriteLine("A")
+                If SetUp.rdoDL2L2.Checked = True Then Arduino.WriteLine("B")
+                If SetUp.rdoDL2Tone.Checked = True Then Arduino.WriteLine("T")
+                If SetUp.rdoDL2House.Checked = True Then Arduino.WriteLine("H")
+            End If
         Else
             refRdy(Lever) = False
             If Lever = 0 Then
@@ -280,13 +290,23 @@ Public Class Main
 
     Private Sub tmrDelay1_Tick(sender As Object, e As EventArgs) Handles tmrDelay1.Tick
         tmrDelay1.Enabled = False
-        If SetUp.rdoDL1S.Checked = True Then Arduino.WriteLine("t")
+        If SetUp.rdoDL1U.Checked = False Then
+            If SetUp.rdoDL1L1.Checked = True Then Arduino.WriteLine("a")
+            If SetUp.rdoDL1L2.Checked = True Then Arduino.WriteLine("b")
+            If SetUp.rdoDL1Tone.Checked = True Then Arduino.WriteLine("t")
+            If SetUp.rdoDL1House.Checked = True Then Arduino.WriteLine("h")
+        End If
         Reinforce(0)
     End Sub
 
     Private Sub tmrDelay2_Tick(sender As Object, e As EventArgs) Handles tmrDelay2.Tick
         tmrDelay2.Enabled = False
-        If SetUp.rdoDL2S.Checked = True Then Arduino.WriteLine("t")
+        If SetUp.rdoDL2U.Checked = False Then
+            If SetUp.rdoDL2L1.Checked = True Then Arduino.WriteLine("a")
+            If SetUp.rdoDL2L2.Checked = True Then Arduino.WriteLine("b")
+            If SetUp.rdoDL2Tone.Checked = True Then Arduino.WriteLine("t")
+            If SetUp.rdoDL2House.Checked = True Then Arduino.WriteLine("h")
+        End If
         Reinforce(1)
     End Sub
 

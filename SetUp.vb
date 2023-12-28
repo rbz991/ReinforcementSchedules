@@ -132,12 +132,18 @@
         If chkDL1.Checked = True Then
             grpDL1.Enabled = True
             txbL1D.Text = ""
-            rdoDL1S.Checked = False
+            rdoDL1L1.Checked = False
+            rdoDL1L2.Checked = False
+            rdoDL1Tone.Checked = False
+            rdoDL1House.Checked = False
             rdoDL1U.Checked = False
         ElseIf chkDL1.Checked = False Then
             grpDL1.Enabled = False
             txbL1D.Text = ""
-            rdoDL1S.Checked = False
+            rdoDL1L1.Checked = False
+            rdoDL1L2.Checked = False
+            rdoDL1Tone.Checked = False
+            rdoDL1House.Checked = False
             rdoDL1U.Checked = False
         End If
     End Sub
@@ -146,13 +152,20 @@
         If chkDL2.Checked = True Then
             grpDL2.Enabled = True
             txbL2D.Text = ""
-            rdoDL2S.Checked = False
+            rdoDL2L1.Checked = False
+            rdoDL2L2.Checked = False
+            rdoDL2Tone.Checked = False
+            rdoDL2House.Checked = False
             rdoDL2U.Checked = False
         ElseIf chkDL2.Checked = False Then
             grpDL2.Enabled = False
             txbL2D.Text = ""
-            rdoDL2S.Checked = False
+            rdoDL2L1.Checked = False
+            rdoDL2L2.Checked = False
+            rdoDL2Tone.Checked = False
+            rdoDL2House.Checked = False
             rdoDL2U.Checked = False
         End If
     End Sub
+
 End Class
