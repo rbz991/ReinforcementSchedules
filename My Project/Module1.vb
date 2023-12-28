@@ -14,6 +14,21 @@
     Public ResponseCount(1) As Integer
     Public chartTime(1) As Integer
     Public chartResponse(1) As Integer
+    Public vCurrentComponentSetup As Integer
+    Public ActiveComponent(4) As ComponentBlueprint
+    Public Structure ComponentBlueprint
+        Dim ComponentDuration As Integer
+        Dim ComponentStimDuration As Integer
+        Dim ComponentStimType As String
+        Dim ScheduleType() As String
+        Dim ScheduleValue() As Integer
+        Dim Magnitude() As Integer
+        Dim FeedbackDuration() As Integer
+        Dim FeedbackType() As String
+        Dim DelayDuration() As Integer
+        Dim DelayType() As String
+    End Structure
+
 
 
 End Module

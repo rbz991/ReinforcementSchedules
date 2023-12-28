@@ -100,7 +100,7 @@ Partial Class SetUp
         Me.txbSL1D = New System.Windows.Forms.TextBox()
         Me.chkStimL1 = New System.Windows.Forms.CheckBox()
         Me.chkStimL2 = New System.Windows.Forms.CheckBox()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnAddComponent1 = New System.Windows.Forms.Button()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.lbl1Component1 = New System.Windows.Forms.Label()
         Me.lbl2component1 = New System.Windows.Forms.Label()
@@ -614,9 +614,9 @@ Partial Class SetUp
         Me.GroupBox2.Controls.Add(Me.chkDL1)
         Me.GroupBox2.Controls.Add(Me.chkDL2)
         Me.GroupBox2.Location = New System.Drawing.Point(1302, 312)
-        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Size = New System.Drawing.Size(279, 430)
         Me.GroupBox2.TabIndex = 17
         Me.GroupBox2.TabStop = False
@@ -630,9 +630,9 @@ Partial Class SetUp
         Me.grpDL2.Controls.Add(Me.txbL2D)
         Me.grpDL2.Enabled = False
         Me.grpDL2.Location = New System.Drawing.Point(8, 258)
-        Me.grpDL2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.grpDL2.Margin = New System.Windows.Forms.Padding(4)
         Me.grpDL2.Name = "grpDL2"
-        Me.grpDL2.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.grpDL2.Padding = New System.Windows.Forms.Padding(4)
         Me.grpDL2.Size = New System.Drawing.Size(256, 161)
         Me.grpDL2.TabIndex = 22
         Me.grpDL2.TabStop = False
@@ -641,7 +641,7 @@ Partial Class SetUp
         '
         Me.rdoDL2U.AutoSize = True
         Me.rdoDL2U.Location = New System.Drawing.Point(8, 114)
-        Me.rdoDL2U.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.rdoDL2U.Margin = New System.Windows.Forms.Padding(4)
         Me.rdoDL2U.Name = "rdoDL2U"
         Me.rdoDL2U.Size = New System.Drawing.Size(151, 29)
         Me.rdoDL2U.TabIndex = 21
@@ -653,7 +653,7 @@ Partial Class SetUp
         '
         Me.rdoDL2S.AutoSize = True
         Me.rdoDL2S.Location = New System.Drawing.Point(8, 80)
-        Me.rdoDL2S.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.rdoDL2S.Margin = New System.Windows.Forms.Padding(4)
         Me.rdoDL2S.Name = "rdoDL2S"
         Me.rdoDL2S.Size = New System.Drawing.Size(127, 29)
         Me.rdoDL2S.TabIndex = 20
@@ -674,7 +674,7 @@ Partial Class SetUp
         'txbL2D
         '
         Me.txbL2D.Location = New System.Drawing.Point(125, 45)
-        Me.txbL2D.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txbL2D.Margin = New System.Windows.Forms.Padding(4)
         Me.txbL2D.Name = "txbL2D"
         Me.txbL2D.Size = New System.Drawing.Size(103, 31)
         Me.txbL2D.TabIndex = 2
@@ -687,9 +687,9 @@ Partial Class SetUp
         Me.grpDL1.Controls.Add(Me.txbL1D)
         Me.grpDL1.Enabled = False
         Me.grpDL1.Location = New System.Drawing.Point(8, 74)
-        Me.grpDL1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.grpDL1.Margin = New System.Windows.Forms.Padding(4)
         Me.grpDL1.Name = "grpDL1"
-        Me.grpDL1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.grpDL1.Padding = New System.Windows.Forms.Padding(4)
         Me.grpDL1.Size = New System.Drawing.Size(255, 145)
         Me.grpDL1.TabIndex = 4
         Me.grpDL1.TabStop = False
@@ -698,7 +698,7 @@ Partial Class SetUp
         '
         Me.rdoDL1U.AutoSize = True
         Me.rdoDL1U.Location = New System.Drawing.Point(8, 101)
-        Me.rdoDL1U.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.rdoDL1U.Margin = New System.Windows.Forms.Padding(4)
         Me.rdoDL1U.Name = "rdoDL1U"
         Me.rdoDL1U.Size = New System.Drawing.Size(151, 29)
         Me.rdoDL1U.TabIndex = 21
@@ -710,7 +710,7 @@ Partial Class SetUp
         '
         Me.rdoDL1S.AutoSize = True
         Me.rdoDL1S.Location = New System.Drawing.Point(8, 68)
-        Me.rdoDL1S.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.rdoDL1S.Margin = New System.Windows.Forms.Padding(4)
         Me.rdoDL1S.Name = "rdoDL1S"
         Me.rdoDL1S.Size = New System.Drawing.Size(127, 29)
         Me.rdoDL1S.TabIndex = 20
@@ -731,7 +731,7 @@ Partial Class SetUp
         'txbL1D
         '
         Me.txbL1D.Location = New System.Drawing.Point(125, 32)
-        Me.txbL1D.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txbL1D.Margin = New System.Windows.Forms.Padding(4)
         Me.txbL1D.Name = "txbL1D"
         Me.txbL1D.Size = New System.Drawing.Size(103, 31)
         Me.txbL1D.TabIndex = 2
@@ -741,7 +741,7 @@ Partial Class SetUp
         Me.chkDL1.AutoSize = True
         Me.chkDL1.Enabled = False
         Me.chkDL1.Location = New System.Drawing.Point(76, 39)
-        Me.chkDL1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.chkDL1.Margin = New System.Windows.Forms.Padding(4)
         Me.chkDL1.Name = "chkDL1"
         Me.chkDL1.Size = New System.Drawing.Size(116, 29)
         Me.chkDL1.TabIndex = 0
@@ -753,7 +753,7 @@ Partial Class SetUp
         Me.chkDL2.AutoSize = True
         Me.chkDL2.Enabled = False
         Me.chkDL2.Location = New System.Drawing.Point(76, 228)
-        Me.chkDL2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.chkDL2.Margin = New System.Windows.Forms.Padding(4)
         Me.chkDL2.Name = "chkDL2"
         Me.chkDL2.Size = New System.Drawing.Size(116, 29)
         Me.chkDL2.TabIndex = 0
@@ -768,9 +768,9 @@ Partial Class SetUp
         Me.grpMagnitude.Controls.Add(Me.txbL1M)
         Me.grpMagnitude.Enabled = False
         Me.grpMagnitude.Location = New System.Drawing.Point(1302, 749)
-        Me.grpMagnitude.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.grpMagnitude.Margin = New System.Windows.Forms.Padding(4)
         Me.grpMagnitude.Name = "grpMagnitude"
-        Me.grpMagnitude.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.grpMagnitude.Padding = New System.Windows.Forms.Padding(4)
         Me.grpMagnitude.Size = New System.Drawing.Size(279, 148)
         Me.grpMagnitude.TabIndex = 18
         Me.grpMagnitude.TabStop = False
@@ -799,7 +799,7 @@ Partial Class SetUp
         'txbL2M
         '
         Me.txbL2M.Location = New System.Drawing.Point(129, 95)
-        Me.txbL2M.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txbL2M.Margin = New System.Windows.Forms.Padding(4)
         Me.txbL2M.Name = "txbL2M"
         Me.txbL2M.Size = New System.Drawing.Size(107, 31)
         Me.txbL2M.TabIndex = 3
@@ -808,7 +808,7 @@ Partial Class SetUp
         'txbL1M
         '
         Me.txbL1M.Location = New System.Drawing.Point(131, 56)
-        Me.txbL1M.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txbL1M.Margin = New System.Windows.Forms.Padding(4)
         Me.txbL1M.Name = "txbL1M"
         Me.txbL1M.Size = New System.Drawing.Size(105, 31)
         Me.txbL1M.TabIndex = 2
@@ -821,9 +821,9 @@ Partial Class SetUp
         Me.GroupBox9.Controls.Add(Me.chkStimL1)
         Me.GroupBox9.Controls.Add(Me.chkStimL2)
         Me.GroupBox9.Location = New System.Drawing.Point(1589, 312)
-        Me.GroupBox9.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox9.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox9.Name = "GroupBox9"
-        Me.GroupBox9.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox9.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox9.Size = New System.Drawing.Size(269, 585)
         Me.GroupBox9.TabIndex = 23
         Me.GroupBox9.TabStop = False
@@ -839,9 +839,9 @@ Partial Class SetUp
         Me.grpStimL2.Controls.Add(Me.txbSL2D)
         Me.grpStimL2.Enabled = False
         Me.grpStimL2.Location = New System.Drawing.Point(7, 349)
-        Me.grpStimL2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.grpStimL2.Margin = New System.Windows.Forms.Padding(4)
         Me.grpStimL2.Name = "grpStimL2"
-        Me.grpStimL2.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.grpStimL2.Padding = New System.Windows.Forms.Padding(4)
         Me.grpStimL2.Size = New System.Drawing.Size(253, 231)
         Me.grpStimL2.TabIndex = 24
         Me.grpStimL2.TabStop = False
@@ -850,7 +850,7 @@ Partial Class SetUp
         '
         Me.rdoSL2H.AutoSize = True
         Me.rdoSL2H.Location = New System.Drawing.Point(33, 181)
-        Me.rdoSL2H.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.rdoSL2H.Margin = New System.Windows.Forms.Padding(4)
         Me.rdoSL2H.Name = "rdoSL2H"
         Me.rdoSL2H.Size = New System.Drawing.Size(145, 29)
         Me.rdoSL2H.TabIndex = 23
@@ -862,7 +862,7 @@ Partial Class SetUp
         '
         Me.rdoSL2T.AutoSize = True
         Me.rdoSL2T.Location = New System.Drawing.Point(33, 144)
-        Me.rdoSL2T.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.rdoSL2T.Margin = New System.Windows.Forms.Padding(4)
         Me.rdoSL2T.Name = "rdoSL2T"
         Me.rdoSL2T.Size = New System.Drawing.Size(92, 29)
         Me.rdoSL2T.TabIndex = 22
@@ -874,7 +874,7 @@ Partial Class SetUp
         '
         Me.rdoSL2L2.AutoSize = True
         Me.rdoSL2L2.Location = New System.Drawing.Point(33, 106)
-        Me.rdoSL2L2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.rdoSL2L2.Margin = New System.Windows.Forms.Padding(4)
         Me.rdoSL2L2.Name = "rdoSL2L2"
         Me.rdoSL2L2.Size = New System.Drawing.Size(108, 29)
         Me.rdoSL2L2.TabIndex = 21
@@ -886,7 +886,7 @@ Partial Class SetUp
         '
         Me.rdoSL2L1.AutoSize = True
         Me.rdoSL2L1.Location = New System.Drawing.Point(33, 72)
-        Me.rdoSL2L1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.rdoSL2L1.Margin = New System.Windows.Forms.Padding(4)
         Me.rdoSL2L1.Name = "rdoSL2L1"
         Me.rdoSL2L1.Size = New System.Drawing.Size(108, 29)
         Me.rdoSL2L1.TabIndex = 20
@@ -907,7 +907,7 @@ Partial Class SetUp
         'txbSL2D
         '
         Me.txbSL2D.Location = New System.Drawing.Point(125, 30)
-        Me.txbSL2D.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txbSL2D.Margin = New System.Windows.Forms.Padding(4)
         Me.txbSL2D.Name = "txbSL2D"
         Me.txbSL2D.Size = New System.Drawing.Size(103, 31)
         Me.txbSL2D.TabIndex = 2
@@ -922,9 +922,9 @@ Partial Class SetUp
         Me.grpStimL1.Controls.Add(Me.txbSL1D)
         Me.grpStimL1.Enabled = False
         Me.grpStimL1.Location = New System.Drawing.Point(8, 74)
-        Me.grpStimL1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.grpStimL1.Margin = New System.Windows.Forms.Padding(4)
         Me.grpStimL1.Name = "grpStimL1"
-        Me.grpStimL1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.grpStimL1.Padding = New System.Windows.Forms.Padding(4)
         Me.grpStimL1.Size = New System.Drawing.Size(253, 231)
         Me.grpStimL1.TabIndex = 4
         Me.grpStimL1.TabStop = False
@@ -933,7 +933,7 @@ Partial Class SetUp
         '
         Me.rdoSL1H.AutoSize = True
         Me.rdoSL1H.Location = New System.Drawing.Point(33, 182)
-        Me.rdoSL1H.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.rdoSL1H.Margin = New System.Windows.Forms.Padding(4)
         Me.rdoSL1H.Name = "rdoSL1H"
         Me.rdoSL1H.Size = New System.Drawing.Size(145, 29)
         Me.rdoSL1H.TabIndex = 23
@@ -945,7 +945,7 @@ Partial Class SetUp
         '
         Me.rdoSL1T.AutoSize = True
         Me.rdoSL1T.Location = New System.Drawing.Point(32, 145)
-        Me.rdoSL1T.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.rdoSL1T.Margin = New System.Windows.Forms.Padding(4)
         Me.rdoSL1T.Name = "rdoSL1T"
         Me.rdoSL1T.Size = New System.Drawing.Size(92, 29)
         Me.rdoSL1T.TabIndex = 22
@@ -957,7 +957,7 @@ Partial Class SetUp
         '
         Me.rdoSL1L2.AutoSize = True
         Me.rdoSL1L2.Location = New System.Drawing.Point(33, 108)
-        Me.rdoSL1L2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.rdoSL1L2.Margin = New System.Windows.Forms.Padding(4)
         Me.rdoSL1L2.Name = "rdoSL1L2"
         Me.rdoSL1L2.Size = New System.Drawing.Size(108, 29)
         Me.rdoSL1L2.TabIndex = 21
@@ -969,7 +969,7 @@ Partial Class SetUp
         '
         Me.rdoSL1L1.AutoSize = True
         Me.rdoSL1L1.Location = New System.Drawing.Point(33, 74)
-        Me.rdoSL1L1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.rdoSL1L1.Margin = New System.Windows.Forms.Padding(4)
         Me.rdoSL1L1.Name = "rdoSL1L1"
         Me.rdoSL1L1.Size = New System.Drawing.Size(108, 29)
         Me.rdoSL1L1.TabIndex = 20
@@ -990,7 +990,7 @@ Partial Class SetUp
         'txbSL1D
         '
         Me.txbSL1D.Location = New System.Drawing.Point(125, 31)
-        Me.txbSL1D.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txbSL1D.Margin = New System.Windows.Forms.Padding(4)
         Me.txbSL1D.Name = "txbSL1D"
         Me.txbSL1D.Size = New System.Drawing.Size(103, 31)
         Me.txbSL1D.TabIndex = 2
@@ -1000,7 +1000,7 @@ Partial Class SetUp
         Me.chkStimL1.AutoSize = True
         Me.chkStimL1.Enabled = False
         Me.chkStimL1.Location = New System.Drawing.Point(72, 41)
-        Me.chkStimL1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.chkStimL1.Margin = New System.Windows.Forms.Padding(4)
         Me.chkStimL1.Name = "chkStimL1"
         Me.chkStimL1.Size = New System.Drawing.Size(122, 29)
         Me.chkStimL1.TabIndex = 0
@@ -1012,21 +1012,21 @@ Partial Class SetUp
         Me.chkStimL2.AutoSize = True
         Me.chkStimL2.Enabled = False
         Me.chkStimL2.Location = New System.Drawing.Point(72, 318)
-        Me.chkStimL2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.chkStimL2.Margin = New System.Windows.Forms.Padding(4)
         Me.chkStimL2.Name = "chkStimL2"
         Me.chkStimL2.Size = New System.Drawing.Size(116, 29)
         Me.chkStimL2.TabIndex = 0
         Me.chkStimL2.Text = "Lever 2"
         Me.chkStimL2.UseVisualStyleBackColor = True
         '
-        'Button1
+        'btnAddComponent1
         '
-        Me.Button1.Location = New System.Drawing.Point(265, 12)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(223, 471)
-        Me.Button1.TabIndex = 24
-        Me.Button1.Text = "Add Component 1"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnAddComponent1.Location = New System.Drawing.Point(255, 12)
+        Me.btnAddComponent1.Name = "btnAddComponent1"
+        Me.btnAddComponent1.Size = New System.Drawing.Size(223, 113)
+        Me.btnAddComponent1.TabIndex = 24
+        Me.btnAddComponent1.Text = "Add Component"
+        Me.btnAddComponent1.UseVisualStyleBackColor = True
         '
         'Label13
         '
@@ -1113,7 +1113,7 @@ Partial Class SetUp
         Me.Controls.Add(Me.Label16)
         Me.Controls.Add(Me.lbl1Component1)
         Me.Controls.Add(Me.Label13)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.btnAddComponent1)
         Me.Controls.Add(Me.GroupBox9)
         Me.Controls.Add(Me.grpMagnitude)
         Me.Controls.Add(Me.GroupBox2)
@@ -1239,7 +1239,7 @@ Partial Class SetUp
     Friend WithEvents Label12 As Label
     Friend WithEvents chkStimL1 As CheckBox
     Friend WithEvents txbSL1D As TextBox
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btnAddComponent1 As Button
     Friend WithEvents Label13 As Label
     Friend WithEvents lbl1Component1 As Label
     Friend WithEvents lbl2component1 As Label
