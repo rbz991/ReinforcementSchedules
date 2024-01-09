@@ -20,8 +20,20 @@ Public Class Main
                 If (Actual_Response(1) <> Previous_Response(1) And Actual_Response(1) <> 1) Then
                     Response(1) 'The same happens for operanda 2.
                 End If
+                If (Actual_Response(2) <> Previous_Response(2) And Actual_Response(2) <> 1) Then
+                    Response(2) 'The same happens for operanda 3.
+                End If
+                If (Actual_Response(3) <> Previous_Response(3) And Actual_Response(3) <> 1) Then
+                    'Response(3) 'The same happens for operanda 4.
+                End If
+                If (Actual_Response(4) <> Previous_Response(4) And Actual_Response(4) <> 1) Then
+                    'Response(4) 'The same happens for operanda 5.
+                End If
                 Previous_Response(0) = Actual_Response(0) 'This resets the data stream observation of operanda 1 to detect further responses. 
                 Previous_Response(1) = Actual_Response(1) 'The same happens for operanda 2.
+                Previous_Response(2) = Actual_Response(2)
+                Previous_Response(3) = Actual_Response(3)
+                Previous_Response(4) = Actual_Response(4)
                 vTimeNow = Environment.TickCount - vTimeStart 'This keeps track of time for the Data output file.
                 lblTime.Text = vTimeNow / 1000 'This and the following 6 lines update values of interest on the main form.
                 lblResponses1.Text = ResponseCount(0)

@@ -4,8 +4,8 @@
     Public Lever2 As String = ""
     Public vTimeStart As Integer
     Public vTimeNow As Integer
-    Public Actual_Response(1) As String
-    Public Previous_Response(1) As String
+    Public Actual_Response(4) As String
+    Public Previous_Response(4) As String
     Public RefCount(1) As Integer
     Public refRdy(1) As Boolean
     Public VIList(1) As List(Of Integer)
