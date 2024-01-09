@@ -43,10 +43,10 @@ Public Class Main
         lblSubject.Text = SetUp.txtSubject.Text
         lblSession.Text = SetUp.txtSession.Text
         lblCOM.Text = SetUp.txtCOM.Text
-        tmrDelay1.Interval = SetUp.txbL1D.Text
-        tmrDelay2.Interval = SetUp.txbL2D.Text
-        tmrStim1.Interval = SetUp.txbSL1D.Text
-        tmrStim2.Interval = SetUp.txbSL2D.Text
+        If SetUp.chkDL1.Checked = True Then tmrDelay1.Interval = SetUp.txbL1D.Text
+        If SetUp.chkDL2.Checked = True Then tmrDelay2.Interval = SetUp.txbL2D.Text
+        If SetUp.chkStimL1.Checked = True Then tmrStim1.Interval = SetUp.txbSL1D.Text
+        If SetUp.chkStimL2.Checked = True Then tmrStim2.Interval = SetUp.txbSL2D.Text
         If SetUp.rdoSimple.Checked = True Then
             If Lever1 <> "" Then
                 lblL1.Text = Lever1.Substring(3, 2) & SetUp.txbValS.Text
