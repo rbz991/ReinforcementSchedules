@@ -269,7 +269,7 @@ Public Class Main
     Private Sub tmrStart_Tick(sender As Object, e As EventArgs) Handles tmrStart.Tick
         tmrStart.Enabled = False
         tmrChart.Enabled = True
-        'Arduino.WriteLine("H")
+        Arduino.WriteLine("H")
         BeginPrograms() 'Set up for the schedules of reinforcement.
     End Sub
 
