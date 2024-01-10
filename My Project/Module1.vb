@@ -14,6 +14,7 @@
     Public ResponseCount(1) As Integer
     Public chartTime(1) As Integer
     Public chartResponse(1) As Integer
+    Public PalIO(1) As Boolean
 
 
 

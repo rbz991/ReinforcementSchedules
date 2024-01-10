@@ -139,6 +139,8 @@ Public Class Main
         ElseIf Lever = 1 And SetUp.chkDL2.Checked = True Then
             tmrDelay2.Enabled = True
             If SetUp.rdoDL2S.Checked = True Then Arduino.WriteLine("T")
+        ElseIf Lever = 3 Then
+            Arduino.WriteLine("R")
         Else
             refRdy(Lever) = False
             If Lever = 0 Then
@@ -266,15 +268,11 @@ Public Class Main
         FileClose(1) 'Closes data file.
         End
     End Sub
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click 'This controls the 'Finish' button on the main form. Used to end the session by hand.
-        Finish()
-    End Sub
     Private Sub tmrStart_Tick(sender As Object, e As EventArgs) Handles tmrStart.Tick
         tmrStart.Enabled = False
         Arduino.WriteLine("H")
         BeginPrograms() 'Set up for the schedules of reinforcement.
     End Sub
-
     Private Sub tmrChart_Tick(sender As Object, e As EventArgs) Handles tmrChart.Tick
         chartTime(0) += 1
         chartTime(1) += 1
@@ -292,19 +290,16 @@ Public Class Main
             chartResponse(1) = 0
         End If
     End Sub
-
     Private Sub tmrDelay1_Tick(sender As Object, e As EventArgs) Handles tmrDelay1.Tick
         tmrDelay1.Enabled = False
         If SetUp.rdoDL1S.Checked = True Then Arduino.WriteLine("t")
         Reinforce(0)
     End Sub
-
     Private Sub tmrDelay2_Tick(sender As Object, e As EventArgs) Handles tmrDelay2.Tick
         tmrDelay2.Enabled = False
         If SetUp.rdoDL2S.Checked = True Then Arduino.WriteLine("t")
         Reinforce(1)
     End Sub
-
     Private Sub tmrStim1_Tick(sender As Object, e As EventArgs) Handles tmrStim1.Tick
         tmrStim1.Enabled = False
         If SetUp.rdoSL1L1.Checked = True Then Arduino.WriteLine("a")
@@ -319,7 +314,35 @@ Public Class Main
         If SetUp.rdoSL2T.Checked = True Then Arduino.WriteLine("t")
         If SetUp.rdoSL2H.Checked = True Then Arduino.WriteLine("h")
     End Sub
-
-
-
+    Private Sub btnFinish_Click(sender As Object, e As EventArgs) Handles btnFinish.Click
+        'This controls the 'Finish' button on the main form. Used to end the session by hand.
+        Finish()
+    End Sub
+    Private Sub btnL1IO_Click(sender As Object, e As EventArgs) Handles btnL1IO.Click
+        If PalIO(0) = True Then
+            PalIO(0) = False
+            Arduino.WriteLine("L")
+        ElseIf PalIO(0) = False Then
+            PalIO(0) = True
+            Arduino.WriteLine("l")
+        End If
+    End Sub
+    Private Sub btnL2IO_Click(sender As Object, e As EventArgs) Handles btnL2IO.Click
+        If PalIO(1) = True Then
+            PalIO(1) = False
+            Arduino.WriteLine("M")
+        ElseIf PalIO(1) = False Then
+            PalIO(1) = True
+            Arduino.WriteLine("m")
+        End If
+    End Sub
+    Private Sub btnLever1_Click(sender As Object, e As EventArgs) Handles btnLever1.Click
+        Response(0)
+    End Sub
+    Private Sub btnLever2_Click(sender As Object, e As EventArgs) Handles btnLever2.Click
+        Response(1)
+    End Sub
+    Private Sub btnReinforce_Click(sender As Object, e As EventArgs) Handles btnReinforce.Click
+        Reinforce(3)
+    End Sub
 End Class
