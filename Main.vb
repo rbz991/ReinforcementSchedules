@@ -35,7 +35,7 @@ Public Class Main
                 Previous_Response(3) = Actual_Response(3)
                 Previous_Response(4) = Actual_Response(4)
                 vTimeNow = Environment.TickCount - vTimeStart 'This keeps track of time for the Data output file.
-                lblTime.Text = vTimeNow / 1000 'This and the following 6 lines update values of interest on the main form.
+                lblTime.Text = Round(vTimeNow / 1000) 'This and the following 6 lines update values of interest on the main form.
                 lblResponses1.Text = ResponseCount(0)
                 lblResponses2.Text = ResponseCount(1)
                 lblReinforcers1.Text = RefCount(0)
@@ -55,10 +55,10 @@ Public Class Main
         lblSubject.Text = SetUp.txtSubject.Text
         lblSession.Text = SetUp.txtSession.Text
         lblCOM.Text = SetUp.txtCOM.Text
-        If SetUp.chkDL1.Checked = True Then tmrDelay1.Interval = SetUp.txbL1D.Text
-        If SetUp.chkDL2.Checked = True Then tmrDelay2.Interval = SetUp.txbL2D.Text
-        If SetUp.chkStimL1.Checked = True Then tmrStim1.Interval = SetUp.txbSL1D.Text
-        If SetUp.chkStimL2.Checked = True Then tmrStim2.Interval = SetUp.txbSL2D.Text
+        If SetUp.txbL1D.Text <> "" Then tmrDelay1.Interval = SetUp.txbL1D.Text * 1000
+        If SetUp.txbL2D.Text <> "" Then tmrDelay2.Interval = SetUp.txbL2D.Text * 1000
+        If SetUp.txbSL1D.Text <> "" Then tmrStim1.Interval = SetUp.txbSL1D.Text * 1000
+        If SetUp.txbSL2D.Text <> "" Then tmrStim2.Interval = SetUp.txbSL2D.Text * 1000
         If SetUp.rdoSimple.Checked = True Then
             If Lever1 <> "" Then
                 lblL1.Text = Lever1.Substring(3, 2) & SetUp.txbValS.Text
@@ -87,21 +87,24 @@ Public Class Main
         End If
         WriteLine(1, "Lever 1 Schedule: " & lblL1.Text)
         WriteLine(1, "Lever 2 Schedule: " & lblL2.Text)
+        tmrChart.Enabled = True
     End Sub
     Private Sub Response(Lever As Integer) 'This registers responses and checks if the reinforcer is available for both ratio and interval schedules.
-        Stimulus(Lever)
-        ResponseCount(Lever) += 1
-        chartResponse(Lever) += 1
-        WriteLine(1, vTimeNow, Lever + 1) 'This line prints a timestamp and response on the data file. It can print any desired value with or without timestamp.
-        If Lever = 0 And tmrDelay1.Enabled = False Then
-            If refRdy(Lever) = True Then Reinforce(Lever)
-            Ratio(Lever)
-        Else
-        End If
-        If Lever = 1 And tmrDelay2.Enabled = False Then
-            If refRdy(Lever) = True Then Reinforce(Lever)
-            Ratio(Lever)
-        Else
+        If vTimeNow > 500 Then
+            Stimulus(Lever)
+            ResponseCount(Lever) += 1
+            chartResponse(Lever) += 1
+            WriteLine(1, vTimeNow, Lever + 1) 'This line prints a timestamp and response on the data file. It can print any desired value with or without timestamp.
+            If Lever = 0 And tmrDelay1.Enabled = False Then
+                If refRdy(Lever) = True Then Reinforce(Lever)
+                Ratio(Lever)
+            Else
+            End If
+            If Lever = 1 And tmrDelay2.Enabled = False Then
+                If refRdy(Lever) = True Then Reinforce(Lever)
+                Ratio(Lever)
+            Else
+            End If
         End If
     End Sub
     Private Sub Stimulus(Lever)
@@ -150,7 +153,7 @@ Public Class Main
                     Arduino.WriteLine("R")
                 Next
             End If
-            Arduino.WriteLine("R") 'This line activates the feeder through Arduino. "R" can mean any output connected to the Arduino.
+            'This line activates the feeder through Arduino. "R" can mean any output connected to the Arduino.
             WriteLine(1, vTimeNow, Lever + 11)
             RefCount(Lever) += 1
             If Lever = 0 And (Lever1 = "rdoFRS1" Or Lever1 = "rdoVRS1" Or Lever1 = "rdoFRC1" Or Lever1 = "rdoVRC1") Then VRGen()
@@ -268,7 +271,6 @@ Public Class Main
     End Sub
     Private Sub tmrStart_Tick(sender As Object, e As EventArgs) Handles tmrStart.Tick
         tmrStart.Enabled = False
-        tmrChart.Enabled = True
         Arduino.WriteLine("H")
         BeginPrograms() 'Set up for the schedules of reinforcement.
     End Sub
@@ -318,8 +320,6 @@ Public Class Main
         If SetUp.rdoSL2H.Checked = True Then Arduino.WriteLine("h")
     End Sub
 
-    Private Sub test()
 
-    End Sub
 
 End Class
