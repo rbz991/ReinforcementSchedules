@@ -67,12 +67,20 @@ Partial Class SetUp
         Me.txbStart = New System.Windows.Forms.TextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.grpDL2 = New System.Windows.Forms.GroupBox()
+        Me.rdoDL2House = New System.Windows.Forms.RadioButton()
         Me.rdoDL2U = New System.Windows.Forms.RadioButton()
+        Me.rdoDL2Tone = New System.Windows.Forms.RadioButton()
         Me.Label10 = New System.Windows.Forms.Label()
+        Me.rdoDL2L2 = New System.Windows.Forms.RadioButton()
+        Me.rdoDL2L1 = New System.Windows.Forms.RadioButton()
         Me.txbL2D = New System.Windows.Forms.TextBox()
         Me.grpDL1 = New System.Windows.Forms.GroupBox()
+        Me.rdoDL1House = New System.Windows.Forms.RadioButton()
         Me.rdoDL1U = New System.Windows.Forms.RadioButton()
+        Me.rdoDL1Tone = New System.Windows.Forms.RadioButton()
         Me.Label9 = New System.Windows.Forms.Label()
+        Me.rdoDL1L2 = New System.Windows.Forms.RadioButton()
+        Me.rdoDL1L1 = New System.Windows.Forms.RadioButton()
         Me.txbL1D = New System.Windows.Forms.TextBox()
         Me.chkDL1 = New System.Windows.Forms.CheckBox()
         Me.chkDL2 = New System.Windows.Forms.CheckBox()
@@ -98,14 +106,7 @@ Partial Class SetUp
         Me.txbSL1D = New System.Windows.Forms.TextBox()
         Me.chkStimL1 = New System.Windows.Forms.CheckBox()
         Me.chkStimL2 = New System.Windows.Forms.CheckBox()
-        Me.rdoDL1House = New System.Windows.Forms.RadioButton()
-        Me.rdoDL1Tone = New System.Windows.Forms.RadioButton()
-        Me.rdoDL1L2 = New System.Windows.Forms.RadioButton()
-        Me.rdoDL1L1 = New System.Windows.Forms.RadioButton()
-        Me.rdoDL2House = New System.Windows.Forms.RadioButton()
-        Me.rdoDL2Tone = New System.Windows.Forms.RadioButton()
-        Me.rdoDL2L2 = New System.Windows.Forms.RadioButton()
-        Me.rdoDL2L1 = New System.Windows.Forms.RadioButton()
+        Me.btnAddComponent = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.grpSimple.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
@@ -637,6 +638,18 @@ Partial Class SetUp
         Me.grpDL2.TabIndex = 22
         Me.grpDL2.TabStop = False
         '
+        'rdoDL2House
+        '
+        Me.rdoDL2House.AutoSize = True
+        Me.rdoDL2House.Location = New System.Drawing.Point(9, 217)
+        Me.rdoDL2House.Margin = New System.Windows.Forms.Padding(4)
+        Me.rdoDL2House.Name = "rdoDL2House"
+        Me.rdoDL2House.Size = New System.Drawing.Size(145, 29)
+        Me.rdoDL2House.TabIndex = 31
+        Me.rdoDL2House.TabStop = True
+        Me.rdoDL2House.Text = "Houselight"
+        Me.rdoDL2House.UseVisualStyleBackColor = True
+        '
         'rdoDL2U
         '
         Me.rdoDL2U.AutoSize = True
@@ -649,6 +662,18 @@ Partial Class SetUp
         Me.rdoDL2U.Text = "Unsignaled"
         Me.rdoDL2U.UseVisualStyleBackColor = True
         '
+        'rdoDL2Tone
+        '
+        Me.rdoDL2Tone.AutoSize = True
+        Me.rdoDL2Tone.Location = New System.Drawing.Point(9, 180)
+        Me.rdoDL2Tone.Margin = New System.Windows.Forms.Padding(4)
+        Me.rdoDL2Tone.Name = "rdoDL2Tone"
+        Me.rdoDL2Tone.Size = New System.Drawing.Size(92, 29)
+        Me.rdoDL2Tone.TabIndex = 30
+        Me.rdoDL2Tone.TabStop = True
+        Me.rdoDL2Tone.Text = "Tone"
+        Me.rdoDL2Tone.UseVisualStyleBackColor = True
+        '
         'Label10
         '
         Me.Label10.AutoSize = True
@@ -658,6 +683,30 @@ Partial Class SetUp
         Me.Label10.Size = New System.Drawing.Size(99, 25)
         Me.Label10.TabIndex = 19
         Me.Label10.Text = "Duration:"
+        '
+        'rdoDL2L2
+        '
+        Me.rdoDL2L2.AutoSize = True
+        Me.rdoDL2L2.Location = New System.Drawing.Point(9, 143)
+        Me.rdoDL2L2.Margin = New System.Windows.Forms.Padding(4)
+        Me.rdoDL2L2.Name = "rdoDL2L2"
+        Me.rdoDL2L2.Size = New System.Drawing.Size(108, 29)
+        Me.rdoDL2L2.TabIndex = 29
+        Me.rdoDL2L2.TabStop = True
+        Me.rdoDL2L2.Text = "Light 2"
+        Me.rdoDL2L2.UseVisualStyleBackColor = True
+        '
+        'rdoDL2L1
+        '
+        Me.rdoDL2L1.AutoSize = True
+        Me.rdoDL2L1.Location = New System.Drawing.Point(9, 109)
+        Me.rdoDL2L1.Margin = New System.Windows.Forms.Padding(4)
+        Me.rdoDL2L1.Name = "rdoDL2L1"
+        Me.rdoDL2L1.Size = New System.Drawing.Size(108, 29)
+        Me.rdoDL2L1.TabIndex = 28
+        Me.rdoDL2L1.TabStop = True
+        Me.rdoDL2L1.Text = "Light 1"
+        Me.rdoDL2L1.UseVisualStyleBackColor = True
         '
         'txbL2D
         '
@@ -685,6 +734,18 @@ Partial Class SetUp
         Me.grpDL1.TabIndex = 4
         Me.grpDL1.TabStop = False
         '
+        'rdoDL1House
+        '
+        Me.rdoDL1House.AutoSize = True
+        Me.rdoDL1House.Location = New System.Drawing.Point(8, 213)
+        Me.rdoDL1House.Margin = New System.Windows.Forms.Padding(4)
+        Me.rdoDL1House.Name = "rdoDL1House"
+        Me.rdoDL1House.Size = New System.Drawing.Size(145, 29)
+        Me.rdoDL1House.TabIndex = 27
+        Me.rdoDL1House.TabStop = True
+        Me.rdoDL1House.Text = "Houselight"
+        Me.rdoDL1House.UseVisualStyleBackColor = True
+        '
         'rdoDL1U
         '
         Me.rdoDL1U.AutoSize = True
@@ -697,6 +758,18 @@ Partial Class SetUp
         Me.rdoDL1U.Text = "Unsignaled"
         Me.rdoDL1U.UseVisualStyleBackColor = True
         '
+        'rdoDL1Tone
+        '
+        Me.rdoDL1Tone.AutoSize = True
+        Me.rdoDL1Tone.Location = New System.Drawing.Point(8, 176)
+        Me.rdoDL1Tone.Margin = New System.Windows.Forms.Padding(4)
+        Me.rdoDL1Tone.Name = "rdoDL1Tone"
+        Me.rdoDL1Tone.Size = New System.Drawing.Size(92, 29)
+        Me.rdoDL1Tone.TabIndex = 26
+        Me.rdoDL1Tone.TabStop = True
+        Me.rdoDL1Tone.Text = "Tone"
+        Me.rdoDL1Tone.UseVisualStyleBackColor = True
+        '
         'Label9
         '
         Me.Label9.AutoSize = True
@@ -706,6 +779,30 @@ Partial Class SetUp
         Me.Label9.Size = New System.Drawing.Size(99, 25)
         Me.Label9.TabIndex = 19
         Me.Label9.Text = "Duration:"
+        '
+        'rdoDL1L2
+        '
+        Me.rdoDL1L2.AutoSize = True
+        Me.rdoDL1L2.Location = New System.Drawing.Point(8, 139)
+        Me.rdoDL1L2.Margin = New System.Windows.Forms.Padding(4)
+        Me.rdoDL1L2.Name = "rdoDL1L2"
+        Me.rdoDL1L2.Size = New System.Drawing.Size(108, 29)
+        Me.rdoDL1L2.TabIndex = 25
+        Me.rdoDL1L2.TabStop = True
+        Me.rdoDL1L2.Text = "Light 2"
+        Me.rdoDL1L2.UseVisualStyleBackColor = True
+        '
+        'rdoDL1L1
+        '
+        Me.rdoDL1L1.AutoSize = True
+        Me.rdoDL1L1.Location = New System.Drawing.Point(8, 105)
+        Me.rdoDL1L1.Margin = New System.Windows.Forms.Padding(4)
+        Me.rdoDL1L1.Name = "rdoDL1L1"
+        Me.rdoDL1L1.Size = New System.Drawing.Size(108, 29)
+        Me.rdoDL1L1.TabIndex = 24
+        Me.rdoDL1L1.TabStop = True
+        Me.rdoDL1L1.Text = "Light 1"
+        Me.rdoDL1L1.UseVisualStyleBackColor = True
         '
         'txbL1D
         '
@@ -739,7 +836,7 @@ Partial Class SetUp
         Me.chkDL2.Text = "Lever 2"
         Me.chkDL2.UseVisualStyleBackColor = True
         '
-        'rdoDL2S
+        'grpMagnitude
         '
         Me.grpMagnitude.Controls.Add(Me.Label7)
         Me.grpMagnitude.Controls.Add(Me.Label8)
@@ -998,107 +1095,23 @@ Partial Class SetUp
         Me.chkStimL2.Text = "Lever 2"
         Me.chkStimL2.UseVisualStyleBackColor = True
         '
-        'rdoDL1House
+        'btnAddComponent
         '
-        Me.rdoDL1House.AutoSize = True
-        Me.rdoDL1House.Location = New System.Drawing.Point(8, 213)
-        Me.rdoDL1House.Margin = New System.Windows.Forms.Padding(4)
-        Me.rdoDL1House.Name = "rdoDL1House"
-        Me.rdoDL1House.Size = New System.Drawing.Size(145, 29)
-        Me.rdoDL1House.TabIndex = 27
-        Me.rdoDL1House.TabStop = True
-        Me.rdoDL1House.Text = "Houselight"
-        Me.rdoDL1House.UseVisualStyleBackColor = True
-        '
-        'rdoDL1Tone
-        '
-        Me.rdoDL1Tone.AutoSize = True
-        Me.rdoDL1Tone.Location = New System.Drawing.Point(8, 176)
-        Me.rdoDL1Tone.Margin = New System.Windows.Forms.Padding(4)
-        Me.rdoDL1Tone.Name = "rdoDL1Tone"
-        Me.rdoDL1Tone.Size = New System.Drawing.Size(92, 29)
-        Me.rdoDL1Tone.TabIndex = 26
-        Me.rdoDL1Tone.TabStop = True
-        Me.rdoDL1Tone.Text = "Tone"
-        Me.rdoDL1Tone.UseVisualStyleBackColor = True
-        '
-        'rdoDL1L2
-        '
-        Me.rdoDL1L2.AutoSize = True
-        Me.rdoDL1L2.Location = New System.Drawing.Point(8, 139)
-        Me.rdoDL1L2.Margin = New System.Windows.Forms.Padding(4)
-        Me.rdoDL1L2.Name = "rdoDL1L2"
-        Me.rdoDL1L2.Size = New System.Drawing.Size(108, 29)
-        Me.rdoDL1L2.TabIndex = 25
-        Me.rdoDL1L2.TabStop = True
-        Me.rdoDL1L2.Text = "Light 2"
-        Me.rdoDL1L2.UseVisualStyleBackColor = True
-        '
-        'rdoDL1L1
-        '
-        Me.rdoDL1L1.AutoSize = True
-        Me.rdoDL1L1.Location = New System.Drawing.Point(8, 105)
-        Me.rdoDL1L1.Margin = New System.Windows.Forms.Padding(4)
-        Me.rdoDL1L1.Name = "rdoDL1L1"
-        Me.rdoDL1L1.Size = New System.Drawing.Size(108, 29)
-        Me.rdoDL1L1.TabIndex = 24
-        Me.rdoDL1L1.TabStop = True
-        Me.rdoDL1L1.Text = "Light 1"
-        Me.rdoDL1L1.UseVisualStyleBackColor = True
-        '
-        'rdoDL2House
-        '
-        Me.rdoDL2House.AutoSize = True
-        Me.rdoDL2House.Location = New System.Drawing.Point(9, 217)
-        Me.rdoDL2House.Margin = New System.Windows.Forms.Padding(4)
-        Me.rdoDL2House.Name = "rdoDL2House"
-        Me.rdoDL2House.Size = New System.Drawing.Size(145, 29)
-        Me.rdoDL2House.TabIndex = 31
-        Me.rdoDL2House.TabStop = True
-        Me.rdoDL2House.Text = "Houselight"
-        Me.rdoDL2House.UseVisualStyleBackColor = True
-        '
-        'rdoDL2Tone
-        '
-        Me.rdoDL2Tone.AutoSize = True
-        Me.rdoDL2Tone.Location = New System.Drawing.Point(9, 180)
-        Me.rdoDL2Tone.Margin = New System.Windows.Forms.Padding(4)
-        Me.rdoDL2Tone.Name = "rdoDL2Tone"
-        Me.rdoDL2Tone.Size = New System.Drawing.Size(92, 29)
-        Me.rdoDL2Tone.TabIndex = 30
-        Me.rdoDL2Tone.TabStop = True
-        Me.rdoDL2Tone.Text = "Tone"
-        Me.rdoDL2Tone.UseVisualStyleBackColor = True
-        '
-        'rdoDL2L2
-        '
-        Me.rdoDL2L2.AutoSize = True
-        Me.rdoDL2L2.Location = New System.Drawing.Point(9, 143)
-        Me.rdoDL2L2.Margin = New System.Windows.Forms.Padding(4)
-        Me.rdoDL2L2.Name = "rdoDL2L2"
-        Me.rdoDL2L2.Size = New System.Drawing.Size(108, 29)
-        Me.rdoDL2L2.TabIndex = 29
-        Me.rdoDL2L2.TabStop = True
-        Me.rdoDL2L2.Text = "Light 2"
-        Me.rdoDL2L2.UseVisualStyleBackColor = True
-        '
-        'rdoDL2L1
-        '
-        Me.rdoDL2L1.AutoSize = True
-        Me.rdoDL2L1.Location = New System.Drawing.Point(9, 109)
-        Me.rdoDL2L1.Margin = New System.Windows.Forms.Padding(4)
-        Me.rdoDL2L1.Name = "rdoDL2L1"
-        Me.rdoDL2L1.Size = New System.Drawing.Size(108, 29)
-        Me.rdoDL2L1.TabIndex = 28
-        Me.rdoDL2L1.TabStop = True
-        Me.rdoDL2L1.Text = "Light 1"
-        Me.rdoDL2L1.UseVisualStyleBackColor = True
+        Me.btnAddComponent.Enabled = False
+        Me.btnAddComponent.Location = New System.Drawing.Point(26, 643)
+        Me.btnAddComponent.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
+        Me.btnAddComponent.Name = "btnAddComponent"
+        Me.btnAddComponent.Size = New System.Drawing.Size(222, 65)
+        Me.btnAddComponent.TabIndex = 24
+        Me.btnAddComponent.Text = "Add Component"
+        Me.btnAddComponent.UseVisualStyleBackColor = True
         '
         'SetUp
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1439, 766)
+        Me.Controls.Add(Me.btnAddComponent)
         Me.Controls.Add(Me.GroupBox9)
         Me.Controls.Add(Me.grpMagnitude)
         Me.Controls.Add(Me.GroupBox2)
@@ -1230,4 +1243,5 @@ Partial Class SetUp
     Friend WithEvents rdoDL2Tone As RadioButton
     Friend WithEvents rdoDL2L2 As RadioButton
     Friend WithEvents rdoDL2L1 As RadioButton
+    Friend WithEvents btnAddComponent As Button
 End Class

@@ -78,6 +78,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Component.Designer.vb">
+      <DependentUpon>Component.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Component.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\Module1.vb" />
     <Compile Include="SetUp.vb">
       <SubType>Form</SubType>
@@ -110,6 +116,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Component.resx">
+      <DependentUpon>Component.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.vb</DependentUpon>
     </EmbeddedResource>
@@ -134,6 +143,10 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="My Project\rat.gif" />
+    <None Include="Resources\rat.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
