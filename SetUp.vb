@@ -1,4 +1,5 @@
 ﻿Public Class SetUp
+
     Private Sub rdoSimple_CheckedChanged(sender As Object, e As EventArgs) Handles rdoSimple.CheckedChanged, rdoConcurrent.CheckedChanged
         'This shows or hides the Simple and Concurrent schedule controls.
         grpMagnitude.Enabled = True
@@ -82,7 +83,8 @@
         txbValCP2.Text = ""
     End Sub
 
-    Private Sub SetUp_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Public Sub SetUp_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
 
     End Sub
 
@@ -168,5 +170,10 @@
         End If
     End Sub
 
-
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnAddComponent1.Click
+        Dim f As New Component
+        vCurrentComponentSetup += 1
+        f.Text = "Component " & vCurrentComponentSetup
+        f.ShowDialog()
+    End Sub
 End Class
