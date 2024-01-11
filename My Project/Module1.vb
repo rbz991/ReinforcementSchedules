@@ -15,6 +15,7 @@
     Public chartTime(1) As Integer
     Public chartResponse(1) As Integer
     Public vCurrentComponentSetup As Integer
+    Public PalIO(1) As Boolean
     Public ActiveComponent(4) As ComponentBlueprint
     Public Structure ComponentBlueprint
         Dim ComponentDuration As Integer
@@ -29,7 +30,7 @@
         Dim DelayType() As String
     End Structure
 
-    Public PalIO(1) As Boolean
+
 
 
 

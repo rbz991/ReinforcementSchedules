@@ -169,8 +169,7 @@
             rdoDL2U.Checked = False
         End If
     End Sub
-
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnAddComponent1.Click
+    Private Sub btnAddComponent_Click(sender As Object, e As EventArgs) Handles btnAddComponent.Click
         Dim f As New Component
         vCurrentComponentSetup += 1
         f.Text = "Component " & vCurrentComponentSetup

@@ -746,7 +746,7 @@ Partial Class SetUp
         Me.rdoDL1House.Text = "Houselight"
         Me.rdoDL1House.UseVisualStyleBackColor = True
         '
-        'Label9
+        'rdoDL1U
         '
         Me.rdoDL1U.AutoSize = True
         Me.rdoDL1U.Location = New System.Drawing.Point(8, 71)
@@ -922,7 +922,7 @@ Partial Class SetUp
         Me.grpStimL2.TabIndex = 24
         Me.grpStimL2.TabStop = False
         '
-        'lbl2component1
+        'rdoSL2H
         '
         Me.rdoSL2H.AutoSize = True
         Me.rdoSL2H.Location = New System.Drawing.Point(33, 181)
@@ -934,7 +934,7 @@ Partial Class SetUp
         Me.rdoSL2H.Text = "Houselight"
         Me.rdoSL2H.UseVisualStyleBackColor = True
         '
-        'Label16
+        'rdoSL2T
         '
         Me.rdoSL2T.AutoSize = True
         Me.rdoSL2T.Location = New System.Drawing.Point(33, 144)
@@ -958,7 +958,7 @@ Partial Class SetUp
         Me.rdoSL2L2.Text = "Light 2"
         Me.rdoSL2L2.UseVisualStyleBackColor = True
         '
-        'Label14
+        'rdoSL2L1
         '
         Me.rdoSL2L1.AutoSize = True
         Me.rdoSL2L1.Location = New System.Drawing.Point(33, 72)
@@ -970,7 +970,7 @@ Partial Class SetUp
         Me.rdoSL2L1.Text = "Light 1"
         Me.rdoSL2L1.UseVisualStyleBackColor = True
         '
-        'Label15
+        'Label11
         '
         Me.Label11.AutoSize = True
         Me.Label11.Location = New System.Drawing.Point(28, 35)
