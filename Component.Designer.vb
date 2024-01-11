@@ -91,6 +91,10 @@ Partial Class Component
         Me.rdoComponentStimLight2 = New System.Windows.Forms.RadioButton()
         Me.rdoComponentStimLight1 = New System.Windows.Forms.RadioButton()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.txbL2M = New System.Windows.Forms.TextBox()
+        Me.txbL1M = New System.Windows.Forms.TextBox()
+        Me.chkStimL1 = New System.Windows.Forms.CheckBox()
+        Me.chkStimL2 = New System.Windows.Forms.CheckBox()
         Me.grpStimL1.SuspendLayout()
         Me.grpMagnitude.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -99,10 +103,10 @@ Partial Class Component
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
-        Me.GroupBox7.SuspendLayout()
-        Me.grpSimple.SuspendLayout()
+        'Me.GroupBox7.SuspendLayout()
+        'Me.grpSimple.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        'CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox9
@@ -1090,4 +1094,10 @@ Partial Class Component
     Friend WithEvents rdoComponentStimLight2 As RadioButton
     Friend WithEvents rdoComponentStimLight1 As RadioButton
     Friend WithEvents Button1 As Button
+    Friend WithEvents chkStimL1 As CheckBox
+    Friend WithEvents chkStimL2 As CheckBox
+    Friend WithEvents txbL2M As TextBox
+    Friend WithEvents txbL1M As TextBox
+    Friend WithEvents GroupBox7 As GroupBox
+    Friend WithEvents grpSimple As GroupBox
 End Class
