@@ -1,11 +1,11 @@
 ﻿Imports System.Math
 Imports System.IO.Ports
+Imports Microsoft.SqlServer
 Public Class Main
     Public Arduino As SerialPort
     Function ArduinoVB() As Integer 'This function starts the Arduino-VB communication.
         Arduino = New SerialPort(SetUp.txtCOM.Text, 9600) 'Assigns the Arduino to the selected port at a 9600 baud rate. 
         Arduino.Open() 'Starts the Arduino-VB communication.
-        vTimeStart = Environment.TickCount 'Establishes a time index for timestamps.
         tmrStart.Interval = SetUp.txbStart.Text * 1000
         tmrStart.Enabled = True
         Do 'This code will run throughout the session to allow response collection. 
@@ -21,7 +21,7 @@ Public Class Main
                     Response(1) 'The same happens for operanda 2.
                 End If
                 If (Actual_Response(2) <> Previous_Response(2) And Actual_Response(2) <> 1) Then
-                    Response(2) 'The same happens for operanda 3.
+                    Nosepoke(0) 'The same happens for operanda 3.
                 End If
                 If (Actual_Response(3) <> Previous_Response(3) And Actual_Response(3) <> 1) Then
                     'Response(3) 'The same happens for operanda 4.
@@ -49,6 +49,12 @@ Public Class Main
         Loop
         Return 0
     End Function
+    Private Sub tmrStart_Tick(sender As Object, e As EventArgs) Handles tmrStart.Tick
+        tmrStart.Enabled = False
+        vTimeStart = Environment.TickCount 'Establishes a time index for timestamps.
+        Arduino.WriteLine("H")
+        BeginPrograms() 'Set up for the schedules of reinforcement.
+    End Sub
     Private Sub BeginPrograms() 'This checks which programs were selected and initializes them.
         VIList(0) = New List(Of Integer)
         VIList(1) = New List(Of Integer)
@@ -90,21 +96,31 @@ Public Class Main
         tmrChart.Enabled = True
     End Sub
     Private Sub Response(Lever As Integer) 'This registers responses and checks if the reinforcer is available for both ratio and interval schedules.
-        If vTimeNow > 500 Then
+        If tmrStart.Enabled = False Then
             Stimulus(Lever)
             ResponseCount(Lever) += 1
             chartResponse(Lever) += 1
             WriteLine(1, vTimeNow, Lever + 1) 'This line prints a timestamp and response on the data file. It can print any desired value with or without timestamp.
-            If Lever = 0 And tmrDelay1.Enabled = False Then
-                If refRdy(Lever) = True Then Reinforce(Lever)
-                Ratio(Lever)
-            Else
+            If Lever = 0 Then
+                If tmrDelay1.Enabled = False Then
+                    If refRdy(Lever) = True Then Reinforce(Lever, False)
+                    Ratio(Lever)
+                ElseIf tmrDelay1.Enabled = True Then
+                End If
             End If
-            If Lever = 1 And tmrDelay2.Enabled = False Then
-                If refRdy(Lever) = True Then Reinforce(Lever)
-                Ratio(Lever)
-            Else
+            If Lever = 1 Then
+                If tmrDelay2.Enabled = False Then
+                    If refRdy(Lever) = True Then Reinforce(Lever, False)
+                    Ratio(Lever)
+                ElseIf tmrDelay2.Enabled = True Then
+                End If
             End If
+        End If
+    End Sub
+    Private Sub Nosepoke(Nose As Integer)
+        If vTimeNow > 500 Then
+            NosepokeCount(Nose) += 1
+            WriteLine(1, vTimeNow, Nose + 3)
         End If
     End Sub
     Private Sub Stimulus(Lever)
@@ -127,13 +143,13 @@ Public Class Main
             RatioCount(Lever) += 1
             If RatioCount(Lever) >= RatioGoal(Lever) Then
                 refRdy(Lever) = True
-                Reinforce(Lever)
+                Reinforce(Lever, False)
                 RatioCount(Lever) = 0
             End If
         End If
     End Sub
-    Private Sub Reinforce(Lever As Integer) 'This registers reinforcer deliveries and sets up the next reinforcer conditions.
-        If Lever = 0 And SetUp.chkDL1.Checked = True Then
+    Private Sub Reinforce(Lever As Integer, Delay As Boolean) 'This registers reinforcer deliveries and sets up the next reinforcer conditions.
+        If Lever = 0 And SetUp.chkDL1.Checked = True And Delay = False Then
             tmrDelay1.Enabled = True
             If SetUp.rdoDL1U.Checked = False Then
                 If SetUp.rdoDL1L1.Checked = True Then Arduino.WriteLine("A")
@@ -141,7 +157,7 @@ Public Class Main
                 If SetUp.rdoDL1Tone.Checked = True Then Arduino.WriteLine("T")
                 If SetUp.rdoDL1House.Checked = True Then Arduino.WriteLine("H")
             End If
-        ElseIf Lever = 1 And SetUp.chkDL2.Checked = True Then
+        ElseIf Lever = 1 And SetUp.chkDL2.Checked = True And Delay = False Then
             tmrDelay2.Enabled = True
             If SetUp.rdoDL2U.Checked = False Then
                 If SetUp.rdoDL2L1.Checked = True Then Arduino.WriteLine("A")
@@ -149,6 +165,8 @@ Public Class Main
                 If SetUp.rdoDL2Tone.Checked = True Then Arduino.WriteLine("T")
                 If SetUp.rdoDL2House.Checked = True Then Arduino.WriteLine("H")
             End If
+        ElseIf Lever = 3 Then
+            Arduino.WriteLine("R")
         Else
             refRdy(Lever) = False
             If Lever = 0 Then
@@ -276,11 +294,6 @@ Public Class Main
         FileClose(1) 'Closes data file.
         End
     End Sub
-    Private Sub tmrStart_Tick(sender As Object, e As EventArgs) Handles tmrStart.Tick
-        tmrStart.Enabled = False
-        Arduino.WriteLine("H")
-        BeginPrograms() 'Set up for the schedules of reinforcement.
-    End Sub
     Private Sub tmrChart_Tick(sender As Object, e As EventArgs) Handles tmrChart.Tick
         chartTime(0) += 1
         chartTime(1) += 1
@@ -306,7 +319,7 @@ Public Class Main
             If SetUp.rdoDL1Tone.Checked = True Then Arduino.WriteLine("t")
             If SetUp.rdoDL1House.Checked = True Then Arduino.WriteLine("h")
         End If
-        Reinforce(0)
+        Reinforce(0, True)
     End Sub
     Private Sub tmrDelay2_Tick(sender As Object, e As EventArgs) Handles tmrDelay2.Tick
         tmrDelay2.Enabled = False
@@ -316,7 +329,7 @@ Public Class Main
             If SetUp.rdoDL2Tone.Checked = True Then Arduino.WriteLine("t")
             If SetUp.rdoDL2House.Checked = True Then Arduino.WriteLine("h")
         End If
-        Reinforce(1)
+        Reinforce(1, True)
     End Sub
     Private Sub tmrStim1_Tick(sender As Object, e As EventArgs) Handles tmrStim1.Tick
         tmrStim1.Enabled = False
@@ -361,6 +374,6 @@ Public Class Main
         Response(1)
     End Sub
     Private Sub btnReinforce_Click(sender As Object, e As EventArgs) Handles btnReinforce.Click
-        Reinforce(3)
+        Reinforce(3, False)
     End Sub
 End Class

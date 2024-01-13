@@ -134,19 +134,19 @@ Partial Class SetUp
         '
         'txtCOM
         '
-        Me.txtCOM.Location = New System.Drawing.Point(115, 94)
+        Me.txtCOM.Location = New System.Drawing.Point(126, 94)
         Me.txtCOM.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.txtCOM.Name = "txtCOM"
-        Me.txtCOM.Size = New System.Drawing.Size(132, 31)
+        Me.txtCOM.Size = New System.Drawing.Size(121, 31)
         Me.txtCOM.TabIndex = 3
         Me.txtCOM.Text = "COM4"
         '
         'txtSession
         '
-        Me.txtSession.Location = New System.Drawing.Point(115, 56)
+        Me.txtSession.Location = New System.Drawing.Point(126, 56)
         Me.txtSession.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.txtSession.Name = "txtSession"
-        Me.txtSession.Size = New System.Drawing.Size(132, 31)
+        Me.txtSession.Size = New System.Drawing.Size(121, 31)
         Me.txtSession.TabIndex = 2
         Me.txtSession.Text = "1"
         '
@@ -162,10 +162,10 @@ Partial Class SetUp
         '
         'txtSubject
         '
-        Me.txtSubject.Location = New System.Drawing.Point(115, 15)
+        Me.txtSubject.Location = New System.Drawing.Point(126, 15)
         Me.txtSubject.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.txtSubject.Name = "txtSubject"
-        Me.txtSubject.Size = New System.Drawing.Size(132, 31)
+        Me.txtSubject.Size = New System.Drawing.Size(121, 31)
         Me.txtSubject.TabIndex = 1
         Me.txtSubject.Text = "TEST"
         '
@@ -598,10 +598,10 @@ Partial Class SetUp
         '
         'txbStart
         '
-        Me.txbStart.Location = New System.Drawing.Point(115, 136)
+        Me.txbStart.Location = New System.Drawing.Point(126, 136)
         Me.txbStart.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txbStart.Name = "txbStart"
-        Me.txbStart.Size = New System.Drawing.Size(132, 31)
+        Me.txbStart.Size = New System.Drawing.Size(121, 31)
         Me.txbStart.TabIndex = 16
         Me.txbStart.Text = "30"
         '

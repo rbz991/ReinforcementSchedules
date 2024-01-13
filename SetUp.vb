@@ -82,12 +82,6 @@
         txbValCP1.Text = ""
         txbValCP2.Text = ""
     End Sub
-
-    Public Sub SetUp_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-
-    End Sub
-
     Private Sub CheckBox4_CheckedChanged(sender As Object, e As EventArgs) Handles chkStimL1.CheckedChanged
         If chkStimL1.Checked = True Then
             grpStimL1.Enabled = True
@@ -105,7 +99,6 @@
             grpStimL1.Enabled = False
         End If
     End Sub
-
     Private Sub CheckBox3_CheckedChanged(sender As Object, e As EventArgs) Handles chkStimL2.CheckedChanged
         If chkStimL2.Checked = True Then
             grpStimL2.Enabled = True
@@ -122,14 +115,8 @@
             txbSL2D.Text = ""
             grpStimL2.Enabled = False
         End If
-
-
         'Falta toda la parte de los delays, y stimulus en Main 
-
-
-
     End Sub
-
     Private Sub chkDL1_CheckedChanged(sender As Object, e As EventArgs) Handles chkDL1.CheckedChanged
         If chkDL1.Checked = True Then
             grpDL1.Enabled = True
@@ -149,7 +136,6 @@
             rdoDL1U.Checked = False
         End If
     End Sub
-
     Private Sub chkDL2_CheckedChanged(sender As Object, e As EventArgs) Handles chkDL2.CheckedChanged
         If chkDL2.Checked = True Then
             grpDL2.Enabled = True
