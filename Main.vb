@@ -58,6 +58,8 @@ Public Class Main
     Private Sub BeginPrograms() 'This checks which programs were selected and initializes them.
         VIList(0) = New List(Of Integer)
         VIList(1) = New List(Of Integer)
+        ObtainedDelays(0) = New List(Of Integer)
+        ObtainedDelays(1) = New List(Of Integer)
         lblSubject.Text = SetUp.txtSubject.Text
         lblSession.Text = SetUp.txtSession.Text
         lblCOM.Text = SetUp.txtCOM.Text
@@ -106,6 +108,7 @@ Public Class Main
                     If refRdy(Lever) = True Then Reinforce(Lever, False)
                     Ratio(Lever)
                 ElseIf tmrDelay1.Enabled = True Then
+                    ObtainedDelays(0).Item(DelayIndex1) = vTimeNow
                 End If
             End If
             If Lever = 1 Then
@@ -113,6 +116,7 @@ Public Class Main
                     If refRdy(Lever) = True Then Reinforce(Lever, False)
                     Ratio(Lever)
                 ElseIf tmrDelay2.Enabled = True Then
+                    ObtainedDelays(1).Item(DelayIndex2) = vTimeNow
                 End If
             End If
         End If
@@ -151,6 +155,7 @@ Public Class Main
     Private Sub Reinforce(Lever As Integer, Delay As Boolean) 'This registers reinforcer deliveries and sets up the next reinforcer conditions.
         If Lever = 0 And SetUp.chkDL1.Checked = True And Delay = False Then
             tmrDelay1.Enabled = True
+            ObtainedDelays(0).Add(vTimeNow) 'The reponse that onsets the delay adds this time
             If SetUp.rdoDL1U.Checked = False Then
                 If SetUp.rdoDL1L1.Checked = True Then Arduino.WriteLine("A")
                 If SetUp.rdoDL1L2.Checked = True Then Arduino.WriteLine("B")
@@ -159,6 +164,7 @@ Public Class Main
             End If
         ElseIf Lever = 1 And SetUp.chkDL2.Checked = True And Delay = False Then
             tmrDelay2.Enabled = True
+            ObtainedDelays(1).Add(vTimeNow)
             If SetUp.rdoDL2U.Checked = False Then
                 If SetUp.rdoDL2L1.Checked = True Then Arduino.WriteLine("A")
                 If SetUp.rdoDL2L2.Checked = True Then Arduino.WriteLine("B")
@@ -281,17 +287,23 @@ Public Class Main
     Private Sub Finish()
         Arduino.WriteLine("nhtabcd") 'Turns off every output on the Arduino.
         Arduino.Close() 'Terminates Arduino-VB communication.
-        WriteLine(1, "Responses on Lever 1: " & ResponseCount(0))
-        WriteLine(1, "Response rate on Lever 1: " & ResponseCount(0) / (lblTime.Text / 60))
-        WriteLine(1, "Responses on Lever 2: " & ResponseCount(1))
-        WriteLine(1, "Response rate on Lever 2: " & ResponseCount(1) / (lblTime.Text / 60))
-        WriteLine(1, "Reinforcers on Lever 1: " & RefCount(0))
-        WriteLine(1, "Reinforcer rate on Lever 1: " & RefCount(0) / (lblTime.Text / 60))
-        WriteLine(1, "Reinforcers on Lever 2: " & RefCount(1))
-        WriteLine(1, "Reinforcer rate on Lever 2: " & RefCount(1) / (lblTime.Text / 60))
-        WriteLine(1, "Total time in minutes: " & lblTime.Text / 60)
-        WriteLine(1, "END") 'Signals that the session has ended on the data file.
-        FileClose(1) 'Closes data file.
+        For i = 0 To ObtainedDelays.Count - 1
+            If ObtainedDelays(0).Count > 1 Then WriteLine(2, "Obtained delays L1: " & ObtainedDelays(0).Item(i))
+            If ObtainedDelays(1).Count > 1 Then WriteLine(2, "Obtained delays L2: " & ObtainedDelays(1).Item(i))
+        Next
+        For i = 1 To 2
+            WriteLine(i, "Responses on Lever 1: " & ResponseCount(0))
+            WriteLine(i, "Response rate on Lever 1: " & ResponseCount(0) / (lblTime.Text / 60))
+            WriteLine(i, "Responses on Lever 2: " & ResponseCount(1))
+            WriteLine(i, "Response rate on Lever 2: " & ResponseCount(1) / (lblTime.Text / 60))
+            WriteLine(i, "Reinforcers on Lever 1: " & RefCount(0))
+            WriteLine(i, "Reinforcer rate on Lever 1: " & RefCount(0) / (lblTime.Text / 60))
+            WriteLine(i, "Reinforcers on Lever 2: " & RefCount(1))
+            WriteLine(i, "Reinforcer rate on Lever 2: " & RefCount(1) / (lblTime.Text / 60))
+            WriteLine(i, "Total time in minutes: " & lblTime.Text / 60)
+            WriteLine(i, "END") 'Signals that the session has ended on the data file.
+            FileClose(i) 'Closes data file.
+        Next
         End
     End Sub
     Private Sub tmrChart_Tick(sender As Object, e As EventArgs) Handles tmrChart.Tick
@@ -320,6 +332,9 @@ Public Class Main
             If SetUp.rdoDL1House.Checked = True Then Arduino.WriteLine("h")
         End If
         Reinforce(0, True)
+        'aqui va el marcador para calcular la demora obtenida
+        ObtainedDelays(0).Item(DelayIndex1) = vTimeNow - ObtainedDelays(0).Item(DelayIndex1)
+        DelayIndex1 += 1
     End Sub
     Private Sub tmrDelay2_Tick(sender As Object, e As EventArgs) Handles tmrDelay2.Tick
         tmrDelay2.Enabled = False
@@ -330,6 +345,8 @@ Public Class Main
             If SetUp.rdoDL2House.Checked = True Then Arduino.WriteLine("h")
         End If
         Reinforce(1, True)
+        ObtainedDelays(1).Item(DelayIndex2) = vTimeNow - ObtainedDelays(1).Item(DelayIndex2)
+        DelayIndex2 += 1
     End Sub
     Private Sub tmrStim1_Tick(sender As Object, e As EventArgs) Handles tmrStim1.Tick
         tmrStim1.Enabled = False

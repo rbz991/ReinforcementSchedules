@@ -22,10 +22,14 @@
             MessageBox.Show("Some session data is missing.")
         Else
             If (rdoSimple.Checked = True And (Lever1 <> "" Or Lever2 <> "") And IsNumeric(txbValS.Text) = True And IsNumeric(txbRefs.Text) = True) Or (rdoConcurrent.Checked = True And Lever1 <> "" And Lever2 <> "" And IsNumeric(txbValCP1.Text) = True And IsNumeric(txbValCP2.Text) = True And IsNumeric(txbRefs.Text) = True) Then
-                vFile = "C:\Data\" & txtSubject.Text & "_" & txtSession.Text & ".txt"
+                vFile = "C:\Data\Raw\" & txtSubject.Text & "_" & txtSession.Text & "_Raw.txt"
+                vFile2 = "C:\Data\Summary\" & txtSubject.Text & "_" & txtSession.Text & "Summary.txt"
                 FileOpen(1, vFile, OpenMode.Append)
+                FileOpen(2, vFile2, OpenMode.Append)
                 WriteLine(1, "Subject: " & txtSubject.Text)
                 WriteLine(1, "Session: " & txtSession.Text)
+                WriteLine(2, "Subject: " & txtSubject.Text)
+                WriteLine(2, "Session: " & txtSession.Text)
                 WriteLine(1, "Lever 1 response: 1")
                 WriteLine(1, "Lever 2 response: 2")
                 WriteLine(1, "Lever 1 reinforcer: 11")
