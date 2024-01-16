@@ -79,7 +79,8 @@ Public Class Main
             If Lever1 = "rdoFRS1" Or Lever2 = "rdoFRS2" Then FRGen()
             If Lever1 = "rdoVRS1" Or Lever2 = "rdoVRS2" Then VRGen()
             If Lever1 = "rdoFIS1" Or Lever2 = "rdoFIS2" Then FIGen()
-            If Lever1 = "rdoVIS1" Or Lever2 = "rdoVIS2" Then VIGen(0)
+            If Lever1 = "rdoVIS1" Then VIGen(0)
+            If Lever2 = "rdoVIS2" Then VIGen(1)
         ElseIf SetUp.rdoConcurrent.Checked = True Then
             Arduino.WriteLine("N")
             lblL1.Text = Lever1.Substring(3, 2) & SetUp.txbValCP1.Text
@@ -247,7 +248,7 @@ Public Class Main
         If SetUp.rdoSimple.Checked = True Then v = SetUp.txbValS.Text
         If SetUp.rdoConcurrent.Checked = True Then
             If list = 0 Then v = SetUp.txbValCP1.Text
-            If list = 1 Then v = SetUp.txbValCP1.Text
+            If list = 1 Then v = SetUp.txbValCP2.Text
         End If
         If VIList(list).Count = 0 Then
             For m As Integer = 1 To n
