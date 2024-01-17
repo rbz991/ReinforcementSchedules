@@ -125,6 +125,7 @@ Public Class Main
     Private Sub Nosepoke(Nose As Integer)
         If vTimeNow > 500 Then
             NosepokeCount(Nose) += 1
+            chartResponse(2) += 1
             WriteLine(1, vTimeNow, Nose + 3)
         End If
     End Sub
@@ -308,20 +309,22 @@ Public Class Main
         End
     End Sub
     Private Sub tmrChart_Tick(sender As Object, e As EventArgs) Handles tmrChart.Tick
-        chartTime(0) += 1
-        chartTime(1) += 1
+        For i = 0 To 2
+            chartTime(i) += 1
+        Next
         Chart1.Series("Lever 1").Points.AddXY(chartTime(0), chartResponse(0))
         Chart1.Series("Lever 2").Points.AddXY(chartTime(1), chartResponse(1))
+        Chart1.Series("Tray").Points.AddXY(chartTime(2), chartResponse(2))
         If chartTime(0) >= 900 Or chartTime(1) >= 900 Or ResponseCount(0) >= 200 Or ResponseCount(1) >= 200 Then
             Chart1.SaveImage("C:\Data\Charts\" & SetUp.txtSubject.Text & "_" & SetUp.txtSession.Text & "_chart_" & Format(Date.Now, "hh_mm_ss") & ".bmp", 2)
             Chart1.Series("Lever 1").Points.Clear()
             Chart1.Series("Reinforcers 1").Points.Clear()
             Chart1.Series("Lever 2").Points.Clear()
             Chart1.Series("Reinforcers 2").Points.Clear()
-            chartTime(0) = 0
-            chartResponse(0) = 0
-            chartTime(1) = 0
-            chartResponse(1) = 0
+            For i = 0 To 2
+                chartTime(i) = 0
+                chartResponse(i) = 0
+            Next
         End If
     End Sub
     Private Sub tmrDelay1_Tick(sender As Object, e As EventArgs) Handles tmrDelay1.Tick

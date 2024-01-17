@@ -17,8 +17,8 @@
     Public RatioGoal(1) As Integer
     Public ResponseCount(1) As Integer
     Public NosepokeCount(2) As Integer
-    Public chartTime(1) As Integer
-    Public chartResponse(1) As Integer
+    Public chartTime(2) As Integer
+    Public chartResponse(2) As Integer
     Public vCurrentComponentSetup As Integer
     Public PalIO(1) As Boolean
     Public ActiveComponent(4) As ComponentBlueprint
