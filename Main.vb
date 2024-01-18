@@ -1,6 +1,7 @@
 ﻿Imports System.Math
 Imports System.IO.Ports
 Imports Microsoft.SqlServer
+Imports System.Windows.Forms.DataVisualization.Charting
 Public Class Main
     Public Arduino As SerialPort
     Function ArduinoVB() As Integer 'This function starts the Arduino-VB communication.
@@ -323,18 +324,20 @@ Public Class Main
         Chart1.Series("Lever 1").Points.AddXY(chartTime(0), chartResponse(0))
         Chart1.Series("Lever 2").Points.AddXY(chartTime(1), chartResponse(1))
         Chart1.Series("Tray").Points.AddXY(chartTime(2), chartResponse(2))
-        If chartTime(0) >= 900 Or chartTime(1) >= 900 Or chartTime(2) >= 900 Or ResponseCount(0) >= 200 Or ResponseCount(1) >= 200 Or ResponseCount(2) >= 200 Then
-            Chart1.SaveImage("C:\Data\Charts\" & SetUp.txtSubject.Text & "_" & SetUp.txtSession.Text & "_chart_" & Format(Date.Now, "hh_mm_ss") & ".bmp", System.Drawing.Imaging.ImageFormat.Bmp)
-            Chart1.Series("Lever 1").Points.Clear()
-            Chart1.Series("Reinforcers 1").Points.Clear()
-            Chart1.Series("Lever 2").Points.Clear()
-            Chart1.Series("Reinforcers 2").Points.Clear()
-            Chart1.Series("Tray").Points.Clear()
-            For i = 0 To 2
-                chartTime(i) = 0
-                chartResponse(i) = 0
-            Next
-        End If
+        Chart1.SaveImage("C:\Data\Charts\" & SetUp.txtSubject.Text & "_" & SetUp.txtSession.Text & "_chart_" & Format(Date.Now, "hh_mm_ss") & ".png", ChartImageFormat.Png)
+        'If chartTime(0) >= 900 Or chartTime(1) >= 900 Or chartTime(2) >= 900 Or ResponseCount(0) >= 200 Or ResponseCount(1) >= 200 Or ResponseCount(2) >= 200 Then
+        '    Chart1.SaveImage("C:\Data\Charts\" & SetUp.txtSubject.Text & "_" & SetUp.txtSession.Text & "_chart_" & Format(Date.Now, "hh_mm_ss") & ".bmp", System.Drawing.Imaging.ImageFormat.Bmp)
+        '    Chart1.Series("Lever 1").Points.Clear()
+        '    Chart1.Series("Reinforcers 1").Points.Clear()
+        '    Chart1.Series("Lever 2").Points.Clear()
+        '    Chart1.Series("Reinforcers 2").Points.Clear()
+        '    Chart1.Series("Tray").Points.Clear()
+        '    Chart1.Printing.Print(True)
+        '    For i = 0 To 2
+        '        chartTime(i) = 0
+        '        chartResponse(i) = 0
+        '    Next
+        'End If
     End Sub
     Private Sub tmrDelay1_Tick(sender As Object, e As EventArgs) Handles tmrDelay1.Tick
         tmrDelay1.Enabled = False
