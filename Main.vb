@@ -98,6 +98,8 @@ Public Class Main
         End If
         WriteLine(1, "Lever 1 Schedule: " & lblL1.Text)
         WriteLine(1, "Lever 2 Schedule: " & lblL2.Text)
+        WriteLine(2, "Lever 1 Schedule: " & lblL1.Text)
+        WriteLine(2, "Lever 2 Schedule: " & lblL2.Text)
         tmrChart.Enabled = True
     End Sub
     Private Sub Response(Lever As Integer) 'This registers responses and checks if the reinforcer is available for both ratio and interval schedules.
