@@ -44,7 +44,7 @@ Public Class Main
                 lblReinforcers2.Text = RefCount(1)
                 lblRfR1.Text = refRdy(0)
                 lblRfR2.Text = refRdy(1)
-                If RefCount(0) >= SetUp.txbRefs.Text Or RefCount(1) >= SetUp.txbRefs.Text Then Finish() 'This sets the criteria to finish the session.
+                If RefCount(0) >= SetUp.txbRefs.Text Or RefCount(1) >= SetUp.txbRefs.Text Then btnFinish.PerformClick() 'This sets the criteria to finish the session.
             Catch ex As Exception
             End Try
             My.Application.DoEvents() 'This will enable the rest of the program to run while executing the code from above.
@@ -373,7 +373,13 @@ Public Class Main
     End Sub
     Private Sub btnFinish_Click(sender As Object, e As EventArgs) Handles btnFinish.Click
         'This controls the 'Finish' button on the main form. Used to end the session by hand.
-        Finish()
+        tmrPostSession.Enabled = True
+        btnFinish.Enabled = False
+        btnLever1.Enabled = False
+        btnLever2.Enabled = False
+        btnL1IO.Enabled = False
+        btnL2IO.Enabled = False
+        btnReinforce.Enabled = False
     End Sub
     Private Sub btnL1IO_Click(sender As Object, e As EventArgs) Handles btnL1IO.Click
         If PalIO(0) = True Then
@@ -401,5 +407,8 @@ Public Class Main
     End Sub
     Private Sub btnReinforce_Click(sender As Object, e As EventArgs) Handles btnReinforce.Click
         Reinforce(3, False)
+    End Sub
+    Private Sub tmrPostSession_Tick(sender As Object, e As EventArgs) Handles tmrPostSession.Tick
+        Finish()
     End Sub
 End Class

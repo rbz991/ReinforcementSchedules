@@ -35,9 +35,9 @@
                 WriteLine(1, "Lever 1 reinforcer: 11")
                 WriteLine(1, "Lever 2 reinforcer: 12")
                 Dim x As New Main
+                Me.Visible = False
                 x.Show()
                 x.ArduinoVB()
-                Me.Visible = False
             Else
                 MessageBox.Show("Some schedule or value is missing.")
             End If
