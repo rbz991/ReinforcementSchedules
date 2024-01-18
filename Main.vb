@@ -312,6 +312,7 @@ Public Class Main
             WriteLine(i, "Reinforcers on Lever 2: " & RefCount(1))
             WriteLine(i, "Reinforcer rate on Lever 2: " & RefCount(1) / (lblTime.Text / 60))
             WriteLine(i, "Total time in minutes: " & lblTime.Text / 60)
+            WriteLine(i, Format(Date.Now, "dd-MM-yyyy_hh-mm-ss"))
             WriteLine(i, "END") 'Signals that the session has ended on the data file.
             FileClose(i) 'Closes data file.
         Next
