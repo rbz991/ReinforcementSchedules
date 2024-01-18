@@ -7,6 +7,7 @@ Public Class Main
         Arduino = New SerialPort(SetUp.txtCOM.Text, 9600) 'Assigns the Arduino to the selected port at a 9600 baud rate. 
         Arduino.Open() 'Starts the Arduino-VB communication.
         tmrStart.Interval = SetUp.txbStart.Text * 1000
+        Countdown = Environment.TickCount + SetUp.txbStart.Text * 1000
         tmrStart.Enabled = True
         Do 'This code will run throughout the session to allow response collection. 
             Try
@@ -34,7 +35,8 @@ Public Class Main
                 Previous_Response(2) = Actual_Response(2)
                 Previous_Response(3) = Actual_Response(3)
                 Previous_Response(4) = Actual_Response(4)
-                vTimeNow = Environment.TickCount - vTimeStart 'This keeps track of time for the Data output file.
+                If tmrStart.Enabled = False Then vTimeNow = Environment.TickCount - vTimeStart  'This keeps track of time for the Data output file.
+                If tmrStart.Enabled = True Then vTimeNow = (Countdown) - Environment.TickCount
                 lblTime.Text = Round(vTimeNow / 1000) 'This and the following 6 lines update values of interest on the main form.
                 lblResponses1.Text = ResponseCount(0)
                 lblResponses2.Text = ResponseCount(1)

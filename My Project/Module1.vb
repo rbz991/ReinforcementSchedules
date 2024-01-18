@@ -7,6 +7,7 @@
     Public vTimeNow As Integer
     Public DelayIndex1 As Integer
     Public DelayIndex2 As Integer
+    Public Countdown As Integer
     Public Actual_Response(4) As String
     Public Previous_Response(4) As String
     Public RefCount(1) As Integer
