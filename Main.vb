@@ -8,6 +8,12 @@ Public Class Main
         Arduino.Open() 'Starts the Arduino-VB communication.
         tmrStart.Interval = SetUp.txbStart.Text * 1000
         Countdown = Environment.TickCount + SetUp.txbStart.Text * 1000
+        If Lever1 <> "" Then
+            lblL1.Text = Lever1.Substring(3, 2) & SetUp.txbValS.Text
+        End If
+        If Lever2 <> "" Then
+            lblL2.Text = Lever2.Substring(3, 2) & SetUp.txbValS.Text
+        End If
         tmrStart.Enabled = True
         Do 'This code will run throughout the session to allow response collection. 
             Try
@@ -71,11 +77,9 @@ Public Class Main
         If SetUp.txbSL2D.Text <> "" Then tmrStim2.Interval = SetUp.txbSL2D.Text * 1000
         If SetUp.rdoSimple.Checked = True Then
             If Lever1 <> "" Then
-                lblL1.Text = Lever1.Substring(3, 2) & SetUp.txbValS.Text
                 Arduino.WriteLine("L")
             End If
             If Lever2 <> "" Then
-                lblL2.Text = Lever2.Substring(3, 2) & SetUp.txbValS.Text
                 Arduino.WriteLine("M")
             End If
             If Lever1 = "rdoFRS1" Or Lever2 = "rdoFRS2" Then FRGen()
