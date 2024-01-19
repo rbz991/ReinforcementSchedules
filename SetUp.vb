@@ -43,7 +43,7 @@
                 WriteLine(1, "Lever 2 r on Delay: 22")
                 WriteLine(1, "Tray r on Delay: 23")
                 Dim x As New Main
-                Me.Visible = False
+                Me.WindowState = FormWindowState.Minimized
                 x.Show()
                 x.ArduinoVB()
             Else
