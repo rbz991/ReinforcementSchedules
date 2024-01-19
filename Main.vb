@@ -339,7 +339,6 @@ Public Class Main
         Chart1.Series("Lever 1").Points.AddXY(chartTime(0), chartResponse(0))
         Chart1.Series("Lever 2").Points.AddXY(chartTime(1), chartResponse(1))
         Chart1.Series("Tray").Points.AddXY(chartTime(2), chartResponse(2))
-        Chart1.SaveImage("C:\Data\Charts\" & SetUp.txtSubject.Text & "_" & SetUp.txtSession.Text & "_chart_" & Format(Date.Now, "hh_mm_ss") & ".png", ChartImageFormat.Png)
         'If chartTime(0) >= 900 Or chartTime(1) >= 900 Or chartTime(2) >= 900 Or ResponseCount(0) >= 200 Or ResponseCount(1) >= 200 Or ResponseCount(2) >= 200 Then
         '    Chart1.SaveImage("C:\Data\Charts\" & SetUp.txtSubject.Text & "_" & SetUp.txtSession.Text & "_chart_" & Format(Date.Now, "hh_mm_ss") & ".bmp", System.Drawing.Imaging.ImageFormat.Bmp)
         '    Chart1.Series("Lever 1").Points.Clear()
@@ -402,6 +401,8 @@ Public Class Main
         btnL1IO.Enabled = False
         btnL2IO.Enabled = False
         btnReinforce.Enabled = False
+        Chart1.SaveImage("C:\Data\Charts\" & SetUp.txtSubject.Text & "_" & SetUp.txtSession.Text & "_chart_" & Format(Date.Now, "hh_mm_ss") & ".png", ChartImageFormat.Png)
+
     End Sub
     Private Sub btnL1IO_Click(sender As Object, e As EventArgs) Handles btnL1IO.Click
         If PalIO(0) = True Then
