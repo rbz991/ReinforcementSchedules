@@ -36,8 +36,12 @@
                 WriteLine(2, "COM Port: " & txtCOM.Text)
                 WriteLine(1, "Lever 1 response: 1")
                 WriteLine(1, "Lever 2 response: 2")
+                WriteLine(1, "Tray response: 3")
                 WriteLine(1, "Lever 1 reinforcer: 11")
                 WriteLine(1, "Lever 2 reinforcer: 12")
+                WriteLine(1, "Lever 1 r on Delay: 21")
+                WriteLine(1, "Lever 2 r on Delay: 22")
+                WriteLine(1, "Tray r on Delay: 23")
                 Dim x As New Main
                 Me.Visible = False
                 x.Show()

@@ -49,6 +49,9 @@ Public Class Main
                 lblResponses2.Text = ResponseCount(1)
                 lblReinforcers1.Text = RefCount(0)
                 lblReinforcers2.Text = RefCount(1)
+                lblTrayRs.Text = NosepokeCountDel(0)
+                lblDelayR1.Text = ResponseCountDel(0)
+                lblDelayR2.Text = ResponseCountDel(1)
                 lblRfR1.Text = refRdy(0)
                 lblRfR2.Text = refRdy(1)
                 If RefCount(0) >= SetUp.txbRefs.Text Or RefCount(1) >= SetUp.txbRefs.Text Then btnFinish.PerformClick() 'This sets the criteria to finish the session.
@@ -110,22 +113,28 @@ Public Class Main
     Private Sub Response(Lever As Integer) 'This registers responses and checks if the reinforcer is available for both ratio and interval schedules.
         If tmrStart.Enabled = False Then
             Stimulus(Lever)
-            ResponseCount(Lever) += 1
             chartResponse(Lever) += 1
-            WriteLine(1, vTimeNow, Lever + 1) 'This line prints a timestamp and response on the data file. It can print any desired value with or without timestamp.
             If Lever = 0 Then
                 If tmrDelay1.Enabled = False Then
+                    WriteLine(1, vTimeNow, Lever + 1)
+                    ResponseCount(Lever) += 1
                     If refRdy(Lever) = True Then Reinforce(Lever, False)
                     Ratio(Lever)
                 ElseIf tmrDelay1.Enabled = True Then
+                    WriteLine(1, vTimeNow, Lever + 21)
+                    ResponseCountDel(Lever) += 1
                     ObtainedDelays(0).Item(DelayIndex1) = vTimeNow
                 End If
             End If
             If Lever = 1 Then
                 If tmrDelay2.Enabled = False Then
+                    WriteLine(1, vTimeNow, Lever + 1)
+                    ResponseCount(Lever) += 1
                     If refRdy(Lever) = True Then Reinforce(Lever, False)
                     Ratio(Lever)
                 ElseIf tmrDelay2.Enabled = True Then
+                    WriteLine(1, vTimeNow, Lever + 21)
+                    ResponseCountDel(Lever) += 1
                     ObtainedDelays(1).Item(DelayIndex2) = vTimeNow
                 End If
             End If
@@ -133,9 +142,14 @@ Public Class Main
     End Sub
     Private Sub Nosepoke(Nose As Integer)
         If vTimeNow > 500 Then
-            NosepokeCount(Nose) += 1
-            chartResponse(2) += 1
-            WriteLine(1, vTimeNow, Nose + 3)
+            If tmrDelay1.Enabled = True Or tmrDelay2.Enabled = True Then
+                WriteLine(1, vTimeNow, Nose + 23)
+                NosepokeCountDel(Nose) += 1
+            Else
+                NosepokeCount(Nose) += 1
+                chartResponse(2) += 1
+                WriteLine(1, vTimeNow, Nose + 3)
+            End If
         End If
     End Sub
     Private Sub Stimulus(Lever)

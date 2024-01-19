@@ -17,7 +17,9 @@
     Public RatioCount(1) As Integer
     Public RatioGoal(1) As Integer
     Public ResponseCount(1) As Integer
+    Public ResponseCountDel(1) As Integer
     Public NosepokeCount(2) As Integer
+    Public NosepokeCountDel(2) As Integer
     Public chartTime(2) As Integer
     Public chartResponse(2) As Integer
     Public vCurrentComponentSetup As Integer
