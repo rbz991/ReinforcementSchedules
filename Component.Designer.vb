@@ -30,6 +30,8 @@ Partial Class Component
         Me.rdoSL2L1 = New System.Windows.Forms.RadioButton()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.txbSL2D = New System.Windows.Forms.TextBox()
+        Me.chkStimL1 = New System.Windows.Forms.CheckBox()
+        Me.chkStimL2 = New System.Windows.Forms.CheckBox()
         Me.grpStimL1 = New System.Windows.Forms.GroupBox()
         Me.rdoHouselightL1 = New System.Windows.Forms.RadioButton()
         Me.rdoToneL1 = New System.Windows.Forms.RadioButton()
@@ -86,15 +88,15 @@ Partial Class Component
         Me.txbComponentDuration = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.txbComponentStimulation = New System.Windows.Forms.TextBox()
-        Me.txbComponentHouselight = New System.Windows.Forms.RadioButton()
-        Me.txbComponentTone = New System.Windows.Forms.RadioButton()
+        Me.rdoComponentHouselight = New System.Windows.Forms.RadioButton()
+        Me.rdoComponentTone = New System.Windows.Forms.RadioButton()
         Me.rdoComponentStimLight2 = New System.Windows.Forms.RadioButton()
         Me.rdoComponentStimLight1 = New System.Windows.Forms.RadioButton()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.txbL2M = New System.Windows.Forms.TextBox()
         Me.txbL1M = New System.Windows.Forms.TextBox()
-        Me.chkStimL1 = New System.Windows.Forms.CheckBox()
-        Me.chkStimL2 = New System.Windows.Forms.CheckBox()
+        Me.GroupBox9.SuspendLayout()
+        Me.grpStimL2.SuspendLayout()
         Me.grpStimL1.SuspendLayout()
         Me.grpMagnitude.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -103,16 +105,11 @@ Partial Class Component
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
-        'Me.GroupBox7.SuspendLayout()
-        'Me.grpSimple.SuspendLayout()
-        Me.GroupBox4.SuspendLayout()
-        'CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox9
         '
         Me.GroupBox9.Controls.Add(Me.grpStimL2)
-        Me.GroupBox9.Controls.Add(Me.grpStimL1)
         Me.GroupBox9.Controls.Add(Me.chkStimL1)
         Me.GroupBox9.Controls.Add(Me.chkStimL2)
         Me.GroupBox9.Location = New System.Drawing.Point(939, 54)
@@ -144,7 +141,7 @@ Partial Class Component
         'rdoSL2H
         '
         Me.rdoSL2H.AutoSize = True
-        Me.rdoSL2H.Location = New System.Drawing.Point(33, 181)
+        Me.rdoSL2H.Location = New System.Drawing.Point(34, 182)
         Me.rdoSL2H.Margin = New System.Windows.Forms.Padding(4)
         Me.rdoSL2H.Name = "rdoSL2H"
         Me.rdoSL2H.Size = New System.Drawing.Size(145, 29)
@@ -156,7 +153,7 @@ Partial Class Component
         'rdoSL2T
         '
         Me.rdoSL2T.AutoSize = True
-        Me.rdoSL2T.Location = New System.Drawing.Point(33, 144)
+        Me.rdoSL2T.Location = New System.Drawing.Point(34, 145)
         Me.rdoSL2T.Margin = New System.Windows.Forms.Padding(4)
         Me.rdoSL2T.Name = "rdoSL2T"
         Me.rdoSL2T.Size = New System.Drawing.Size(92, 29)
@@ -168,7 +165,7 @@ Partial Class Component
         'rdoSL2L2
         '
         Me.rdoSL2L2.AutoSize = True
-        Me.rdoSL2L2.Location = New System.Drawing.Point(33, 106)
+        Me.rdoSL2L2.Location = New System.Drawing.Point(34, 107)
         Me.rdoSL2L2.Margin = New System.Windows.Forms.Padding(4)
         Me.rdoSL2L2.Name = "rdoSL2L2"
         Me.rdoSL2L2.Size = New System.Drawing.Size(108, 29)
@@ -180,7 +177,7 @@ Partial Class Component
         'rdoSL2L1
         '
         Me.rdoSL2L1.AutoSize = True
-        Me.rdoSL2L1.Location = New System.Drawing.Point(33, 72)
+        Me.rdoSL2L1.Location = New System.Drawing.Point(34, 73)
         Me.rdoSL2L1.Margin = New System.Windows.Forms.Padding(4)
         Me.rdoSL2L1.Name = "rdoSL2L1"
         Me.rdoSL2L1.Size = New System.Drawing.Size(108, 29)
@@ -192,7 +189,7 @@ Partial Class Component
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(28, 35)
+        Me.Label11.Location = New System.Drawing.Point(29, 36)
         Me.Label11.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(99, 25)
@@ -206,6 +203,30 @@ Partial Class Component
         Me.txbSL2D.Name = "txbSL2D"
         Me.txbSL2D.Size = New System.Drawing.Size(103, 31)
         Me.txbSL2D.TabIndex = 2
+        '
+        'chkStimL1
+        '
+        Me.chkStimL1.AutoSize = True
+        Me.chkStimL1.Enabled = False
+        Me.chkStimL1.Location = New System.Drawing.Point(73, 42)
+        Me.chkStimL1.Margin = New System.Windows.Forms.Padding(4)
+        Me.chkStimL1.Name = "chkStimL1"
+        Me.chkStimL1.Size = New System.Drawing.Size(122, 29)
+        Me.chkStimL1.TabIndex = 0
+        Me.chkStimL1.Text = "Lever 1 "
+        Me.chkStimL1.UseVisualStyleBackColor = True
+        '
+        'chkStimL2
+        '
+        Me.chkStimL2.AutoSize = True
+        Me.chkStimL2.Enabled = False
+        Me.chkStimL2.Location = New System.Drawing.Point(73, 319)
+        Me.chkStimL2.Margin = New System.Windows.Forms.Padding(4)
+        Me.chkStimL2.Name = "chkStimL2"
+        Me.chkStimL2.Size = New System.Drawing.Size(116, 29)
+        Me.chkStimL2.TabIndex = 0
+        Me.chkStimL2.Text = "Lever 2"
+        Me.chkStimL2.UseVisualStyleBackColor = True
         '
         'grpStimL1
         '
@@ -291,30 +312,6 @@ Partial Class Component
         Me.txbStimDurL1.Size = New System.Drawing.Size(103, 31)
         Me.txbStimDurL1.TabIndex = 2
         '
-        'chkStimL1
-        '
-        Me.chkStimL1.AutoSize = True
-        Me.chkStimL1.Enabled = False
-        Me.chkStimL1.Location = New System.Drawing.Point(72, 41)
-        Me.chkStimL1.Margin = New System.Windows.Forms.Padding(4)
-        Me.chkStimL1.Name = "chkStimL1"
-        Me.chkStimL1.Size = New System.Drawing.Size(122, 29)
-        Me.chkStimL1.TabIndex = 0
-        Me.chkStimL1.Text = "Lever 1 "
-        Me.chkStimL1.UseVisualStyleBackColor = True
-        '
-        'chkStimL2
-        '
-        Me.chkStimL2.AutoSize = True
-        Me.chkStimL2.Enabled = False
-        Me.chkStimL2.Location = New System.Drawing.Point(72, 318)
-        Me.chkStimL2.Margin = New System.Windows.Forms.Padding(4)
-        Me.chkStimL2.Name = "chkStimL2"
-        Me.chkStimL2.Size = New System.Drawing.Size(116, 29)
-        Me.chkStimL2.TabIndex = 0
-        Me.chkStimL2.Text = "Lever 2"
-        Me.chkStimL2.UseVisualStyleBackColor = True
-        '
         'grpMagnitude
         '
         Me.grpMagnitude.Controls.Add(Me.Label7)
@@ -347,24 +344,6 @@ Partial Class Component
         Me.txbMagL1.Size = New System.Drawing.Size(72, 31)
         Me.txbMagL1.TabIndex = 2
         Me.txbMagL1.Text = "1"
-        '
-        'txbL2M
-        '
-        Me.txbL2M.Location = New System.Drawing.Point(129, 95)
-        Me.txbL2M.Margin = New System.Windows.Forms.Padding(4)
-        Me.txbL2M.Name = "txbL2M"
-        Me.txbL2M.Size = New System.Drawing.Size(107, 31)
-        Me.txbL2M.TabIndex = 3
-        Me.txbL2M.Text = "1"
-        '
-        'txbL1M
-        '
-        Me.txbL1M.Location = New System.Drawing.Point(131, 56)
-        Me.txbL1M.Margin = New System.Windows.Forms.Padding(4)
-        Me.txbL1M.Name = "txbL1M"
-        Me.txbL1M.Size = New System.Drawing.Size(105, 31)
-        Me.txbL1M.TabIndex = 2
-        Me.txbL1M.Text = "1"
         '
         'GroupBox2
         '
@@ -911,29 +890,29 @@ Partial Class Component
         Me.txbComponentStimulation.Size = New System.Drawing.Size(98, 31)
         Me.txbComponentStimulation.TabIndex = 32
         '
-        'txbComponentHouselight
+        'rdoComponentHouselight
         '
-        Me.txbComponentHouselight.AutoSize = True
-        Me.txbComponentHouselight.Location = New System.Drawing.Point(512, 60)
-        Me.txbComponentHouselight.Margin = New System.Windows.Forms.Padding(4)
-        Me.txbComponentHouselight.Name = "txbComponentHouselight"
-        Me.txbComponentHouselight.Size = New System.Drawing.Size(145, 29)
-        Me.txbComponentHouselight.TabIndex = 27
-        Me.txbComponentHouselight.TabStop = True
-        Me.txbComponentHouselight.Text = "Houselight"
-        Me.txbComponentHouselight.UseVisualStyleBackColor = True
+        Me.rdoComponentHouselight.AutoSize = True
+        Me.rdoComponentHouselight.Location = New System.Drawing.Point(512, 60)
+        Me.rdoComponentHouselight.Margin = New System.Windows.Forms.Padding(4)
+        Me.rdoComponentHouselight.Name = "rdoComponentHouselight"
+        Me.rdoComponentHouselight.Size = New System.Drawing.Size(145, 29)
+        Me.rdoComponentHouselight.TabIndex = 27
+        Me.rdoComponentHouselight.TabStop = True
+        Me.rdoComponentHouselight.Text = "Houselight"
+        Me.rdoComponentHouselight.UseVisualStyleBackColor = True
         '
-        'txbComponentTone
+        'rdoComponentTone
         '
-        Me.txbComponentTone.AutoSize = True
-        Me.txbComponentTone.Location = New System.Drawing.Point(511, 23)
-        Me.txbComponentTone.Margin = New System.Windows.Forms.Padding(4)
-        Me.txbComponentTone.Name = "txbComponentTone"
-        Me.txbComponentTone.Size = New System.Drawing.Size(92, 29)
-        Me.txbComponentTone.TabIndex = 26
-        Me.txbComponentTone.TabStop = True
-        Me.txbComponentTone.Text = "Tone"
-        Me.txbComponentTone.UseVisualStyleBackColor = True
+        Me.rdoComponentTone.AutoSize = True
+        Me.rdoComponentTone.Location = New System.Drawing.Point(511, 23)
+        Me.rdoComponentTone.Margin = New System.Windows.Forms.Padding(4)
+        Me.rdoComponentTone.Name = "rdoComponentTone"
+        Me.rdoComponentTone.Size = New System.Drawing.Size(92, 29)
+        Me.rdoComponentTone.TabIndex = 26
+        Me.rdoComponentTone.TabStop = True
+        Me.rdoComponentTone.Text = "Tone"
+        Me.rdoComponentTone.UseVisualStyleBackColor = True
         '
         'rdoComponentStimLight2
         '
@@ -968,15 +947,33 @@ Partial Class Component
         Me.Button1.Text = "?"
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'txbL2M
+        '
+        Me.txbL2M.Location = New System.Drawing.Point(129, 95)
+        Me.txbL2M.Margin = New System.Windows.Forms.Padding(4)
+        Me.txbL2M.Name = "txbL2M"
+        Me.txbL2M.Size = New System.Drawing.Size(107, 31)
+        Me.txbL2M.TabIndex = 3
+        Me.txbL2M.Text = "1"
+        '
+        'txbL1M
+        '
+        Me.txbL1M.Location = New System.Drawing.Point(131, 56)
+        Me.txbL1M.Margin = New System.Windows.Forms.Padding(4)
+        Me.txbL1M.Name = "txbL1M"
+        Me.txbL1M.Size = New System.Drawing.Size(105, 31)
+        Me.txbL1M.TabIndex = 2
+        Me.txbL1M.Text = "1"
+        '
         'Component
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(673, 1005)
         Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.txbComponentHouselight)
+        Me.Controls.Add(Me.rdoComponentHouselight)
         Me.Controls.Add(Me.txbComponentStimulation)
-        Me.Controls.Add(Me.txbComponentTone)
+        Me.Controls.Add(Me.rdoComponentTone)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.rdoComponentStimLight2)
         Me.Controls.Add(Me.Label5)
@@ -1089,8 +1086,8 @@ Partial Class Component
     Friend WithEvents txbComponentDuration As TextBox
     Friend WithEvents Label6 As Label
     Friend WithEvents txbComponentStimulation As TextBox
-    Friend WithEvents txbComponentHouselight As RadioButton
-    Friend WithEvents txbComponentTone As RadioButton
+    Friend WithEvents rdoComponentHouselight As RadioButton
+    Friend WithEvents rdoComponentTone As RadioButton
     Friend WithEvents rdoComponentStimLight2 As RadioButton
     Friend WithEvents rdoComponentStimLight1 As RadioButton
     Friend WithEvents Button1 As Button

@@ -107,6 +107,8 @@ Partial Class SetUp
         Me.chkStimL1 = New System.Windows.Forms.CheckBox()
         Me.chkStimL2 = New System.Windows.Forms.CheckBox()
         Me.btnAddComponent = New System.Windows.Forms.Button()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.lblICI = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.grpSimple.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
@@ -1098,7 +1100,7 @@ Partial Class SetUp
         'btnAddComponent
         '
         Me.btnAddComponent.Enabled = False
-        Me.btnAddComponent.Location = New System.Drawing.Point(26, 643)
+        Me.btnAddComponent.Location = New System.Drawing.Point(26, 603)
         Me.btnAddComponent.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.btnAddComponent.Name = "btnAddComponent"
         Me.btnAddComponent.Size = New System.Drawing.Size(222, 65)
@@ -1106,11 +1108,33 @@ Partial Class SetUp
         Me.btnAddComponent.Text = "Add Component"
         Me.btnAddComponent.UseVisualStyleBackColor = True
         '
+        'TextBox1
+        '
+        Me.TextBox1.Enabled = False
+        Me.TextBox1.Location = New System.Drawing.Point(126, 696)
+        Me.TextBox1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(121, 31)
+        Me.TextBox1.TabIndex = 26
+        Me.TextBox1.Text = "30"
+        '
+        'lblICI
+        '
+        Me.lblICI.AutoSize = True
+        Me.lblICI.Location = New System.Drawing.Point(20, 699)
+        Me.lblICI.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblICI.Name = "lblICI"
+        Me.lblICI.Size = New System.Drawing.Size(114, 25)
+        Me.lblICI.TabIndex = 25
+        Me.lblICI.Text = "IC Interval:"
+        '
         'SetUp
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1439, 766)
+        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.lblICI)
         Me.Controls.Add(Me.btnAddComponent)
         Me.Controls.Add(Me.GroupBox9)
         Me.Controls.Add(Me.grpMagnitude)
@@ -1244,4 +1268,6 @@ Partial Class SetUp
     Friend WithEvents rdoDL2L2 As RadioButton
     Friend WithEvents rdoDL2L1 As RadioButton
     Friend WithEvents btnAddComponent As Button
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents lblICI As Label
 End Class
