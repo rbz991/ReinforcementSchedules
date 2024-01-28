@@ -9,12 +9,8 @@ Public Class Main
         Arduino.Open() 'Starts the Arduino-VB communication.
         tmrStart.Interval = SetUp.txbStart.Text * 1000
         Countdown = Environment.TickCount + SetUp.txbStart.Text * 1000
-        If Lever1 <> "" Then
-            lblL1.Text = Lever1.Substring(3, 2) & SetUp.txbValS.Text
-        End If
-        If Lever2 <> "" Then
-            lblL2.Text = Lever2.Substring(3, 2) & SetUp.txbValS.Text
-        End If
+        lblL1.Text = AC(vCC).ScheduleType(0)
+        lblL2.Text = AC(vCC).ScheduleType(1)
         tmrStart.Enabled = True
         Do 'This code will run throughout the session to allow response collection. 
             Try
@@ -54,7 +50,7 @@ Public Class Main
                 lblDelayR2.Text = ResponseCountDel(1)
                 lblRfR1.Text = refRdy(0)
                 lblRfR2.Text = refRdy(1)
-                If RefCount(0) >= SetUp.txbRefs.Text Or RefCount(1) >= SetUp.txbRefs.Text Then btnFinish.PerformClick() 'This sets the criteria to finish the session.
+                If RefCount(0) + RefCount(1) >= SetUp.txbRefs.Text Then btnFinish.PerformClick() 'This sets the criteria to finish the session.
             Catch ex As Exception
             End Try
             My.Application.DoEvents() 'This will enable the rest of the program to run while executing the code from above.
@@ -67,7 +63,7 @@ Public Class Main
         Arduino.WriteLine("H")
         BeginPrograms() 'Set up for the schedules of reinforcement.
     End Sub
-    Private Sub BeginPrograms() 'This checks which programs were selected and initializes them.
+    Private Sub BeginPrograms() 'Llamar esto cada que inicie un componente.
         VIList(0) = New List(Of Integer)
         VIList(1) = New List(Of Integer)
         ObtainedDelays(0) = New List(Of Integer)
@@ -75,35 +71,27 @@ Public Class Main
         lblSubject.Text = SetUp.txtSubject.Text
         lblSession.Text = SetUp.txtSession.Text
         lblCOM.Text = SetUp.txtCOM.Text
-        If SetUp.txbL1D.Text <> "" Then tmrDelay1.Interval = SetUp.txbL1D.Text * 1000
-        If SetUp.txbL2D.Text <> "" Then tmrDelay2.Interval = SetUp.txbL2D.Text * 1000
-        If SetUp.txbSL1D.Text <> "" Then tmrStim1.Interval = SetUp.txbSL1D.Text * 1000
-        If SetUp.txbSL2D.Text <> "" Then tmrStim2.Interval = SetUp.txbSL2D.Text * 1000
-        If SetUp.rdoSimple.Checked = True Then
-            If Lever1 <> "" Then
-                Arduino.WriteLine("L")
-            End If
-            If Lever2 <> "" Then
-                Arduino.WriteLine("M")
-            End If
-            If Lever1 = "rdoFRS1" Or Lever2 = "rdoFRS2" Then FRGen()
-            If Lever1 = "rdoVRS1" Or Lever2 = "rdoVRS2" Then VRGen()
-            If Lever1 = "rdoFIS1" Or Lever2 = "rdoFIS2" Then FIGen()
-            If Lever1 = "rdoVIS1" Then VIGen(0)
-            If Lever2 = "rdoVIS2" Then VIGen(1)
-        ElseIf SetUp.rdoConcurrent.Checked = True Then
-            Arduino.WriteLine("N")
-            lblL1.Text = Lever1.Substring(3, 2) & SetUp.txbValCP1.Text
-            lblL2.Text = Lever2.Substring(3, 2) & SetUp.txbValCP2.Text
-            If Lever1 = "rdoFRC1" Then FRGen()
-            If Lever1 = "rdoVRC1" Then VRGen()
-            If Lever1 = "rdoFIC1" Then FIGen()
-            If Lever1 = "rdoVIC1" Then VIGen(0)
-            If Lever2 = "rdoFRC2" Then FRGen()
-            If Lever2 = "rdoVRC2" Then VRGen()
-            If Lever2 = "rdoFIC2" Then FIGen()
-            If Lever2 = "rdoVIC2" Then VIGen(1)
-        End If
+        If AC(vCC).DelayDuration(0) <> 0 Then tmrDelay1.Interval = AC(vCC).DelayDuration(0) * 1000
+        If AC(vCC).DelayDuration(1) <> 0 Then tmrDelay2.Interval = AC(vCC).DelayDuration(1) * 1000
+
+        If AC(vCC).FeedbackDuration(0) <> 0 Then tmrStim1.Interval = AC(vCC).FeedbackDuration(0) * 1000
+        If AC(vCC).FeedbackDuration(1) <> 0 Then tmrStim2.Interval = AC(vCC).FeedbackDuration(1) * 1000
+
+        If AC(vCC).ScheduleType(0) <> 0 Then Arduino.WriteLine("L")
+        If AC(vCC).ScheduleType(1) <> 0 Then Arduino.WriteLine("M")
+
+        If AC(vCC).ScheduleType(0) = "Fixed Ratio" Then FRGen(0)
+        If AC(vCC).ScheduleType(1) = "Fixed Ratio" Then FRGen(1)
+        If AC(vCC).ScheduleType(0) = "Variable Ratio" Then VRGen(0)
+        If AC(vCC).ScheduleType(1) = "Variable Ratio" Then VRGen(1)
+        If AC(vCC).ScheduleType(0) = "Fixed Interval" Then FIGen(0)
+        If AC(vCC).ScheduleType(1) = "Fixed Interval" Then FIGen(1)
+        If AC(vCC).ScheduleType(0).Contains("Variable Interval") Then VIGen(0) ' Verificar que esto funcione tanto con strings como con strings()
+        If AC(vCC).ScheduleType(1).Contains("Variable Interval") Then VIGen(1)
+
+        lblL1.Text = AC(vCC).ScheduleType(0) & " " & AC(vCC).ScheduleValue(0)
+        lblL2.Text = AC(vCC).ScheduleType(1) & " " & AC(vCC).ScheduleValue(1)
+
         WriteLine(1, "Lever 1 Schedule: " & lblL1.Text)
         WriteLine(1, "Lever 2 Schedule: " & lblL2.Text)
         WriteLine(2, "Lever 1 Schedule: " & lblL1.Text)
@@ -154,16 +142,16 @@ Public Class Main
     End Sub
     Private Sub Stimulus(Lever)
         If Lever = 0 Then
-            If SetUp.rdoSL1L1.Checked = True Then Arduino.WriteLine("A")
-            If SetUp.rdoSL1L2.Checked = True Then Arduino.WriteLine("B")
-            If SetUp.rdoSL1T.Checked = True Then Arduino.WriteLine("T")
-            If SetUp.rdoSL1H.Checked = True Then Arduino.WriteLine("H")
+            If AC(vCC).FeedbackType(0).Contains("Light 1") = True Then Arduino.WriteLine("A")
+            If AC(vCC).FeedbackType(0).Contains("Light 2") = True Then Arduino.WriteLine("B")
+            If AC(vCC).FeedbackType(0).Contains("Tone") = True Then Arduino.WriteLine("T")
+            If AC(vCC).FeedbackType(0).Contains("Houselight") = True Then Arduino.WriteLine("H")
             tmrStim1.Enabled = True
         ElseIf Lever = 1 Then
-            If SetUp.rdoSL2L1.Checked = True Then Arduino.WriteLine("A")
-            If SetUp.rdoSL2L2.Checked = True Then Arduino.WriteLine("B")
-            If SetUp.rdoSL2T.Checked = True Then Arduino.WriteLine("T")
-            If SetUp.rdoSL2H.Checked = True Then Arduino.WriteLine("H")
+            If AC(vCC).FeedbackType(1).Contains("Light 1") = True Then Arduino.WriteLine("A")
+            If AC(vCC).FeedbackType(1).Contains("Light 2") = True Then Arduino.WriteLine("B")
+            If AC(vCC).FeedbackType(1).Contains("Tone") = True Then Arduino.WriteLine("T")
+            If AC(vCC).FeedbackType(1).Contains("Houselight") = True Then Arduino.WriteLine("H")
             tmrStim2.Enabled = True
         End If
     End Sub
@@ -178,23 +166,23 @@ Public Class Main
         End If
     End Sub
     Private Sub Reinforce(Lever As Integer, Delay As Boolean) 'This registers reinforcer deliveries and sets up the next reinforcer conditions.
-        If Lever = 0 And SetUp.chkDL1.Checked = True And Delay = False Then
+        If Lever = 0 And AC(vCC).DelayDuration(0) > 0 And Delay = False Then
             tmrDelay1.Enabled = True
             ObtainedDelays(0).Add(vTimeNow) 'The reponse that onsets the delay adds this time
-            If SetUp.rdoDL1U.Checked = False Then
-                If SetUp.rdoDL1L1.Checked = True Then Arduino.WriteLine("A")
-                If SetUp.rdoDL1L2.Checked = True Then Arduino.WriteLine("B")
-                If SetUp.rdoDL1Tone.Checked = True Then Arduino.WriteLine("T")
-                If SetUp.rdoDL1House.Checked = True Then Arduino.WriteLine("H")
+            If AC(vCC).DelayType(0) <> "Unsignaled" Then
+                If AC(vCC).DelayType(0).Contains("Light 1") = True Then Arduino.WriteLine("A")
+                If AC(vCC).DelayType(0).Contains("Light 2") = True Then Arduino.WriteLine("B")
+                If AC(vCC).DelayType(0).Contains("Tone") = True Then Arduino.WriteLine("T")
+                If AC(vCC).DelayType(0).Contains("Houselight") = True Then Arduino.WriteLine("H")
             End If
-        ElseIf Lever = 1 And SetUp.chkDL2.Checked = True And Delay = False Then
+        ElseIf Lever = 1 And AC(vCC).DelayDuration(1) > 0 = True And Delay = False Then
             tmrDelay2.Enabled = True
             ObtainedDelays(1).Add(vTimeNow)
-            If SetUp.rdoDL2U.Checked = False Then
-                If SetUp.rdoDL2L1.Checked = True Then Arduino.WriteLine("A")
-                If SetUp.rdoDL2L2.Checked = True Then Arduino.WriteLine("B")
-                If SetUp.rdoDL2Tone.Checked = True Then Arduino.WriteLine("T")
-                If SetUp.rdoDL2House.Checked = True Then Arduino.WriteLine("H")
+            If AC(vCC).DelayType(1) <> "Unsignaled" Then
+                If AC(vCC).DelayType(1).Contains("Light 1") = True Then Arduino.WriteLine("A")
+                If AC(vCC).DelayType(1).Contains("Light 2") = True Then Arduino.WriteLine("B")
+                If AC(vCC).DelayType(1).Contains("Tone") = True Then Arduino.WriteLine("T")
+                If AC(vCC).DelayType(1).Contains("Houselight") = True Then Arduino.WriteLine("H")
             End If
         ElseIf Lever = 3 Then
             Arduino.WriteLine("R")
@@ -202,60 +190,51 @@ Public Class Main
             refRdy(Lever) = False
             If Lever = 0 Then
                 Chart1.Series("Reinforcers 1").Points.AddXY(chartTime(0), chartResponse(0))
-                For i = 1 To CInt(SetUp.txbL1M.Text)
+                For i = 1 To AC(vCC).Magnitude(0)
                     Arduino.WriteLine("R")
                 Next
             End If
             If Lever = 1 Then
                 Chart1.Series("Reinforcers 2").Points.AddXY(chartTime(1), chartResponse(1))
-                For i = 1 To CInt(SetUp.txbL1M.Text)
+                For i = 1 To AC(vCC).Magnitude(1)
                     Arduino.WriteLine("R")
                 Next
             End If
             'This line activates the feeder through Arduino. "R" can mean any output connected to the Arduino.
             WriteLine(1, vTimeNow, Lever + 11)
             RefCount(Lever) += 1
-            If Lever = 0 And (Lever1 = "rdoFRS1" Or Lever1 = "rdoVRS1" Or Lever1 = "rdoFRC1" Or Lever1 = "rdoVRC1") Then VRGen()
-            If Lever = 1 And (Lever2 = "rdoFRS2" Or Lever2 = "rdoVRS2" Or Lever2 = "rdoFRC2" Or Lever2 = "rdoVRC2") Then VRGen()
-            If Lever = 0 And Lever1 = "rdoFIS1" Or Lever1 = "rdoFIC1" Then FIGen()
-            If Lever = 1 And Lever2 = "rdoFIS2" Or Lever2 = "rdoFIC2" Then FIGen()
-            If Lever = 0 And Lever1 = "rdoVIS1" Or Lever1 = "rdoVIC1" Then VIGen(0)
-            If Lever = 1 And Lever2 = "rdoVIS2" Or Lever2 = "rdoVIC2" Then VIGen(1)
+
+            If Lever = 0 Then
+                If AC(vCC).ScheduleType(0) = "Fixed Ratio" Then FRGen(0)
+                If AC(vCC).ScheduleType(0) = "Variable Ratio" Then VRGen(0)
+                If AC(vCC).ScheduleType(0) = "Fixed Interval" Then FIGen(0)
+                If AC(vCC).ScheduleType(0).Contains("Variable Interval") Then VIGen(0) ' Verificar que esto funcione tanto con strings como con strings()
+            ElseIf Lever = 1 Then
+                If AC(vCC).ScheduleType(1) = "Fixed Ratio" Then FRGen(1)
+                If AC(vCC).ScheduleType(1) = "Variable Ratio" Then VRGen(1)
+                If AC(vCC).ScheduleType(1) = "Fixed Interval" Then FIGen(1)
+                If AC(vCC).ScheduleType(1).Contains("Variable Interval") Then VIGen(1)
+            End If
         End If
     End Sub
-    Private Sub FRGen() 'This initializes Fixed Ratio schedules depending on the selected values / operanda.
+    Private Sub FRGen(x) 'This initializes Fixed Ratio schedules depending on the selected values / operanda.
         'FR schedules just check current responses against the specified schedule value.
-        If Lever1 = "rdoFRS1" Then RatioGoal(0) = SetUp.txbValS.Text
-        If Lever2 = "rdoFRS2" Then RatioGoal(1) = SetUp.txbValS.Text
-        If Lever1 = "rdoFRC1" Then RatioGoal(0) = SetUp.txbValCP1.Text
-        If Lever2 = "rdoFRC2" Then RatioGoal(1) = SetUp.txbValCP2.Text
+        RatioGoal(x) = AC(vCC).ScheduleValue(x)
     End Sub
-    Private Sub VRGen() 'This initializes Variable Ratio schedules depending on the selected values / operanda.
+    Private Sub VRGen(x) 'This initializes Variable Ratio schedules depending on the selected values / operanda.
         'VR schedules calculate a range between half and 1.5 times the specified schedule value and pick a random value from that range. 
         Randomize()
         Dim Rand As New Random
-        If Lever1 = "rdoVRS1" Then RatioGoal(0) = Rand.Next((SetUp.txbValS.Text / 2), (SetUp.txbValS.Text * 1.5))
-        If Lever2 = "rdoVRS2" Then RatioGoal(1) = Rand.Next((SetUp.txbValS.Text / 2), (SetUp.txbValS.Text * 1.5))
-        If Lever1 = "rdoVRC1" Then RatioGoal(0) = Rand.Next((SetUp.txbValCP1.Text / 2), (SetUp.txbValCP1.Text * 1.5))
-        If Lever2 = "rdoVRC2" Then RatioGoal(1) = Rand.Next((SetUp.txbValCP2.Text / 2), (SetUp.txbValCP2.Text * 1.5))
+        RatioGoal(x) = Rand.Next((AC(vCC).ScheduleValue(x) / 2), (AC(vCC).ScheduleValue(x) * 1.5))
     End Sub
-    Private Sub FIGen() 'This initializes Fixed Interval schedules depending on the selected values / operanda.
+    Private Sub FIGen(x) 'This initializes Fixed Interval schedules depending on the selected values / operanda.
         'FI schedules use a timer to check if the specified schedule value has elapsed.
         'Visual Basic manages time in miliseconds, so values are multiplied by 1000.
-        If Lever1 = "rdoFIS1" Then
-            tmrLever1.Interval = SetUp.txbValS.Text * 1000
+        If x = 0 Then
+            tmrLever1.Interval = AC(vCC).ScheduleValue(0) * 1000
             tmrLever1.Enabled = True
-        End If
-        If Lever2 = "rdoFIS2" Then
-            tmrLever2.Interval = SetUp.txbValS.Text * 1000
-            tmrLever2.Enabled = True
-        End If
-        If Lever1 = "rdoFIC1" Then
-            tmrLever1.Interval = SetUp.txbValCP1.Text * 1000
-            tmrLever1.Enabled = True
-        End If
-        If Lever2 = "rdoFIC2" Then
-            tmrLever2.Interval = SetUp.txbValCP2.Text * 1000
+        ElseIf x = 1 Then
+            tmrLever2.Interval = AC(vCC).ScheduleValue(1) * 1000
             tmrLever2.Enabled = True
         End If
     End Sub
@@ -269,11 +248,8 @@ Public Class Main
         Dim vi(n)
         Dim order
         Randomize()
-        If SetUp.rdoSimple.Checked = True Then v = SetUp.txbValS.Text
-        If SetUp.rdoConcurrent.Checked = True Then
-            If list = 0 Then v = SetUp.txbValCP1.Text
-            If list = 1 Then v = SetUp.txbValCP2.Text
-        End If
+        If list = 0 Then v = AC(vCC).ScheduleValue(0)
+        If list = 1 Then v = AC(vCC).ScheduleValue(1)
         If VIList(list).Count = 0 Then
             For m As Integer = 1 To n
                 If m = n Then vi(m) = v * (1 + Log(n)) : GoTo 1
@@ -355,11 +331,11 @@ Public Class Main
     End Sub
     Private Sub tmrDelay1_Tick(sender As Object, e As EventArgs) Handles tmrDelay1.Tick
         tmrDelay1.Enabled = False
-        If SetUp.rdoDL1U.Checked = False Then
-            If SetUp.rdoDL1L1.Checked = True Then Arduino.WriteLine("a")
-            If SetUp.rdoDL1L2.Checked = True Then Arduino.WriteLine("b")
-            If SetUp.rdoDL1Tone.Checked = True Then Arduino.WriteLine("t")
-            If SetUp.rdoDL1House.Checked = True Then Arduino.WriteLine("h")
+        If AC(vCC).DelayType(0) <> "Unsignaled" Then
+            If AC(vCC).DelayType(0).Contains("Light 1") = True Then Arduino.WriteLine("a")
+            If AC(vCC).DelayType(0).Contains("Light 2") = True Then Arduino.WriteLine("b")
+            If AC(vCC).DelayType(0).Contains("Tone") = True Then Arduino.WriteLine("t")
+            If AC(vCC).DelayType(0).Contains("Houselight") = True Then Arduino.WriteLine("h")
         End If
         Reinforce(0, True)
         'aqui va el marcador para calcular la demora obtenida
@@ -368,11 +344,11 @@ Public Class Main
     End Sub
     Private Sub tmrDelay2_Tick(sender As Object, e As EventArgs) Handles tmrDelay2.Tick
         tmrDelay2.Enabled = False
-        If SetUp.rdoDL2U.Checked = False Then
-            If SetUp.rdoDL2L1.Checked = True Then Arduino.WriteLine("a")
-            If SetUp.rdoDL2L2.Checked = True Then Arduino.WriteLine("b")
-            If SetUp.rdoDL2Tone.Checked = True Then Arduino.WriteLine("t")
-            If SetUp.rdoDL2House.Checked = True Then Arduino.WriteLine("h")
+        If AC(vCC).DelayType(1) <> "Unsignaled" Then
+            If AC(vCC).DelayType(1).Contains("Light 1") = True Then Arduino.WriteLine("a")
+            If AC(vCC).DelayType(1).Contains("Light 2") = True Then Arduino.WriteLine("b")
+            If AC(vCC).DelayType(1).Contains("Tone") = True Then Arduino.WriteLine("t")
+            If AC(vCC).DelayType(1).Contains("Houselight") = True Then Arduino.WriteLine("h")
         End If
         Reinforce(1, True)
         ObtainedDelays(1).Item(DelayIndex2) = vTimeNow - ObtainedDelays(1).Item(DelayIndex2)
@@ -380,17 +356,17 @@ Public Class Main
     End Sub
     Private Sub tmrStim1_Tick(sender As Object, e As EventArgs) Handles tmrStim1.Tick
         tmrStim1.Enabled = False
-        If SetUp.rdoSL1L1.Checked = True Then Arduino.WriteLine("a")
-        If SetUp.rdoSL1L2.Checked = True Then Arduino.WriteLine("b")
-        If SetUp.rdoSL1T.Checked = True Then Arduino.WriteLine("t")
-        If SetUp.rdoSL1H.Checked = True Then Arduino.WriteLine("h")
+        If AC(vCC).FeedbackType(0).Contains("Light 1") = True Then Arduino.WriteLine("a")
+        If AC(vCC).FeedbackType(0).Contains("Light 2") = True Then Arduino.WriteLine("b")
+        If AC(vCC).FeedbackType(0).Contains("Tone") = True Then Arduino.WriteLine("t")
+        If AC(vCC).FeedbackType(0).Contains("Houselight") = True Then Arduino.WriteLine("h")
     End Sub
     Private Sub tmrStim2_Tick(sender As Object, e As EventArgs) Handles tmrStim2.Tick
         tmrStim2.Enabled = False
-        If SetUp.rdoSL2L1.Checked = True Then Arduino.WriteLine("a")
-        If SetUp.rdoSL2L2.Checked = True Then Arduino.WriteLine("b")
-        If SetUp.rdoSL2T.Checked = True Then Arduino.WriteLine("t")
-        If SetUp.rdoSL2H.Checked = True Then Arduino.WriteLine("h")
+        If AC(vCC).FeedbackType(1).Contains("Light 1") = True Then Arduino.WriteLine("a")
+        If AC(vCC).FeedbackType(1).Contains("Light 2") = True Then Arduino.WriteLine("b")
+        If AC(vCC).FeedbackType(1).Contains("Tone") = True Then Arduino.WriteLine("t")
+        If AC(vCC).FeedbackType(1).Contains("Houselight") = True Then Arduino.WriteLine("h")
     End Sub
     Private Sub btnFinish_Click(sender As Object, e As EventArgs) Handles btnFinish.Click
         'This controls the 'Finish' button on the main form. Used to end the session by hand.

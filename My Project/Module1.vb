@@ -22,11 +22,14 @@
     Public NosepokeCountDel(2) As Integer
     Public chartTime(2) As Integer
     Public chartResponse(2) As Integer
-    Public vCurrentComponentSetup As Integer
+    Public vPadding As Integer
+    Public PreviewCounter As Integer
+    Public vCC As Integer 'vCurrentComponent - contador
     Public PalIO(1) As Boolean
-    Public ActiveComponent(4) As ComponentBlueprint
+    Public AC(4) As ComponentBlueprint ' ActualComponent
     Public Structure ComponentBlueprint
         Dim ComponentDuration As Integer
+        Dim ComponentIteration As Integer
         Dim ComponentStimDuration As Integer
         Dim ComponentStimType As String
         Dim ScheduleType() As String

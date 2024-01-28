@@ -572,7 +572,7 @@ Partial Class Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1110, 630)
+        Me.ClientSize = New System.Drawing.Size(1119, 630)
         Me.Controls.Add(Me.lblTrayRs)
         Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.lblDelayR2)
