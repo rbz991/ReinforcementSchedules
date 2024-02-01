@@ -27,6 +27,8 @@
             WriteLine(1, "Lever 1 r on Delay: 21")
             WriteLine(1, "Lever 2 r on Delay: 22")
             WriteLine(1, "Tray r on Delay: 23")
+            MAXvCC = vCC
+            vCC = 1
             Dim x As New Main
             Me.WindowState = FormWindowState.Minimized
             x.Show()

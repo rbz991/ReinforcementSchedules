@@ -9,8 +9,6 @@ Public Class Main
         Arduino.Open() 'Starts the Arduino-VB communication.
         tmrStart.Interval = SetUp.txbStart.Text * 1000
         Countdown = Environment.TickCount + SetUp.txbStart.Text * 1000
-        lblL1.Text = AC(vCC).ScheduleType(0)
-        lblL2.Text = AC(vCC).ScheduleType(1)
         tmrStart.Enabled = True
         Do 'This code will run throughout the session to allow response collection. 
             Try
@@ -41,6 +39,8 @@ Public Class Main
                 If tmrStart.Enabled = False Then vTimeNow = Environment.TickCount - vTimeStart  'This keeps track of time for the Data output file.
                 If tmrStart.Enabled = True Then vTimeNow = (Countdown) - Environment.TickCount
                 lblTime.Text = Round(vTimeNow / 1000) 'This and the following 6 lines update values of interest on the main form.
+                lblL1.Text = AC(vCC).ScheduleType(0)
+                lblL2.Text = AC(vCC).ScheduleType(1)
                 lblResponses1.Text = ResponseCount(0)
                 lblResponses2.Text = ResponseCount(1)
                 lblReinforcers1.Text = RefCount(0)
@@ -64,6 +64,9 @@ Public Class Main
         BeginPrograms() 'Set up for the schedules of reinforcement.
     End Sub
     Private Sub BeginPrograms() 'Llamar esto cada que inicie un componente.
+        WriteLine(1, vTimeNow, "StartComponent" & vCC)
+        tmrComponentDuration.Interval = AC(vCC).ComponentDuration
+        tmrComponentDuration.Enabled = True
         VIList(0) = New List(Of Integer)
         VIList(1) = New List(Of Integer)
         ObtainedDelays(0) = New List(Of Integer)
@@ -130,13 +133,17 @@ Public Class Main
     End Sub
     Private Sub Nosepoke(Nose As Integer)
         If vTimeNow > 500 Then
-            If tmrDelay1.Enabled = True Or tmrDelay2.Enabled = True Then
-                WriteLine(1, vTimeNow, Nose + 23)
-                NosepokeCountDel(Nose) += 1
+            If tmrNosepoke.Enabled = False Then
+                tmrNosepoke.Enabled = True
+                If tmrDelay1.Enabled = True Or tmrDelay2.Enabled = True Then
+                    WriteLine(1, vTimeNow, Nose + 23)
+                    NosepokeCountDel(Nose) += 1
+                Else
+                    NosepokeCount(Nose) += 1
+                    chartResponse(2) += 1
+                    WriteLine(1, vTimeNow, Nose + 3)
+                End If
             Else
-                NosepokeCount(Nose) += 1
-                chartResponse(2) += 1
-                WriteLine(1, vTimeNow, Nose + 3)
             End If
         End If
     End Sub
@@ -203,7 +210,6 @@ Public Class Main
             'This line activates the feeder through Arduino. "R" can mean any output connected to the Arduino.
             WriteLine(1, vTimeNow, Lever + 11)
             RefCount(Lever) += 1
-
             If Lever = 0 Then
                 If AC(vCC).ScheduleType(0) = "Fixed Ratio" Then FRGen(0)
                 If AC(vCC).ScheduleType(0) = "Variable Ratio" Then VRGen(0)
@@ -378,7 +384,6 @@ Public Class Main
         btnL2IO.Enabled = False
         btnReinforce.Enabled = False
         Chart1.SaveImage("C:\Data\Charts\" & SetUp.txtSubject.Text & "_" & SetUp.txtSession.Text & "_chart_" & Format(Date.Now, "hh_mm_ss") & ".png", ChartImageFormat.Png)
-
     End Sub
     Private Sub btnL1IO_Click(sender As Object, e As EventArgs) Handles btnL1IO.Click
         If PalIO(0) = True Then
@@ -409,5 +414,19 @@ Public Class Main
     End Sub
     Private Sub tmrPostSession_Tick(sender As Object, e As EventArgs) Handles tmrPostSession.Tick
         Finish()
+    End Sub
+    Private Sub tmrNosepoke_Tick(sender As Object, e As EventArgs) Handles tmrNosepoke.Tick
+        tmrNosepoke.Enabled = False
+    End Sub
+
+    Private Sub tmrComponentDuration_Tick(sender As Object, e As EventArgs) Handles tmrComponentDuration.Tick
+        tmrComponentDuration.Enabled = False
+        WriteLine(1, vTimeNow, "EndComponent" & vCC)
+        If vCC = MAXvCC Then
+            vCC = 1
+        Else
+            vCC += 1
+        End If
+        BeginPrograms()
     End Sub
 End Class

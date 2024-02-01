@@ -24,7 +24,8 @@
     Public chartResponse(2) As Integer
     Public vPadding As Integer
     Public PreviewCounter As Integer
-    Public vCC As Integer 'vCurrentComponent - contador
+    Public vCC As Byte 'vCurrentComponent - contador
+    Public MAXvCC As Byte
     Public PalIO(1) As Boolean
     Public AC(4) As ComponentBlueprint ' ActualComponent
     Public Structure ComponentBlueprint

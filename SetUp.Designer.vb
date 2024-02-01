@@ -62,14 +62,16 @@ Partial Class SetUp
         Me.lblMagnitude2 = New System.Windows.Forms.Label()
         Me.lblSchedule2 = New System.Windows.Forms.Label()
         Me.lblComponentI = New System.Windows.Forms.Label()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.lblComponentS = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'btnComenzar
         '
-        Me.btnComenzar.Location = New System.Drawing.Point(13, 525)
+        Me.btnComenzar.Location = New System.Drawing.Point(13, 535)
         Me.btnComenzar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.btnComenzar.Name = "btnComenzar"
-        Me.btnComenzar.Size = New System.Drawing.Size(230, 230)
+        Me.btnComenzar.Size = New System.Drawing.Size(220, 220)
         Me.btnComenzar.TabIndex = 0
         Me.btnComenzar.Text = "Start"
         Me.btnComenzar.UseVisualStyleBackColor = True
@@ -152,10 +154,10 @@ Partial Class SetUp
         '
         'btnAddComponent
         '
-        Me.btnAddComponent.Location = New System.Drawing.Point(13, 291)
+        Me.btnAddComponent.Location = New System.Drawing.Point(13, 311)
         Me.btnAddComponent.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.btnAddComponent.Name = "btnAddComponent"
-        Me.btnAddComponent.Size = New System.Drawing.Size(230, 230)
+        Me.btnAddComponent.Size = New System.Drawing.Size(220, 220)
         Me.btnAddComponent.TabIndex = 24
         Me.btnAddComponent.Text = "Add Component"
         Me.btnAddComponent.UseVisualStyleBackColor = True
@@ -202,7 +204,7 @@ Partial Class SetUp
         '
         Me.lblDelay1.AutoSize = True
         Me.lblDelay1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDelay1.Location = New System.Drawing.Point(510, 351)
+        Me.lblDelay1.Location = New System.Drawing.Point(510, 410)
         Me.lblDelay1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblDelay1.Name = "lblDelay1"
         Me.lblDelay1.Size = New System.Drawing.Size(97, 37)
@@ -214,7 +216,7 @@ Partial Class SetUp
         '
         Me.lblFeedback1.AutoSize = True
         Me.lblFeedback1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFeedback1.Location = New System.Drawing.Point(510, 314)
+        Me.lblFeedback1.Location = New System.Drawing.Point(510, 370)
         Me.lblFeedback1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblFeedback1.Name = "lblFeedback1"
         Me.lblFeedback1.Size = New System.Drawing.Size(157, 37)
@@ -238,7 +240,7 @@ Partial Class SetUp
         '
         Me.lblMagnitude1.AutoSize = True
         Me.lblMagnitude1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMagnitude1.Location = New System.Drawing.Point(510, 277)
+        Me.lblMagnitude1.Location = New System.Drawing.Point(510, 330)
         Me.lblMagnitude1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblMagnitude1.Name = "lblMagnitude1"
         Me.lblMagnitude1.Size = New System.Drawing.Size(166, 37)
@@ -250,7 +252,7 @@ Partial Class SetUp
         '
         Me.lblSchedule1.AutoSize = True
         Me.lblSchedule1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSchedule1.Location = New System.Drawing.Point(510, 243)
+        Me.lblSchedule1.Location = New System.Drawing.Point(510, 290)
         Me.lblSchedule1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblSchedule1.Name = "lblSchedule1"
         Me.lblSchedule1.Size = New System.Drawing.Size(149, 37)
@@ -299,145 +301,133 @@ Partial Class SetUp
         Me.Label3.Size = New System.Drawing.Size(148, 37)
         Me.Label3.TabIndex = 38
         Me.Label3.Text = "Duration:"
-        Me.Label3.Visible = False
         '
         'Label4
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(278, 169)
+        Me.Label4.Location = New System.Drawing.Point(278, 170)
         Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(157, 37)
         Me.Label4.TabIndex = 39
         Me.Label4.Text = "Iterations:"
-        Me.Label4.Visible = False
         '
         'Label5
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(278, 206)
+        Me.Label5.Location = New System.Drawing.Point(278, 250)
         Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(129, 37)
         Me.Label5.TabIndex = 40
         Me.Label5.Text = "Lever 1:"
-        Me.Label5.Visible = False
         '
         'Label7
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(304, 243)
+        Me.Label7.Location = New System.Drawing.Point(304, 290)
         Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(158, 37)
         Me.Label7.TabIndex = 41
         Me.Label7.Text = "Schedule:"
-        Me.Label7.Visible = False
         '
         'Label8
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(304, 277)
+        Me.Label8.Location = New System.Drawing.Point(304, 330)
         Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(175, 37)
         Me.Label8.TabIndex = 42
         Me.Label8.Text = "Magnitude:"
-        Me.Label8.Visible = False
         '
         'Label9
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(304, 314)
+        Me.Label9.Location = New System.Drawing.Point(304, 370)
         Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(166, 37)
         Me.Label9.TabIndex = 43
         Me.Label9.Text = "Feedback:"
-        Me.Label9.Visible = False
         '
         'Label10
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(301, 351)
+        Me.Label10.Location = New System.Drawing.Point(301, 410)
         Me.Label10.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(106, 37)
         Me.Label10.TabIndex = 44
         Me.Label10.Text = "Delay:"
-        Me.Label10.Visible = False
         '
         'Label11
         '
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(278, 388)
+        Me.Label11.Location = New System.Drawing.Point(278, 450)
         Me.Label11.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(131, 37)
         Me.Label11.TabIndex = 45
         Me.Label11.Text = "Lever 2:"
-        Me.Label11.Visible = False
         '
         'Label12
         '
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(307, 536)
+        Me.Label12.Location = New System.Drawing.Point(307, 610)
         Me.Label12.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(106, 37)
         Me.Label12.TabIndex = 49
         Me.Label12.Text = "Delay:"
-        Me.Label12.Visible = False
         '
         'Label13
         '
         Me.Label13.AutoSize = True
         Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(307, 499)
+        Me.Label13.Location = New System.Drawing.Point(307, 570)
         Me.Label13.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(166, 37)
         Me.Label13.TabIndex = 48
         Me.Label13.Text = "Feedback:"
-        Me.Label13.Visible = False
         '
         'Label14
         '
         Me.Label14.AutoSize = True
         Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(307, 462)
+        Me.Label14.Location = New System.Drawing.Point(307, 530)
         Me.Label14.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(175, 37)
         Me.Label14.TabIndex = 47
         Me.Label14.Text = "Magnitude:"
-        Me.Label14.Visible = False
         '
         'Label15
         '
         Me.Label15.AutoSize = True
         Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(307, 428)
+        Me.Label15.Location = New System.Drawing.Point(307, 490)
         Me.Label15.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(158, 37)
         Me.Label15.TabIndex = 46
         Me.Label15.Text = "Schedule:"
-        Me.Label15.Visible = False
         '
         'lblDelay2
         '
         Me.lblDelay2.AutoSize = True
         Me.lblDelay2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDelay2.Location = New System.Drawing.Point(510, 536)
+        Me.lblDelay2.Location = New System.Drawing.Point(510, 610)
         Me.lblDelay2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblDelay2.Name = "lblDelay2"
         Me.lblDelay2.Size = New System.Drawing.Size(97, 37)
@@ -449,7 +439,7 @@ Partial Class SetUp
         '
         Me.lblFeedback2.AutoSize = True
         Me.lblFeedback2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFeedback2.Location = New System.Drawing.Point(510, 499)
+        Me.lblFeedback2.Location = New System.Drawing.Point(510, 570)
         Me.lblFeedback2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblFeedback2.Name = "lblFeedback2"
         Me.lblFeedback2.Size = New System.Drawing.Size(157, 37)
@@ -461,7 +451,7 @@ Partial Class SetUp
         '
         Me.lblMagnitude2.AutoSize = True
         Me.lblMagnitude2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMagnitude2.Location = New System.Drawing.Point(510, 462)
+        Me.lblMagnitude2.Location = New System.Drawing.Point(510, 530)
         Me.lblMagnitude2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblMagnitude2.Name = "lblMagnitude2"
         Me.lblMagnitude2.Size = New System.Drawing.Size(166, 37)
@@ -473,7 +463,7 @@ Partial Class SetUp
         '
         Me.lblSchedule2.AutoSize = True
         Me.lblSchedule2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSchedule2.Location = New System.Drawing.Point(510, 428)
+        Me.lblSchedule2.Location = New System.Drawing.Point(510, 490)
         Me.lblSchedule2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblSchedule2.Name = "lblSchedule2"
         Me.lblSchedule2.Size = New System.Drawing.Size(149, 37)
@@ -485,7 +475,7 @@ Partial Class SetUp
         '
         Me.lblComponentI.AutoSize = True
         Me.lblComponentI.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblComponentI.Location = New System.Drawing.Point(510, 169)
+        Me.lblComponentI.Location = New System.Drawing.Point(510, 170)
         Me.lblComponentI.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblComponentI.Name = "lblComponentI"
         Me.lblComponentI.Size = New System.Drawing.Size(191, 37)
@@ -493,11 +483,36 @@ Partial Class SetUp
         Me.lblComponentI.Text = "ComponentI"
         Me.lblComponentI.Visible = False
         '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label16.Location = New System.Drawing.Point(278, 210)
+        Me.Label16.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(185, 37)
+        Me.Label16.TabIndex = 55
+        Me.Label16.Text = "Stimulation:"
+        '
+        'lblComponentS
+        '
+        Me.lblComponentS.AutoSize = True
+        Me.lblComponentS.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblComponentS.Location = New System.Drawing.Point(510, 210)
+        Me.lblComponentS.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblComponentS.Name = "lblComponentS"
+        Me.lblComponentS.Size = New System.Drawing.Size(204, 37)
+        Me.lblComponentS.TabIndex = 56
+        Me.lblComponentS.Text = "ComponentS"
+        Me.lblComponentS.Visible = False
+        '
         'SetUp
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1439, 766)
+        Me.Controls.Add(Me.lblComponentS)
+        Me.Controls.Add(Me.Label16)
         Me.Controls.Add(Me.lblComponentI)
         Me.Controls.Add(Me.lblDelay2)
         Me.Controls.Add(Me.lblFeedback2)
@@ -585,4 +600,6 @@ Partial Class SetUp
     Friend WithEvents lblMagnitude2 As Label
     Friend WithEvents lblSchedule2 As Label
     Friend WithEvents lblComponentI As Label
+    Friend WithEvents Label16 As Label
+    Friend WithEvents lblComponentS As Label
 End Class

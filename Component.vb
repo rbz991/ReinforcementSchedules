@@ -10,7 +10,43 @@ Public Class Component
     Dim DelayStimType2 = 0
 
     Private Sub btnReset_Click(sender As Object, e As EventArgs) Handles btnReset.Click
-
+        txbComponentDuration.Text = ""
+        txbComponentIterations.Text = ""
+        txbComponentStimulation.Text = ""
+        txbValueL1.Text = ""
+        txbMagL1.Text = ""
+        txbStimDurL1.Text = ""
+        txbDelayDurL1.Text = ""
+        txbValueL2.Text = ""
+        txbMagL2.Text = ""
+        txbStimDurL2.Text = ""
+        txbDelayDurL2.Text = ""
+        rdoFRL1.Checked = False
+        rdoVRL1.Checked = False
+        rdoFIL1.Checked = False
+        rdoVIL1.Checked = False
+        rdoFRL2.Checked = False
+        rdoVRL2.Checked = False
+        rdoFIL2.Checked = False
+        rdoVIL2.Checked = False
+        rdoLight1L1.Checked = False
+        rdoLight2L1.Checked = False
+        rdoToneL1.Checked = False
+        rdoHouselightL1.Checked = False
+        rdoUnsignaledL1.Checked = False
+        rdoLightDelay1L1.Checked = False
+        rdoLightDelay2L1.Checked = False
+        rdoToneDelayL1.Checked = False
+        rdoHouselightDelayL1.Checked = False
+        rdoLight1L2.Checked = False
+        rdoLight2L2.Checked = False
+        rdoToneL2.Checked = False
+        rdoHouselightL2.Checked = False
+        rdoUnsignaledL2.Checked = False
+        rdoLightDelay1L2.Checked = False
+        rdoLightDelay2L2.Checked = False
+        rdoToneDelayL2.Checked = False
+        rdoHouselightDelayL2.Checked = False
     End Sub
     Private Sub btnSubmit_Click(sender As Object, e As EventArgs) Handles btnSubmit.Click
         If txbComponentDuration.Text = "" Then
@@ -32,7 +68,7 @@ Public Class Component
             AC(vCC).ScheduleType(0) = ScheduleType1
             If txbValueL1.Text = "" Then txbValueL1.Text = 0
             AC(vCC).ScheduleValue(0) = txbValueL1.Text
-            If txbMagL1.Text = "" Then txbMagL1.Text = 1
+            If txbMagL1.Text = "" Then txbMagL1.Text = 0
             AC(vCC).Magnitude(0) = txbMagL1.Text
             If txbStimDurL1.Text = "" Then txbStimDurL1.Text = 0
             AC(vCC).FeedbackDuration(0) = txbStimDurL1.Text
@@ -73,9 +109,27 @@ Public Class Component
             SetUp.Controls.Add(SetUp.LabelPreview(PreviewCounter))
             PreviewCounter += 1
             SetUp.LabelPreview(PreviewCounter) = New Label With {
+            .Location = New Point(SetUp.lblComponentI.Location.X + vPadding, SetUp.lblComponentI.Location.Y),
+            .AutoSize = True,
+            .Text = AC(vCC).ComponentIteration & " times",
+            .Font = New Font("Microsoft Sans Serif", 11.0!)
+            }
+
+            SetUp.Controls.Add(SetUp.LabelPreview(PreviewCounter))
+            PreviewCounter += 1
+            SetUp.LabelPreview(PreviewCounter) = New Label With {
+            .Location = New Point(SetUp.lblComponentS.Location.X + vPadding, SetUp.lblComponentS.Location.Y),
+            .AutoSize = True,
+            .Text = AC(vCC).ComponentStimType & ": " & AC(vCC).ComponentStimDuration & " seconds",
+            .Font = New Font("Microsoft Sans Serif", 11.0!)
+            }
+
+            SetUp.Controls.Add(SetUp.LabelPreview(PreviewCounter))
+            PreviewCounter += 1
+            SetUp.LabelPreview(PreviewCounter) = New Label With {
             .Location = New Point(SetUp.lblSchedule1.Location.X + vPadding, SetUp.lblSchedule1.Location.Y),
             .AutoSize = True,
-            .Text = AC(vCC).ScheduleType(0) & " " & AC(vCC).ScheduleValue(0) & " / " & AC(vCC).ScheduleType(1) & " " & AC(vCC).ScheduleValue(1),
+            .Text = AC(vCC).ScheduleType(0) & " " & AC(vCC).ScheduleValue(0),
             .Font = New Font("Microsoft Sans Serif", 11.0!)
             }
 
@@ -84,7 +138,7 @@ Public Class Component
             SetUp.LabelPreview(PreviewCounter) = New Label With {
             .Location = New Point(SetUp.lblMagnitude1.Location.X + vPadding, SetUp.lblMagnitude1.Location.Y),
             .AutoSize = True,
-            .Text = AC(vCC).Magnitude(0) & " / " & AC(vCC).Magnitude(1) & "pellets",
+            .Text = AC(vCC).Magnitude(0) & " delivery",
             .Font = New Font("Microsoft Sans Serif", 11.0!)
             }
 
@@ -93,7 +147,7 @@ Public Class Component
             SetUp.LabelPreview(PreviewCounter) = New Label With {
             .Location = New Point(SetUp.lblFeedback1.Location.X + vPadding, SetUp.lblFeedback1.Location.Y),
             .AutoSize = True,
-            .Text = AC(vCC).FeedbackType(0) & " " & AC(vCC).FeedbackDuration(0) & " / " & AC(vCC).FeedbackType(1) & " " & AC(vCC).FeedbackDuration(1),
+            .Text = AC(vCC).FeedbackType(0) & ": " & AC(vCC).FeedbackDuration(0) & " seconds",
             .Font = New Font("Microsoft Sans Serif", 11.0!)
             }
 
@@ -102,14 +156,51 @@ Public Class Component
             SetUp.LabelPreview(PreviewCounter) = New Label With {
             .Location = New Point(SetUp.lblDelay1.Location.X + vPadding, SetUp.lblDelay1.Location.Y),
             .AutoSize = True,
-            .Text = "Delay",
+            .Text = AC(vCC).DelayType(0) & ": " & AC(vCC).DelayDuration(0) & " seconds",
             .Font = New Font("Microsoft Sans Serif", 11.0!)
             }
 
             SetUp.Controls.Add(SetUp.LabelPreview(PreviewCounter))
             PreviewCounter += 1
+            SetUp.LabelPreview(PreviewCounter) = New Label With {
+            .Location = New Point(SetUp.lblSchedule2.Location.X + vPadding, SetUp.lblSchedule2.Location.Y),
+            .AutoSize = True,
+            .Text = AC(vCC).ScheduleType(1) & " " & AC(vCC).ScheduleValue(1),
+            .Font = New Font("Microsoft Sans Serif", 11.0!)
+            }
 
-            vPadding += 200
+            SetUp.Controls.Add(SetUp.LabelPreview(PreviewCounter))
+            PreviewCounter += 1
+            SetUp.LabelPreview(PreviewCounter) = New Label With {
+            .Location = New Point(SetUp.lblMagnitude2.Location.X + vPadding, SetUp.lblMagnitude2.Location.Y),
+            .AutoSize = True,
+            .Text = AC(vCC).Magnitude(1) & " delivery",
+            .Font = New Font("Microsoft Sans Serif", 11.0!)
+            }
+
+            SetUp.Controls.Add(SetUp.LabelPreview(PreviewCounter))
+            PreviewCounter += 1
+            SetUp.LabelPreview(PreviewCounter) = New Label With {
+            .Location = New Point(SetUp.lblFeedback2.Location.X + vPadding, SetUp.lblFeedback2.Location.Y),
+            .AutoSize = True,
+            .Text = AC(vCC).FeedbackType(1) & ": " & AC(vCC).FeedbackDuration(1) & " seconds",
+            .Font = New Font("Microsoft Sans Serif", 11.0!)
+            }
+
+            SetUp.Controls.Add(SetUp.LabelPreview(PreviewCounter))
+            PreviewCounter += 1
+            SetUp.LabelPreview(PreviewCounter) = New Label With {
+            .Location = New Point(SetUp.lblDelay2.Location.X + vPadding, SetUp.lblDelay2.Location.Y),
+            .AutoSize = True,
+            .Text = AC(vCC).DelayType(1) & ": " & AC(vCC).DelayDuration(1) & " seconds",
+            .Font = New Font("Microsoft Sans Serif", 11.0!)
+            }
+
+
+            SetUp.Controls.Add(SetUp.LabelPreview(PreviewCounter))
+            PreviewCounter += 1
+
+            vPadding += 180
 
         End If
         Me.Close()
