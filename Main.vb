@@ -64,6 +64,17 @@ Public Class Main
         BeginPrograms() 'Set up for the schedules of reinforcement.
     End Sub
     Private Sub BeginPrograms() 'Llamar esto cada que inicie un componente.
+        tmrLever1.Enabled = False
+        tmrLever2.Enabled = False
+        tmrDelay1.Enabled = False
+        tmrDelay2.Enabled = False
+        tmrStim1.Enabled = False
+        tmrStim2.Enabled = False
+        tmrNosepoke.Enabled = False
+        Arduino.WriteLine("a")
+        Arduino.WriteLine("b")
+        Arduino.WriteLine("t")
+
         WriteLine(1, vTimeNow, "StartComponent" & vCC)
         tmrComponentDuration.Interval = AC(vCC).ComponentDuration
         tmrComponentDuration.Enabled = True
@@ -428,5 +439,13 @@ Public Class Main
             vCC += 1
         End If
         BeginPrograms()
+    End Sub
+
+    Private Sub tmrComponentStim_Tick(sender As Object, e As EventArgs) Handles tmrComponentStim.Tick
+        tmrComponentStim.Enabled = False
+        If AC(vCC).ComponentStimType.Contains("Light 1") = True Then Arduino.WriteLine("a")
+        If AC(vCC).ComponentStimType.Contains("Light 2") = True Then Arduino.WriteLine("b")
+        If AC(vCC).ComponentStimType.Contains("Tone") = True Then Arduino.WriteLine("t")
+        If AC(vCC).ComponentStimType.Contains("Houselight") = True Then Arduino.WriteLine("h")
     End Sub
 End Class
