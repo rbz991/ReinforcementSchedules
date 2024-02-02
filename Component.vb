@@ -2,8 +2,8 @@
 
 Public Class Component
     Dim ComponentStimType = 0
-    Dim ScheduleType1 = 0
-    Dim ScheduleType2 = 0
+    Dim ScheduleType1 = ""
+    Dim ScheduleType2 = ""
     Dim FeedbackType1 = 0
     Dim FeedbackType2 = 0
     Dim DelayStimType1 = 0

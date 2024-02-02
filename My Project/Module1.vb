@@ -27,7 +27,7 @@
     Public vCC As Byte 'vCurrentComponent - contador
     Public MAXvCC As Byte
     Public PalIO(1) As Boolean
-    Public AC(4) As ComponentBlueprint ' ActualComponent
+    Public AC(6) As ComponentBlueprint ' ActualComponent
     Public Structure ComponentBlueprint
         Dim ComponentDuration As Integer
         Dim ComponentIteration As Integer
