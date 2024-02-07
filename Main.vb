@@ -88,7 +88,7 @@ Public Class Main
         If AC(vCC).DelayDuration(0) <> 0 Then tmrDelay1.Interval = AC(vCC).DelayDuration(0) * 1000
         If AC(vCC).DelayDuration(1) <> 0 Then tmrDelay2.Interval = AC(vCC).DelayDuration(1) * 1000
 
-        If AC(vCC).FeedbackDuration(0) <> 2 Then tmrStim1.Interval = AC(vCC).FeedbackDuration(0) * 1000
+        If AC(vCC).FeedbackDuration(0) <> 0 Then tmrStim1.Interval = AC(vCC).FeedbackDuration(0) * 1000
         If AC(vCC).FeedbackDuration(1) <> 0 Then tmrStim2.Interval = AC(vCC).FeedbackDuration(1) * 1000
 
         If AC(vCC).ScheduleType(0) <> "" Then Arduino.WriteLine("L")
