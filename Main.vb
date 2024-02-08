@@ -49,7 +49,7 @@ Public Class Main
                 lblResponses2.Text = ResponseCount(1)
                 lblReinforcers1.Text = RefCount(0)
                 lblReinforcers2.Text = RefCount(1)
-                lblTrayRs.Text = NosepokeCountDel(0)
+                lblTrayRs.Text = NosepokeCount(0)
                 lblDelayR1.Text = ResponseCountDel(0)
                 lblDelayR2.Text = ResponseCountDel(1)
                 lblRfR1.Text = refRdy(0)
