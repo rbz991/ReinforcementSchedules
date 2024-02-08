@@ -148,9 +148,9 @@ Public Class Main
                 If tmrDelay1.Enabled = True Or tmrDelay2.Enabled = True Then
                     WriteLine(1, vTimeNow, Nose + 23)
                     NosepokeCountDel(Nose) += 1
-                    lblTrayRs.Text = NosepokeCount(Nose)
                 Else
                     NosepokeCount(Nose) += 1
+                    lblTrayRs.Text = NosepokeCount(Nose)
                     chartResponse(2) += 1
                     WriteLine(1, vTimeNow, Nose + 3)
                 End If
