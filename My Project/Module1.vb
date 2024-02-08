@@ -24,6 +24,7 @@
     Public chartResponse(2) As Integer
     Public vPadding As Integer
     Public PreviewCounter As Integer
+    Public StimInt As Boolean
     Public vCC As Byte 'vCurrentComponent - contador
     Public MAXvCC As Byte
     Public PalIO(1) As Boolean

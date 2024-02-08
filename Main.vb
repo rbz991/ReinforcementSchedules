@@ -39,17 +39,6 @@ Public Class Main
                 If tmrStart.Enabled = False Then vTimeNow = Environment.TickCount - vTimeStart  'This keeps track of time for the Data output file.
                 If tmrStart.Enabled = True Then vTimeNow = (Countdown) - Environment.TickCount
                 lblTime.Text = Round(vTimeNow / 1000) 'This and the following 6 lines update values of interest on the main form.
-                lblL1.Text = AC(vCC).ScheduleType(0)
-                lblL2.Text = AC(vCC).ScheduleType(1)
-                lblResponses1.Text = ResponseCount(0)
-                lblResponses2.Text = ResponseCount(1)
-                lblReinforcers1.Text = RefCount(0)
-                lblReinforcers2.Text = RefCount(1)
-                lblTrayRs.Text = NosepokeCountDel(0)
-                lblDelayR1.Text = ResponseCountDel(0)
-                lblDelayR2.Text = ResponseCountDel(1)
-                lblRfR1.Text = refRdy(0)
-                lblRfR2.Text = refRdy(1)
                 If RefCount(0) + RefCount(1) >= SetUp.txbRefs.Text Then btnFinish.PerformClick() 'This sets the criteria to finish the session.
             Catch ex As Exception
             End Try
@@ -61,6 +50,8 @@ Public Class Main
         tmrStart.Enabled = False
         vTimeStart = Environment.TickCount 'Establishes a time index for timestamps.
         Arduino.WriteLine("H")
+        tmrComponentStim.Interval = AC(vCC).ComponentStimDuration * 1000
+        tmrComponentStim.Enabled = True
         BeginPrograms() 'Set up for the schedules of reinforcement.
     End Sub
     Private Sub BeginPrograms() 'Llamar esto cada que inicie un componente.
@@ -74,7 +65,6 @@ Public Class Main
         Arduino.WriteLine("a")
         Arduino.WriteLine("b")
         Arduino.WriteLine("t")
-
         WriteLine(1, vTimeNow, "StartComponent" & vCC)
         tmrComponentDuration.Interval = AC(vCC).ComponentDuration
         tmrComponentDuration.Enabled = True
@@ -120,11 +110,13 @@ Public Class Main
                 If tmrDelay1.Enabled = False Then
                     WriteLine(1, vTimeNow, Lever + 1)
                     ResponseCount(Lever) += 1
+                    lblResponses1.Text = ResponseCount(Lever)
                     If refRdy(Lever) = True Then Reinforce(Lever, False)
                     Ratio(Lever)
                 ElseIf tmrDelay1.Enabled = True Then
                     WriteLine(1, vTimeNow, Lever + 21)
                     ResponseCountDel(Lever) += 1
+                    lblDelayR1.Text = ResponseCountDel(Lever)
                     ObtainedDelays(0).Item(DelayIndex1) = vTimeNow
                 End If
             End If
@@ -132,11 +124,13 @@ Public Class Main
                 If tmrDelay2.Enabled = False Then
                     WriteLine(1, vTimeNow, Lever + 1)
                     ResponseCount(Lever) += 1
+                    lblResponses2.Text = ResponseCount(Lever)
                     If refRdy(Lever) = True Then Reinforce(Lever, False)
                     Ratio(Lever)
                 ElseIf tmrDelay2.Enabled = True Then
                     WriteLine(1, vTimeNow, Lever + 21)
                     ResponseCountDel(Lever) += 1
+                    lblDelayR2.Text = ResponseCountDel(Lever)
                     ObtainedDelays(1).Item(DelayIndex2) = vTimeNow
                 End If
             End If
@@ -149,6 +143,7 @@ Public Class Main
                 If tmrDelay1.Enabled = True Or tmrDelay2.Enabled = True Then
                     WriteLine(1, vTimeNow, Nose + 23)
                     NosepokeCountDel(Nose) += 1
+                    lblTrayRs.Text = NosepokeCount(Nose)
                 Else
                     NosepokeCount(Nose) += 1
                     chartResponse(2) += 1
@@ -178,6 +173,8 @@ Public Class Main
             RatioCount(Lever) += 1
             If RatioCount(Lever) >= RatioGoal(Lever) Then
                 refRdy(Lever) = True
+                If Lever = 0 Then lblRfR1.Text = refRdy(0)
+                If Lever = 1 Then lblRfR2.Text = refRdy(1)
                 Reinforce(Lever, False)
                 RatioCount(Lever) = 0
             End If
@@ -206,21 +203,29 @@ Public Class Main
             Arduino.WriteLine("R")
         Else
             refRdy(Lever) = False
+
+
             If Lever = 0 Then
+                lblRfR1.Text = refRdy(0)
                 Chart1.Series("Reinforcers 1").Points.AddXY(chartTime(0), chartResponse(0))
                 For i = 1 To AC(vCC).Magnitude(0)
                     Arduino.WriteLine("R")
+                    RefCount(Lever) += 1
+                    lblReinforcers1.Text = RefCount(Lever)
                 Next
             End If
             If Lever = 1 Then
+                lblRfR2.Text = refRdy(1)
                 Chart1.Series("Reinforcers 2").Points.AddXY(chartTime(1), chartResponse(1))
                 For i = 1 To AC(vCC).Magnitude(1)
                     Arduino.WriteLine("R")
+                    RefCount(Lever) += 1
+                    lblReinforcers2.Text = RefCount(Lever)
                 Next
             End If
             'This line activates the feeder through Arduino. "R" can mean any output connected to the Arduino.
             WriteLine(1, vTimeNow, Lever + 11)
-            RefCount(Lever) += 1
+
             If Lever = 0 Then
                 If AC(vCC).ScheduleType(0) = "Fixed Ratio" Then FRGen(0)
                 If AC(vCC).ScheduleType(0) = "Variable Ratio" Then VRGen(0)
@@ -297,10 +302,12 @@ Public Class Main
     Private Sub tmrSchedule1_Tick(sender As Object, e As EventArgs) Handles tmrLever1.Tick 'This keeps track of time for interval schedules on operanda 1.
         tmrLever1.Enabled = False
         refRdy(0) = True
+        lblRfR1.Text = refRdy(0)
     End Sub
     Private Sub tmrSchedule2_Tick(sender As Object, e As EventArgs) Handles tmrLever2.Tick 'This keeps track of time for interval schedules on operanda 2.
         tmrLever2.Enabled = False
         refRdy(1) = True
+        lblRfR2.Text = refRdy(0)
     End Sub
     Private Sub Finish()
         Arduino.WriteLine("nhtabcd") 'Turns off every output on the Arduino.
@@ -442,10 +449,20 @@ Public Class Main
     End Sub
 
     Private Sub tmrComponentStim_Tick(sender As Object, e As EventArgs) Handles tmrComponentStim.Tick
-        tmrComponentStim.Enabled = False
-        If AC(vCC).ComponentStimType.Contains("Light 1") = True Then Arduino.WriteLine("a")
-        If AC(vCC).ComponentStimType.Contains("Light 2") = True Then Arduino.WriteLine("b")
-        If AC(vCC).ComponentStimType.Contains("Tone") = True Then Arduino.WriteLine("t")
-        If AC(vCC).ComponentStimType.Contains("Houselight") = True Then Arduino.WriteLine("h")
+        If StimInt = False Then
+            StimInt = True
+            If AC(vCC).ComponentStimType.Contains("Light 1") = True Then Arduino.WriteLine("A")
+            If AC(vCC).ComponentStimType.Contains("Light 2") = True Then Arduino.WriteLine("B")
+            If AC(vCC).ComponentStimType.Contains("Tone") = True Then Arduino.WriteLine("T")
+            If AC(vCC).ComponentStimType.Contains("Houselight") = True Then Arduino.WriteLine("H")
+        ElseIf StimInt = True Then
+            StimInt = False
+            If AC(vCC).ComponentStimType.Contains("Light 1") = True Then Arduino.WriteLine("a")
+            If AC(vCC).ComponentStimType.Contains("Light 2") = True Then Arduino.WriteLine("b")
+            If AC(vCC).ComponentStimType.Contains("Tone") = True Then Arduino.WriteLine("t")
+            If AC(vCC).ComponentStimType.Contains("Houselight") = True Then Arduino.WriteLine("h")
+        End If
     End Sub
+
+
 End Class
