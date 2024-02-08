@@ -49,7 +49,6 @@ Public Class Main
     Private Sub tmrStart_Tick(sender As Object, e As EventArgs) Handles tmrStart.Tick
         tmrStart.Enabled = False
         vTimeStart = Environment.TickCount 'Establishes a time index for timestamps.
-        Arduino.WriteLine("H")
         If AC(vCC).ComponentStimDuration <> 0 Then
             tmrComponentStim.Interval = AC(vCC).ComponentStimDuration * 1000
             tmrComponentStim.Enabled = True
@@ -77,6 +76,10 @@ Public Class Main
         lblSubject.Text = SetUp.txtSubject.Text
         lblSession.Text = SetUp.txtSession.Text
         lblCOM.Text = SetUp.txtCOM.Text
+
+        If AC(vCC).HouselightOnOff = True Then Arduino.WriteLine("H")
+        If AC(vCC).HouselightOnOff = False Then Arduino.WriteLine("h")
+
         If AC(vCC).DelayDuration(0) <> 0 Then tmrDelay1.Interval = AC(vCC).DelayDuration(0) * 1000
         If AC(vCC).DelayDuration(1) <> 0 Then tmrDelay2.Interval = AC(vCC).DelayDuration(1) * 1000
 

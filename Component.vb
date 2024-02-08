@@ -8,6 +8,7 @@ Public Class Component
     Dim FeedbackType2 = 0
     Dim DelayStimType1 = 0
     Dim DelayStimType2 = 0
+    Dim HouselightOnOff = False
 
     Private Sub btnReset_Click(sender As Object, e As EventArgs) Handles btnReset.Click
         txbComponentDuration.Text = ""
@@ -87,7 +88,7 @@ Public Class Component
             If txbDelayDurL2.Text = "" Then txbDelayDurL2.Text = 0
             AC(vCC).DelayDuration(1) = txbDelayDurL2.Text
             AC(vCC).DelayType(1) = DelayStimType2
-
+            AC(vCC).HouselightOnOff = HouselightOnOff
 
 
             SetUp.LabelPreview(PreviewCounter) = New Label With {
@@ -232,8 +233,14 @@ Public Class Component
     Private Sub rdoUnsignaledL2_CheckedChanged(sender As Object, e As EventArgs) Handles rdoUnsignaledL2.CheckedChanged, rdoLightDelay1L2.CheckedChanged, rdoLightDelay2L2.CheckedChanged, rdoToneDelayL2.CheckedChanged, rdoHouselightDelayL2.CheckedChanged
         DelayStimType2 = sender.Text
     End Sub
-
     Private Sub Component_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.ClientSize = New Size(370, 570)
+    End Sub
+    Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles chkHouselightOnOff.CheckedChanged
+        If chkHouselightOnOff.Checked = True Then
+            HouselightOnOff = True
+        Else
+            HouselightOnOff = False
+        End If
     End Sub
 End Class

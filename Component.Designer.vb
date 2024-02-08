@@ -97,6 +97,7 @@ Partial Class Component
         Me.txbL1M = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.txbComponentIterations = New System.Windows.Forms.TextBox()
+        Me.chkHouselightOnOff = New System.Windows.Forms.CheckBox()
         Me.GroupBox9.SuspendLayout()
         Me.grpStimL2.SuspendLayout()
         Me.grpStimL1.SuspendLayout()
@@ -972,11 +973,22 @@ Partial Class Component
         Me.txbComponentIterations.TabIndex = 34
         Me.txbComponentIterations.Text = "5"
         '
+        'chkHouselightOnOff
+        '
+        Me.chkHouselightOnOff.AutoSize = True
+        Me.chkHouselightOnOff.Location = New System.Drawing.Point(12, 105)
+        Me.chkHouselightOnOff.Name = "chkHouselightOnOff"
+        Me.chkHouselightOnOff.Size = New System.Drawing.Size(206, 29)
+        Me.chkHouselightOnOff.TabIndex = 36
+        Me.chkHouselightOnOff.Text = "Houselight on/off"
+        Me.chkHouselightOnOff.UseVisualStyleBackColor = True
+        '
         'Component
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(674, 1029)
+        Me.Controls.Add(Me.chkHouselightOnOff)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.txbComponentIterations)
         Me.Controls.Add(Me.Button1)
@@ -1108,4 +1120,5 @@ Partial Class Component
     Friend WithEvents grpSimple As GroupBox
     Friend WithEvents Label8 As Label
     Friend WithEvents txbComponentIterations As TextBox
+    Friend WithEvents chkHouselightOnOff As CheckBox
 End Class

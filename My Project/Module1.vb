@@ -30,6 +30,7 @@
     Public PalIO(1) As Boolean
     Public AC(6) As ComponentBlueprint ' ActualComponent
     Public Structure ComponentBlueprint
+        Dim HouselightOnOff As Boolean
         Dim ComponentDuration As Integer
         Dim ComponentIteration As Integer
         Dim ComponentStimDuration As Integer
