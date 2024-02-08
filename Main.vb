@@ -50,8 +50,10 @@ Public Class Main
         tmrStart.Enabled = False
         vTimeStart = Environment.TickCount 'Establishes a time index for timestamps.
         Arduino.WriteLine("H")
-        tmrComponentStim.Interval = AC(vCC).ComponentStimDuration * 1000
-        tmrComponentStim.Enabled = True
+        If AC(vCC).ComponentStimDuration <> 0 Then
+            tmrComponentStim.Interval = AC(vCC).ComponentStimDuration * 1000
+            tmrComponentStim.Enabled = True
+        End If
         BeginPrograms() 'Set up for the schedules of reinforcement.
     End Sub
     Private Sub BeginPrograms() 'Llamar esto cada que inicie un componente.
