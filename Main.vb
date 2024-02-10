@@ -11,8 +11,8 @@ Public Class Main
         Countdown = Environment.TickCount + SetUp.txbStart.Text * 1000
         tmrStart.Enabled = True
         Do 'This code will run throughout the session to allow response collection. 
-            Try
-                If Arduino.BytesToRead > 0 Then 'Checks for activity on the Arduino.
+
+            If Arduino.BytesToRead > 0 Then 'Checks for activity on the Arduino.
                     Actual_Response = Split(Arduino.ReadLine(), ",") 'Splits data from the arduino into separate responses.
                 End If
                 'The next following lines compare the state of the data stream of operanda 1 and 2 with previous observations to detect responses.
@@ -40,8 +40,7 @@ Public Class Main
                 If tmrStart.Enabled = True Then vTimeNow = (Countdown) - Environment.TickCount
                 lblTime.Text = Round(vTimeNow / 1000) 'This and the following 6 lines update values of interest on the main form.
                 If RefCount(0) + RefCount(1) >= SetUp.txbRefs.Text Then btnFinish.PerformClick() 'This sets the criteria to finish the session.
-            Catch ex As Exception
-            End Try
+
             My.Application.DoEvents() 'This will enable the rest of the program to run while executing the code from above.
         Loop
         Return 0
