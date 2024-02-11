@@ -73,7 +73,7 @@ Public Class Main
         Arduino.WriteLine("b")
         Arduino.WriteLine("t")
         WriteLine(1, vTimeNow, "StartComponent" & vCC)
-        tmrComponentDuration.Interval = AC(vCC).ComponentDuration
+        tmrComponentDuration.Interval = AC(vCC).ComponentDuration * 1000
         tmrComponentDuration.Enabled = True
         VIList(0) = New List(Of Integer)
         VIList(1) = New List(Of Integer)
@@ -117,9 +117,10 @@ Public Class Main
     End Sub
     Private Sub Response(Lever As Integer) 'This registers responses and checks if the reinforcer is available for both ratio and interval schedules.
         If tmrStart.Enabled = False Then
-            Stimulus(Lever)
+
             chartResponse(Lever) += 1
             If Lever = 0 Then
+                If AC(vCC).FeedbackDuration(Lever) > 0 Then Stimulus(Lever)
                 If tmrDelay1.Enabled = False Then
                     WriteLine(1, vTimeNow, Lever + 1)
                     ResponseCount(Lever) += 1
@@ -134,6 +135,7 @@ Public Class Main
                 End If
             End If
             If Lever = 1 Then
+                If AC(vCC).FeedbackDuration(Lever) > 0 Then Stimulus(Lever)
                 If tmrDelay2.Enabled = False Then
                     WriteLine(1, vTimeNow, Lever + 1)
                     ResponseCount(Lever) += 1
