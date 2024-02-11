@@ -1,50 +1,17 @@
 ﻿Imports System.Math
 Imports System.IO.Ports
-Imports Microsoft.SqlServer
 Imports System.Windows.Forms.DataVisualization.Charting
 Public Class Main
     Public Arduino As SerialPort
-    Function ArduinoVB() As Integer 'This function starts the Arduino-VB communication.
+    Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Arduino = New SerialPort(SetUp.txtCOM.Text, 9600) 'Assigns the Arduino to the selected port at a 9600 baud rate. 
         Arduino.Open() 'Starts the Arduino-VB communication.
         tmrStart.Interval = SetUp.txbStart.Text * 1000
         Countdown = Environment.TickCount + SetUp.txbStart.Text * 1000
         tmrStart.Enabled = True
-        Do 'This code will run throughout the session to allow response collection. 
+        bgwArduinoVB.RunWorkerAsync()
+    End Sub
 
-            If Arduino.BytesToRead > 0 Then 'Checks for activity on the Arduino.
-                    Actual_Response = Split(Arduino.ReadLine(), ",") 'Splits data from the arduino into separate responses.
-                End If
-                'The next following lines compare the state of the data stream of operanda 1 and 2 with previous observations to detect responses.
-                If (Actual_Response(0) <> Previous_Response(0) And Actual_Response(0) <> 1) Then
-                    Response(0) 'If a response is registered at operanda 1, this code will run.
-                End If
-                If (Actual_Response(1) <> Previous_Response(1) And Actual_Response(1) <> 1) Then
-                    Response(1) 'The same happens for operanda 2.
-                End If
-                If (Actual_Response(2) <> Previous_Response(2) And Actual_Response(2) <> 1) Then
-                    Nosepoke(0) 'The same happens for operanda 3.
-                End If
-                If (Actual_Response(3) <> Previous_Response(3) And Actual_Response(3) <> 1) Then
-                    'Response(3) 'The same happens for operanda 4.
-                End If
-                If (Actual_Response(4) <> Previous_Response(4) And Actual_Response(4) <> 1) Then
-                    'Response(4) 'The same happens for operanda 5.
-                End If
-                Previous_Response(0) = Actual_Response(0) 'This resets the data stream observation of operanda 1 to detect further responses. 
-                Previous_Response(1) = Actual_Response(1) 'The same happens for operanda 2.
-                Previous_Response(2) = Actual_Response(2)
-                Previous_Response(3) = Actual_Response(3)
-                Previous_Response(4) = Actual_Response(4)
-                If tmrStart.Enabled = False Then vTimeNow = Environment.TickCount - vTimeStart  'This keeps track of time for the Data output file.
-                If tmrStart.Enabled = True Then vTimeNow = (Countdown) - Environment.TickCount
-                lblTime.Text = Round(vTimeNow / 1000) 'This and the following 6 lines update values of interest on the main form.
-                If RefCount(0) + RefCount(1) >= SetUp.txbRefs.Text Then btnFinish.PerformClick() 'This sets the criteria to finish the session.
-
-            My.Application.DoEvents() 'This will enable the rest of the program to run while executing the code from above.
-        Loop
-        Return 0
-    End Function
     Private Sub tmrStart_Tick(sender As Object, e As EventArgs) Handles tmrStart.Tick
         tmrStart.Enabled = False
         vTimeStart = Environment.TickCount 'Establishes a time index for timestamps.
@@ -468,5 +435,37 @@ Public Class Main
         End If
     End Sub
 
+    Private Sub bgwArduinoVB_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles bgwArduinoVB.DoWork
+        Do 'This code will run throughout the session to allow response collection. 
 
+            If Arduino.BytesToRead > 0 Then 'Checks for activity on the Arduino.
+                Actual_Response = Split(Arduino.ReadLine(), ",") 'Splits data from the arduino into separate responses.
+            End If
+            'The next following lines compare the state of the data stream of operanda 1 and 2 with previous observations to detect responses.
+            If (Actual_Response(0) <> Previous_Response(0) And Actual_Response(0) <> 1) Then
+                Response(0) 'If a response is registered at operanda 1, this code will run.
+            End If
+            If (Actual_Response(1) <> Previous_Response(1) And Actual_Response(1) <> 1) Then
+                Response(1) 'The same happens for operanda 2.
+            End If
+            If (Actual_Response(2) <> Previous_Response(2) And Actual_Response(2) <> 1) Then
+                Nosepoke(0) 'The same happens for operanda 3.
+            End If
+            If (Actual_Response(3) <> Previous_Response(3) And Actual_Response(3) <> 1) Then
+                'Response(3) 'The same happens for operanda 4.
+            End If
+            If (Actual_Response(4) <> Previous_Response(4) And Actual_Response(4) <> 1) Then
+                'Response(4) 'The same happens for operanda 5.
+            End If
+            Previous_Response(0) = Actual_Response(0) 'This resets the data stream observation of operanda 1 to detect further responses. 
+            Previous_Response(1) = Actual_Response(1) 'The same happens for operanda 2.
+            Previous_Response(2) = Actual_Response(2)
+            Previous_Response(3) = Actual_Response(3)
+            Previous_Response(4) = Actual_Response(4)
+            If tmrStart.Enabled = False Then vTimeNow = Environment.TickCount - vTimeStart  'This keeps track of time for the Data output file.
+            If tmrStart.Enabled = True Then vTimeNow = (Countdown) - Environment.TickCount
+            lblTime.Text = Round(vTimeNow / 1000) 'This and the following 6 lines update values of interest on the main form.
+            If RefCount(0) + RefCount(1) >= SetUp.txbRefs.Text Then btnFinish.PerformClick() 'This sets the criteria to finish the session.
+        Loop
+    End Sub
 End Class

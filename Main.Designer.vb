@@ -80,6 +80,7 @@ Partial Class Main
         Me.tmrNosepoke = New System.Windows.Forms.Timer(Me.components)
         Me.tmrComponentDuration = New System.Windows.Forms.Timer(Me.components)
         Me.tmrComponentStim = New System.Windows.Forms.Timer(Me.components)
+        Me.bgwArduinoVB = New System.ComponentModel.BackgroundWorker()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -580,6 +581,11 @@ Partial Class Main
         'tmrComponentStim
         '
         '
+        'bgwArduinoVB
+        '
+        Me.bgwArduinoVB.WorkerReportsProgress = True
+        Me.bgwArduinoVB.WorkerSupportsCancellation = True
+        '
         'Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
@@ -681,4 +687,5 @@ Partial Class Main
     Friend WithEvents tmrNosepoke As Timer
     Friend WithEvents tmrComponentDuration As Timer
     Friend WithEvents tmrComponentStim As Timer
+    Friend WithEvents bgwArduinoVB As System.ComponentModel.BackgroundWorker
 End Class

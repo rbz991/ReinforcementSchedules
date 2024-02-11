@@ -32,7 +32,7 @@
             Dim x As New Main
             Me.WindowState = FormWindowState.Minimized
             x.Show()
-            x.ArduinoVB()
+
 
         End If
     End Sub

@@ -309,7 +309,7 @@ Partial Class Component
         Me.txbStimDurL1.Name = "txbStimDurL1"
         Me.txbStimDurL1.Size = New System.Drawing.Size(103, 31)
         Me.txbStimDurL1.TabIndex = 2
-        Me.txbStimDurL1.Text = "6"
+        Me.txbStimDurL1.Text = "1"
         '
         'grpMagnitude
         '
@@ -625,7 +625,7 @@ Partial Class Component
         Me.txbStimDurL2.Name = "txbStimDurL2"
         Me.txbStimDurL2.Size = New System.Drawing.Size(103, 31)
         Me.txbStimDurL2.TabIndex = 2
-        Me.txbStimDurL2.Text = "4"
+        Me.txbStimDurL2.Text = "1"
         '
         'Label2
         '
@@ -644,7 +644,7 @@ Partial Class Component
         Me.txbValueL2.Name = "txbValueL2"
         Me.txbValueL2.Size = New System.Drawing.Size(128, 31)
         Me.txbValueL2.TabIndex = 11
-        Me.txbValueL2.Text = "7"
+        Me.txbValueL2.Text = "10"
         '
         'rdoFIL2
         '
@@ -765,7 +765,7 @@ Partial Class Component
         Me.txbDelayDurL2.Name = "txbDelayDurL2"
         Me.txbDelayDurL2.Size = New System.Drawing.Size(103, 31)
         Me.txbDelayDurL2.TabIndex = 2
-        Me.txbDelayDurL2.Text = "3"
+        Me.txbDelayDurL2.Text = "0"
         '
         'GroupBox6
         '

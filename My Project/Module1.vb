@@ -32,7 +32,7 @@
     Public Structure ComponentBlueprint
         Dim HouselightOnOff As Boolean
         Dim ComponentDuration As Integer
-        Dim ComponentIteration As Integer
+        Dim ComponentIteration As Byte
         Dim ComponentStimDuration As Integer
         Dim ComponentStimType As String
         Dim ScheduleType() As String
