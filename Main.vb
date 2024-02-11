@@ -12,6 +12,7 @@ Public Class Main
         Arduino = New SerialPort(SetUp.txtCOM.Text, 9600) 'Assigns the Arduino to the selected port at a 9600 baud rate. 
         Arduino.Open() 'Starts the Arduino-VB communication.
         tmrStart.Interval = SetUp.txbStart.Text * 1000
+        tmrICI.Interval = SetUp.txbICI.Text * 1000
         Countdown = Environment.TickCount + SetUp.txbStart.Text * 1000
         tmrStart.Enabled = True
 
@@ -44,7 +45,9 @@ Public Class Main
                 If tmrStart.Enabled = False Then vTimeNow = Environment.TickCount - vTimeStart  'This keeps track of time for the Data output file.
                 If tmrStart.Enabled = True Then vTimeNow = (Countdown) - Environment.TickCount
                 lblTime.Text = Round(vTimeNow / 1000) 'This and the following 6 lines update values of interest on the main form.
-                If RefCount(0) + RefCount(1) >= SetUp.txbRefs.Text Then btnFinish.PerformClick() 'This sets the criteria to finish the session.
+                If RefCount(0) + RefCount(1) >= SetUp.txbRefs.Text Or ComponentsDepleted = True Then
+                    btnFinish.PerformClick() 'This sets the criteria to finish the session.
+                End If
 
             Catch ex As Exception
             End Try
@@ -58,6 +61,10 @@ Public Class Main
         BeginPrograms() 'Set up for the schedules of reinforcement.
     End Sub
     Private Sub BeginPrograms() 'Llamar esto cada que inicie un componente.
+        lblActiveComponent.Text = vCC
+        lblComponentDuration.Text = AC(vCC).ComponentDuration
+        lblComponentStim.Text = AC(vCC).ComponentStimType
+        lblIterationsLeft.Text = AC(vCC).IterationsLeft
         tmrComponentStim.Enabled = False
         If AC(vCC).ComponentStimDuration > 0 Then
             tmrComponentStim.Interval = AC(vCC).ComponentStimDuration * 1000
@@ -121,7 +128,6 @@ Public Class Main
     End Sub
     Private Sub Response(Lever As Integer) 'This registers responses and checks if the reinforcer is available for both ratio and interval schedules.
         If tmrStart.Enabled = False Then
-
             chartResponse(Lever) += 1
             If Lever = 0 Then
                 If AC(vCC).FeedbackDuration(Lever) > 0 Then Stimulus(Lever)
@@ -134,7 +140,7 @@ Public Class Main
                 ElseIf tmrDelay1.Enabled = True Then
                     WriteLine(1, vTimeNow, Lever + 21)
                     ResponseCountDel(Lever) += 1
-                    lblDelayR1.Text = ResponseCountDel(Lever)
+                    'lblDelayR1.Text = ResponseCountDel(Lever)
                     ObtainedDelays(0).Item(DelayIndex1) = vTimeNow
                 End If
             End If
@@ -149,14 +155,14 @@ Public Class Main
                 ElseIf tmrDelay2.Enabled = True Then
                     WriteLine(1, vTimeNow, Lever + 21)
                     ResponseCountDel(Lever) += 1
-                    lblDelayR2.Text = ResponseCountDel(Lever)
+                    'lblDelayR2.Text = ResponseCountDel(Lever)
                     ObtainedDelays(1).Item(DelayIndex2) = vTimeNow
                 End If
             End If
         End If
     End Sub
     Private Sub Nosepoke(Nose As Integer)
-        If vTimeNow > 500 Then
+        If tmrStart.Enabled = False Then
             If tmrNosepoke.Enabled = False Then
                 tmrNosepoke.Enabled = True
                 If tmrDelay1.Enabled = True Or tmrDelay2.Enabled = True Then
@@ -422,13 +428,16 @@ Public Class Main
     End Sub
     Private Sub btnFinish_Click(sender As Object, e As EventArgs) Handles btnFinish.Click
         'This controls the 'Finish' button on the main form. Used to end the session by hand.
-        tmrPostSession.Enabled = True
+        lblActiveComponent.Text = "Session End"
+        tmrComponentDuration.Enabled = False
+        tmrComponentStim.Enabled = False
         btnFinish.Enabled = False
         btnLever1.Enabled = False
         btnLever2.Enabled = False
         btnL1IO.Enabled = False
         btnL2IO.Enabled = False
         btnReinforce.Enabled = False
+        tmrPostSession.Enabled = True
         Chart1.SaveImage("C:\Data\Charts\" & SetUp.txtSubject.Text & "_" & SetUp.txtSession.Text & "_chart_" & Format(Date.Now, "hh_mm_ss") & ".png", ChartImageFormat.Png)
     End Sub
     Private Sub btnL1IO_Click(sender As Object, e As EventArgs) Handles btnL1IO.Click
@@ -468,12 +477,19 @@ Public Class Main
     Private Sub tmrComponentDuration_Tick(sender As Object, e As EventArgs) Handles tmrComponentDuration.Tick
         tmrComponentDuration.Enabled = False
         WriteLine(1, vTimeNow, "EndComponent" & vCC)
-        If vCC = MAXvCC Then
-            vCC = 1
+        If AC(vCC).IterationsLeft > 0 Then
+            AC(vCC).IterationsLeft -= 1
         Else
-            vCC += 1
+            ComponentsDepleted = True
         End If
-        BeginPrograms()
+
+        lblActiveComponent.Text = "ICI"
+        lblComponentDuration.Text = SetUp.txbICI.Text
+        lblComponentStim.Text = ""
+        lblIterationsLeft.Text = ""
+        tmrComponentStim.Enabled = False
+        Arduino.WriteLine("abhlmt")
+        tmrICI.Enabled = True
     End Sub
 
     Private Sub tmrComponentStim_Tick(sender As Object, e As EventArgs) Handles tmrComponentStim.Tick
@@ -500,5 +516,13 @@ Public Class Main
         End If
     End Sub
 
-
+    Private Sub tmrICI_Tick(sender As Object, e As EventArgs) Handles tmrICI.Tick
+        tmrICI.Enabled = False
+        If vCC = MAXvCC Then
+            vCC = 1
+        Else
+            vCC += 1
+        End If
+        BeginPrograms()
+    End Sub
 End Class

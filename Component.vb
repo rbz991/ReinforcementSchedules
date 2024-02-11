@@ -51,7 +51,7 @@ Public Class Component
             If txbComponentIterations.Text = "" Then
                 MsgBox("Please input Component iterations.")
             Else
-                AC(vCC).ComponentIteration = txbComponentIterations.Text
+                AC(vCC).ComponentIteration = txbComponentIterations.Text - 1
                 If txbComponentStimulation.Text = "" Then
                     MsgBox("Please input Component stimulation. Select 0 for always on.")
                 Else
@@ -110,7 +110,7 @@ Public Class Component
                     SetUp.LabelPreview(PreviewCounter) = New Label With {
             .Location = New Point(SetUp.lblComponentI.Location.X + vPadding, SetUp.lblComponentI.Location.Y),
             .AutoSize = True,
-            .Text = AC(vCC).ComponentIteration & " times",
+            .Text = AC(vCC).ComponentIteration + 1 & " times",
             .Font = New Font("Microsoft Sans Serif", 11.0!)
             }
 

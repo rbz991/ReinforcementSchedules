@@ -27,12 +27,13 @@
     Public StimInt As Boolean
     Public vCC As Byte 'vCurrentComponent - contador
     Public MAXvCC As Byte
+    Public ComponentsDepleted As Boolean
     Public PalIO(1) As Boolean
     Public AC(6) As ComponentBlueprint ' ActualComponent
     Public Structure ComponentBlueprint
         Dim HouselightOnOff As Boolean
         Dim ComponentDuration As Integer
-        Dim ComponentIteration As Integer
+        Dim ComponentIteration As Byte
         Dim ComponentStimDuration As Double
         Dim ComponentStimType As String
         Dim ScheduleType() As String
@@ -42,6 +43,7 @@
         Dim FeedbackType() As String
         Dim DelayDuration() As Integer
         Dim DelayType() As String
+        Dim IterationsLeft As Byte
     End Structure
 
 

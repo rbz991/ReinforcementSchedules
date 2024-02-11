@@ -33,7 +33,7 @@ Partial Class SetUp
         Me.Label6 = New System.Windows.Forms.Label()
         Me.txbStart = New System.Windows.Forms.TextBox()
         Me.btnAddComponent = New System.Windows.Forms.Button()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txbICI = New System.Windows.Forms.TextBox()
         Me.lblICI = New System.Windows.Forms.Label()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -162,14 +162,14 @@ Partial Class SetUp
         Me.btnAddComponent.Text = "Add Component"
         Me.btnAddComponent.UseVisualStyleBackColor = True
         '
-        'TextBox1
+        'txbICI
         '
-        Me.TextBox1.Location = New System.Drawing.Point(127, 257)
-        Me.TextBox1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(121, 31)
-        Me.TextBox1.TabIndex = 26
-        Me.TextBox1.Text = "30"
+        Me.txbICI.Location = New System.Drawing.Point(127, 257)
+        Me.txbICI.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.txbICI.Name = "txbICI"
+        Me.txbICI.Size = New System.Drawing.Size(121, 31)
+        Me.txbICI.TabIndex = 26
+        Me.txbICI.Text = "30"
         '
         'lblICI
         '
@@ -540,7 +540,7 @@ Partial Class SetUp
         Me.Controls.Add(Me.lblSchedule1)
         Me.Controls.Add(Me.TextBox2)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.txbICI)
         Me.Controls.Add(Me.lblICI)
         Me.Controls.Add(Me.btnAddComponent)
         Me.Controls.Add(Me.txbStart)
@@ -571,7 +571,7 @@ Partial Class SetUp
     Friend WithEvents Label6 As Label
     Friend WithEvents txbStart As TextBox
     Friend WithEvents btnAddComponent As Button
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents txbICI As TextBox
     Friend WithEvents lblICI As Label
     Friend WithEvents TextBox2 As TextBox
     Friend WithEvents Label1 As Label

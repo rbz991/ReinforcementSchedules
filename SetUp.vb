@@ -29,6 +29,11 @@
             WriteLine(1, "Tray r on Delay: 23")
             MAXvCC = vCC
             vCC = 1
+            For i = 1 To MAXvCC
+                AC(i).IterationsLeft = AC(i).ComponentIteration
+            Next
+
+
             Dim x As New Main
             Me.WindowState = FormWindowState.Minimized
             x.Show()
