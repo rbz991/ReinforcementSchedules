@@ -4,6 +4,10 @@ Imports Microsoft.SqlServer
 Imports System.Windows.Forms.DataVisualization.Charting
 Public Class Main
     Public Arduino As SerialPort
+    Private WithEvents tmrChrt As Timer = New Timer
+
+    'Public tmrChrt As Timers.Timer
+
     Function ArduinoVB() As Integer 'This function starts the Arduino-VB communication.
         Arduino = New SerialPort(SetUp.txtCOM.Text, 9600) 'Assigns the Arduino to the selected port at a 9600 baud rate. 
         Arduino.Open() 'Starts the Arduino-VB communication.
@@ -107,7 +111,9 @@ Public Class Main
         WriteLine(1, "Lever 2 Schedule: " & lblL2.Text)
         WriteLine(2, "Lever 1 Schedule: " & lblL1.Text)
         WriteLine(2, "Lever 2 Schedule: " & lblL2.Text)
-        tmrChart.Enabled = True
+        'tmrChart.Enabled = True
+        tmrChrt.Interval = 1000
+        tmrChrt.Enabled = True
     End Sub
     Private Sub Response(Lever As Integer) 'This registers responses and checks if the reinforcer is available for both ratio and interval schedules.
         If tmrStart.Enabled = False Then
@@ -339,27 +345,36 @@ Public Class Main
         Next
         End
     End Sub
-    Private Sub tmrChart_Tick(sender As Object, e As EventArgs) Handles tmrChart.Tick
+
+
+
+
+
+
+    Private Sub tmrChrt_Tick(sender As Object, e As EventArgs) Handles tmrChrt.Tick
         For i = 0 To 2
             chartTime(i) += 1
         Next
         Chart1.Series("Lever 1").Points.AddXY(chartTime(0), chartResponse(0))
         Chart1.Series("Lever 2").Points.AddXY(chartTime(1), chartResponse(1))
         Chart1.Series("Tray").Points.AddXY(chartTime(2), chartResponse(2))
-        'If chartTime(0) >= 900 Or chartTime(1) >= 900 Or chartTime(2) >= 900 Or ResponseCount(0) >= 200 Or ResponseCount(1) >= 200 Or ResponseCount(2) >= 200 Then
-        '    Chart1.SaveImage("C:\Data\Charts\" & SetUp.txtSubject.Text & "_" & SetUp.txtSession.Text & "_chart_" & Format(Date.Now, "hh_mm_ss") & ".bmp", System.Drawing.Imaging.ImageFormat.Bmp)
-        '    Chart1.Series("Lever 1").Points.Clear()
-        '    Chart1.Series("Reinforcers 1").Points.Clear()
-        '    Chart1.Series("Lever 2").Points.Clear()
-        '    Chart1.Series("Reinforcers 2").Points.Clear()
-        '    Chart1.Series("Tray").Points.Clear()
-        '    Chart1.Printing.Print(True)
-        '    For i = 0 To 2
-        '        chartTime(i) = 0
-        '        chartResponse(i) = 0
-        '    Next
-        'End If
     End Sub
+
+
+    'If chartTime(0) >= 900 Or chartTime(1) >= 900 Or chartTime(2) >= 900 Or ResponseCount(0) >= 200 Or ResponseCount(1) >= 200 Or ResponseCount(2) >= 200 Then
+    '    Chart1.SaveImage("C:\Data\Charts\" & SetUp.txtSubject.Text & "_" & SetUp.txtSession.Text & "_chart_" & Format(Date.Now, "hh_mm_ss") & ".bmp", System.Drawing.Imaging.ImageFormat.Bmp)
+    '    Chart1.Series("Lever 1").Points.Clear()
+    '    Chart1.Series("Reinforcers 1").Points.Clear()
+    '    Chart1.Series("Lever 2").Points.Clear()
+    '    Chart1.Series("Reinforcers 2").Points.Clear()
+    '    Chart1.Series("Tray").Points.Clear()
+    '    Chart1.Printing.Print(True)
+    '    For i = 0 To 2
+    '        chartTime(i) = 0
+    '        chartResponse(i) = 0
+    '    Next
+    'End If
+    'End Sub
     Private Sub tmrDelay1_Tick(sender As Object, e As EventArgs) Handles tmrDelay1.Tick
         tmrDelay1.Enabled = False
         If AC(vCC).DelayType(0) <> "Unsignaled" Then
