@@ -55,13 +55,17 @@ Public Class Main
     Private Sub tmrStart_Tick(sender As Object, e As EventArgs) Handles tmrStart.Tick
         tmrStart.Enabled = False
         vTimeStart = Environment.TickCount 'Establishes a time index for timestamps.
-        If AC(vCC).ComponentStimDuration <> 0 Then
-            tmrComponentStim.Interval = AC(vCC).ComponentStimDuration * 1000
-            tmrComponentStim.Enabled = True
-        End If
         BeginPrograms() 'Set up for the schedules of reinforcement.
     End Sub
     Private Sub BeginPrograms() 'Llamar esto cada que inicie un componente.
+        tmrComponentStim.Enabled = False
+        If AC(vCC).ComponentStimDuration > 0 Then
+            tmrComponentStim.Interval = AC(vCC).ComponentStimDuration * 1000
+            tmrComponentStim.Enabled = True
+        ElseIf AC(vCC).ComponentStimDuration = 0 Then
+            tmrComponentStim.Interval = 1
+            tmrComponentStim.Enabled = True
+        End If
         tmrLever1.Enabled = False
         tmrLever2.Enabled = False
         tmrDelay1.Enabled = False
@@ -473,18 +477,26 @@ Public Class Main
     End Sub
 
     Private Sub tmrComponentStim_Tick(sender As Object, e As EventArgs) Handles tmrComponentStim.Tick
-        If StimInt = False Then
-            StimInt = True
+        If AC(vCC).ComponentStimDuration = 0 Then
+            tmrComponentStim.Enabled = False
             If AC(vCC).ComponentStimType.Contains("Light 1") = True Then Arduino.WriteLine("A")
             If AC(vCC).ComponentStimType.Contains("Light 2") = True Then Arduino.WriteLine("B")
             If AC(vCC).ComponentStimType.Contains("Tone") = True Then Arduino.WriteLine("T")
             If AC(vCC).ComponentStimType.Contains("Houselight") = True Then Arduino.WriteLine("H")
-        ElseIf StimInt = True Then
-            StimInt = False
-            If AC(vCC).ComponentStimType.Contains("Light 1") = True Then Arduino.WriteLine("a")
-            If AC(vCC).ComponentStimType.Contains("Light 2") = True Then Arduino.WriteLine("b")
-            If AC(vCC).ComponentStimType.Contains("Tone") = True Then Arduino.WriteLine("t")
-            If AC(vCC).ComponentStimType.Contains("Houselight") = True Then Arduino.WriteLine("h")
+        Else
+            If StimInt = False Then
+                StimInt = True
+                If AC(vCC).ComponentStimType.Contains("Light 1") = True Then Arduino.WriteLine("A")
+                If AC(vCC).ComponentStimType.Contains("Light 2") = True Then Arduino.WriteLine("B")
+                If AC(vCC).ComponentStimType.Contains("Tone") = True Then Arduino.WriteLine("T")
+                If AC(vCC).ComponentStimType.Contains("Houselight") = True Then Arduino.WriteLine("H")
+            ElseIf StimInt = True Then
+                StimInt = False
+                If AC(vCC).ComponentStimType.Contains("Light 1") = True Then Arduino.WriteLine("a")
+                If AC(vCC).ComponentStimType.Contains("Light 2") = True Then Arduino.WriteLine("b")
+                If AC(vCC).ComponentStimType.Contains("Tone") = True Then Arduino.WriteLine("t")
+                If AC(vCC).ComponentStimType.Contains("Houselight") = True Then Arduino.WriteLine("h")
+            End If
         End If
     End Sub
 

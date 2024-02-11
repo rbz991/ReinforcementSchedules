@@ -33,7 +33,7 @@
         Dim HouselightOnOff As Boolean
         Dim ComponentDuration As Integer
         Dim ComponentIteration As Integer
-        Dim ComponentStimDuration As Integer
+        Dim ComponentStimDuration As Double
         Dim ComponentStimType As String
         Dim ScheduleType() As String
         Dim ScheduleValue() As Integer

@@ -43,7 +43,6 @@ Partial Class Component
         Me.Label7 = New System.Windows.Forms.Label()
         Me.txbMagL1 = New System.Windows.Forms.TextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.rdoUnsignaledL1 = New System.Windows.Forms.RadioButton()
         Me.rdoHouselightDelayL1 = New System.Windows.Forms.RadioButton()
         Me.rdoToneDelayL1 = New System.Windows.Forms.RadioButton()
         Me.rdoLightDelay2L1 = New System.Windows.Forms.RadioButton()
@@ -70,7 +69,6 @@ Partial Class Component
         Me.rdoFIL2 = New System.Windows.Forms.RadioButton()
         Me.rdoVIL2 = New System.Windows.Forms.RadioButton()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
-        Me.rdoUnsignaledL2 = New System.Windows.Forms.RadioButton()
         Me.rdoHouselightDelayL2 = New System.Windows.Forms.RadioButton()
         Me.rdoToneDelayL2 = New System.Windows.Forms.RadioButton()
         Me.rdoLightDelay2L2 = New System.Windows.Forms.RadioButton()
@@ -309,7 +307,7 @@ Partial Class Component
         Me.txbStimDurL1.Name = "txbStimDurL1"
         Me.txbStimDurL1.Size = New System.Drawing.Size(103, 31)
         Me.txbStimDurL1.TabIndex = 2
-        Me.txbStimDurL1.Text = "6"
+        Me.txbStimDurL1.Text = "0"
         '
         'grpMagnitude
         '
@@ -341,11 +339,10 @@ Partial Class Component
         Me.txbMagL1.Name = "txbMagL1"
         Me.txbMagL1.Size = New System.Drawing.Size(48, 31)
         Me.txbMagL1.TabIndex = 2
-        Me.txbMagL1.Text = "1"
+        Me.txbMagL1.Text = "0"
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.rdoUnsignaledL1)
         Me.GroupBox2.Controls.Add(Me.rdoHouselightDelayL1)
         Me.GroupBox2.Controls.Add(Me.rdoToneDelayL1)
         Me.GroupBox2.Controls.Add(Me.rdoLightDelay2L1)
@@ -361,22 +358,10 @@ Partial Class Component
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Delay"
         '
-        'rdoUnsignaledL1
-        '
-        Me.rdoUnsignaledL1.AutoSize = True
-        Me.rdoUnsignaledL1.Location = New System.Drawing.Point(13, 74)
-        Me.rdoUnsignaledL1.Margin = New System.Windows.Forms.Padding(4)
-        Me.rdoUnsignaledL1.Name = "rdoUnsignaledL1"
-        Me.rdoUnsignaledL1.Size = New System.Drawing.Size(151, 29)
-        Me.rdoUnsignaledL1.TabIndex = 28
-        Me.rdoUnsignaledL1.TabStop = True
-        Me.rdoUnsignaledL1.Text = "Unsignaled"
-        Me.rdoUnsignaledL1.UseVisualStyleBackColor = True
-        '
         'rdoHouselightDelayL1
         '
         Me.rdoHouselightDelayL1.AutoSize = True
-        Me.rdoHouselightDelayL1.Location = New System.Drawing.Point(13, 217)
+        Me.rdoHouselightDelayL1.Location = New System.Drawing.Point(13, 183)
         Me.rdoHouselightDelayL1.Margin = New System.Windows.Forms.Padding(4)
         Me.rdoHouselightDelayL1.Name = "rdoHouselightDelayL1"
         Me.rdoHouselightDelayL1.Size = New System.Drawing.Size(145, 29)
@@ -388,7 +373,7 @@ Partial Class Component
         'rdoToneDelayL1
         '
         Me.rdoToneDelayL1.AutoSize = True
-        Me.rdoToneDelayL1.Location = New System.Drawing.Point(13, 180)
+        Me.rdoToneDelayL1.Location = New System.Drawing.Point(13, 146)
         Me.rdoToneDelayL1.Margin = New System.Windows.Forms.Padding(4)
         Me.rdoToneDelayL1.Name = "rdoToneDelayL1"
         Me.rdoToneDelayL1.Size = New System.Drawing.Size(92, 29)
@@ -400,7 +385,7 @@ Partial Class Component
         'rdoLightDelay2L1
         '
         Me.rdoLightDelay2L1.AutoSize = True
-        Me.rdoLightDelay2L1.Location = New System.Drawing.Point(13, 142)
+        Me.rdoLightDelay2L1.Location = New System.Drawing.Point(13, 108)
         Me.rdoLightDelay2L1.Margin = New System.Windows.Forms.Padding(4)
         Me.rdoLightDelay2L1.Name = "rdoLightDelay2L1"
         Me.rdoLightDelay2L1.Size = New System.Drawing.Size(108, 29)
@@ -412,7 +397,7 @@ Partial Class Component
         'rdoLightDelay1L1
         '
         Me.rdoLightDelay1L1.AutoSize = True
-        Me.rdoLightDelay1L1.Location = New System.Drawing.Point(13, 108)
+        Me.rdoLightDelay1L1.Location = New System.Drawing.Point(13, 74)
         Me.rdoLightDelay1L1.Margin = New System.Windows.Forms.Padding(4)
         Me.rdoLightDelay1L1.Name = "rdoLightDelay1L1"
         Me.rdoLightDelay1L1.Size = New System.Drawing.Size(108, 29)
@@ -477,7 +462,7 @@ Partial Class Component
         Me.txbValueL1.Name = "txbValueL1"
         Me.txbValueL1.Size = New System.Drawing.Size(145, 31)
         Me.txbValueL1.TabIndex = 11
-        Me.txbValueL1.Text = "5"
+        Me.txbValueL1.Text = "0"
         '
         'rdoFIL1
         '
@@ -625,7 +610,7 @@ Partial Class Component
         Me.txbStimDurL2.Name = "txbStimDurL2"
         Me.txbStimDurL2.Size = New System.Drawing.Size(103, 31)
         Me.txbStimDurL2.TabIndex = 2
-        Me.txbStimDurL2.Text = "4"
+        Me.txbStimDurL2.Text = "0"
         '
         'Label2
         '
@@ -644,7 +629,7 @@ Partial Class Component
         Me.txbValueL2.Name = "txbValueL2"
         Me.txbValueL2.Size = New System.Drawing.Size(128, 31)
         Me.txbValueL2.TabIndex = 11
-        Me.txbValueL2.Text = "7"
+        Me.txbValueL2.Text = "0"
         '
         'rdoFIL2
         '
@@ -672,7 +657,6 @@ Partial Class Component
         '
         'GroupBox5
         '
-        Me.GroupBox5.Controls.Add(Me.rdoUnsignaledL2)
         Me.GroupBox5.Controls.Add(Me.rdoHouselightDelayL2)
         Me.GroupBox5.Controls.Add(Me.rdoToneDelayL2)
         Me.GroupBox5.Controls.Add(Me.rdoLightDelay2L2)
@@ -688,22 +672,10 @@ Partial Class Component
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Delay"
         '
-        'rdoUnsignaledL2
-        '
-        Me.rdoUnsignaledL2.AutoSize = True
-        Me.rdoUnsignaledL2.Location = New System.Drawing.Point(13, 74)
-        Me.rdoUnsignaledL2.Margin = New System.Windows.Forms.Padding(4)
-        Me.rdoUnsignaledL2.Name = "rdoUnsignaledL2"
-        Me.rdoUnsignaledL2.Size = New System.Drawing.Size(151, 29)
-        Me.rdoUnsignaledL2.TabIndex = 29
-        Me.rdoUnsignaledL2.TabStop = True
-        Me.rdoUnsignaledL2.Text = "Unsignaled"
-        Me.rdoUnsignaledL2.UseVisualStyleBackColor = True
-        '
         'rdoHouselightDelayL2
         '
         Me.rdoHouselightDelayL2.AutoSize = True
-        Me.rdoHouselightDelayL2.Location = New System.Drawing.Point(13, 217)
+        Me.rdoHouselightDelayL2.Location = New System.Drawing.Point(13, 183)
         Me.rdoHouselightDelayL2.Margin = New System.Windows.Forms.Padding(4)
         Me.rdoHouselightDelayL2.Name = "rdoHouselightDelayL2"
         Me.rdoHouselightDelayL2.Size = New System.Drawing.Size(145, 29)
@@ -715,7 +687,7 @@ Partial Class Component
         'rdoToneDelayL2
         '
         Me.rdoToneDelayL2.AutoSize = True
-        Me.rdoToneDelayL2.Location = New System.Drawing.Point(13, 180)
+        Me.rdoToneDelayL2.Location = New System.Drawing.Point(13, 146)
         Me.rdoToneDelayL2.Margin = New System.Windows.Forms.Padding(4)
         Me.rdoToneDelayL2.Name = "rdoToneDelayL2"
         Me.rdoToneDelayL2.Size = New System.Drawing.Size(92, 29)
@@ -727,7 +699,7 @@ Partial Class Component
         'rdoLightDelay2L2
         '
         Me.rdoLightDelay2L2.AutoSize = True
-        Me.rdoLightDelay2L2.Location = New System.Drawing.Point(13, 142)
+        Me.rdoLightDelay2L2.Location = New System.Drawing.Point(13, 108)
         Me.rdoLightDelay2L2.Margin = New System.Windows.Forms.Padding(4)
         Me.rdoLightDelay2L2.Name = "rdoLightDelay2L2"
         Me.rdoLightDelay2L2.Size = New System.Drawing.Size(108, 29)
@@ -739,7 +711,7 @@ Partial Class Component
         'rdoLightDelay1L2
         '
         Me.rdoLightDelay1L2.AutoSize = True
-        Me.rdoLightDelay1L2.Location = New System.Drawing.Point(13, 108)
+        Me.rdoLightDelay1L2.Location = New System.Drawing.Point(13, 74)
         Me.rdoLightDelay1L2.Margin = New System.Windows.Forms.Padding(4)
         Me.rdoLightDelay1L2.Name = "rdoLightDelay1L2"
         Me.rdoLightDelay1L2.Size = New System.Drawing.Size(108, 29)
@@ -765,7 +737,7 @@ Partial Class Component
         Me.txbDelayDurL2.Name = "txbDelayDurL2"
         Me.txbDelayDurL2.Size = New System.Drawing.Size(103, 31)
         Me.txbDelayDurL2.TabIndex = 2
-        Me.txbDelayDurL2.Text = "3"
+        Me.txbDelayDurL2.Text = "0"
         '
         'GroupBox6
         '
@@ -797,7 +769,7 @@ Partial Class Component
         Me.txbMagL2.Name = "txbMagL2"
         Me.txbMagL2.Size = New System.Drawing.Size(47, 31)
         Me.txbMagL2.TabIndex = 2
-        Me.txbMagL2.Text = "1"
+        Me.txbMagL2.Text = "0"
         '
         'rdoVRL2
         '
@@ -877,7 +849,7 @@ Partial Class Component
         Me.txbComponentStimulation.Name = "txbComponentStimulation"
         Me.txbComponentStimulation.Size = New System.Drawing.Size(98, 31)
         Me.txbComponentStimulation.TabIndex = 32
-        Me.txbComponentStimulation.Text = "1"
+        Me.txbComponentStimulation.Text = "0"
         '
         'rdoComponentHouselight
         '
@@ -1101,8 +1073,6 @@ Partial Class Component
     Friend WithEvents rdoFRL2 As RadioButton
     Friend WithEvents btnReset As Button
     Friend WithEvents btnSubmit As Button
-    Friend WithEvents rdoUnsignaledL1 As RadioButton
-    Friend WithEvents rdoUnsignaledL2 As RadioButton
     Friend WithEvents Label5 As Label
     Friend WithEvents txbComponentDuration As TextBox
     Friend WithEvents Label6 As Label
