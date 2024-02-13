@@ -45,9 +45,9 @@ Public Class Main
                 If tmrStart.Enabled = False Then vTimeNow = Environment.TickCount - vTimeStart  'This keeps track of time for the Data output file.
                 If tmrStart.Enabled = True Then vTimeNow = (Countdown) - Environment.TickCount
                 lblTime.Text = Round(vTimeNow / 1000) 'This and the following 6 lines update values of interest on the main form.
-                If RefCount(0) + RefCount(1) >= SetUp.txbRefs.Text Or ComponentsDepleted = True Then
-                    btnFinish.PerformClick() 'This sets the criteria to finish the session.
-                End If
+                If RefCount(0) + RefCount(1) >= SetUp.txbRefs.Text Then btnFinish.PerformClick()
+                '    btnFinish.PerformClick() 'This sets the criteria to finish the session.
+                'End If
 
             Catch ex As Exception
             End Try
@@ -209,7 +209,7 @@ Public Class Main
         If Lever = 0 And AC(vCC).DelayDuration(0) > 0 And Delay = False Then
             tmrDelay1.Enabled = True
             ObtainedDelays(0).Add(vTimeNow) 'The reponse that onsets the delay adds this time
-            If AC(vCC).DelayType(0) <> "Unsignaled" Then
+            If AC(vCC).DelayType(0) <> "" Then
                 If AC(vCC).DelayType(0).Contains("Light 1") = True Then Arduino.WriteLine("A")
                 If AC(vCC).DelayType(0).Contains("Light 2") = True Then Arduino.WriteLine("B")
                 If AC(vCC).DelayType(0).Contains("Tone") = True Then Arduino.WriteLine("T")
@@ -218,7 +218,7 @@ Public Class Main
         ElseIf Lever = 1 And AC(vCC).DelayDuration(1) > 0 = True And Delay = False Then
             tmrDelay2.Enabled = True
             ObtainedDelays(1).Add(vTimeNow)
-            If AC(vCC).DelayType(1) <> "Unsignaled" Then
+            If AC(vCC).DelayType(1) <> "" Then
                 If AC(vCC).DelayType(1).Contains("Light 1") = True Then Arduino.WriteLine("A")
                 If AC(vCC).DelayType(1).Contains("Light 2") = True Then Arduino.WriteLine("B")
                 If AC(vCC).DelayType(1).Contains("Tone") = True Then Arduino.WriteLine("T")
@@ -389,7 +389,7 @@ Public Class Main
     'End Sub
     Private Sub tmrDelay1_Tick(sender As Object, e As EventArgs) Handles tmrDelay1.Tick
         tmrDelay1.Enabled = False
-        If AC(vCC).DelayType(0) <> "Unsignaled" Then
+        If AC(vCC).DelayType(0) <> "" Then
             If AC(vCC).DelayType(0).Contains("Light 1") = True Then Arduino.WriteLine("a")
             If AC(vCC).DelayType(0).Contains("Light 2") = True Then Arduino.WriteLine("b")
             If AC(vCC).DelayType(0).Contains("Tone") = True Then Arduino.WriteLine("t")
@@ -402,7 +402,7 @@ Public Class Main
     End Sub
     Private Sub tmrDelay2_Tick(sender As Object, e As EventArgs) Handles tmrDelay2.Tick
         tmrDelay2.Enabled = False
-        If AC(vCC).DelayType(1) <> "Unsignaled" Then
+        If AC(vCC).DelayType(1) <> "" Then
             If AC(vCC).DelayType(1).Contains("Light 1") = True Then Arduino.WriteLine("a")
             If AC(vCC).DelayType(1).Contains("Light 2") = True Then Arduino.WriteLine("b")
             If AC(vCC).DelayType(1).Contains("Tone") = True Then Arduino.WriteLine("t")
@@ -437,6 +437,7 @@ Public Class Main
         btnL1IO.Enabled = False
         btnL2IO.Enabled = False
         btnReinforce.Enabled = False
+        tmrPostSession.Interval = SetUp.txbPostSession.Text * 1000
         tmrPostSession.Enabled = True
         Chart1.SaveImage("C:\Data\Charts\" & SetUp.txtSubject.Text & "_" & SetUp.txtSession.Text & "_chart_" & Format(Date.Now, "hh_mm_ss") & ".png", ChartImageFormat.Png)
     End Sub
@@ -488,7 +489,7 @@ Public Class Main
         lblComponentStim.Text = ""
         lblIterationsLeft.Text = ""
         tmrComponentStim.Enabled = False
-        Arduino.WriteLine("abhlmt")
+        Arduino.WriteLine("abhtlm")
         tmrICI.Enabled = True
     End Sub
 
@@ -517,12 +518,17 @@ Public Class Main
     End Sub
 
     Private Sub tmrICI_Tick(sender As Object, e As EventArgs) Handles tmrICI.Tick
-        tmrICI.Enabled = False
-        If vCC = MAXvCC Then
-            vCC = 1
+        If ComponentsDepleted = True Then
+            btnFinish.PerformClick()
         Else
-            vCC += 1
+            tmrICI.Enabled = False
+            If vCC = MAXvCC Then
+                vCC = 1
+            Else
+                vCC += 1
+            End If
+            BeginPrograms()
         End If
-        BeginPrograms()
+
     End Sub
 End Class

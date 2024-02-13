@@ -35,7 +35,7 @@ Partial Class SetUp
         Me.btnAddComponent = New System.Windows.Forms.Button()
         Me.txbICI = New System.Windows.Forms.TextBox()
         Me.lblICI = New System.Windows.Forms.Label()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.txbPostSession = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lblDelay1 = New System.Windows.Forms.Label()
         Me.lblFeedback1 = New System.Windows.Forms.Label()
@@ -181,14 +181,14 @@ Partial Class SetUp
         Me.lblICI.TabIndex = 25
         Me.lblICI.Text = "IC Interval:"
         '
-        'TextBox2
+        'txbPostSession
         '
-        Me.TextBox2.Location = New System.Drawing.Point(126, 213)
-        Me.TextBox2.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(121, 31)
-        Me.TextBox2.TabIndex = 28
-        Me.TextBox2.Text = "10"
+        Me.txbPostSession.Location = New System.Drawing.Point(126, 213)
+        Me.txbPostSession.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.txbPostSession.Name = "txbPostSession"
+        Me.txbPostSession.Size = New System.Drawing.Size(121, 31)
+        Me.txbPostSession.TabIndex = 28
+        Me.txbPostSession.Text = "10"
         '
         'Label1
         '
@@ -538,7 +538,7 @@ Partial Class SetUp
         Me.Controls.Add(Me.lblComponent)
         Me.Controls.Add(Me.lblMagnitude1)
         Me.Controls.Add(Me.lblSchedule1)
-        Me.Controls.Add(Me.TextBox2)
+        Me.Controls.Add(Me.txbPostSession)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txbICI)
         Me.Controls.Add(Me.lblICI)
@@ -573,7 +573,7 @@ Partial Class SetUp
     Friend WithEvents btnAddComponent As Button
     Friend WithEvents txbICI As TextBox
     Friend WithEvents lblICI As Label
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents txbPostSession As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents lblDelay1 As Label
     Friend WithEvents lblFeedback1 As Label
