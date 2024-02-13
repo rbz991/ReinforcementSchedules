@@ -231,18 +231,20 @@ Public Class Main
 
 
             If Lever = 0 Then
-                lblRfR1.Text = refRdy(0)
-                Chart1.Series("Reinforcers 1").Points.AddXY(chartTime(0), chartResponse(0))
+
                 For i = 1 To AC(vCC).Magnitude(0)
+                    lblRfR1.Text = refRdy(0)
+                    Chart1.Series("Reinforcers 1").Points.AddXY(chartTime(0), chartResponse(0))
                     Arduino.WriteLine("R")
                     RefCount(Lever) += 1
                     lblReinforcers1.Text = RefCount(Lever)
                 Next
             End If
             If Lever = 1 Then
-                lblRfR2.Text = refRdy(1)
-                Chart1.Series("Reinforcers 2").Points.AddXY(chartTime(1), chartResponse(1))
+
                 For i = 1 To AC(vCC).Magnitude(1)
+                    lblRfR2.Text = refRdy(1)
+                    Chart1.Series("Reinforcers 2").Points.AddXY(chartTime(1), chartResponse(1))
                     Arduino.WriteLine("R")
                     RefCount(Lever) += 1
                     lblReinforcers2.Text = RefCount(Lever)
