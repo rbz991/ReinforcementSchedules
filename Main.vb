@@ -45,7 +45,7 @@ Public Class Main
                 If tmrStart.Enabled = False Then vTimeNow = Environment.TickCount - vTimeStart  'This keeps track of time for the Data output file.
                 If tmrStart.Enabled = True Then vTimeNow = (Countdown) - Environment.TickCount
                 lblTime.Text = Round(vTimeNow / 1000) 'This and the following 6 lines update values of interest on the main form.
-                If RefCount(0) + RefCount(1) >= SetUp.txbRefs.Text Then btnFinish.PerformClick()
+                If SetUp.txbRefs.Text > 0 And RefCount(0) + RefCount(1) >= SetUp.txbRefs.Text Then btnFinish.PerformClick()
                 '    btnFinish.PerformClick() 'This sets the criteria to finish the session.
                 'End If
 
