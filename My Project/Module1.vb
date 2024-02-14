@@ -27,8 +27,11 @@
     Public StimInt As Boolean
     Public vCC As Byte 'vCurrentComponent - contador
     Public MAXvCC As Byte
+    Public RandomCPres As Boolean
+    Public PreviousComp(1) As Byte
     Public ComponentsDepleted As Boolean
     Public PalIO(1) As Boolean
+    Public CompList As List(Of Integer)
     Public AC(6) As ComponentBlueprint ' ActualComponent
     Public Structure ComponentBlueprint
         Dim HouselightOnOff As Boolean

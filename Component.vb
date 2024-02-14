@@ -51,7 +51,7 @@ Public Class Component
             If txbComponentIterations.Text = "" Then
                 MsgBox("Please input Component iterations.")
             Else
-                AC(vCC).ComponentIteration = txbComponentIterations.Text - 1
+                AC(vCC).ComponentIteration = txbComponentIterations.Text
                 If txbComponentStimulation.Text = "" Then
                     MsgBox("Please input Component stimulation. Select 0 for always on.")
                 Else

@@ -49,5 +49,8 @@
         f.ShowDialog()
     End Sub
 
-
+    Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
+        If CheckBox1.Checked = True Then RandomCPres = True
+        If CheckBox1.Checked = False Then RandomCPres = False
+    End Sub
 End Class

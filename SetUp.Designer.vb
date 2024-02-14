@@ -64,6 +64,8 @@ Partial Class SetUp
         Me.lblComponentI = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.lblComponentS = New System.Windows.Forms.Label()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.SuspendLayout()
         '
         'btnComenzar
@@ -154,10 +156,10 @@ Partial Class SetUp
         '
         'btnAddComponent
         '
-        Me.btnAddComponent.Location = New System.Drawing.Point(13, 311)
+        Me.btnAddComponent.Location = New System.Drawing.Point(13, 330)
         Me.btnAddComponent.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.btnAddComponent.Name = "btnAddComponent"
-        Me.btnAddComponent.Size = New System.Drawing.Size(220, 220)
+        Me.btnAddComponent.Size = New System.Drawing.Size(220, 201)
         Me.btnAddComponent.TabIndex = 24
         Me.btnAddComponent.Text = "Add Component"
         Me.btnAddComponent.UseVisualStyleBackColor = True
@@ -506,11 +508,32 @@ Partial Class SetUp
         Me.lblComponentS.Text = "ComponentS"
         Me.lblComponentS.Visible = False
         '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Location = New System.Drawing.Point(14, 299)
+        Me.Label17.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(192, 25)
+        Me.Label17.TabIndex = 57
+        Me.Label17.Text = "Rand components:"
+        '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Location = New System.Drawing.Point(213, 296)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(28, 27)
+        Me.CheckBox1.TabIndex = 58
+        Me.CheckBox1.UseVisualStyleBackColor = True
+        '
         'SetUp
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1439, 766)
+        Me.Controls.Add(Me.CheckBox1)
+        Me.Controls.Add(Me.Label17)
         Me.Controls.Add(Me.lblComponentS)
         Me.Controls.Add(Me.Label16)
         Me.Controls.Add(Me.lblComponentI)
@@ -602,4 +625,6 @@ Partial Class SetUp
     Friend WithEvents lblComponentI As Label
     Friend WithEvents Label16 As Label
     Friend WithEvents lblComponentS As Label
+    Friend WithEvents Label17 As Label
+    Friend WithEvents CheckBox1 As CheckBox
 End Class

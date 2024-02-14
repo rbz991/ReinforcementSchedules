@@ -2,6 +2,7 @@
 Imports System.IO.Ports
 Imports Microsoft.SqlServer
 Imports System.Windows.Forms.DataVisualization.Charting
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar
 Public Class Main
     Public Arduino As SerialPort
     Private WithEvents tmrChrt As Timer = New Timer
@@ -57,10 +58,30 @@ Public Class Main
     End Function
     Private Sub tmrStart_Tick(sender As Object, e As EventArgs) Handles tmrStart.Tick
         tmrStart.Enabled = False
+        CompList = New List(Of Integer)
+        For i = 1 To vCC
+            For l = 1 To AC(i).ComponentIteration
+                CompList.Add(vCC)
+            Next
+        Next
         vTimeStart = Environment.TickCount 'Establishes a time index for timestamps.
         BeginPrograms() 'Set up for the schedules of reinforcement.
     End Sub
     Private Sub BeginPrograms() 'Llamar esto cada que inicie un componente.
+        If RandomCPres = True Then
+            Dim Rond As New Random
+
+1:          Dim q As Byte = Rond.Next(CompList.Count)
+            If q = PreviousComp(0) And PreviousComp(0) = PreviousComp(1) Then
+                GoTo 1
+            End If
+            vCC = q
+            PreviousComp(0) = q
+            PreviousComp(1) = PreviousComp(0)
+            CompList.RemoveAt(q)
+        End If
+        If AC(vCC).IterationsLeft > 0 Then AC(vCC).IterationsLeft -= 1
+
         lblActiveComponent.Text = vCC
         lblComponentDuration.Text = AC(vCC).ComponentDuration
         lblComponentStim.Text = AC(vCC).ComponentStimType
@@ -480,11 +501,12 @@ Public Class Main
     Private Sub tmrComponentDuration_Tick(sender As Object, e As EventArgs) Handles tmrComponentDuration.Tick
         tmrComponentDuration.Enabled = False
         WriteLine(1, vTimeNow, "EndComponent" & vCC)
-        If AC(vCC).IterationsLeft > 0 Then
-            AC(vCC).IterationsLeft -= 1
-        Else
-            ComponentsDepleted = True
-        End If
+        Dim allDepleted As Boolean = True
+        For i = 1 To vCC
+            If AC(i).IterationsLeft > 0 Then allDepleted = False
+        Next
+
+        If allDepleted = True Then ComponentsDepleted = True
 
         lblActiveComponent.Text = "ICI"
         lblComponentDuration.Text = SetUp.txbICI.Text
@@ -524,13 +546,16 @@ Public Class Main
             btnFinish.PerformClick()
         Else
             tmrICI.Enabled = False
-            If vCC = MAXvCC Then
-                vCC = 1
-            Else
-                vCC += 1
+            If RandomCPres = False Then
+                If vCC = MAXvCC Then
+                    vCC = 1
+                Else
+                    vCC += 1
+                End If
+                BeginPrograms()
+            ElseIf RandomCPres = True Then
+                BeginPrograms()
             End If
-            BeginPrograms()
         End If
-
     End Sub
 End Class
