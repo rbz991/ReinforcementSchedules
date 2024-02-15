@@ -64,6 +64,7 @@ Public Class Main
                 CompList.Add(vCC)
             Next
         Next
+        WriteLine(1, "Components presented at random: " & CStr(RandomCPres))
         vTimeStart = Environment.TickCount 'Establishes a time index for timestamps.
         BeginPrograms() 'Set up for the schedules of reinforcement.
     End Sub
