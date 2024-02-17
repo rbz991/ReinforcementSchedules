@@ -12,49 +12,55 @@ Public Class Component
 
 
     Private Sub btnSubmit_Click(sender As Object, e As EventArgs) Handles btnSubmit.Click
-        If rdoComponentStimLight1.Checked = True Then ComponentStimType = "Light 1"
-        If rdoComponentStimLight2.Checked = True Then ComponentStimType = "Light 2"
-        If rdoComponentTone.Checked = True Then ComponentStimType = "Tone"
-        If rdoComponentHouselight.Checked = True Then ComponentStimType = "Houselight"
 
-        If rdoFRL1.Checked = True Then ScheduleType1 = "Fixed Ratio"
-        If rdoVRL1.Checked = True Then ScheduleType1 = "Variable Ratio"
-        If rdoFIL1.Checked = True Then ScheduleType1 = "Fixed Interval"
-        If rdoVIL1.Checked = True Then ScheduleType1 = "Variable Interval"
-        If rdoFRL2.Checked = True Then ScheduleType2 = "Fixed Ratio"
-        If rdoVRL2.Checked = True Then ScheduleType2 = "Variable Ratio"
-        If rdoFIL2.Checked = True Then ScheduleType2 = "Fixed Interval"
-        If rdoVIL2.Checked = True Then ScheduleType2 = "Variable Interval"
-
-        If rdoLight1L1.Checked = True Then FeedbackType1 = "Light 1"
-        If rdoLight2L1.Checked = True Then FeedbackType1 = "Light 2"
-        If rdoToneL1.Checked = True Then FeedbackType1 = "Tone"
-        If rdoHouselightL1.Checked = True Then FeedbackType1 = "Houselight"
-        If rdoLight1L2.Checked = True Then FeedbackType2 = "Light 1"
-        If rdoLight2L2.Checked = True Then FeedbackType2 = "Light 2"
-        If rdoToneL2.Checked = True Then FeedbackType2 = "Tone"
-        If rdoHouselightL2.Checked = True Then FeedbackType2 = "Houselight"
-
-        If rdoLightDelay1L1.Checked = True Then DelayStimType1 = "Light 1"
-        If rdoLightDelay2L1.Checked = True Then DelayStimType1 = "Light 2"
-        If rdoToneDelayL1.Checked = True Then DelayStimType1 = "Tone"
-        If rdoHouselightDelayL1.Checked = True Then DelayStimType1 = "Houselight"
-        If rdoLightDelay1L2.Checked = True Then DelayStimType2 = "Light 1"
-        If rdoLightDelay2L2.Checked = True Then DelayStimType2 = "Light 2"
-        If rdoToneDelayL2.Checked = True Then DelayStimType2 = "Tone"
-        If rdoHouselightDelayL2.Checked = True Then DelayStimType2 = "Houselight"
 
         If txbComponentDuration.Text = "" Or txbComponentDuration.Text = 0 Then
             MsgBox("Please input Component duration.")
+            Exit Sub
         Else
             AC(vCC).ComponentDuration = txbComponentDuration.Text
             If txbComponentIterations.Text = "" Or txbComponentIterations.Text = 0 Then
                 MsgBox("Please input Component iterations.")
+                Exit Sub
             Else
                 AC(vCC).ComponentIteration = txbComponentIterations.Text
                 If txbComponentStimulation.Text = "" Then
                     MsgBox("Please input Component stimulation. Select 0 for always on.")
+                    Exit Sub
                 Else
+
+                    If rdoComponentStimLight1.Checked = True Then ComponentStimType = "Light 1"
+                    If rdoComponentStimLight2.Checked = True Then ComponentStimType = "Light 2"
+                    If rdoComponentTone.Checked = True Then ComponentStimType = "Tone"
+                    If rdoComponentHouselight.Checked = True Then ComponentStimType = "Houselight"
+
+                    If rdoFRL1.Checked = True Then ScheduleType1 = "Fixed Ratio"
+                    If rdoVRL1.Checked = True Then ScheduleType1 = "Variable Ratio"
+                    If rdoFIL1.Checked = True Then ScheduleType1 = "Fixed Interval"
+                    If rdoVIL1.Checked = True Then ScheduleType1 = "Variable Interval"
+                    If rdoFRL2.Checked = True Then ScheduleType2 = "Fixed Ratio"
+                    If rdoVRL2.Checked = True Then ScheduleType2 = "Variable Ratio"
+                    If rdoFIL2.Checked = True Then ScheduleType2 = "Fixed Interval"
+                    If rdoVIL2.Checked = True Then ScheduleType2 = "Variable Interval"
+
+                    If rdoLight1L1.Checked = True Then FeedbackType1 = "Light 1"
+                    If rdoLight2L1.Checked = True Then FeedbackType1 = "Light 2"
+                    If rdoToneL1.Checked = True Then FeedbackType1 = "Tone"
+                    If rdoHouselightL1.Checked = True Then FeedbackType1 = "Houselight"
+                    If rdoLight1L2.Checked = True Then FeedbackType2 = "Light 1"
+                    If rdoLight2L2.Checked = True Then FeedbackType2 = "Light 2"
+                    If rdoToneL2.Checked = True Then FeedbackType2 = "Tone"
+                    If rdoHouselightL2.Checked = True Then FeedbackType2 = "Houselight"
+
+                    If rdoLightDelay1L1.Checked = True Then DelayStimType1 = "Light 1"
+                    If rdoLightDelay2L1.Checked = True Then DelayStimType1 = "Light 2"
+                    If rdoToneDelayL1.Checked = True Then DelayStimType1 = "Tone"
+                    If rdoHouselightDelayL1.Checked = True Then DelayStimType1 = "Houselight"
+                    If rdoLightDelay1L2.Checked = True Then DelayStimType2 = "Light 1"
+                    If rdoLightDelay2L2.Checked = True Then DelayStimType2 = "Light 2"
+                    If rdoToneDelayL2.Checked = True Then DelayStimType2 = "Tone"
+                    If rdoHouselightDelayL2.Checked = True Then DelayStimType2 = "Houselight"
+
                     AC(vCC).ComponentStimDuration = txbComponentStimulation.Text
                     AC(vCC).ComponentStimType = ComponentStimType
                     ReDim AC(vCC).ScheduleType(1)
