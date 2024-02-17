@@ -44,11 +44,11 @@ Public Class Component
         If rdoToneDelayL2.Checked = True Then DelayStimType2 = "Tone"
         If rdoHouselightDelayL2.Checked = True Then DelayStimType2 = "Houselight"
 
-        If txbComponentDuration.Text = "" Then
+        If txbComponentDuration.Text = "" Or txbComponentDuration.Text = 0 Then
             MsgBox("Please input Component duration.")
         Else
             AC(vCC).ComponentDuration = txbComponentDuration.Text
-            If txbComponentIterations.Text = "" Then
+            If txbComponentIterations.Text = "" Or txbComponentIterations.Text = 0 Then
                 MsgBox("Please input Component iterations.")
             Else
                 AC(vCC).ComponentIteration = txbComponentIterations.Text
