@@ -59,9 +59,9 @@ Public Class Main
     Private Sub tmrStart_Tick(sender As Object, e As EventArgs) Handles tmrStart.Tick
         tmrStart.Enabled = False
         CompList = New List(Of Integer)
-        For i = 1 To vCC
+        For i = 1 To MAXvCC
             For l = 1 To AC(i).ComponentIteration
-                CompList.Add(vCC)
+                CompList.Add(i)
             Next
         Next
         WriteLine(1, "Components presented at random: " & CStr(RandomCPres))
@@ -73,12 +73,13 @@ Public Class Main
             Dim Rond As New Random
 
 1:          Dim q As Byte = Rond.Next(CompList.Count)
-            If q = PreviousComp(0) And PreviousComp(0) = PreviousComp(1) Then
+            If CompList.Item(q) = PreviousComp(0) And PreviousComp(0) = PreviousComp(1) Then
                 GoTo 1
             End If
-            vCC = q
-            PreviousComp(0) = q
+            vCC = CompList.Item(q)
             PreviousComp(1) = PreviousComp(0)
+            PreviousComp(0) = CompList.Item(q)
+
             CompList.RemoveAt(q)
         End If
         If AC(vCC).IterationsLeft > 0 Then AC(vCC).IterationsLeft -= 1
@@ -502,12 +503,7 @@ Public Class Main
     Private Sub tmrComponentDuration_Tick(sender As Object, e As EventArgs) Handles tmrComponentDuration.Tick
         tmrComponentDuration.Enabled = False
         WriteLine(1, vTimeNow, "EndComponent" & vCC)
-        Dim allDepleted As Boolean = True
-        For i = 1 To vCC
-            If AC(i).IterationsLeft > 0 Then allDepleted = False
-        Next
 
-        If allDepleted = True Then ComponentsDepleted = True
 
         lblActiveComponent.Text = "ICI"
         lblComponentDuration.Text = SetUp.txbICI.Text
@@ -543,8 +539,14 @@ Public Class Main
     End Sub
 
     Private Sub tmrICI_Tick(sender As Object, e As EventArgs) Handles tmrICI.Tick
+        Dim allDepleted As Boolean = True
+        For i = 1 To MAXvCC
+            If AC(i).IterationsLeft > 0 Then allDepleted = False
+        Next
+        If allDepleted = True Then ComponentsDepleted = True
         If ComponentsDepleted = True Then
             btnFinish.PerformClick()
+
         Else
             tmrICI.Enabled = False
             If RandomCPres = False Then

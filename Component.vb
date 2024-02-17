@@ -116,7 +116,7 @@ Public Class Component
                     SetUp.LabelPreview(PreviewCounter) = New Label With {
             .Location = New Point(SetUp.lblComponentI.Location.X + vPadding, SetUp.lblComponentI.Location.Y),
             .AutoSize = True,
-            .Text = AC(vCC).ComponentIteration + 1 & " times",
+            .Text = AC(vCC).ComponentIteration & " times",
             .Font = New Font("Microsoft Sans Serif", 11.0!)
             }
 
