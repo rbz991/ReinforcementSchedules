@@ -1,5 +1,5 @@
 ﻿Public Class SetUp
-    Public LabelPreview(35) As Label
+    Public LabelPreview(50) As Label
 
     Private Sub btnComenzar_Click(sender As Object, e As EventArgs) Handles btnComenzar.Click
         'This checks for errors or missing data in the set up and prompts the user for corrections. If no problem is found the selected programs are initiated.

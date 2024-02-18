@@ -32,6 +32,8 @@ Partial Class Main
         Dim Series5 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim Series6 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim Series7 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series8 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series9 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Main))
         Me.tmrLever1 = New System.Windows.Forms.Timer(Me.components)
         Me.tmrLever2 = New System.Windows.Forms.Timer(Me.components)
@@ -390,13 +392,23 @@ Partial Class Main
         Series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Area
         Series6.Color = System.Drawing.Color.Blue
         Series6.Legend = "Legend1"
-        Series6.Name = "Component1"
+        Series6.Name = "Component 1"
         Series7.ChartArea = "ChartArea1"
         Series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Area
         Series7.Color = System.Drawing.Color.Red
         Series7.Legend = "Legend1"
-        Series7.Name = "Component2"
+        Series7.Name = "Component 2"
         Series7.YValuesPerPoint = 2
+        Series8.ChartArea = "ChartArea1"
+        Series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Area
+        Series8.Color = System.Drawing.Color.Yellow
+        Series8.Legend = "Legend1"
+        Series8.Name = "Component 3"
+        Series9.ChartArea = "ChartArea1"
+        Series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Area
+        Series9.Color = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
+        Series9.Legend = "Legend1"
+        Series9.Name = "Component 4"
         Me.Chart1.Series.Add(Series1)
         Me.Chart1.Series.Add(Series2)
         Me.Chart1.Series.Add(Series3)
@@ -404,6 +416,8 @@ Partial Class Main
         Me.Chart1.Series.Add(Series5)
         Me.Chart1.Series.Add(Series6)
         Me.Chart1.Series.Add(Series7)
+        Me.Chart1.Series.Add(Series8)
+        Me.Chart1.Series.Add(Series9)
         Me.Chart1.Size = New System.Drawing.Size(1252, 378)
         Me.Chart1.TabIndex = 32
         '

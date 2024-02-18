@@ -406,24 +406,33 @@ Public Class Main
         Chart1.Series("Lever 2").Points.AddXY(chartTime(1), chartResponse(1))
         Chart1.Series("Tray").Points.AddXY(chartTime(2), chartResponse(2))
         If tmrICI.Enabled = True Then
-            '    Chart1.Series.Add("ICI")
-            'Chart1.Series("ICI" & ICIcounter).Points.Add()
-            'Chart1.Series("Component2").Color = Color.Transparent
-            Chart1.Series("Component1").Points.AddXY(chartTime(3), chartResponse(3) - 1)
-            Chart1.Series("Component2").Points.AddXY(chartTime(3), chartResponse(3) - 1)
+            Chart1.Series("Component 1").Points.AddXY(chartTime(3), chartResponse(3) - 1)
+            Chart1.Series("Component 2").Points.AddXY(chartTime(3), chartResponse(3) - 1)
+            Chart1.Series("Component 3").Points.AddXY(chartTime(3), chartResponse(3) - 1)
+            Chart1.Series("Component 4").Points.AddXY(chartTime(3), chartResponse(3) - 1)
         Else
             If vCC = 1 Then
-                'Chart1.Series("Component1").Color = Color.Blue
-                'Chart1.Series("Component2").Color = Color.Transparent
-                Chart1.Series("Component1").Points.AddXY(chartTime(3), chartResponse(3))
-                Chart1.Series("Component2").Points.AddXY(chartTime(3), chartResponse(3) - 1)
+                Chart1.Series("Component 1").Points.AddXY(chartTime(3), chartResponse(3))
+                Chart1.Series("Component 2").Points.AddXY(chartTime(3), chartResponse(3) - 1)
+                Chart1.Series("Component 3").Points.AddXY(chartTime(3), chartResponse(3) - 1)
+                Chart1.Series("Component 4").Points.AddXY(chartTime(3), chartResponse(3) - 1)
+            ElseIf vCC = 2 Then
+                Chart1.Series("Component 1").Points.AddXY(chartTime(3), chartResponse(3) - 1)
+                Chart1.Series("Component 2").Points.AddXY(chartTime(3), chartResponse(3))
+                Chart1.Series("Component 3").Points.AddXY(chartTime(3), chartResponse(3) - 1)
+                Chart1.Series("Component 4").Points.AddXY(chartTime(3), chartResponse(3) - 1)
+            ElseIf vCC = 3 Then
+                Chart1.Series("Component 1").Points.AddXY(chartTime(3), chartResponse(3) - 1)
+                Chart1.Series("Component 2").Points.AddXY(chartTime(3), chartResponse(3) - 1)
+                Chart1.Series("Component 3").Points.AddXY(chartTime(3), chartResponse(3))
+                Chart1.Series("Component 4").Points.AddXY(chartTime(3), chartResponse(3) - 1)
+            ElseIf vCC = 4 Then
+                Chart1.Series("Component 1").Points.AddXY(chartTime(3), chartResponse(3) - 1)
+                Chart1.Series("Component 2").Points.AddXY(chartTime(3), chartResponse(3) - 1)
+                Chart1.Series("Component 3").Points.AddXY(chartTime(3), chartResponse(3) - 1)
+                Chart1.Series("Component 4").Points.AddXY(chartTime(3), chartResponse(3))
             End If
-            If vCC = 2 Then
-                'Chart1.Series("Component1").Color = Color.Transparent
-                'Chart1.Series("Component2").Color = Color.Red
-                Chart1.Series("Component1").Points.AddXY(chartTime(3), chartResponse(3) - 1)
-                Chart1.Series("Component2").Points.AddXY(chartTime(3), chartResponse(3))
-            End If
+
         End If
 
 
