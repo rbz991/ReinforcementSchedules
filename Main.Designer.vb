@@ -161,7 +161,7 @@ Partial Class Main
         '
         Me.lblL2.AutoSize = True
         Me.lblL2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblL2.Location = New System.Drawing.Point(1027, 83)
+        Me.lblL2.Location = New System.Drawing.Point(1115, 83)
         Me.lblL2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblL2.Name = "lblL2"
         Me.lblL2.Size = New System.Drawing.Size(79, 37)
@@ -172,7 +172,7 @@ Partial Class Main
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(831, 83)
+        Me.Label2.Location = New System.Drawing.Point(919, 83)
         Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(131, 37)
@@ -183,7 +183,7 @@ Partial Class Main
         '
         Me.lblL1.AutoSize = True
         Me.lblL1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblL1.Location = New System.Drawing.Point(1027, 9)
+        Me.lblL1.Location = New System.Drawing.Point(1115, 9)
         Me.lblL1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblL1.Name = "lblL1"
         Me.lblL1.Size = New System.Drawing.Size(79, 37)
@@ -194,7 +194,7 @@ Partial Class Main
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(831, 9)
+        Me.Label4.Location = New System.Drawing.Point(919, 9)
         Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(129, 37)
@@ -205,7 +205,7 @@ Partial Class Main
         '
         Me.lblResponses1.AutoSize = True
         Me.lblResponses1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.125!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblResponses1.Location = New System.Drawing.Point(1219, 187)
+        Me.lblResponses1.Location = New System.Drawing.Point(1167, 187)
         Me.lblResponses1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblResponses1.Name = "lblResponses1"
         Me.lblResponses1.Size = New System.Drawing.Size(29, 31)
@@ -216,7 +216,7 @@ Partial Class Main
         '
         Me.lblResponses2.AutoSize = True
         Me.lblResponses2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.125!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblResponses2.Location = New System.Drawing.Point(1219, 253)
+        Me.lblResponses2.Location = New System.Drawing.Point(1167, 253)
         Me.lblResponses2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblResponses2.Name = "lblResponses2"
         Me.lblResponses2.Size = New System.Drawing.Size(29, 31)
@@ -227,7 +227,7 @@ Partial Class Main
         '
         Me.lblReinforcers1.AutoSize = True
         Me.lblReinforcers1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.125!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblReinforcers1.Location = New System.Drawing.Point(1219, 220)
+        Me.lblReinforcers1.Location = New System.Drawing.Point(1167, 220)
         Me.lblReinforcers1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblReinforcers1.Name = "lblReinforcers1"
         Me.lblReinforcers1.Size = New System.Drawing.Size(29, 31)
@@ -238,7 +238,7 @@ Partial Class Main
         '
         Me.lblReinforcers2.AutoSize = True
         Me.lblReinforcers2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.125!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblReinforcers2.Location = New System.Drawing.Point(1219, 286)
+        Me.lblReinforcers2.Location = New System.Drawing.Point(1167, 286)
         Me.lblReinforcers2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblReinforcers2.Name = "lblReinforcers2"
         Me.lblReinforcers2.Size = New System.Drawing.Size(29, 31)
@@ -271,7 +271,7 @@ Partial Class Main
         '
         Me.lblRfR1.AutoSize = True
         Me.lblRfR1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblRfR1.Location = New System.Drawing.Point(1027, 46)
+        Me.lblRfR1.Location = New System.Drawing.Point(1115, 46)
         Me.lblRfR1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblRfR1.Name = "lblRfR1"
         Me.lblRfR1.Size = New System.Drawing.Size(35, 37)
@@ -282,7 +282,7 @@ Partial Class Main
         '
         Me.Label13.AutoSize = True
         Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(831, 46)
+        Me.Label13.Location = New System.Drawing.Point(919, 46)
         Me.Label13.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(156, 37)
@@ -293,7 +293,7 @@ Partial Class Main
         '
         Me.lblRfR2.AutoSize = True
         Me.lblRfR2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblRfR2.Location = New System.Drawing.Point(1027, 120)
+        Me.lblRfR2.Location = New System.Drawing.Point(1115, 120)
         Me.lblRfR2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblRfR2.Name = "lblRfR2"
         Me.lblRfR2.Size = New System.Drawing.Size(35, 37)
@@ -304,7 +304,7 @@ Partial Class Main
         '
         Me.Label15.AutoSize = True
         Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(831, 120)
+        Me.Label15.Location = New System.Drawing.Point(919, 120)
         Me.Label15.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(156, 37)
@@ -404,13 +404,13 @@ Partial Class Main
         Me.Chart1.Series.Add(Series5)
         Me.Chart1.Series.Add(Series6)
         Me.Chart1.Series.Add(Series7)
-        Me.Chart1.Size = New System.Drawing.Size(1299, 433)
+        Me.Chart1.Size = New System.Drawing.Size(1252, 378)
         Me.Chart1.TabIndex = 32
         '
         'btnL2IO
         '
         Me.btnL2IO.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnL2IO.Location = New System.Drawing.Point(1110, 368)
+        Me.btnL2IO.Location = New System.Drawing.Point(1383, 294)
         Me.btnL2IO.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.btnL2IO.Name = "btnL2IO"
         Me.btnL2IO.Size = New System.Drawing.Size(160, 58)
@@ -421,7 +421,7 @@ Partial Class Main
         'btnL1IO
         '
         Me.btnL1IO.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnL1IO.Location = New System.Drawing.Point(942, 368)
+        Me.btnL1IO.Location = New System.Drawing.Point(1215, 294)
         Me.btnL1IO.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.btnL1IO.Name = "btnL1IO"
         Me.btnL1IO.Size = New System.Drawing.Size(160, 58)
@@ -432,7 +432,7 @@ Partial Class Main
         'btnReinforce
         '
         Me.btnReinforce.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnReinforce.Location = New System.Drawing.Point(942, 491)
+        Me.btnReinforce.Location = New System.Drawing.Point(1215, 417)
         Me.btnReinforce.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.btnReinforce.Name = "btnReinforce"
         Me.btnReinforce.Size = New System.Drawing.Size(328, 54)
@@ -443,7 +443,7 @@ Partial Class Main
         'btnLever2
         '
         Me.btnLever2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnLever2.Location = New System.Drawing.Point(1110, 429)
+        Me.btnLever2.Location = New System.Drawing.Point(1383, 355)
         Me.btnLever2.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.btnLever2.Name = "btnLever2"
         Me.btnLever2.Size = New System.Drawing.Size(160, 58)
@@ -454,7 +454,7 @@ Partial Class Main
         'btnFinish
         '
         Me.btnFinish.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnFinish.Location = New System.Drawing.Point(942, 548)
+        Me.btnFinish.Location = New System.Drawing.Point(1215, 474)
         Me.btnFinish.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.btnFinish.Name = "btnFinish"
         Me.btnFinish.Size = New System.Drawing.Size(328, 54)
@@ -465,7 +465,7 @@ Partial Class Main
         'btnLever1
         '
         Me.btnLever1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnLever1.Location = New System.Drawing.Point(942, 429)
+        Me.btnLever1.Location = New System.Drawing.Point(1215, 355)
         Me.btnLever1.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.btnLever1.Name = "btnLever1"
         Me.btnLever1.Size = New System.Drawing.Size(160, 58)
@@ -481,7 +481,7 @@ Partial Class Main
         '
         Me.lblTrayRs.AutoSize = True
         Me.lblTrayRs.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.125!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTrayRs.Location = New System.Drawing.Point(1219, 319)
+        Me.lblTrayRs.Location = New System.Drawing.Point(1167, 319)
         Me.lblTrayRs.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblTrayRs.Name = "lblTrayRs"
         Me.lblTrayRs.Size = New System.Drawing.Size(29, 31)
@@ -502,7 +502,7 @@ Partial Class Main
         '
         Me.lblActiveComponent.AutoSize = True
         Me.lblActiveComponent.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblActiveComponent.Location = New System.Drawing.Point(641, 4)
+        Me.lblActiveComponent.Location = New System.Drawing.Point(713, 4)
         Me.lblActiveComponent.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblActiveComponent.Name = "lblActiveComponent"
         Me.lblActiveComponent.Size = New System.Drawing.Size(35, 37)
@@ -513,7 +513,7 @@ Partial Class Main
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(315, 4)
+        Me.Label7.Location = New System.Drawing.Point(387, 4)
         Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(308, 37)
@@ -524,7 +524,7 @@ Partial Class Main
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(315, 41)
+        Me.Label1.Location = New System.Drawing.Point(387, 41)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(323, 37)
@@ -535,7 +535,7 @@ Partial Class Main
         '
         Me.lblComponentDuration.AutoSize = True
         Me.lblComponentDuration.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblComponentDuration.Location = New System.Drawing.Point(641, 41)
+        Me.lblComponentDuration.Location = New System.Drawing.Point(713, 41)
         Me.lblComponentDuration.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblComponentDuration.Name = "lblComponentDuration"
         Me.lblComponentDuration.Size = New System.Drawing.Size(35, 37)
@@ -546,7 +546,7 @@ Partial Class Main
         '
         Me.lblComponentStim.AutoSize = True
         Me.lblComponentStim.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblComponentStim.Location = New System.Drawing.Point(641, 77)
+        Me.lblComponentStim.Location = New System.Drawing.Point(713, 77)
         Me.lblComponentStim.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblComponentStim.Name = "lblComponentStim"
         Me.lblComponentStim.Size = New System.Drawing.Size(35, 37)
@@ -557,7 +557,7 @@ Partial Class Main
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(315, 77)
+        Me.Label5.Location = New System.Drawing.Point(387, 77)
         Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(265, 37)
@@ -568,7 +568,7 @@ Partial Class Main
         '
         Me.lblIterationsLeft.AutoSize = True
         Me.lblIterationsLeft.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblIterationsLeft.Location = New System.Drawing.Point(641, 114)
+        Me.lblIterationsLeft.Location = New System.Drawing.Point(713, 114)
         Me.lblIterationsLeft.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblIterationsLeft.Name = "lblIterationsLeft"
         Me.lblIterationsLeft.Size = New System.Drawing.Size(35, 37)
@@ -579,7 +579,7 @@ Partial Class Main
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(315, 114)
+        Me.Label8.Location = New System.Drawing.Point(387, 114)
         Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(219, 37)
@@ -593,7 +593,8 @@ Partial Class Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1283, 613)
+        Me.AutoSize = True
+        Me.ClientSize = New System.Drawing.Size(1556, 539)
         Me.Controls.Add(Me.lblIterationsLeft)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.lblComponentStim)
