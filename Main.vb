@@ -66,9 +66,11 @@ Public Class Main
         Next
         WriteLine(1, "Components presented at random: " & CStr(RandomCPres))
         vTimeStart = Environment.TickCount 'Establishes a time index for timestamps.
+        chartResponse(3) += 1
         BeginPrograms() 'Set up for the schedules of reinforcement.
     End Sub
     Private Sub BeginPrograms() 'Llamar esto cada que inicie un componente.
+
         If RandomCPres = True Then
             Dim Rond As New Random
 
@@ -152,34 +154,42 @@ Public Class Main
     Private Sub Response(Lever As Integer) 'This registers responses and checks if the reinforcer is available for both ratio and interval schedules.
         If tmrStart.Enabled = False Then
             chartResponse(Lever) += 1
-            If Lever = 0 Then
-                If AC(vCC).FeedbackDuration(Lever) > 0 Then Stimulus(Lever)
-                If tmrDelay1.Enabled = False Then
-                    WriteLine(1, vTimeNow, Lever + 1)
-                    ResponseCount(Lever) += 1
-                    lblResponses1.Text = ResponseCount(Lever)
-                    If refRdy(Lever) = True Then Reinforce(Lever, False)
-                    Ratio(Lever)
-                ElseIf tmrDelay1.Enabled = True Then
-                    WriteLine(1, vTimeNow, Lever + 21)
-                    ResponseCountDel(Lever) += 1
-                    'lblDelayR1.Text = ResponseCountDel(Lever)
-                    ObtainedDelays(0).Item(DelayIndex1) = vTimeNow
+            If tmrICI.Enabled = True Then
+                WriteLine(1, vTimeNow, Lever + 1, "ICIResponse")
+                ResponseCount(Lever) += 1
+                lblResponses1.Text = ResponseCount(Lever)
+            Else
+
+                If Lever = 0 Then
+
+                    If AC(vCC).FeedbackDuration(Lever) > 0 Then Stimulus(Lever)
+                    If tmrDelay1.Enabled = False Then
+                        WriteLine(1, vTimeNow, Lever + 1)
+                        ResponseCount(Lever) += 1
+                        lblResponses1.Text = ResponseCount(Lever)
+                        If refRdy(Lever) = True Then Reinforce(Lever, False)
+                        Ratio(Lever)
+                    ElseIf tmrDelay1.Enabled = True Then
+                        WriteLine(1, vTimeNow, Lever + 21)
+                        ResponseCountDel(Lever) += 1
+                        'lblDelayR1.Text = ResponseCountDel(Lever)
+                        ObtainedDelays(0).Item(DelayIndex1) = vTimeNow
+                    End If
                 End If
-            End If
-            If Lever = 1 Then
-                If AC(vCC).FeedbackDuration(Lever) > 0 Then Stimulus(Lever)
-                If tmrDelay2.Enabled = False Then
-                    WriteLine(1, vTimeNow, Lever + 1)
-                    ResponseCount(Lever) += 1
-                    lblResponses2.Text = ResponseCount(Lever)
-                    If refRdy(Lever) = True Then Reinforce(Lever, False)
-                    Ratio(Lever)
-                ElseIf tmrDelay2.Enabled = True Then
-                    WriteLine(1, vTimeNow, Lever + 21)
-                    ResponseCountDel(Lever) += 1
-                    'lblDelayR2.Text = ResponseCountDel(Lever)
-                    ObtainedDelays(1).Item(DelayIndex2) = vTimeNow
+                If Lever = 1 Then
+                    If AC(vCC).FeedbackDuration(Lever) > 0 Then Stimulus(Lever)
+                    If tmrDelay2.Enabled = False Then
+                        WriteLine(1, vTimeNow, Lever + 1)
+                        ResponseCount(Lever) += 1
+                        lblResponses2.Text = ResponseCount(Lever)
+                        If refRdy(Lever) = True Then Reinforce(Lever, False)
+                        Ratio(Lever)
+                    ElseIf tmrDelay2.Enabled = True Then
+                        WriteLine(1, vTimeNow, Lever + 21)
+                        ResponseCountDel(Lever) += 1
+                        'lblDelayR2.Text = ResponseCountDel(Lever)
+                        ObtainedDelays(1).Item(DelayIndex2) = vTimeNow
+                    End If
                 End If
             End If
         End If
@@ -389,12 +399,34 @@ Public Class Main
 
 
     Private Sub tmrChrt_Tick(sender As Object, e As EventArgs) Handles tmrChrt.Tick
-        For i = 0 To 2
+        For i = 0 To 3
             chartTime(i) += 1
         Next
         Chart1.Series("Lever 1").Points.AddXY(chartTime(0), chartResponse(0))
         Chart1.Series("Lever 2").Points.AddXY(chartTime(1), chartResponse(1))
         Chart1.Series("Tray").Points.AddXY(chartTime(2), chartResponse(2))
+        If tmrICI.Enabled = True Then
+            '    Chart1.Series.Add("ICI")
+            'Chart1.Series("ICI" & ICIcounter).Points.Add()
+            'Chart1.Series("Component2").Color = Color.Transparent
+            Chart1.Series("Component1").Points.AddXY(chartTime(3), chartResponse(3) - 1)
+            Chart1.Series("Component2").Points.AddXY(chartTime(3), chartResponse(3) - 1)
+        Else
+            If vCC = 1 Then
+                'Chart1.Series("Component1").Color = Color.Blue
+                'Chart1.Series("Component2").Color = Color.Transparent
+                Chart1.Series("Component1").Points.AddXY(chartTime(3), chartResponse(3))
+                Chart1.Series("Component2").Points.AddXY(chartTime(3), chartResponse(3) - 1)
+            End If
+            If vCC = 2 Then
+                'Chart1.Series("Component1").Color = Color.Transparent
+                'Chart1.Series("Component2").Color = Color.Red
+                Chart1.Series("Component1").Points.AddXY(chartTime(3), chartResponse(3) - 1)
+                Chart1.Series("Component2").Points.AddXY(chartTime(3), chartResponse(3))
+            End If
+        End If
+
+
     End Sub
 
 
@@ -509,9 +541,14 @@ Public Class Main
         lblComponentDuration.Text = SetUp.txbICI.Text
         lblComponentStim.Text = ""
         lblIterationsLeft.Text = ""
+        lblL1.Text = ""
+        lblL2.Text = ""
+        lblRfR1.Text = ""
+        lblRfR2.Text = ""
         tmrComponentStim.Enabled = False
         Arduino.WriteLine("abhtlm")
         tmrICI.Enabled = True
+
     End Sub
 
     Private Sub tmrComponentStim_Tick(sender As Object, e As EventArgs) Handles tmrComponentStim.Tick

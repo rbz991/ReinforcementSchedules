@@ -1,4 +1,5 @@
 ﻿Module Module1
+    Public ICIcounter As Integer
     Public vFile As String = ""
     Public vFile2 As String = ""
     Public Lever1 As String = ""
@@ -20,8 +21,8 @@
     Public ResponseCountDel(1) As Integer
     Public NosepokeCount(2) As Integer
     Public NosepokeCountDel(2) As Integer
-    Public chartTime(2) As Integer
-    Public chartResponse(2) As Integer
+    Public chartTime(3) As Integer
+    Public chartResponse(3) As Integer
     Public vPadding As Integer
     Public PreviewCounter As Integer
     Public StimInt As Boolean
