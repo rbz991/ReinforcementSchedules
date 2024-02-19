@@ -66,7 +66,7 @@ Public Class Main
         Next
         WriteLine(1, "Components presented at random: " & CStr(RandomCPres))
         vTimeStart = Environment.TickCount 'Establishes a time index for timestamps.
-        chartResponse(3) += 1
+        chartResponse(3) += 5
         BeginPrograms() 'Set up for the schedules of reinforcement.
     End Sub
     Private Sub BeginPrograms() 'Llamar esto cada que inicie un componente.
@@ -434,14 +434,14 @@ Public Class Main
             End If
 
         End If
-        If chartTime(3) > 750 And chartFlag(0) = False Then
-            chartFlag(0) = True
-            chartResponse(3) += 4
-        End If
-        If chartTime(3) > 1500 And chartFlag(1) = False Then
-            chartFlag(1) = True
-            chartResponse(3) += 5
-        End If
+        'If chartTime(3) > 750 And chartFlag(0) = False Then
+        '    chartFlag(0) = True
+        '    chartResponse(3) += 4
+        'End If
+        'If chartTime(3) > 1500 And chartFlag(1) = False Then
+        '    chartFlag(1) = True
+        '    chartResponse(3) += 5
+        'End If
 
     End Sub
 
