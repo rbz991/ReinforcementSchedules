@@ -1,5 +1,5 @@
 ﻿Module Module1
-    Public chartFlag As Boolean
+    Public chartFlag(1) As Boolean
     Public ICIcounter As Integer
     Public vFile As String = ""
     Public vFile2 As String = ""

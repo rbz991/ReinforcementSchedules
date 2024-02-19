@@ -434,9 +434,13 @@ Public Class Main
             End If
 
         End If
-        If chartTime(3) > 800 And chartFlag = False Then
-            chartFlag = True
+        If chartTime(3) > 750 And chartFlag(0) = False Then
+            chartFlag(0) = True
             chartResponse(3) += 4
+        End If
+        If chartTime(3) > 1500 And chartFlag(1) = False Then
+            chartFlag(1) = True
+            chartResponse(3) += 5
         End If
 
     End Sub
