@@ -22,11 +22,11 @@
             WriteLine(1, "Lever 1 response: 1")
             WriteLine(1, "Lever 2 response: 2")
             WriteLine(1, "Tray response: 3")
-            WriteLine(1, "Lever 1 reinforcer: 11")
-            WriteLine(1, "Lever 2 reinforcer: 12")
-            WriteLine(1, "Lever 1 r on Delay: 21")
-            WriteLine(1, "Lever 2 r on Delay: 22")
-            WriteLine(1, "Tray r on Delay: 23")
+            WriteLine(1, "Lever 1 reinforcer: R1")
+            WriteLine(1, "Lever 2 reinforcer: R2")
+            WriteLine(1, "Lever 1 r on Delay: D1")
+            WriteLine(1, "Lever 2 r on Delay: D2")
+            WriteLine(1, "Tray r on Delay: D3")
             MAXvCC = vCC
             vCC = 1
             For i = 1 To MAXvCC

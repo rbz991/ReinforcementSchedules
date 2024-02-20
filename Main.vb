@@ -66,7 +66,7 @@ Public Class Main
         Next
         WriteLine(1, "Components presented at random: " & CStr(RandomCPres))
         vTimeStart = Environment.TickCount 'Establishes a time index for timestamps.
-        chartResponse(3) += 5
+        chartResponse(3) += 10
         BeginPrograms() 'Set up for the schedules of reinforcement.
     End Sub
     Private Sub BeginPrograms() 'Llamar esto cada que inicie un componente.
@@ -164,13 +164,13 @@ Public Class Main
 
                     If AC(vCC).FeedbackDuration(Lever) > 0 Then Stimulus(Lever)
                     If tmrDelay1.Enabled = False Then
-                        WriteLine(1, vTimeNow, Lever + 1)
+                        WriteLine(1, vTimeNow, vCC & Lever + 1)
                         ResponseCount(Lever) += 1
                         lblResponses1.Text = ResponseCount(Lever)
                         If refRdy(Lever) = True Then Reinforce(Lever, False)
                         Ratio(Lever)
                     ElseIf tmrDelay1.Enabled = True Then
-                        WriteLine(1, vTimeNow, Lever + 21)
+                        WriteLine(1, vTimeNow, "D" & Lever + 1)
                         ResponseCountDel(Lever) += 1
                         'lblDelayR1.Text = ResponseCountDel(Lever)
                         ObtainedDelays(0).Item(DelayIndex1) = vTimeNow
@@ -179,13 +179,13 @@ Public Class Main
                 If Lever = 1 Then
                     If AC(vCC).FeedbackDuration(Lever) > 0 Then Stimulus(Lever)
                     If tmrDelay2.Enabled = False Then
-                        WriteLine(1, vTimeNow, Lever + 1)
+                        WriteLine(1, vTimeNow, vCC & Lever + 1)
                         ResponseCount(Lever) += 1
                         lblResponses2.Text = ResponseCount(Lever)
                         If refRdy(Lever) = True Then Reinforce(Lever, False)
                         Ratio(Lever)
                     ElseIf tmrDelay2.Enabled = True Then
-                        WriteLine(1, vTimeNow, Lever + 21)
+                        WriteLine(1, vTimeNow, "D" & Lever + 1)
                         ResponseCountDel(Lever) += 1
                         'lblDelayR2.Text = ResponseCountDel(Lever)
                         ObtainedDelays(1).Item(DelayIndex2) = vTimeNow
@@ -199,7 +199,7 @@ Public Class Main
             If tmrNosepoke.Enabled = False Then
                 tmrNosepoke.Enabled = True
                 If tmrDelay1.Enabled = True Or tmrDelay2.Enabled = True Then
-                    WriteLine(1, vTimeNow, Nose + 23)
+                    WriteLine(1, vTimeNow, "D" & Nose + 3)
                     NosepokeCountDel(Nose) += 1
                 Else
                     NosepokeCount(Nose) += 1
@@ -284,7 +284,7 @@ Public Class Main
                 Next
             End If
             'This line activates the feeder through Arduino. "R" can mean any output connected to the Arduino.
-            WriteLine(1, vTimeNow, Lever + 11)
+            WriteLine(1, vTimeNow, "R" & Lever + 1)
 
             If Lever = 0 Then
                 If AC(vCC).ScheduleType(0) = "Fixed Ratio" Then FRGen(0)
