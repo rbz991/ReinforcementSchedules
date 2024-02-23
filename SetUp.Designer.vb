@@ -276,6 +276,7 @@ Partial Class SetUp
         '
         'txbRefs
         '
+        Me.txbRefs.Enabled = False
         Me.txbRefs.Location = New System.Drawing.Point(128, 127)
         Me.txbRefs.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txbRefs.Name = "txbRefs"

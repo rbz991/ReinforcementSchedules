@@ -7,19 +7,19 @@
     Public Lever2 As String = ""
     Public vTimeStart As Integer
     Public vTimeNow As Integer
-    Public DelayIndex1 As Integer
-    Public DelayIndex2 As Integer
+    Public DelayIndex(1) As Integer
+    'Public DelayIndex2 As Integer
     Public Countdown As Integer
     Public Actual_Response(4) As String
     Public Previous_Response(4) As String
-    Public RefCount(1) As Integer
+    Public RefCount(4, 1) As Integer
     Public refRdy(1) As Boolean
     Public VIList(1) As List(Of Integer)
     Public ObtainedDelays(1) As List(Of Integer)
     Public RatioCount(1) As Integer
     Public RatioGoal(1) As Integer
-    Public ResponseCount(1) As Integer
-    Public ResponseCountDel(1) As Integer
+    Public ResponseCount(4, 1) As Integer
+    Public ResponseCountDel(4, 1) As Integer
     Public NosepokeCount(2) As Integer
     Public NosepokeCountDel(2) As Integer
     Public chartTime(3) As Integer

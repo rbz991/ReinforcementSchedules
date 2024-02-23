@@ -46,7 +46,7 @@ Public Class Main
                 If tmrStart.Enabled = False Then vTimeNow = Environment.TickCount - vTimeStart  'This keeps track of time for the Data output file.
                 If tmrStart.Enabled = True Then vTimeNow = (Countdown) - Environment.TickCount
                 lblTime.Text = Round(vTimeNow / 1000) 'This and the following 6 lines update values of interest on the main form.
-                If SetUp.txbRefs.Text > 0 And RefCount(0) + RefCount(1) >= SetUp.txbRefs.Text Then btnFinish.PerformClick()
+                'If SetUp.txbRefs.Text > 0 And RefCount(0) + RefCount(1) >= SetUp.txbRefs.Text Then btnFinish.PerformClick()
                 '    btnFinish.PerformClick() 'This sets the criteria to finish the session.
                 'End If
 
@@ -156,40 +156,22 @@ Public Class Main
             chartResponse(Lever) += 1
             If tmrICI.Enabled = True Then
                 WriteLine(1, vTimeNow, Lever + 1, "ICIResponse")
-                ResponseCount(Lever) += 1
-                lblResponses1.Text = ResponseCount(Lever)
+                ResponseCount(vCC, Lever) += 1
+                lblResponses1.Text = ResponseCount(vCC, Lever)
             Else
-
-                If Lever = 0 Then
-
-                    If AC(vCC).FeedbackDuration(Lever) > 0 Then Stimulus(Lever)
-                    If tmrDelay1.Enabled = False Then
-                        WriteLine(1, vTimeNow, vCC & Lever + 1)
-                        ResponseCount(Lever) += 1
-                        lblResponses1.Text = ResponseCount(Lever)
-                        If refRdy(Lever) = True Then Reinforce(Lever, False)
-                        Ratio(Lever)
-                    ElseIf tmrDelay1.Enabled = True Then
-                        WriteLine(1, vTimeNow, "D" & Lever + 1)
-                        ResponseCountDel(Lever) += 1
-                        'lblDelayR1.Text = ResponseCountDel(Lever)
-                        ObtainedDelays(0).Item(DelayIndex1) = vTimeNow
-                    End If
-                End If
-                If Lever = 1 Then
-                    If AC(vCC).FeedbackDuration(Lever) > 0 Then Stimulus(Lever)
-                    If tmrDelay2.Enabled = False Then
-                        WriteLine(1, vTimeNow, vCC & Lever + 1)
-                        ResponseCount(Lever) += 1
-                        lblResponses2.Text = ResponseCount(Lever)
-                        If refRdy(Lever) = True Then Reinforce(Lever, False)
-                        Ratio(Lever)
-                    ElseIf tmrDelay2.Enabled = True Then
-                        WriteLine(1, vTimeNow, "D" & Lever + 1)
-                        ResponseCountDel(Lever) += 1
-                        'lblDelayR2.Text = ResponseCountDel(Lever)
-                        ObtainedDelays(1).Item(DelayIndex2) = vTimeNow
-                    End If
+                If AC(vCC).FeedbackDuration(Lever) > 0 Then Stimulus(Lever)
+                If Me.Controls("tmrDelay" & Lever + 1).Enabled = False Then
+                    ' If tmrDelay1.Enabled = False Then
+                    WriteLine(1, vTimeNow, vCC & Lever + 1)
+                    ResponseCount(vCC, Lever) += 1
+                    lblResponses1.Text = ResponseCount(vCC, Lever)
+                    If refRdy(Lever) = True Then Reinforce(Lever, False)
+                    Ratio(Lever)
+                ElseIf Me.Controls("tmrDelay" & Lever + 1).Enabled = True Then
+                    WriteLine(1, vTimeNow, "D" & Lever + 1)
+                    ResponseCountDel(vCC, Lever) += 1
+                    'lblDelayR1.Text = ResponseCountDel(Lever)
+                    ObtainedDelays(Lever).Item(DelayIndex(Lever)) = vTimeNow
                 End If
             End If
         End If
@@ -263,26 +245,14 @@ Public Class Main
             refRdy(Lever) = False
 
 
-            If Lever = 0 Then
+            For i = 1 To AC(vCC).Magnitude(0)
+                lblRfR1.Text = refRdy(0)
+                Chart1.Series("Reinforcers 1").Points.AddXY(chartTime(0), chartResponse(0))
+                Arduino.WriteLine("R")
+                RefCount(vCC, Lever) += 1
+                Me.Controls("lblReinforcers" & Lever + 1).Text = RefCount(vCC, Lever)
+            Next
 
-                For i = 1 To AC(vCC).Magnitude(0)
-                    lblRfR1.Text = refRdy(0)
-                    Chart1.Series("Reinforcers 1").Points.AddXY(chartTime(0), chartResponse(0))
-                    Arduino.WriteLine("R")
-                    RefCount(Lever) += 1
-                    lblReinforcers1.Text = RefCount(Lever)
-                Next
-            End If
-            If Lever = 1 Then
-
-                For i = 1 To AC(vCC).Magnitude(1)
-                    lblRfR2.Text = refRdy(1)
-                    Chart1.Series("Reinforcers 2").Points.AddXY(chartTime(1), chartResponse(1))
-                    Arduino.WriteLine("R")
-                    RefCount(Lever) += 1
-                    lblReinforcers2.Text = RefCount(Lever)
-                Next
-            End If
             'This line activates the feeder through Arduino. "R" can mean any output connected to the Arduino.
             WriteLine(1, vTimeNow, "R" & Lever + 1)
 
@@ -377,14 +347,42 @@ Public Class Main
             If ObtainedDelays(1).Count > 1 Then WriteLine(2, "Obtained delays L2: " & ObtainedDelays(1).Item(i))
         Next
         For i = 1 To 2
-            WriteLine(i, "Responses on Lever 1: " & ResponseCount(0))
-            WriteLine(i, "Response rate on Lever 1: " & ResponseCount(0) / (lblTime.Text / 60))
-            WriteLine(i, "Responses on Lever 2: " & ResponseCount(1))
-            WriteLine(i, "Response rate on Lever 2: " & ResponseCount(1) / (lblTime.Text / 60))
-            WriteLine(i, "Reinforcers on Lever 1: " & RefCount(0))
-            WriteLine(i, "Reinforcer rate on Lever 1: " & RefCount(0) / (lblTime.Text / 60))
-            WriteLine(i, "Reinforcers on Lever 2: " & RefCount(1))
-            WriteLine(i, "Reinforcer rate on Lever 2: " & RefCount(1) / (lblTime.Text / 60))
+            WriteLine(i, "Responses:")
+            WriteLine(i, "Lever 1 Component 1: " & ResponseCount(1, 0))
+            WriteLine(i, "Lever 2 Component 1: " & ResponseCount(1, 1))
+            WriteLine(i, "Lever 1 Component 2: " & ResponseCount(2, 0))
+            WriteLine(i, "Lever 2 Component 2: " & ResponseCount(2, 1))
+            WriteLine(i, "Lever 1 Component 3: " & ResponseCount(3, 0))
+            WriteLine(i, "Lever 2 Component 3: " & ResponseCount(3, 1))
+            WriteLine(i, "Lever 1 Component 4: " & ResponseCount(4, 0))
+            WriteLine(i, "Lever 2 Component 4: " & ResponseCount(4, 1))
+            WriteLine(i, "Response rates:")
+            WriteLine(i, "Lever 1 Component 1: " & ResponseCount(1, 0) / ((AC(1).ComponentDuration / 60) * AC(1).ComponentIteration))
+            WriteLine(i, "Lever 2 Component 1: " & ResponseCount(1, 1) / ((AC(1).ComponentDuration / 60) * AC(1).ComponentIteration))
+            WriteLine(i, "Lever 1 Component 2: " & ResponseCount(2, 0) / ((AC(2).ComponentDuration / 60) * AC(2).ComponentIteration))
+            WriteLine(i, "Lever 2 Component 2: " & ResponseCount(2, 1) / ((AC(2).ComponentDuration / 60) * AC(2).ComponentIteration))
+            WriteLine(i, "Lever 1 Component 3: " & ResponseCount(3, 0) / ((AC(3).ComponentDuration / 60) * AC(3).ComponentIteration))
+            WriteLine(i, "Lever 2 Component 3: " & ResponseCount(3, 1) / ((AC(3).ComponentDuration / 60) * AC(3).ComponentIteration))
+            WriteLine(i, "Lever 1 Component 4: " & ResponseCount(4, 0) / ((AC(4).ComponentDuration / 60) * AC(4).ComponentIteration))
+            WriteLine(i, "Lever 2 Component 4: " & ResponseCount(4, 1) / ((AC(4).ComponentDuration / 60) * AC(4).ComponentIteration))
+            WriteLine(i, "Reinforcers:")
+            WriteLine(i, "Lever 1 Component 1: " & RefCount(1, 0))
+            WriteLine(i, "Lever 2 Component 1: " & RefCount(1, 1))
+            WriteLine(i, "Lever 1 Component 2: " & RefCount(2, 0))
+            WriteLine(i, "Lever 2 Component 2: " & RefCount(2, 1))
+            WriteLine(i, "Lever 1 Component 3: " & RefCount(3, 0))
+            WriteLine(i, "Lever 2 Component 3: " & RefCount(3, 1))
+            WriteLine(i, "Lever 1 Component 4: " & RefCount(4, 0))
+            WriteLine(i, "Lever 2 Component 4: " & RefCount(4, 1))
+            WriteLine(i, "Reinforcer rates:")
+            WriteLine(i, "Lever 1 Component 1: " & RefCount(1, 0) / ((AC(1).ComponentDuration / 60) * AC(1).ComponentIteration))
+            WriteLine(i, "Lever 2 Component 1: " & RefCount(1, 1) / ((AC(1).ComponentDuration / 60) * AC(1).ComponentIteration))
+            WriteLine(i, "Lever 1 Component 2: " & RefCount(2, 0) / ((AC(2).ComponentDuration / 60) * AC(2).ComponentIteration))
+            WriteLine(i, "Lever 2 Component 2: " & RefCount(2, 1) / ((AC(2).ComponentDuration / 60) * AC(2).ComponentIteration))
+            WriteLine(i, "Lever 1 Component 3: " & RefCount(3, 0) / ((AC(3).ComponentDuration / 60) * AC(3).ComponentIteration))
+            WriteLine(i, "Lever 2 Component 3: " & RefCount(3, 1) / ((AC(3).ComponentDuration / 60) * AC(3).ComponentIteration))
+            WriteLine(i, "Lever 1 Component 4: " & RefCount(4, 0) / ((AC(4).ComponentDuration / 60) * AC(4).ComponentIteration))
+            WriteLine(i, "Lever 2 Component 4: " & RefCount(4, 1) / ((AC(4).ComponentDuration / 60) * AC(4).ComponentIteration))
             WriteLine(i, "Total time in minutes: " & lblTime.Text / 60)
             WriteLine(i, Format(Date.Now, "dd-MM-yyyy_hh-mm-ss"))
             WriteLine(i, "END") 'Signals that the session has ended on the data file.
@@ -470,8 +468,8 @@ Public Class Main
         End If
         Reinforce(0, True)
         'aqui va el marcador para calcular la demora obtenida
-        ObtainedDelays(0).Item(DelayIndex1) = vTimeNow - ObtainedDelays(0).Item(DelayIndex1)
-        DelayIndex1 += 1
+        ObtainedDelays(0).Item(DelayIndex(0)) = vTimeNow - ObtainedDelays(0).Item(DelayIndex(0))
+        DelayIndex(0) += 1
     End Sub
     Private Sub tmrDelay2_Tick(sender As Object, e As EventArgs) Handles tmrDelay2.Tick
         tmrDelay2.Enabled = False
@@ -482,8 +480,8 @@ Public Class Main
             If AC(vCC).DelayType(1).Contains("Houselight") = True Then Arduino.WriteLine("h")
         End If
         Reinforce(1, True)
-        ObtainedDelays(1).Item(DelayIndex2) = vTimeNow - ObtainedDelays(1).Item(DelayIndex2)
-        DelayIndex2 += 1
+        ObtainedDelays(1).Item(DelayIndex(1)) = vTimeNow - ObtainedDelays(1).Item(DelayIndex(1))
+        DelayIndex(1) += 1
     End Sub
     Private Sub tmrStim1_Tick(sender As Object, e As EventArgs) Handles tmrStim1.Tick
         tmrStim1.Enabled = False
