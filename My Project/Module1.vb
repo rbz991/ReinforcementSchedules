@@ -1,4 +1,5 @@
 ﻿Module Module1
+    Public CompIndex As Byte = 10
     Public chartFlag(1) As Boolean
     Public ICIcounter As Integer
     Public vFile As String = ""

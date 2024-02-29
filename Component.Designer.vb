@@ -145,7 +145,7 @@ Partial Class Component
         Me.rdoSL2H.Location = New System.Drawing.Point(34, 182)
         Me.rdoSL2H.Margin = New System.Windows.Forms.Padding(4)
         Me.rdoSL2H.Name = "rdoSL2H"
-        Me.rdoSL2H.Size = New System.Drawing.Size(145, 29)
+        Me.rdoSL2H.Size = New System.Drawing.Size(110, 24)
         Me.rdoSL2H.TabIndex = 23
         Me.rdoSL2H.TabStop = True
         Me.rdoSL2H.Text = "Houselight"
@@ -157,7 +157,7 @@ Partial Class Component
         Me.rdoSL2T.Location = New System.Drawing.Point(34, 145)
         Me.rdoSL2T.Margin = New System.Windows.Forms.Padding(4)
         Me.rdoSL2T.Name = "rdoSL2T"
-        Me.rdoSL2T.Size = New System.Drawing.Size(92, 29)
+        Me.rdoSL2T.Size = New System.Drawing.Size(70, 24)
         Me.rdoSL2T.TabIndex = 22
         Me.rdoSL2T.TabStop = True
         Me.rdoSL2T.Text = "Tone"
@@ -169,7 +169,7 @@ Partial Class Component
         Me.rdoSL2L2.Location = New System.Drawing.Point(34, 107)
         Me.rdoSL2L2.Margin = New System.Windows.Forms.Padding(4)
         Me.rdoSL2L2.Name = "rdoSL2L2"
-        Me.rdoSL2L2.Size = New System.Drawing.Size(108, 29)
+        Me.rdoSL2L2.Size = New System.Drawing.Size(82, 24)
         Me.rdoSL2L2.TabIndex = 21
         Me.rdoSL2L2.TabStop = True
         Me.rdoSL2L2.Text = "Light 2"
@@ -181,7 +181,7 @@ Partial Class Component
         Me.rdoSL2L1.Location = New System.Drawing.Point(34, 73)
         Me.rdoSL2L1.Margin = New System.Windows.Forms.Padding(4)
         Me.rdoSL2L1.Name = "rdoSL2L1"
-        Me.rdoSL2L1.Size = New System.Drawing.Size(108, 29)
+        Me.rdoSL2L1.Size = New System.Drawing.Size(82, 24)
         Me.rdoSL2L1.TabIndex = 20
         Me.rdoSL2L1.TabStop = True
         Me.rdoSL2L1.Text = "Light 1"
@@ -193,7 +193,7 @@ Partial Class Component
         Me.Label11.Location = New System.Drawing.Point(29, 36)
         Me.Label11.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(99, 25)
+        Me.Label11.Size = New System.Drawing.Size(74, 20)
         Me.Label11.TabIndex = 19
         Me.Label11.Text = "Duration:"
         '
@@ -202,7 +202,7 @@ Partial Class Component
         Me.txbSL2D.Location = New System.Drawing.Point(125, 30)
         Me.txbSL2D.Margin = New System.Windows.Forms.Padding(4)
         Me.txbSL2D.Name = "txbSL2D"
-        Me.txbSL2D.Size = New System.Drawing.Size(103, 31)
+        Me.txbSL2D.Size = New System.Drawing.Size(103, 26)
         Me.txbSL2D.TabIndex = 2
         '
         'chkStimL1
@@ -212,7 +212,7 @@ Partial Class Component
         Me.chkStimL1.Location = New System.Drawing.Point(73, 42)
         Me.chkStimL1.Margin = New System.Windows.Forms.Padding(4)
         Me.chkStimL1.Name = "chkStimL1"
-        Me.chkStimL1.Size = New System.Drawing.Size(122, 29)
+        Me.chkStimL1.Size = New System.Drawing.Size(91, 24)
         Me.chkStimL1.TabIndex = 0
         Me.chkStimL1.Text = "Lever 1 "
         Me.chkStimL1.UseVisualStyleBackColor = True
@@ -224,7 +224,7 @@ Partial Class Component
         Me.chkStimL2.Location = New System.Drawing.Point(73, 319)
         Me.chkStimL2.Margin = New System.Windows.Forms.Padding(4)
         Me.chkStimL2.Name = "chkStimL2"
-        Me.chkStimL2.Size = New System.Drawing.Size(116, 29)
+        Me.chkStimL2.Size = New System.Drawing.Size(87, 24)
         Me.chkStimL2.TabIndex = 0
         Me.chkStimL2.Text = "Lever 2"
         Me.chkStimL2.UseVisualStyleBackColor = True
@@ -237,11 +237,9 @@ Partial Class Component
         Me.grpStimL1.Controls.Add(Me.rdoLight1L1)
         Me.grpStimL1.Controls.Add(Me.Label12)
         Me.grpStimL1.Controls.Add(Me.txbStimDurL1)
-        Me.grpStimL1.Location = New System.Drawing.Point(8, 321)
-        Me.grpStimL1.Margin = New System.Windows.Forms.Padding(4)
+        Me.grpStimL1.Location = New System.Drawing.Point(6, 257)
         Me.grpStimL1.Name = "grpStimL1"
-        Me.grpStimL1.Padding = New System.Windows.Forms.Padding(4)
-        Me.grpStimL1.Size = New System.Drawing.Size(253, 229)
+        Me.grpStimL1.Size = New System.Drawing.Size(190, 183)
         Me.grpStimL1.TabIndex = 4
         Me.grpStimL1.TabStop = False
         Me.grpStimL1.Text = "Response Feedback"
@@ -249,10 +247,9 @@ Partial Class Component
         'rdoHouselightL1
         '
         Me.rdoHouselightL1.AutoSize = True
-        Me.rdoHouselightL1.Location = New System.Drawing.Point(13, 182)
-        Me.rdoHouselightL1.Margin = New System.Windows.Forms.Padding(4)
+        Me.rdoHouselightL1.Location = New System.Drawing.Point(10, 146)
         Me.rdoHouselightL1.Name = "rdoHouselightL1"
-        Me.rdoHouselightL1.Size = New System.Drawing.Size(145, 29)
+        Me.rdoHouselightL1.Size = New System.Drawing.Size(110, 24)
         Me.rdoHouselightL1.TabIndex = 23
         Me.rdoHouselightL1.Text = "Houselight"
         Me.rdoHouselightL1.UseVisualStyleBackColor = True
@@ -260,10 +257,9 @@ Partial Class Component
         'rdoToneL1
         '
         Me.rdoToneL1.AutoSize = True
-        Me.rdoToneL1.Location = New System.Drawing.Point(12, 145)
-        Me.rdoToneL1.Margin = New System.Windows.Forms.Padding(4)
+        Me.rdoToneL1.Location = New System.Drawing.Point(9, 116)
         Me.rdoToneL1.Name = "rdoToneL1"
-        Me.rdoToneL1.Size = New System.Drawing.Size(92, 29)
+        Me.rdoToneL1.Size = New System.Drawing.Size(70, 24)
         Me.rdoToneL1.TabIndex = 22
         Me.rdoToneL1.Text = "Tone"
         Me.rdoToneL1.UseVisualStyleBackColor = True
@@ -271,10 +267,9 @@ Partial Class Component
         'rdoLight2L1
         '
         Me.rdoLight2L1.AutoSize = True
-        Me.rdoLight2L1.Location = New System.Drawing.Point(13, 108)
-        Me.rdoLight2L1.Margin = New System.Windows.Forms.Padding(4)
+        Me.rdoLight2L1.Location = New System.Drawing.Point(10, 86)
         Me.rdoLight2L1.Name = "rdoLight2L1"
-        Me.rdoLight2L1.Size = New System.Drawing.Size(108, 29)
+        Me.rdoLight2L1.Size = New System.Drawing.Size(82, 24)
         Me.rdoLight2L1.TabIndex = 21
         Me.rdoLight2L1.Text = "Light 2"
         Me.rdoLight2L1.UseVisualStyleBackColor = True
@@ -282,10 +277,9 @@ Partial Class Component
         'rdoLight1L1
         '
         Me.rdoLight1L1.AutoSize = True
-        Me.rdoLight1L1.Location = New System.Drawing.Point(13, 74)
-        Me.rdoLight1L1.Margin = New System.Windows.Forms.Padding(4)
+        Me.rdoLight1L1.Location = New System.Drawing.Point(10, 59)
         Me.rdoLight1L1.Name = "rdoLight1L1"
-        Me.rdoLight1L1.Size = New System.Drawing.Size(108, 29)
+        Me.rdoLight1L1.Size = New System.Drawing.Size(82, 24)
         Me.rdoLight1L1.TabIndex = 20
         Me.rdoLight1L1.Text = "Light 1"
         Me.rdoLight1L1.UseVisualStyleBackColor = True
@@ -293,19 +287,17 @@ Partial Class Component
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(8, 36)
-        Me.Label12.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label12.Location = New System.Drawing.Point(6, 29)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(99, 25)
+        Me.Label12.Size = New System.Drawing.Size(74, 20)
         Me.Label12.TabIndex = 19
         Me.Label12.Text = "Duration:"
         '
         'txbStimDurL1
         '
-        Me.txbStimDurL1.Location = New System.Drawing.Point(105, 31)
-        Me.txbStimDurL1.Margin = New System.Windows.Forms.Padding(4)
+        Me.txbStimDurL1.Location = New System.Drawing.Point(79, 25)
         Me.txbStimDurL1.Name = "txbStimDurL1"
-        Me.txbStimDurL1.Size = New System.Drawing.Size(103, 31)
+        Me.txbStimDurL1.Size = New System.Drawing.Size(78, 26)
         Me.txbStimDurL1.TabIndex = 2
         Me.txbStimDurL1.Text = "0"
         '
@@ -313,11 +305,9 @@ Partial Class Component
         '
         Me.grpMagnitude.Controls.Add(Me.Label7)
         Me.grpMagnitude.Controls.Add(Me.txbMagL1)
-        Me.grpMagnitude.Location = New System.Drawing.Point(8, 238)
-        Me.grpMagnitude.Margin = New System.Windows.Forms.Padding(4)
+        Me.grpMagnitude.Location = New System.Drawing.Point(6, 190)
         Me.grpMagnitude.Name = "grpMagnitude"
-        Me.grpMagnitude.Padding = New System.Windows.Forms.Padding(4)
-        Me.grpMagnitude.Size = New System.Drawing.Size(253, 75)
+        Me.grpMagnitude.Size = New System.Drawing.Size(190, 60)
         Me.grpMagnitude.TabIndex = 27
         Me.grpMagnitude.TabStop = False
         Me.grpMagnitude.Text = "Magnitude"
@@ -325,19 +315,17 @@ Partial Class Component
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(13, 39)
-        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label7.Location = New System.Drawing.Point(10, 31)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(168, 25)
+        Me.Label7.Size = New System.Drawing.Size(121, 20)
         Me.Label7.TabIndex = 19
         Me.Label7.Text = "Rfs per delivery:"
         '
         'txbMagL1
         '
-        Me.txbMagL1.Location = New System.Drawing.Point(189, 33)
-        Me.txbMagL1.Margin = New System.Windows.Forms.Padding(4)
+        Me.txbMagL1.Location = New System.Drawing.Point(142, 26)
         Me.txbMagL1.Name = "txbMagL1"
-        Me.txbMagL1.Size = New System.Drawing.Size(48, 31)
+        Me.txbMagL1.Size = New System.Drawing.Size(37, 26)
         Me.txbMagL1.TabIndex = 2
         Me.txbMagL1.Text = "0"
         '
@@ -349,11 +337,9 @@ Partial Class Component
         Me.GroupBox2.Controls.Add(Me.rdoLightDelay1L1)
         Me.GroupBox2.Controls.Add(Me.Label9)
         Me.GroupBox2.Controls.Add(Me.txbDelayDurL1)
-        Me.GroupBox2.Location = New System.Drawing.Point(8, 560)
-        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4)
+        Me.GroupBox2.Location = New System.Drawing.Point(6, 448)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox2.Size = New System.Drawing.Size(253, 255)
+        Me.GroupBox2.Size = New System.Drawing.Size(190, 204)
         Me.GroupBox2.TabIndex = 26
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Delay"
@@ -361,10 +347,9 @@ Partial Class Component
         'rdoHouselightDelayL1
         '
         Me.rdoHouselightDelayL1.AutoSize = True
-        Me.rdoHouselightDelayL1.Location = New System.Drawing.Point(13, 183)
-        Me.rdoHouselightDelayL1.Margin = New System.Windows.Forms.Padding(4)
+        Me.rdoHouselightDelayL1.Location = New System.Drawing.Point(10, 146)
         Me.rdoHouselightDelayL1.Name = "rdoHouselightDelayL1"
-        Me.rdoHouselightDelayL1.Size = New System.Drawing.Size(145, 29)
+        Me.rdoHouselightDelayL1.Size = New System.Drawing.Size(110, 24)
         Me.rdoHouselightDelayL1.TabIndex = 27
         Me.rdoHouselightDelayL1.TabStop = True
         Me.rdoHouselightDelayL1.Text = "Houselight"
@@ -373,10 +358,9 @@ Partial Class Component
         'rdoToneDelayL1
         '
         Me.rdoToneDelayL1.AutoSize = True
-        Me.rdoToneDelayL1.Location = New System.Drawing.Point(13, 146)
-        Me.rdoToneDelayL1.Margin = New System.Windows.Forms.Padding(4)
+        Me.rdoToneDelayL1.Location = New System.Drawing.Point(10, 117)
         Me.rdoToneDelayL1.Name = "rdoToneDelayL1"
-        Me.rdoToneDelayL1.Size = New System.Drawing.Size(92, 29)
+        Me.rdoToneDelayL1.Size = New System.Drawing.Size(70, 24)
         Me.rdoToneDelayL1.TabIndex = 26
         Me.rdoToneDelayL1.TabStop = True
         Me.rdoToneDelayL1.Text = "Tone"
@@ -385,10 +369,9 @@ Partial Class Component
         'rdoLightDelay2L1
         '
         Me.rdoLightDelay2L1.AutoSize = True
-        Me.rdoLightDelay2L1.Location = New System.Drawing.Point(13, 108)
-        Me.rdoLightDelay2L1.Margin = New System.Windows.Forms.Padding(4)
+        Me.rdoLightDelay2L1.Location = New System.Drawing.Point(10, 86)
         Me.rdoLightDelay2L1.Name = "rdoLightDelay2L1"
-        Me.rdoLightDelay2L1.Size = New System.Drawing.Size(108, 29)
+        Me.rdoLightDelay2L1.Size = New System.Drawing.Size(82, 24)
         Me.rdoLightDelay2L1.TabIndex = 25
         Me.rdoLightDelay2L1.TabStop = True
         Me.rdoLightDelay2L1.Text = "Light 2"
@@ -397,10 +380,9 @@ Partial Class Component
         'rdoLightDelay1L1
         '
         Me.rdoLightDelay1L1.AutoSize = True
-        Me.rdoLightDelay1L1.Location = New System.Drawing.Point(13, 74)
-        Me.rdoLightDelay1L1.Margin = New System.Windows.Forms.Padding(4)
+        Me.rdoLightDelay1L1.Location = New System.Drawing.Point(10, 59)
         Me.rdoLightDelay1L1.Name = "rdoLightDelay1L1"
-        Me.rdoLightDelay1L1.Size = New System.Drawing.Size(108, 29)
+        Me.rdoLightDelay1L1.Size = New System.Drawing.Size(82, 24)
         Me.rdoLightDelay1L1.TabIndex = 24
         Me.rdoLightDelay1L1.TabStop = True
         Me.rdoLightDelay1L1.Text = "Light 1"
@@ -409,19 +391,17 @@ Partial Class Component
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(8, 41)
-        Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label9.Location = New System.Drawing.Point(6, 33)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(99, 25)
+        Me.Label9.Size = New System.Drawing.Size(74, 20)
         Me.Label9.TabIndex = 19
         Me.Label9.Text = "Duration:"
         '
         'txbDelayDurL1
         '
-        Me.txbDelayDurL1.Location = New System.Drawing.Point(105, 35)
-        Me.txbDelayDurL1.Margin = New System.Windows.Forms.Padding(4)
+        Me.txbDelayDurL1.Location = New System.Drawing.Point(79, 28)
         Me.txbDelayDurL1.Name = "txbDelayDurL1"
-        Me.txbDelayDurL1.Size = New System.Drawing.Size(103, 31)
+        Me.txbDelayDurL1.Size = New System.Drawing.Size(78, 26)
         Me.txbDelayDurL1.TabIndex = 2
         Me.txbDelayDurL1.Text = "0"
         '
@@ -436,11 +416,11 @@ Partial Class Component
         Me.GroupBox1.Controls.Add(Me.grpMagnitude)
         Me.GroupBox1.Controls.Add(Me.rdoVRL1)
         Me.GroupBox1.Controls.Add(Me.rdoFRL1)
-        Me.GroupBox1.Location = New System.Drawing.Point(13, 139)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
+        Me.GroupBox1.Location = New System.Drawing.Point(10, 111)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 2, 4, 2)
-        Me.GroupBox1.Size = New System.Drawing.Size(311, 831)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.GroupBox1.Size = New System.Drawing.Size(233, 665)
         Me.GroupBox1.TabIndex = 13
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Lever 1"
@@ -448,29 +428,29 @@ Partial Class Component
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(20, 203)
-        Me.Label13.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
+        Me.Label13.Location = New System.Drawing.Point(15, 162)
+        Me.Label13.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(73, 25)
+        Me.Label13.Size = New System.Drawing.Size(54, 20)
         Me.Label13.TabIndex = 12
         Me.Label13.Text = "Value:"
         '
         'txbValueL1
         '
-        Me.txbValueL1.Location = New System.Drawing.Point(100, 197)
-        Me.txbValueL1.Margin = New System.Windows.Forms.Padding(5, 6, 5, 6)
+        Me.txbValueL1.Location = New System.Drawing.Point(75, 158)
+        Me.txbValueL1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txbValueL1.Name = "txbValueL1"
-        Me.txbValueL1.Size = New System.Drawing.Size(145, 31)
+        Me.txbValueL1.Size = New System.Drawing.Size(110, 26)
         Me.txbValueL1.TabIndex = 11
         Me.txbValueL1.Text = "0"
         '
         'rdoFIL1
         '
         Me.rdoFIL1.AutoSize = True
-        Me.rdoFIL1.Location = New System.Drawing.Point(21, 122)
-        Me.rdoFIL1.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
+        Me.rdoFIL1.Location = New System.Drawing.Point(16, 98)
+        Me.rdoFIL1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.rdoFIL1.Name = "rdoFIL1"
-        Me.rdoFIL1.Size = New System.Drawing.Size(172, 29)
+        Me.rdoFIL1.Size = New System.Drawing.Size(128, 24)
         Me.rdoFIL1.TabIndex = 9
         Me.rdoFIL1.Text = "Fixed Interval"
         Me.rdoFIL1.UseVisualStyleBackColor = True
@@ -478,10 +458,10 @@ Partial Class Component
         'rdoVIL1
         '
         Me.rdoVIL1.AutoSize = True
-        Me.rdoVIL1.Location = New System.Drawing.Point(21, 160)
-        Me.rdoVIL1.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
+        Me.rdoVIL1.Location = New System.Drawing.Point(16, 128)
+        Me.rdoVIL1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.rdoVIL1.Name = "rdoVIL1"
-        Me.rdoVIL1.Size = New System.Drawing.Size(198, 29)
+        Me.rdoVIL1.Size = New System.Drawing.Size(148, 24)
         Me.rdoVIL1.TabIndex = 10
         Me.rdoVIL1.Text = "Variable Interval"
         Me.rdoVIL1.UseVisualStyleBackColor = True
@@ -489,10 +469,10 @@ Partial Class Component
         'rdoVRL1
         '
         Me.rdoVRL1.AutoSize = True
-        Me.rdoVRL1.Location = New System.Drawing.Point(21, 85)
-        Me.rdoVRL1.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
+        Me.rdoVRL1.Location = New System.Drawing.Point(16, 68)
+        Me.rdoVRL1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.rdoVRL1.Name = "rdoVRL1"
-        Me.rdoVRL1.Size = New System.Drawing.Size(178, 29)
+        Me.rdoVRL1.Size = New System.Drawing.Size(134, 24)
         Me.rdoVRL1.TabIndex = 8
         Me.rdoVRL1.Text = "Variable Ratio"
         Me.rdoVRL1.UseVisualStyleBackColor = True
@@ -500,10 +480,10 @@ Partial Class Component
         'rdoFRL1
         '
         Me.rdoFRL1.AutoSize = True
-        Me.rdoFRL1.Location = New System.Drawing.Point(21, 48)
-        Me.rdoFRL1.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
+        Me.rdoFRL1.Location = New System.Drawing.Point(16, 38)
+        Me.rdoFRL1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.rdoFRL1.Name = "rdoFRL1"
-        Me.rdoFRL1.Size = New System.Drawing.Size(152, 29)
+        Me.rdoFRL1.Size = New System.Drawing.Size(114, 24)
         Me.rdoFRL1.TabIndex = 7
         Me.rdoFRL1.Text = "Fixed Ratio"
         Me.rdoFRL1.UseVisualStyleBackColor = True
@@ -519,11 +499,11 @@ Partial Class Component
         Me.GroupBox3.Controls.Add(Me.GroupBox6)
         Me.GroupBox3.Controls.Add(Me.rdoVRL2)
         Me.GroupBox3.Controls.Add(Me.rdoFRL2)
-        Me.GroupBox3.Location = New System.Drawing.Point(332, 139)
-        Me.GroupBox3.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
+        Me.GroupBox3.Location = New System.Drawing.Point(249, 111)
+        Me.GroupBox3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Padding = New System.Windows.Forms.Padding(4, 2, 4, 2)
-        Me.GroupBox3.Size = New System.Drawing.Size(311, 831)
+        Me.GroupBox3.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.GroupBox3.Size = New System.Drawing.Size(233, 665)
         Me.GroupBox3.TabIndex = 28
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Lever 2"
@@ -536,11 +516,9 @@ Partial Class Component
         Me.GroupBox4.Controls.Add(Me.rdoLight1L2)
         Me.GroupBox4.Controls.Add(Me.Label1)
         Me.GroupBox4.Controls.Add(Me.txbStimDurL2)
-        Me.GroupBox4.Location = New System.Drawing.Point(8, 321)
-        Me.GroupBox4.Margin = New System.Windows.Forms.Padding(4)
+        Me.GroupBox4.Location = New System.Drawing.Point(6, 257)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox4.Size = New System.Drawing.Size(253, 229)
+        Me.GroupBox4.Size = New System.Drawing.Size(190, 183)
         Me.GroupBox4.TabIndex = 4
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Response Feedback"
@@ -548,10 +526,9 @@ Partial Class Component
         'rdoHouselightL2
         '
         Me.rdoHouselightL2.AutoSize = True
-        Me.rdoHouselightL2.Location = New System.Drawing.Point(13, 182)
-        Me.rdoHouselightL2.Margin = New System.Windows.Forms.Padding(4)
+        Me.rdoHouselightL2.Location = New System.Drawing.Point(10, 146)
         Me.rdoHouselightL2.Name = "rdoHouselightL2"
-        Me.rdoHouselightL2.Size = New System.Drawing.Size(145, 29)
+        Me.rdoHouselightL2.Size = New System.Drawing.Size(110, 24)
         Me.rdoHouselightL2.TabIndex = 23
         Me.rdoHouselightL2.TabStop = True
         Me.rdoHouselightL2.Text = "Houselight"
@@ -560,10 +537,9 @@ Partial Class Component
         'rdoToneL2
         '
         Me.rdoToneL2.AutoSize = True
-        Me.rdoToneL2.Location = New System.Drawing.Point(12, 145)
-        Me.rdoToneL2.Margin = New System.Windows.Forms.Padding(4)
+        Me.rdoToneL2.Location = New System.Drawing.Point(9, 116)
         Me.rdoToneL2.Name = "rdoToneL2"
-        Me.rdoToneL2.Size = New System.Drawing.Size(92, 29)
+        Me.rdoToneL2.Size = New System.Drawing.Size(70, 24)
         Me.rdoToneL2.TabIndex = 22
         Me.rdoToneL2.TabStop = True
         Me.rdoToneL2.Text = "Tone"
@@ -572,10 +548,9 @@ Partial Class Component
         'rdoLight2L2
         '
         Me.rdoLight2L2.AutoSize = True
-        Me.rdoLight2L2.Location = New System.Drawing.Point(13, 108)
-        Me.rdoLight2L2.Margin = New System.Windows.Forms.Padding(4)
+        Me.rdoLight2L2.Location = New System.Drawing.Point(10, 86)
         Me.rdoLight2L2.Name = "rdoLight2L2"
-        Me.rdoLight2L2.Size = New System.Drawing.Size(108, 29)
+        Me.rdoLight2L2.Size = New System.Drawing.Size(82, 24)
         Me.rdoLight2L2.TabIndex = 21
         Me.rdoLight2L2.TabStop = True
         Me.rdoLight2L2.Text = "Light 2"
@@ -584,10 +559,9 @@ Partial Class Component
         'rdoLight1L2
         '
         Me.rdoLight1L2.AutoSize = True
-        Me.rdoLight1L2.Location = New System.Drawing.Point(13, 74)
-        Me.rdoLight1L2.Margin = New System.Windows.Forms.Padding(4)
+        Me.rdoLight1L2.Location = New System.Drawing.Point(10, 59)
         Me.rdoLight1L2.Name = "rdoLight1L2"
-        Me.rdoLight1L2.Size = New System.Drawing.Size(108, 29)
+        Me.rdoLight1L2.Size = New System.Drawing.Size(82, 24)
         Me.rdoLight1L2.TabIndex = 20
         Me.rdoLight1L2.TabStop = True
         Me.rdoLight1L2.Text = "Light 1"
@@ -596,48 +570,46 @@ Partial Class Component
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(8, 36)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label1.Location = New System.Drawing.Point(6, 29)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(99, 25)
+        Me.Label1.Size = New System.Drawing.Size(74, 20)
         Me.Label1.TabIndex = 19
         Me.Label1.Text = "Duration:"
         '
         'txbStimDurL2
         '
-        Me.txbStimDurL2.Location = New System.Drawing.Point(105, 31)
-        Me.txbStimDurL2.Margin = New System.Windows.Forms.Padding(4)
+        Me.txbStimDurL2.Location = New System.Drawing.Point(79, 25)
         Me.txbStimDurL2.Name = "txbStimDurL2"
-        Me.txbStimDurL2.Size = New System.Drawing.Size(103, 31)
+        Me.txbStimDurL2.Size = New System.Drawing.Size(78, 26)
         Me.txbStimDurL2.TabIndex = 2
         Me.txbStimDurL2.Text = "0"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(20, 203)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
+        Me.Label2.Location = New System.Drawing.Point(15, 162)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(73, 25)
+        Me.Label2.Size = New System.Drawing.Size(54, 20)
         Me.Label2.TabIndex = 12
         Me.Label2.Text = "Value:"
         '
         'txbValueL2
         '
-        Me.txbValueL2.Location = New System.Drawing.Point(100, 197)
-        Me.txbValueL2.Margin = New System.Windows.Forms.Padding(5, 6, 5, 6)
+        Me.txbValueL2.Location = New System.Drawing.Point(75, 158)
+        Me.txbValueL2.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txbValueL2.Name = "txbValueL2"
-        Me.txbValueL2.Size = New System.Drawing.Size(128, 31)
+        Me.txbValueL2.Size = New System.Drawing.Size(97, 26)
         Me.txbValueL2.TabIndex = 11
         Me.txbValueL2.Text = "0"
         '
         'rdoFIL2
         '
         Me.rdoFIL2.AutoSize = True
-        Me.rdoFIL2.Location = New System.Drawing.Point(21, 122)
-        Me.rdoFIL2.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
+        Me.rdoFIL2.Location = New System.Drawing.Point(16, 98)
+        Me.rdoFIL2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.rdoFIL2.Name = "rdoFIL2"
-        Me.rdoFIL2.Size = New System.Drawing.Size(172, 29)
+        Me.rdoFIL2.Size = New System.Drawing.Size(128, 24)
         Me.rdoFIL2.TabIndex = 9
         Me.rdoFIL2.TabStop = True
         Me.rdoFIL2.Text = "Fixed Interval"
@@ -646,10 +618,10 @@ Partial Class Component
         'rdoVIL2
         '
         Me.rdoVIL2.AutoSize = True
-        Me.rdoVIL2.Location = New System.Drawing.Point(21, 160)
-        Me.rdoVIL2.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
+        Me.rdoVIL2.Location = New System.Drawing.Point(16, 128)
+        Me.rdoVIL2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.rdoVIL2.Name = "rdoVIL2"
-        Me.rdoVIL2.Size = New System.Drawing.Size(198, 29)
+        Me.rdoVIL2.Size = New System.Drawing.Size(148, 24)
         Me.rdoVIL2.TabIndex = 10
         Me.rdoVIL2.TabStop = True
         Me.rdoVIL2.Text = "Variable Interval"
@@ -663,11 +635,9 @@ Partial Class Component
         Me.GroupBox5.Controls.Add(Me.rdoLightDelay1L2)
         Me.GroupBox5.Controls.Add(Me.Label3)
         Me.GroupBox5.Controls.Add(Me.txbDelayDurL2)
-        Me.GroupBox5.Location = New System.Drawing.Point(8, 560)
-        Me.GroupBox5.Margin = New System.Windows.Forms.Padding(4)
+        Me.GroupBox5.Location = New System.Drawing.Point(6, 448)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox5.Size = New System.Drawing.Size(253, 255)
+        Me.GroupBox5.Size = New System.Drawing.Size(190, 204)
         Me.GroupBox5.TabIndex = 26
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Delay"
@@ -675,10 +645,9 @@ Partial Class Component
         'rdoHouselightDelayL2
         '
         Me.rdoHouselightDelayL2.AutoSize = True
-        Me.rdoHouselightDelayL2.Location = New System.Drawing.Point(13, 183)
-        Me.rdoHouselightDelayL2.Margin = New System.Windows.Forms.Padding(4)
+        Me.rdoHouselightDelayL2.Location = New System.Drawing.Point(10, 146)
         Me.rdoHouselightDelayL2.Name = "rdoHouselightDelayL2"
-        Me.rdoHouselightDelayL2.Size = New System.Drawing.Size(145, 29)
+        Me.rdoHouselightDelayL2.Size = New System.Drawing.Size(110, 24)
         Me.rdoHouselightDelayL2.TabIndex = 27
         Me.rdoHouselightDelayL2.TabStop = True
         Me.rdoHouselightDelayL2.Text = "Houselight"
@@ -687,10 +656,9 @@ Partial Class Component
         'rdoToneDelayL2
         '
         Me.rdoToneDelayL2.AutoSize = True
-        Me.rdoToneDelayL2.Location = New System.Drawing.Point(13, 146)
-        Me.rdoToneDelayL2.Margin = New System.Windows.Forms.Padding(4)
+        Me.rdoToneDelayL2.Location = New System.Drawing.Point(10, 117)
         Me.rdoToneDelayL2.Name = "rdoToneDelayL2"
-        Me.rdoToneDelayL2.Size = New System.Drawing.Size(92, 29)
+        Me.rdoToneDelayL2.Size = New System.Drawing.Size(70, 24)
         Me.rdoToneDelayL2.TabIndex = 26
         Me.rdoToneDelayL2.TabStop = True
         Me.rdoToneDelayL2.Text = "Tone"
@@ -699,10 +667,9 @@ Partial Class Component
         'rdoLightDelay2L2
         '
         Me.rdoLightDelay2L2.AutoSize = True
-        Me.rdoLightDelay2L2.Location = New System.Drawing.Point(13, 108)
-        Me.rdoLightDelay2L2.Margin = New System.Windows.Forms.Padding(4)
+        Me.rdoLightDelay2L2.Location = New System.Drawing.Point(10, 86)
         Me.rdoLightDelay2L2.Name = "rdoLightDelay2L2"
-        Me.rdoLightDelay2L2.Size = New System.Drawing.Size(108, 29)
+        Me.rdoLightDelay2L2.Size = New System.Drawing.Size(82, 24)
         Me.rdoLightDelay2L2.TabIndex = 25
         Me.rdoLightDelay2L2.TabStop = True
         Me.rdoLightDelay2L2.Text = "Light 2"
@@ -711,10 +678,9 @@ Partial Class Component
         'rdoLightDelay1L2
         '
         Me.rdoLightDelay1L2.AutoSize = True
-        Me.rdoLightDelay1L2.Location = New System.Drawing.Point(13, 74)
-        Me.rdoLightDelay1L2.Margin = New System.Windows.Forms.Padding(4)
+        Me.rdoLightDelay1L2.Location = New System.Drawing.Point(10, 59)
         Me.rdoLightDelay1L2.Name = "rdoLightDelay1L2"
-        Me.rdoLightDelay1L2.Size = New System.Drawing.Size(108, 29)
+        Me.rdoLightDelay1L2.Size = New System.Drawing.Size(82, 24)
         Me.rdoLightDelay1L2.TabIndex = 24
         Me.rdoLightDelay1L2.TabStop = True
         Me.rdoLightDelay1L2.Text = "Light 1"
@@ -723,19 +689,17 @@ Partial Class Component
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(8, 41)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label3.Location = New System.Drawing.Point(6, 33)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(99, 25)
+        Me.Label3.Size = New System.Drawing.Size(74, 20)
         Me.Label3.TabIndex = 19
         Me.Label3.Text = "Duration:"
         '
         'txbDelayDurL2
         '
-        Me.txbDelayDurL2.Location = New System.Drawing.Point(105, 35)
-        Me.txbDelayDurL2.Margin = New System.Windows.Forms.Padding(4)
+        Me.txbDelayDurL2.Location = New System.Drawing.Point(79, 28)
         Me.txbDelayDurL2.Name = "txbDelayDurL2"
-        Me.txbDelayDurL2.Size = New System.Drawing.Size(103, 31)
+        Me.txbDelayDurL2.Size = New System.Drawing.Size(78, 26)
         Me.txbDelayDurL2.TabIndex = 2
         Me.txbDelayDurL2.Text = "0"
         '
@@ -743,11 +707,9 @@ Partial Class Component
         '
         Me.GroupBox6.Controls.Add(Me.Label4)
         Me.GroupBox6.Controls.Add(Me.txbMagL2)
-        Me.GroupBox6.Location = New System.Drawing.Point(8, 238)
-        Me.GroupBox6.Margin = New System.Windows.Forms.Padding(4)
+        Me.GroupBox6.Location = New System.Drawing.Point(6, 190)
         Me.GroupBox6.Name = "GroupBox6"
-        Me.GroupBox6.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox6.Size = New System.Drawing.Size(253, 75)
+        Me.GroupBox6.Size = New System.Drawing.Size(190, 60)
         Me.GroupBox6.TabIndex = 27
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "Magnitude"
@@ -755,29 +717,27 @@ Partial Class Component
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(13, 39)
-        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label4.Location = New System.Drawing.Point(10, 31)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(168, 25)
+        Me.Label4.Size = New System.Drawing.Size(121, 20)
         Me.Label4.TabIndex = 19
         Me.Label4.Text = "Rfs per delivery:"
         '
         'txbMagL2
         '
-        Me.txbMagL2.Location = New System.Drawing.Point(189, 33)
-        Me.txbMagL2.Margin = New System.Windows.Forms.Padding(4)
+        Me.txbMagL2.Location = New System.Drawing.Point(142, 26)
         Me.txbMagL2.Name = "txbMagL2"
-        Me.txbMagL2.Size = New System.Drawing.Size(47, 31)
+        Me.txbMagL2.Size = New System.Drawing.Size(36, 26)
         Me.txbMagL2.TabIndex = 2
         Me.txbMagL2.Text = "0"
         '
         'rdoVRL2
         '
         Me.rdoVRL2.AutoSize = True
-        Me.rdoVRL2.Location = New System.Drawing.Point(21, 85)
-        Me.rdoVRL2.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
+        Me.rdoVRL2.Location = New System.Drawing.Point(16, 68)
+        Me.rdoVRL2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.rdoVRL2.Name = "rdoVRL2"
-        Me.rdoVRL2.Size = New System.Drawing.Size(178, 29)
+        Me.rdoVRL2.Size = New System.Drawing.Size(134, 24)
         Me.rdoVRL2.TabIndex = 8
         Me.rdoVRL2.TabStop = True
         Me.rdoVRL2.Text = "Variable Ratio"
@@ -786,10 +746,10 @@ Partial Class Component
         'rdoFRL2
         '
         Me.rdoFRL2.AutoSize = True
-        Me.rdoFRL2.Location = New System.Drawing.Point(21, 48)
-        Me.rdoFRL2.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
+        Me.rdoFRL2.Location = New System.Drawing.Point(16, 38)
+        Me.rdoFRL2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.rdoFRL2.Name = "rdoFRL2"
-        Me.rdoFRL2.Size = New System.Drawing.Size(152, 29)
+        Me.rdoFRL2.Size = New System.Drawing.Size(114, 24)
         Me.rdoFRL2.TabIndex = 7
         Me.rdoFRL2.TabStop = True
         Me.rdoFRL2.Text = "Fixed Ratio"
@@ -797,18 +757,20 @@ Partial Class Component
         '
         'btnReset
         '
-        Me.btnReset.Location = New System.Drawing.Point(12, 975)
+        Me.btnReset.Location = New System.Drawing.Point(9, 780)
+        Me.btnReset.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.btnReset.Name = "btnReset"
-        Me.btnReset.Size = New System.Drawing.Size(312, 53)
+        Me.btnReset.Size = New System.Drawing.Size(234, 42)
         Me.btnReset.TabIndex = 29
         Me.btnReset.Text = "Reset"
         Me.btnReset.UseVisualStyleBackColor = True
         '
         'btnSubmit
         '
-        Me.btnSubmit.Location = New System.Drawing.Point(332, 975)
+        Me.btnSubmit.Location = New System.Drawing.Point(249, 780)
+        Me.btnSubmit.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.btnSubmit.Name = "btnSubmit"
-        Me.btnSubmit.Size = New System.Drawing.Size(312, 53)
+        Me.btnSubmit.Size = New System.Drawing.Size(234, 42)
         Me.btnSubmit.TabIndex = 30
         Me.btnSubmit.Text = "Submit"
         Me.btnSubmit.UseVisualStyleBackColor = True
@@ -816,48 +778,47 @@ Partial Class Component
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(13, 28)
-        Me.Label5.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
+        Me.Label5.Location = New System.Drawing.Point(10, 22)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(215, 25)
+        Me.Label5.Size = New System.Drawing.Size(161, 20)
         Me.Label5.TabIndex = 29
         Me.Label5.Text = "Component Duration:"
         '
         'txbComponentDuration
         '
-        Me.txbComponentDuration.Location = New System.Drawing.Point(238, 25)
-        Me.txbComponentDuration.Margin = New System.Windows.Forms.Padding(5, 6, 5, 6)
+        Me.txbComponentDuration.Location = New System.Drawing.Point(178, 20)
+        Me.txbComponentDuration.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txbComponentDuration.Name = "txbComponentDuration"
-        Me.txbComponentDuration.Size = New System.Drawing.Size(98, 31)
+        Me.txbComponentDuration.Size = New System.Drawing.Size(74, 26)
         Me.txbComponentDuration.TabIndex = 28
-        Me.txbComponentDuration.Text = "300"
+        Me.txbComponentDuration.Text = "20"
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(368, 97)
-        Me.Label6.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
+        Me.Label6.Location = New System.Drawing.Point(276, 78)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(188, 25)
+        Me.Label6.Size = New System.Drawing.Size(141, 20)
         Me.Label6.TabIndex = 31
         Me.Label6.Text = "Stim Intermittency:"
         '
         'txbComponentStimulation
         '
-        Me.txbComponentStimulation.Location = New System.Drawing.Point(561, 94)
-        Me.txbComponentStimulation.Margin = New System.Windows.Forms.Padding(5, 6, 5, 6)
+        Me.txbComponentStimulation.Location = New System.Drawing.Point(421, 75)
+        Me.txbComponentStimulation.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txbComponentStimulation.Name = "txbComponentStimulation"
-        Me.txbComponentStimulation.Size = New System.Drawing.Size(98, 31)
+        Me.txbComponentStimulation.Size = New System.Drawing.Size(74, 26)
         Me.txbComponentStimulation.TabIndex = 32
         Me.txbComponentStimulation.Text = "0"
         '
         'rdoComponentHouselight
         '
         Me.rdoComponentHouselight.AutoSize = True
-        Me.rdoComponentHouselight.Location = New System.Drawing.Point(500, 55)
-        Me.rdoComponentHouselight.Margin = New System.Windows.Forms.Padding(4)
+        Me.rdoComponentHouselight.Location = New System.Drawing.Point(375, 44)
         Me.rdoComponentHouselight.Name = "rdoComponentHouselight"
-        Me.rdoComponentHouselight.Size = New System.Drawing.Size(145, 29)
+        Me.rdoComponentHouselight.Size = New System.Drawing.Size(110, 24)
         Me.rdoComponentHouselight.TabIndex = 27
         Me.rdoComponentHouselight.TabStop = True
         Me.rdoComponentHouselight.Text = "Houselight"
@@ -866,10 +827,9 @@ Partial Class Component
         'rdoComponentTone
         '
         Me.rdoComponentTone.AutoSize = True
-        Me.rdoComponentTone.Location = New System.Drawing.Point(499, 18)
-        Me.rdoComponentTone.Margin = New System.Windows.Forms.Padding(4)
+        Me.rdoComponentTone.Location = New System.Drawing.Point(374, 14)
         Me.rdoComponentTone.Name = "rdoComponentTone"
-        Me.rdoComponentTone.Size = New System.Drawing.Size(92, 29)
+        Me.rdoComponentTone.Size = New System.Drawing.Size(70, 24)
         Me.rdoComponentTone.TabIndex = 26
         Me.rdoComponentTone.TabStop = True
         Me.rdoComponentTone.Text = "Tone"
@@ -878,10 +838,9 @@ Partial Class Component
         'rdoComponentStimLight2
         '
         Me.rdoComponentStimLight2.AutoSize = True
-        Me.rdoComponentStimLight2.Location = New System.Drawing.Point(383, 52)
-        Me.rdoComponentStimLight2.Margin = New System.Windows.Forms.Padding(4)
+        Me.rdoComponentStimLight2.Location = New System.Drawing.Point(287, 42)
         Me.rdoComponentStimLight2.Name = "rdoComponentStimLight2"
-        Me.rdoComponentStimLight2.Size = New System.Drawing.Size(108, 29)
+        Me.rdoComponentStimLight2.Size = New System.Drawing.Size(82, 24)
         Me.rdoComponentStimLight2.TabIndex = 25
         Me.rdoComponentStimLight2.TabStop = True
         Me.rdoComponentStimLight2.Text = "Light 2"
@@ -890,10 +849,9 @@ Partial Class Component
         'rdoComponentStimLight1
         '
         Me.rdoComponentStimLight1.AutoSize = True
-        Me.rdoComponentStimLight1.Location = New System.Drawing.Point(383, 18)
-        Me.rdoComponentStimLight1.Margin = New System.Windows.Forms.Padding(4)
+        Me.rdoComponentStimLight1.Location = New System.Drawing.Point(287, 14)
         Me.rdoComponentStimLight1.Name = "rdoComponentStimLight1"
-        Me.rdoComponentStimLight1.Size = New System.Drawing.Size(108, 29)
+        Me.rdoComponentStimLight1.Size = New System.Drawing.Size(82, 24)
         Me.rdoComponentStimLight1.TabIndex = 24
         Me.rdoComponentStimLight1.TabStop = True
         Me.rdoComponentStimLight1.Text = "Light 1"
@@ -901,9 +859,10 @@ Partial Class Component
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(617, 3)
+        Me.Button1.Location = New System.Drawing.Point(463, 2)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(50, 50)
+        Me.Button1.Size = New System.Drawing.Size(38, 40)
         Me.Button1.TabIndex = 33
         Me.Button1.Text = "?"
         Me.Button1.UseVisualStyleBackColor = True
@@ -913,7 +872,7 @@ Partial Class Component
         Me.txbL2M.Location = New System.Drawing.Point(129, 95)
         Me.txbL2M.Margin = New System.Windows.Forms.Padding(4)
         Me.txbL2M.Name = "txbL2M"
-        Me.txbL2M.Size = New System.Drawing.Size(107, 31)
+        Me.txbL2M.Size = New System.Drawing.Size(107, 26)
         Me.txbL2M.TabIndex = 3
         Me.txbL2M.Text = "1"
         '
@@ -922,44 +881,45 @@ Partial Class Component
         Me.txbL1M.Location = New System.Drawing.Point(131, 56)
         Me.txbL1M.Margin = New System.Windows.Forms.Padding(4)
         Me.txbL1M.Name = "txbL1M"
-        Me.txbL1M.Size = New System.Drawing.Size(105, 31)
+        Me.txbL1M.Size = New System.Drawing.Size(105, 26)
         Me.txbL1M.TabIndex = 2
         Me.txbL1M.Text = "1"
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(13, 69)
-        Me.Label8.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
+        Me.Label8.Location = New System.Drawing.Point(10, 55)
+        Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(222, 25)
+        Me.Label8.Size = New System.Drawing.Size(167, 20)
         Me.Label8.TabIndex = 35
         Me.Label8.Text = "Component Iterations:"
         '
         'txbComponentIterations
         '
-        Me.txbComponentIterations.Location = New System.Drawing.Point(238, 66)
-        Me.txbComponentIterations.Margin = New System.Windows.Forms.Padding(5, 6, 5, 6)
+        Me.txbComponentIterations.Location = New System.Drawing.Point(178, 53)
+        Me.txbComponentIterations.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txbComponentIterations.Name = "txbComponentIterations"
-        Me.txbComponentIterations.Size = New System.Drawing.Size(98, 31)
+        Me.txbComponentIterations.Size = New System.Drawing.Size(74, 26)
         Me.txbComponentIterations.TabIndex = 34
-        Me.txbComponentIterations.Text = "5"
+        Me.txbComponentIterations.Text = "2"
         '
         'chkHouselightOnOff
         '
         Me.chkHouselightOnOff.AutoSize = True
-        Me.chkHouselightOnOff.Location = New System.Drawing.Point(12, 105)
+        Me.chkHouselightOnOff.Location = New System.Drawing.Point(9, 84)
+        Me.chkHouselightOnOff.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.chkHouselightOnOff.Name = "chkHouselightOnOff"
-        Me.chkHouselightOnOff.Size = New System.Drawing.Size(206, 29)
+        Me.chkHouselightOnOff.Size = New System.Drawing.Size(156, 24)
         Me.chkHouselightOnOff.TabIndex = 36
         Me.chkHouselightOnOff.Text = "Houselight on/off"
         Me.chkHouselightOnOff.UseVisualStyleBackColor = True
         '
         'Component
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(674, 1029)
+        Me.ClientSize = New System.Drawing.Size(506, 823)
         Me.Controls.Add(Me.chkHouselightOnOff)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.txbComponentIterations)
@@ -976,6 +936,7 @@ Partial Class Component
         Me.Controls.Add(Me.btnReset)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox1)
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Name = "Component"
         Me.Text = "Component"
         Me.GroupBox9.ResumeLayout(False)

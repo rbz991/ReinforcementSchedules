@@ -160,15 +160,20 @@ Public Class Main
                 lblResponses1.Text = ResponseCount(vCC, Lever)
             Else
                 If AC(vCC).FeedbackDuration(Lever) > 0 Then Stimulus(Lever)
-                If Me.Controls("tmrDelay" & Lever + 1).Enabled = False Then
+                If tmrDelay1.Enabled = False And tmrDelay2.Enabled = False Then
                     ' If tmrDelay1.Enabled = False Then
                     WriteLine(1, vTimeNow, vCC & Lever + 1)
                     ResponseCount(vCC, Lever) += 1
                     lblResponses1.Text = ResponseCount(vCC, Lever)
                     If refRdy(Lever) = True Then Reinforce(Lever, False)
                     Ratio(Lever)
-                ElseIf Me.Controls("tmrDelay" & Lever + 1).Enabled = True Then
-                    WriteLine(1, vTimeNow, "D" & Lever + 1)
+                ElseIf tmrDelay1.Enabled = True Then
+                    WriteLine(1, vTimeNow, "D" & 1)
+                    ResponseCountDel(vCC, Lever) += 1
+                    'lblDelayR1.Text = ResponseCountDel(Lever)
+                    ObtainedDelays(Lever).Item(DelayIndex(Lever)) = vTimeNow
+                ElseIf tmrDelay2.Enabled = True Then
+                    WriteLine(1, vTimeNow, "D" & 2)
                     ResponseCountDel(vCC, Lever) += 1
                     'lblDelayR1.Text = ResponseCountDel(Lever)
                     ObtainedDelays(Lever).Item(DelayIndex(Lever)) = vTimeNow
@@ -250,7 +255,7 @@ Public Class Main
                 Chart1.Series("Reinforcers 1").Points.AddXY(chartTime(0), chartResponse(0))
                 Arduino.WriteLine("R")
                 RefCount(vCC, Lever) += 1
-                Me.Controls("lblReinforcers" & Lever + 1).Text = RefCount(vCC, Lever)
+                Me.Controls.Item("lblReinforcers" & Lever + 1).Text = RefCount(vCC, Lever)
             Next
 
             'This line activates the feeder through Arduino. "R" can mean any output connected to the Arduino.
@@ -397,6 +402,7 @@ Public Class Main
 
 
     Private Sub tmrChrt_Tick(sender As Object, e As EventArgs) Handles tmrChrt.Tick
+
         For i = 0 To 3
             chartTime(i) += 1
         Next
@@ -404,43 +410,71 @@ Public Class Main
         Chart1.Series("Lever 2").Points.AddXY(chartTime(1), chartResponse(1))
         Chart1.Series("Tray").Points.AddXY(chartTime(2), chartResponse(2))
         If tmrICI.Enabled = True Then
-            Chart1.Series("Component 1").Points.AddXY(chartTime(3), chartResponse(3) - 1)
-            Chart1.Series("Component 2").Points.AddXY(chartTime(3), chartResponse(3) - 1)
-            Chart1.Series("Component 3").Points.AddXY(chartTime(3), chartResponse(3) - 1)
-            Chart1.Series("Component 4").Points.AddXY(chartTime(3), chartResponse(3) - 1)
+            Chart1.Series("Component 1").Points.AddXY(chartTime(3), chartResponse(3) - CompIndex)
+            Chart1.Series("Component 2").Points.AddXY(chartTime(3), chartResponse(3) - CompIndex)
+            Chart1.Series("Component 3").Points.AddXY(chartTime(3), chartResponse(3) - CompIndex)
+            Chart1.Series("Component 4").Points.AddXY(chartTime(3), chartResponse(3) - CompIndex)
         Else
             If vCC = 1 Then
                 Chart1.Series("Component 1").Points.AddXY(chartTime(3), chartResponse(3))
-                Chart1.Series("Component 2").Points.AddXY(chartTime(3), chartResponse(3) - 1)
-                Chart1.Series("Component 3").Points.AddXY(chartTime(3), chartResponse(3) - 1)
-                Chart1.Series("Component 4").Points.AddXY(chartTime(3), chartResponse(3) - 1)
+                Chart1.Series("Component 2").Points.AddXY(chartTime(3), chartResponse(3) - CompIndex)
+                Chart1.Series("Component 3").Points.AddXY(chartTime(3), chartResponse(3) - CompIndex)
+                Chart1.Series("Component 4").Points.AddXY(chartTime(3), chartResponse(3) - CompIndex)
             ElseIf vCC = 2 Then
-                Chart1.Series("Component 1").Points.AddXY(chartTime(3), chartResponse(3) - 1)
+                Chart1.Series("Component 1").Points.AddXY(chartTime(3), chartResponse(3) - CompIndex)
                 Chart1.Series("Component 2").Points.AddXY(chartTime(3), chartResponse(3))
-                Chart1.Series("Component 3").Points.AddXY(chartTime(3), chartResponse(3) - 1)
-                Chart1.Series("Component 4").Points.AddXY(chartTime(3), chartResponse(3) - 1)
+                Chart1.Series("Component 3").Points.AddXY(chartTime(3), chartResponse(3) - CompIndex)
+                Chart1.Series("Component 4").Points.AddXY(chartTime(3), chartResponse(3) - CompIndex)
             ElseIf vCC = 3 Then
-                Chart1.Series("Component 1").Points.AddXY(chartTime(3), chartResponse(3) - 1)
-                Chart1.Series("Component 2").Points.AddXY(chartTime(3), chartResponse(3) - 1)
+                Chart1.Series("Component 1").Points.AddXY(chartTime(3), chartResponse(3) - CompIndex)
+                Chart1.Series("Component 2").Points.AddXY(chartTime(3), chartResponse(3) - CompIndex)
                 Chart1.Series("Component 3").Points.AddXY(chartTime(3), chartResponse(3))
-                Chart1.Series("Component 4").Points.AddXY(chartTime(3), chartResponse(3) - 1)
+                Chart1.Series("Component 4").Points.AddXY(chartTime(3), chartResponse(3) - CompIndex)
             ElseIf vCC = 4 Then
-                Chart1.Series("Component 1").Points.AddXY(chartTime(3), chartResponse(3) - 1)
-                Chart1.Series("Component 2").Points.AddXY(chartTime(3), chartResponse(3) - 1)
-                Chart1.Series("Component 3").Points.AddXY(chartTime(3), chartResponse(3) - 1)
+                Chart1.Series("Component 1").Points.AddXY(chartTime(3), chartResponse(3) - CompIndex)
+                Chart1.Series("Component 2").Points.AddXY(chartTime(3), chartResponse(3) - CompIndex)
+                Chart1.Series("Component 3").Points.AddXY(chartTime(3), chartResponse(3) - CompIndex)
                 Chart1.Series("Component 4").Points.AddXY(chartTime(3), chartResponse(3))
             End If
 
         End If
-        'If chartTime(3) > 750 And chartFlag(0) = False Then
+        'If chartTime(3) > 500 And chartFlag(0) = False Then
         '    chartFlag(0) = True
+        '    For i = 0 To MAXvCC
+
+        '        Chart1.Series("Component 1").Points.AddXY(i, 10)
+
+
+        '        Chart1.Series("Component 1").Points.AddXY(i, 10)
+        '        Chart1.Series("Component 1").Points.AddXY(i, 10)
+        '        Chart1.Series("Component 1").Points.AddXY(i, 10)
+        '        Chart1.Series("Component 1").Points.AddXY(i, 10)
+        '    Next
+
         '    chartResponse(3) += 4
-        'End If
-        'If chartTime(3) > 1500 And chartFlag(1) = False Then
+        '    End If
+        '    If chartTime(3) > 1500 And chartFlag(1) = False Then
         '    chartFlag(1) = True
         '    chartResponse(3) += 5
         'End If
+        If (chartResponse(0) > 200 Or chartResponse(1) > 200 Or chartResponse(2) > 200) And chartFlag(0) = False Then
+            chartFlag(0) = True
+            For Each pt As DataPoint In Chart1.Series("Component 1").Points
+                If pt.YValues(0) > 0 Then pt.YValues(0) += 10
+            Next
+            For Each pt As DataPoint In Chart1.Series("Component 2").Points
+                If pt.YValues(0) > 0 Then pt.YValues(0) += 10
+            Next
+            For Each pt As DataPoint In Chart1.Series("Component 3").Points
+                If pt.YValues(0) > 0 Then pt.YValues(0) += 10
+            Next
+            For Each pt As DataPoint In Chart1.Series("Component 4").Points
+                If pt.YValues(0) > 0 Then pt.YValues(0) += 10
+            Next
+            CompIndex += 10
+            chartResponse(3) += 10
 
+        End If
     End Sub
 
 
