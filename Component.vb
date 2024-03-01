@@ -210,6 +210,7 @@ Public Class Component
                 End If
             End If
         End If
+        If vCC >= 2 Then SetUp.CheckBox1.Enabled = True
         Me.Close()
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -229,42 +230,44 @@ Public Class Component
         End If
     End Sub
 
-    Private Sub btnReset_Click(sender As Object, e As EventArgs) Handles btnReset.Click
-        txbComponentDuration.Text = ""
-        txbComponentIterations.Text = ""
-        txbComponentStimulation.Text = ""
-        txbValueL1.Text = ""
-        txbMagL1.Text = ""
-        txbStimDurL1.Text = ""
-        txbDelayDurL1.Text = ""
-        txbValueL2.Text = ""
-        txbMagL2.Text = ""
-        txbStimDurL2.Text = ""
-        txbDelayDurL2.Text = ""
-        rdoFRL1.Checked = False
-        rdoVRL1.Checked = False
-        rdoFIL1.Checked = False
-        rdoVIL1.Checked = False
-        rdoFRL2.Checked = False
-        rdoVRL2.Checked = False
-        rdoFIL2.Checked = False
-        rdoVIL2.Checked = False
-        rdoLight1L1.Checked = False
-        rdoLight2L1.Checked = False
-        rdoToneL1.Checked = False
-        rdoHouselightL1.Checked = False
-        rdoLightDelay1L1.Checked = False
-        rdoLightDelay2L1.Checked = False
-        rdoToneDelayL1.Checked = False
-        rdoHouselightDelayL1.Checked = False
-        rdoLight1L2.Checked = False
-        rdoLight2L2.Checked = False
-        rdoToneL2.Checked = False
-        rdoHouselightL2.Checked = False
-        rdoLightDelay1L2.Checked = False
-        rdoLightDelay2L2.Checked = False
-        rdoToneDelayL2.Checked = False
-        rdoHouselightDelayL2.Checked = False
+    Private Sub btnReset_Click(sender As Object, e As EventArgs) Handles btnClose.Click
+        vCC -= 1
+        Me.Close()
+        'txbComponentDuration.Text = ""
+        'txbComponentIterations.Text = ""
+        'txbComponentStimulation.Text = ""
+        'txbValueL1.Text = ""
+        'txbMagL1.Text = ""
+        'txbStimDurL1.Text = ""
+        'txbDelayDurL1.Text = ""
+        'txbValueL2.Text = ""
+        'txbMagL2.Text = ""
+        'txbStimDurL2.Text = ""
+        'txbDelayDurL2.Text = ""
+        'rdoFRL1.Checked = False
+        'rdoVRL1.Checked = False
+        'rdoFIL1.Checked = False
+        'rdoVIL1.Checked = False
+        'rdoFRL2.Checked = False
+        'rdoVRL2.Checked = False
+        'rdoFIL2.Checked = False
+        'rdoVIL2.Checked = False
+        'rdoLight1L1.Checked = False
+        'rdoLight2L1.Checked = False
+        'rdoToneL1.Checked = False
+        'rdoHouselightL1.Checked = False
+        'rdoLightDelay1L1.Checked = False
+        'rdoLightDelay2L1.Checked = False
+        'rdoToneDelayL1.Checked = False
+        'rdoHouselightDelayL1.Checked = False
+        'rdoLight1L2.Checked = False
+        'rdoLight2L2.Checked = False
+        'rdoToneL2.Checked = False
+        'rdoHouselightL2.Checked = False
+        'rdoLightDelay1L2.Checked = False
+        'rdoLightDelay2L2.Checked = False
+        'rdoToneDelayL2.Checked = False
+        'rdoHouselightDelayL2.Checked = False
     End Sub
 
 End Class
