@@ -23,17 +23,17 @@ Partial Class Main
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series10 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Series11 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Series12 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Series13 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Series14 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Series15 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Series16 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Series17 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Series18 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series4 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series5 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series6 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series7 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series8 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series9 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Main))
         Me.tmrLever1 = New System.Windows.Forms.Timer(Me.components)
         Me.tmrLever2 = New System.Windows.Forms.Timer(Me.components)
@@ -319,84 +319,85 @@ Partial Class Main
         'Chart1
         '
         Me.Chart1.BackColor = System.Drawing.Color.Transparent
-        ChartArea2.AxisX.MajorGrid.LineColor = System.Drawing.Color.Transparent
-        ChartArea2.AxisX2.TitleForeColor = System.Drawing.Color.Bisque
-        ChartArea2.AxisY.MajorGrid.LineColor = System.Drawing.Color.Transparent
-        ChartArea2.BackSecondaryColor = System.Drawing.Color.White
-        ChartArea2.Name = "ChartArea1"
-        Me.Chart1.ChartAreas.Add(ChartArea2)
-        Legend2.BackColor = System.Drawing.Color.Transparent
-        Legend2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.125!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Legend2.IsTextAutoFit = False
-        Legend2.Name = "Legend1"
-        Legend2.TitleFont = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Chart1.Legends.Add(Legend2)
+        ChartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.Transparent
+        ChartArea1.AxisX2.TitleForeColor = System.Drawing.Color.Bisque
+        ChartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.Transparent
+        ChartArea1.BackSecondaryColor = System.Drawing.Color.White
+        ChartArea1.Name = "ChartArea1"
+        Me.Chart1.ChartAreas.Add(ChartArea1)
+        Legend1.BackColor = System.Drawing.Color.Transparent
+        Legend1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.125!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Legend1.IsTextAutoFit = False
+        Legend1.Name = "Legend1"
+        Legend1.TitleFont = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Chart1.Legends.Add(Legend1)
         Me.Chart1.Location = New System.Drawing.Point(-31, 130)
         Me.Chart1.Name = "Chart1"
-        Series10.ChartArea = "ChartArea1"
-        Series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StepLine
-        Series10.Color = System.Drawing.Color.Black
-        Series10.Legend = "Legend1"
-        Series10.Name = "Lever 1"
-        Series11.BorderColor = System.Drawing.Color.Black
-        Series11.ChartArea = "ChartArea1"
-        Series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point
-        Series11.Color = System.Drawing.Color.Black
-        Series11.Legend = "Legend1"
-        Series11.MarkerBorderColor = System.Drawing.Color.White
-        Series11.MarkerColor = System.Drawing.Color.Black
-        Series11.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Cross
-        Series11.Name = "Reinforcers 1"
-        Series12.ChartArea = "ChartArea1"
-        Series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StepLine
-        Series12.Color = System.Drawing.Color.Silver
-        Series12.Legend = "Legend1"
-        Series12.Name = "Lever 2"
-        Series13.BorderColor = System.Drawing.Color.Black
-        Series13.ChartArea = "ChartArea1"
-        Series13.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point
-        Series13.Color = System.Drawing.Color.White
-        Series13.Legend = "Legend1"
-        Series13.MarkerBorderColor = System.Drawing.Color.White
-        Series13.MarkerColor = System.Drawing.Color.Silver
-        Series13.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Cross
-        Series13.Name = "Reinforcers 2"
-        Series14.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash
-        Series14.ChartArea = "ChartArea1"
-        Series14.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StepLine
-        Series14.Color = System.Drawing.Color.Lime
-        Series14.Legend = "Legend1"
-        Series14.Name = "Tray"
-        Series15.ChartArea = "ChartArea1"
-        Series15.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Area
-        Series15.Color = System.Drawing.Color.Blue
-        Series15.Legend = "Legend1"
-        Series15.Name = "Component 1"
-        Series16.ChartArea = "ChartArea1"
-        Series16.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Area
-        Series16.Color = System.Drawing.Color.Red
-        Series16.Legend = "Legend1"
-        Series16.Name = "Component 2"
-        Series16.YValuesPerPoint = 2
-        Series17.ChartArea = "ChartArea1"
-        Series17.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Area
-        Series17.Color = System.Drawing.Color.Yellow
-        Series17.Legend = "Legend1"
-        Series17.Name = "Component 3"
-        Series18.ChartArea = "ChartArea1"
-        Series18.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Area
-        Series18.Color = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
-        Series18.Legend = "Legend1"
-        Series18.Name = "Component 4"
-        Me.Chart1.Series.Add(Series10)
-        Me.Chart1.Series.Add(Series11)
-        Me.Chart1.Series.Add(Series12)
-        Me.Chart1.Series.Add(Series13)
-        Me.Chart1.Series.Add(Series14)
-        Me.Chart1.Series.Add(Series15)
-        Me.Chart1.Series.Add(Series16)
-        Me.Chart1.Series.Add(Series17)
-        Me.Chart1.Series.Add(Series18)
+        Series1.ChartArea = "ChartArea1"
+        Series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StepLine
+        Series1.Color = System.Drawing.Color.Black
+        Series1.Legend = "Legend1"
+        Series1.Name = "Lever 1"
+        Series2.BorderColor = System.Drawing.Color.Black
+        Series2.ChartArea = "ChartArea1"
+        Series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point
+        Series2.Color = System.Drawing.Color.Black
+        Series2.Legend = "Legend1"
+        Series2.MarkerBorderColor = System.Drawing.Color.White
+        Series2.MarkerColor = System.Drawing.Color.Black
+        Series2.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Cross
+        Series2.Name = "Reinforcers 1"
+        Series3.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash
+        Series3.ChartArea = "ChartArea1"
+        Series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StepLine
+        Series3.Color = System.Drawing.Color.Black
+        Series3.Legend = "Legend1"
+        Series3.Name = "Lever 2"
+        Series4.BorderColor = System.Drawing.Color.Black
+        Series4.ChartArea = "ChartArea1"
+        Series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point
+        Series4.Color = System.Drawing.Color.White
+        Series4.Legend = "Legend1"
+        Series4.MarkerBorderColor = System.Drawing.Color.White
+        Series4.MarkerColor = System.Drawing.Color.Silver
+        Series4.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Cross
+        Series4.Name = "Reinforcers 2"
+        Series5.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot
+        Series5.ChartArea = "ChartArea1"
+        Series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StepLine
+        Series5.Color = System.Drawing.Color.Lime
+        Series5.Legend = "Legend1"
+        Series5.Name = "Tray"
+        Series6.ChartArea = "ChartArea1"
+        Series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Area
+        Series6.Color = System.Drawing.Color.Blue
+        Series6.Legend = "Legend1"
+        Series6.Name = "Component 1"
+        Series7.ChartArea = "ChartArea1"
+        Series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Area
+        Series7.Color = System.Drawing.Color.Red
+        Series7.Legend = "Legend1"
+        Series7.Name = "Component 2"
+        Series7.YValuesPerPoint = 2
+        Series8.ChartArea = "ChartArea1"
+        Series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Area
+        Series8.Color = System.Drawing.Color.Yellow
+        Series8.Legend = "Legend1"
+        Series8.Name = "Component 3"
+        Series9.ChartArea = "ChartArea1"
+        Series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Area
+        Series9.Color = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
+        Series9.Legend = "Legend1"
+        Series9.Name = "Component 4"
+        Me.Chart1.Series.Add(Series1)
+        Me.Chart1.Series.Add(Series2)
+        Me.Chart1.Series.Add(Series3)
+        Me.Chart1.Series.Add(Series4)
+        Me.Chart1.Series.Add(Series5)
+        Me.Chart1.Series.Add(Series6)
+        Me.Chart1.Series.Add(Series7)
+        Me.Chart1.Series.Add(Series8)
+        Me.Chart1.Series.Add(Series9)
         Me.Chart1.Size = New System.Drawing.Size(939, 302)
         Me.Chart1.TabIndex = 32
         '

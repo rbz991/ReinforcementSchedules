@@ -164,7 +164,7 @@ Public Class Main
                     ' If tmrDelay1.Enabled = False Then
                     WriteLine(1, vTimeNow, vCC & Lever + 1)
                     ResponseCount(vCC, Lever) += 1
-                    lblResponses1.Text = ResponseCount(vCC, Lever)
+                    Me.Controls("lblResponses" & Lever + 1).Text = ResponseCount(vCC, Lever)
                     If refRdy(Lever) = True Then Reinforce(Lever, False)
                     Ratio(Lever)
                 ElseIf tmrDelay1.Enabled = True Then
@@ -250,9 +250,9 @@ Public Class Main
             refRdy(Lever) = False
 
 
-            For i = 1 To AC(vCC).Magnitude(0)
-                lblRfR1.Text = refRdy(0)
-                Chart1.Series("Reinforcers 1").Points.AddXY(chartTime(0), chartResponse(0))
+            For i = 1 To AC(vCC).Magnitude(Lever)
+                Me.Controls("lblRfR" & Lever + 1).Text = refRdy(Lever)
+                Chart1.Series("Reinforcers " & Lever + 1).Points.AddXY(chartTime(Lever), chartResponse(Lever) + 1)
                 Arduino.WriteLine("R")
                 RefCount(vCC, Lever) += 1
                 Me.Controls.Item("lblReinforcers" & Lever + 1).Text = RefCount(vCC, Lever)
@@ -342,7 +342,7 @@ Public Class Main
     Private Sub tmrSchedule2_Tick(sender As Object, e As EventArgs) Handles tmrLever2.Tick 'This keeps track of time for interval schedules on operanda 2.
         tmrLever2.Enabled = False
         refRdy(1) = True
-        lblRfR2.Text = refRdy(0)
+        lblRfR2.Text = refRdy(1)
     End Sub
     Private Sub Finish()
         Arduino.WriteLine("nhtabcd") 'Turns off every output on the Arduino.
