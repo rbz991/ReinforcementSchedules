@@ -156,8 +156,8 @@ Public Class Main
             chartResponse(Lever) += 1
             If tmrICI.Enabled = True Then
                 WriteLine(1, vTimeNow, Lever + 1, "ICIResponse")
-                ResponseCount(vCC, Lever) += 1
-                lblResponses1.Text = ResponseCount(vCC, Lever)
+                'ResponseCount(vCC, Lever) += 1
+                'lblResponses1.Text = ResponseCount(vCC, Lever)
             Else
                 If AC(vCC).FeedbackDuration(Lever) > 0 Then Stimulus(Lever)
                 If tmrDelay1.Enabled = False And tmrDelay2.Enabled = False Then
