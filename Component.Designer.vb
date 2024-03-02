@@ -96,6 +96,10 @@ Partial Class Component
         Me.Label8 = New System.Windows.Forms.Label()
         Me.txbComponentIterations = New System.Windows.Forms.TextBox()
         Me.chkHouselightOnOff = New System.Windows.Forms.CheckBox()
+        Me.txbMaxRefs = New System.Windows.Forms.TextBox()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.txbCOD = New System.Windows.Forms.TextBox()
+        Me.Label15 = New System.Windows.Forms.Label()
         Me.GroupBox9.SuspendLayout()
         Me.grpStimL2.SuspendLayout()
         Me.grpStimL1.SuspendLayout()
@@ -436,7 +440,7 @@ Partial Class Component
         Me.GroupBox1.Controls.Add(Me.grpMagnitude)
         Me.GroupBox1.Controls.Add(Me.rdoVRL1)
         Me.GroupBox1.Controls.Add(Me.rdoFRL1)
-        Me.GroupBox1.Location = New System.Drawing.Point(13, 139)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 196)
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 2, 4, 2)
@@ -519,7 +523,7 @@ Partial Class Component
         Me.GroupBox3.Controls.Add(Me.GroupBox6)
         Me.GroupBox3.Controls.Add(Me.rdoVRL2)
         Me.GroupBox3.Controls.Add(Me.rdoFRL2)
-        Me.GroupBox3.Location = New System.Drawing.Point(332, 139)
+        Me.GroupBox3.Location = New System.Drawing.Point(332, 196)
         Me.GroupBox3.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Padding = New System.Windows.Forms.Padding(4, 2, 4, 2)
@@ -797,7 +801,7 @@ Partial Class Component
         '
         'btnClose
         '
-        Me.btnClose.Location = New System.Drawing.Point(12, 975)
+        Me.btnClose.Location = New System.Drawing.Point(12, 1031)
         Me.btnClose.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.Size = New System.Drawing.Size(312, 52)
@@ -807,7 +811,7 @@ Partial Class Component
         '
         'btnSubmit
         '
-        Me.btnSubmit.Location = New System.Drawing.Point(332, 975)
+        Me.btnSubmit.Location = New System.Drawing.Point(332, 1031)
         Me.btnSubmit.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnSubmit.Name = "btnSubmit"
         Me.btnSubmit.Size = New System.Drawing.Size(312, 52)
@@ -951,7 +955,7 @@ Partial Class Component
         'chkHouselightOnOff
         '
         Me.chkHouselightOnOff.AutoSize = True
-        Me.chkHouselightOnOff.Location = New System.Drawing.Point(12, 105)
+        Me.chkHouselightOnOff.Location = New System.Drawing.Point(18, 151)
         Me.chkHouselightOnOff.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.chkHouselightOnOff.Name = "chkHouselightOnOff"
         Me.chkHouselightOnOff.Size = New System.Drawing.Size(206, 29)
@@ -959,12 +963,55 @@ Partial Class Component
         Me.chkHouselightOnOff.Text = "Houselight on/off"
         Me.chkHouselightOnOff.UseVisualStyleBackColor = True
         '
+        'txbMaxRefs
+        '
+        Me.txbMaxRefs.Location = New System.Drawing.Point(237, 109)
+        Me.txbMaxRefs.Margin = New System.Windows.Forms.Padding(5, 6, 5, 6)
+        Me.txbMaxRefs.Name = "txbMaxRefs"
+        Me.txbMaxRefs.Size = New System.Drawing.Size(97, 31)
+        Me.txbMaxRefs.TabIndex = 39
+        Me.txbMaxRefs.Text = "0"
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Location = New System.Drawing.Point(13, 112)
+        Me.Label14.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(175, 25)
+        Me.Label14.TabIndex = 38
+        Me.Label14.Text = "Max Reinforcers:"
+        '
+        'txbCOD
+        '
+        Me.txbCOD.Enabled = False
+        Me.txbCOD.Location = New System.Drawing.Point(561, 137)
+        Me.txbCOD.Margin = New System.Windows.Forms.Padding(5, 6, 5, 6)
+        Me.txbCOD.Name = "txbCOD"
+        Me.txbCOD.Size = New System.Drawing.Size(97, 31)
+        Me.txbCOD.TabIndex = 40
+        Me.txbCOD.Text = "0"
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Location = New System.Drawing.Point(357, 140)
+        Me.Label15.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(199, 25)
+        Me.Label15.TabIndex = 41
+        Me.Label15.Text = "Change over delay:"
+        '
         'Component
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(675, 1029)
+        Me.ClientSize = New System.Drawing.Size(675, 1094)
         Me.ControlBox = False
+        Me.Controls.Add(Me.Label15)
+        Me.Controls.Add(Me.txbCOD)
+        Me.Controls.Add(Me.txbMaxRefs)
+        Me.Controls.Add(Me.Label14)
         Me.Controls.Add(Me.chkHouselightOnOff)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.txbComponentIterations)
@@ -1097,4 +1144,8 @@ Partial Class Component
     Friend WithEvents Label8 As Label
     Friend WithEvents txbComponentIterations As TextBox
     Friend WithEvents chkHouselightOnOff As CheckBox
+    Friend WithEvents txbMaxRefs As TextBox
+    Friend WithEvents Label14 As Label
+    Friend WithEvents txbCOD As TextBox
+    Friend WithEvents Label15 As Label
 End Class

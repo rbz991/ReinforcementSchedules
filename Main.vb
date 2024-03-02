@@ -50,6 +50,8 @@ Public Class Main
                 '    btnFinish.PerformClick() 'This sets the criteria to finish the session.
                 'End If
 
+
+
             Catch ex As Exception
             End Try
             My.Application.DoEvents() 'This will enable the rest of the program to run while executing the code from above.
@@ -59,6 +61,7 @@ Public Class Main
     Private Sub tmrStart_Tick(sender As Object, e As EventArgs) Handles tmrStart.Tick
         tmrStart.Enabled = False
         CompList = New List(Of Integer)
+
         For i = 1 To MAXvCC
             For l = 1 To AC(i).ComponentIteration
                 CompList.Add(i)
@@ -98,6 +101,7 @@ Public Class Main
             tmrComponentStim.Interval = 1
             tmrComponentStim.Enabled = True
         End If
+        If AC(vCC).COD > 0 Then tmrCOD.Interval = AC(vCC).COD
         tmrLever1.Enabled = False
         tmrLever2.Enabled = False
         tmrDelay1.Enabled = False
@@ -159,25 +163,39 @@ Public Class Main
                 'ResponseCount(vCC, Lever) += 1
                 'lblResponses1.Text = ResponseCount(vCC, Lever)
             Else
-                If AC(vCC).FeedbackDuration(Lever) > 0 Then Stimulus(Lever)
-                If tmrDelay1.Enabled = False And tmrDelay2.Enabled = False Then
-                    ' If tmrDelay1.Enabled = False Then
-                    WriteLine(1, vTimeNow, vCC & Lever + 1)
-                    ResponseCount(vCC, Lever) += 1
-                    Me.Controls("lblResponses" & Lever + 1).Text = ResponseCount(vCC, Lever)
-                    If refRdy(Lever) = True Then Reinforce(Lever, False)
-                    Ratio(Lever)
-                ElseIf tmrDelay1.Enabled = True Then
-                    WriteLine(1, vTimeNow, "D" & 1)
-                    ResponseCountDel(vCC, Lever) += 1
-                    'lblDelayR1.Text = ResponseCountDel(Lever)
-                    ObtainedDelays(Lever).Item(DelayIndex(Lever)) = vTimeNow
-                ElseIf tmrDelay2.Enabled = True Then
-                    WriteLine(1, vTimeNow, "D" & 2)
-                    ResponseCountDel(vCC, Lever) += 1
-                    'lblDelayR1.Text = ResponseCountDel(Lever)
-                    ObtainedDelays(Lever).Item(DelayIndex(Lever)) = vTimeNow
+
+                If tmrCOD.Interval > 0 And tmrCOD.Enabled = False Then
+                    tmrCOD.Enabled = True
+                    CODL = Lever + 1
                 End If
+
+                If Lever + 1 = CODL Or CODL = 0 Then
+
+                    If AC(vCC).FeedbackDuration(Lever) > 0 Then Stimulus(Lever)
+                    If tmrDelay1.Enabled = False And tmrDelay2.Enabled = False Then
+                        ' If tmrDelay1.Enabled = False Then
+                        WriteLine(1, vTimeNow, vCC & Lever + 1)
+                        ResponseCount(vCC, Lever) += 1
+                        Me.Controls("lblResponses" & Lever + 1).Text = ResponseCount(vCC, Lever)
+                        If refRdy(Lever) = True Then Reinforce(Lever, False)
+                        Ratio(Lever)
+                    ElseIf tmrDelay1.Enabled = True Then
+                        WriteLine(1, vTimeNow, "D" & 1)
+                        ResponseCountDel(vCC, Lever) += 1
+                        'lblDelayR1.Text = ResponseCountDel(Lever)
+                        ObtainedDelays(Lever).Item(DelayIndex(Lever)) = vTimeNow
+                    ElseIf tmrDelay2.Enabled = True Then
+                        WriteLine(1, vTimeNow, "D" & 2)
+                        ResponseCountDel(vCC, Lever) += 1
+                        'lblDelayR1.Text = ResponseCountDel(Lever)
+                        ObtainedDelays(Lever).Item(DelayIndex(Lever)) = vTimeNow
+                    End If
+
+                Else
+                    WriteLine(1, vTimeNow, Lever + 1, "CODResponse")
+                End If
+
+
             End If
         End If
     End Sub
@@ -645,5 +663,10 @@ Public Class Main
                 BeginPrograms()
             End If
         End If
+    End Sub
+
+    Private Sub tmrCOD_Tick(sender As Object, e As EventArgs) Handles tmrCOD.Tick
+        tmrCOD.Enabled = False
+        CODL = 0
     End Sub
 End Class

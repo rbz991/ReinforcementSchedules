@@ -1,4 +1,5 @@
 ﻿Module Module1
+    Public CODL As Byte
     Public CompIndex As Byte = 10
     Public chartFlag(1) As Boolean
     Public ICIcounter As Integer
@@ -38,6 +39,8 @@
     Public AC(4) As ComponentBlueprint ' ActualComponent
     Public Structure ComponentBlueprint
         Dim HouselightOnOff As Boolean
+        Dim COD As Double
+        Dim MaxRefs As Integer
         Dim ComponentDuration As Integer
         Dim ComponentIteration As Byte
         Dim ComponentStimDuration As Double

@@ -9,6 +9,7 @@ Public Class Component
     Dim DelayStimType1 = ""
     Dim DelayStimType2 = ""
     Dim HouselightOnOff = False
+    Dim COD = False
 
 
     Private Sub btnSubmit_Click(sender As Object, e As EventArgs) Handles btnSubmit.Click
@@ -93,7 +94,10 @@ Public Class Component
                     AC(vCC).DelayDuration(1) = txbDelayDurL2.Text
                     AC(vCC).DelayType(1) = DelayStimType2
                     AC(vCC).HouselightOnOff = HouselightOnOff
-
+                    If txbCOD.Text = "" Then txbCOD.Text = 0
+                    AC(vCC).COD = txbCOD.Text
+                    If txbMaxRefs.Text = "" Then txbMaxRefs.Text = 0
+                    AC(vCC).MaxRefs = txbMaxRefs.Text
 
                     SetUp.LabelPreview(PreviewCounter) = New Label With {
             .Location = New Point(SetUp.lblComponent.Location.X + vPadding, SetUp.lblComponent.Location.Y),
@@ -269,5 +273,6 @@ Public Class Component
         'rdoToneDelayL2.Checked = False
         'rdoHouselightDelayL2.Checked = False
     End Sub
+
 
 End Class
