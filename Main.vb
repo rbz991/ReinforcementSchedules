@@ -274,6 +274,9 @@ Public Class Main
                 Arduino.WriteLine("R")
                 RefCount(vCC, Lever) += 1
                 Me.Controls.Item("lblReinforcers" & Lever + 1).Text = RefCount(vCC, Lever)
+                For p = 1 To MAXvCC
+                    If RefCount(p, 0) + RefCount(p, 1) >= AC(p).MaxRefs Then btnFinish.PerformClick()
+                Next
             Next
 
             'This line activates the feeder through Arduino. "R" can mean any output connected to the Arduino.
@@ -363,6 +366,7 @@ Public Class Main
         lblRfR2.Text = refRdy(1)
     End Sub
     Private Sub Finish()
+        Chart1.SaveImage("C:\Data\Charts\" & SetUp.txtSubject.Text & "_" & SetUp.txtSession.Text & "_chart_" & Format(Date.Now, "hh_mm_ss") & ".png", ChartImageFormat.Png)
         Arduino.WriteLine("nhtabcd") 'Turns off every output on the Arduino.
         Arduino.Close() 'Terminates Arduino-VB communication.
         For i = 0 To ObtainedDelays.Count - 1
@@ -562,7 +566,6 @@ Public Class Main
         btnReinforce.Enabled = False
         tmrPostSession.Interval = SetUp.txbPostSession.Text * 1000
         tmrPostSession.Enabled = True
-        Chart1.SaveImage("C:\Data\Charts\" & SetUp.txtSubject.Text & "_" & SetUp.txtSession.Text & "_chart_" & Format(Date.Now, "hh_mm_ss") & ".png", ChartImageFormat.Png)
     End Sub
     Private Sub btnL1IO_Click(sender As Object, e As EventArgs) Handles btnL1IO.Click
         If PalIO(0) = True Then

@@ -43,8 +43,6 @@ Partial Class SetUp
         Me.lblMagnitude1 = New System.Windows.Forms.Label()
         Me.lblSchedule1 = New System.Windows.Forms.Label()
         Me.lblComponentD = New System.Windows.Forms.Label()
-        Me.txbRefs = New System.Windows.Forms.TextBox()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -138,7 +136,7 @@ Partial Class SetUp
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(13, 170)
+        Me.Label6.Location = New System.Drawing.Point(13, 132)
         Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(112, 25)
@@ -147,7 +145,7 @@ Partial Class SetUp
         '
         'txbStart
         '
-        Me.txbStart.Location = New System.Drawing.Point(125, 168)
+        Me.txbStart.Location = New System.Drawing.Point(125, 130)
         Me.txbStart.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txbStart.Name = "txbStart"
         Me.txbStart.Size = New System.Drawing.Size(121, 31)
@@ -166,7 +164,7 @@ Partial Class SetUp
         '
         'txbICI
         '
-        Me.txbICI.Location = New System.Drawing.Point(127, 258)
+        Me.txbICI.Location = New System.Drawing.Point(127, 220)
         Me.txbICI.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txbICI.Name = "txbICI"
         Me.txbICI.Size = New System.Drawing.Size(121, 31)
@@ -176,7 +174,7 @@ Partial Class SetUp
         'lblICI
         '
         Me.lblICI.AutoSize = True
-        Me.lblICI.Location = New System.Drawing.Point(13, 260)
+        Me.lblICI.Location = New System.Drawing.Point(13, 222)
         Me.lblICI.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblICI.Name = "lblICI"
         Me.lblICI.Size = New System.Drawing.Size(114, 25)
@@ -185,7 +183,7 @@ Partial Class SetUp
         '
         'txbPostSession
         '
-        Me.txbPostSession.Location = New System.Drawing.Point(125, 212)
+        Me.txbPostSession.Location = New System.Drawing.Point(125, 174)
         Me.txbPostSession.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txbPostSession.Name = "txbPostSession"
         Me.txbPostSession.Size = New System.Drawing.Size(121, 31)
@@ -195,7 +193,7 @@ Partial Class SetUp
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(13, 218)
+        Me.Label1.Location = New System.Drawing.Point(13, 180)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(105, 25)
@@ -273,26 +271,6 @@ Partial Class SetUp
         Me.lblComponentD.TabIndex = 35
         Me.lblComponentD.Text = "ComponentD"
         Me.lblComponentD.Visible = False
-        '
-        'txbRefs
-        '
-        Me.txbRefs.Enabled = False
-        Me.txbRefs.Location = New System.Drawing.Point(128, 128)
-        Me.txbRefs.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.txbRefs.Name = "txbRefs"
-        Me.txbRefs.Size = New System.Drawing.Size(121, 31)
-        Me.txbRefs.TabIndex = 37
-        Me.txbRefs.Text = "50"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(13, 130)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(97, 25)
-        Me.Label2.TabIndex = 36
-        Me.Label2.Text = "Max Rfs:"
         '
         'Label3
         '
@@ -512,7 +490,7 @@ Partial Class SetUp
         'Label17
         '
         Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(13, 299)
+        Me.Label17.Location = New System.Drawing.Point(13, 264)
         Me.Label17.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(192, 25)
@@ -523,7 +501,7 @@ Partial Class SetUp
         '
         Me.CheckBox1.AutoSize = True
         Me.CheckBox1.Enabled = False
-        Me.CheckBox1.Location = New System.Drawing.Point(213, 296)
+        Me.CheckBox1.Location = New System.Drawing.Point(207, 262)
         Me.CheckBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(28, 27)
@@ -556,8 +534,6 @@ Partial Class SetUp
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.txbRefs)
-        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.lblComponentD)
         Me.Controls.Add(Me.lblDelay1)
         Me.Controls.Add(Me.lblFeedback1)
@@ -607,8 +583,6 @@ Partial Class SetUp
     Friend WithEvents lblMagnitude1 As Label
     Friend WithEvents lblSchedule1 As Label
     Friend WithEvents lblComponentD As Label
-    Friend WithEvents txbRefs As TextBox
-    Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
