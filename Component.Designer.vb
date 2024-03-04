@@ -789,7 +789,6 @@ Partial Class Component
         Me.txbPelletProbability2.Name = "txbPelletProbability2"
         Me.txbPelletProbability2.Size = New System.Drawing.Size(91, 31)
         Me.txbPelletProbability2.TabIndex = 43
-        Me.txbPelletProbability2.Text = ".50"
         '
         'cbbReinforcer2
         '

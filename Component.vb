@@ -288,7 +288,7 @@ Public Class Component
 
     Private Sub cbbReinforcer1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbbReinforcer1.SelectedIndexChanged
         If cbbReinforcer1.Text = "Random" Then
-            txbPelletProbability1.Text = 0.5
+            txbPelletProbability1.Text = 50
             txbPelletProbability1.Enabled = True
         Else
             txbPelletProbability1.Text = ""
@@ -298,7 +298,7 @@ Public Class Component
 
     Private Sub cbbReinforcer2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbbReinforcer2.SelectedIndexChanged
         If cbbReinforcer2.Text = "Random" Then
-            txbPelletProbability2.Text = 0.5
+            txbPelletProbability2.Text = 50
             txbPelletProbability2.Enabled = True
         Else
             txbPelletProbability2.Text = ""
