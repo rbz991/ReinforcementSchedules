@@ -271,7 +271,9 @@ Public Class Main
             For i = 1 To AC(vCC).Magnitude(Lever)
                 Me.Controls("lblRfR" & Lever + 1).Text = refRdy(Lever)
                 Chart1.Series("Reinforcers " & Lever + 1).Points.AddXY(chartTime(Lever), chartResponse(Lever) + 1)
-                Arduino.WriteLine("R")
+
+                ReinforcerDelivery(Lever)
+
                 RefCount(vCC, Lever) += 1
                 Me.Controls.Item("lblReinforcers" & Lever + 1).Text = RefCount(vCC, Lever)
                 For p = 1 To MAXvCC
@@ -294,6 +296,24 @@ Public Class Main
                 If AC(vCC).ScheduleType(1).Contains("Variable Interval") Then VIGen(1)
             End If
         End If
+    End Sub
+    Private Sub ReinforcerDelivery(Lever)
+
+        If AC(vCC).Reinforcer(Lever) = "Pellet" Then
+            Arduino.WriteLine("R")
+        ElseIf AC(vCC).Reinforcer(Lever) = "Liquid" Then
+            Arduino.WriteLine("W")
+        ElseIf AC(vCC).Reinforcer(Lever) = "Random" Then
+            Dim Rand As New Random
+            Dim Crit As New Double
+            Crit = Rand.Next(1, 101)
+            If Crit <= AC(vCC).PelletP(Lever) Then
+                Arduino.WriteLine("R")
+            Else
+                Arduino.WriteLine("W")
+            End If
+        End If
+
     End Sub
     Private Sub FRGen(x) 'This initializes Fixed Ratio schedules depending on the selected values / operanda.
         'FR schedules just check current responses against the specified schedule value.

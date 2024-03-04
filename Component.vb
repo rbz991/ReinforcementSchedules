@@ -67,32 +67,44 @@ Public Class Component
                     ReDim AC(vCC).ScheduleType(1)
                     ReDim AC(vCC).ScheduleValue(1)
                     ReDim AC(vCC).Magnitude(1)
+                    ReDim AC(vCC).Reinforcer(1)
                     ReDim AC(vCC).FeedbackDuration(1)
                     ReDim AC(vCC).FeedbackType(1)
                     ReDim AC(vCC).DelayDuration(1)
                     ReDim AC(vCC).DelayType(1)
+
                     AC(vCC).ScheduleType(0) = ScheduleType1
                     If txbValueL1.Text = "" Then txbValueL1.Text = 0
                     AC(vCC).ScheduleValue(0) = txbValueL1.Text
+                    If cbbReinforcer1.Text = "" Then cbbReinforcer1.Text = "Pellet"
+                    AC(vCC).Reinforcer(0) = cbbReinforcer1.Text
                     If txbMagL1.Text = "" Then txbMagL1.Text = 0
                     AC(vCC).Magnitude(0) = txbMagL1.Text
+                    If cbbReinforcer1.Text = "" Then cbbReinforcer1.Text = 0
+                    AC(vCC).PelletP(0) = cbbReinforcer1.Text
                     If txbStimDurL1.Text = "" Then txbStimDurL1.Text = 0
                     AC(vCC).FeedbackDuration(0) = txbStimDurL1.Text
                     AC(vCC).FeedbackType(0) = FeedbackType1
                     If txbDelayDurL1.Text = "" Then txbDelayDurL1.Text = 0
                     AC(vCC).DelayDuration(0) = txbDelayDurL1.Text
                     AC(vCC).DelayType(0) = DelayStimType1
+
                     AC(vCC).ScheduleType(1) = ScheduleType2
                     If txbValueL2.Text = "" Then txbValueL2.Text = 0
                     AC(vCC).ScheduleValue(1) = txbValueL2.Text
+                    If cbbReinforcer2.Text = "" Then cbbReinforcer2.Text = "Pellet"
+                    AC(vCC).Reinforcer(1) = cbbReinforcer2.Text
                     If txbMagL2.Text = "" Then txbMagL2.Text = 0
                     AC(vCC).Magnitude(1) = txbMagL2.Text
+                    If cbbReinforcer2.Text = "" Then cbbReinforcer2.Text = 0
+                    AC(vCC).PelletP(1) = cbbReinforcer2.Text
                     If txbStimDurL2.Text = "" Then txbStimDurL2.Text = 0
                     AC(vCC).FeedbackDuration(1) = txbStimDurL2.Text
                     AC(vCC).FeedbackType(1) = FeedbackType2
                     If txbDelayDurL2.Text = "" Then txbDelayDurL2.Text = 0
                     AC(vCC).DelayDuration(1) = txbDelayDurL2.Text
                     AC(vCC).DelayType(1) = DelayStimType2
+
                     AC(vCC).HouselightOnOff = HouselightOnOff
                     If txbCOD.Text = "" Then txbCOD.Text = 0
                     AC(vCC).COD = txbCOD.Text
@@ -274,5 +286,23 @@ Public Class Component
         'rdoHouselightDelayL2.Checked = False
     End Sub
 
+    Private Sub cbbReinforcer1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbbReinforcer1.SelectedIndexChanged
+        If cbbReinforcer1.Text = "Random" Then
+            txbPelletProbability1.Text = 0.5
+            txbPelletProbability1.Enabled = True
+        Else
+            txbPelletProbability1.Text = ""
+            txbPelletProbability1.Enabled = False
+        End If
+    End Sub
 
+    Private Sub cbbReinforcer2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbbReinforcer2.SelectedIndexChanged
+        If cbbReinforcer2.Text = "Random" Then
+            txbPelletProbability2.Text = 0.5
+            txbPelletProbability2.Enabled = True
+        Else
+            txbPelletProbability2.Text = ""
+            txbPelletProbability2.Enabled = False
+        End If
+    End Sub
 End Class

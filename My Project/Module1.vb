@@ -48,6 +48,8 @@
         Dim ScheduleType() As String
         Dim ScheduleValue() As Integer
         Dim Magnitude() As Integer
+        Dim Reinforcer() As Integer
+        Dim PelletP() As Integer
         Dim FeedbackDuration() As Integer
         Dim FeedbackType() As String
         Dim DelayDuration() As Integer
