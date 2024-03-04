@@ -1027,7 +1027,6 @@ Partial Class Component
         '
         'txbCOD
         '
-        Me.txbCOD.Enabled = False
         Me.txbCOD.Location = New System.Drawing.Point(561, 137)
         Me.txbCOD.Margin = New System.Windows.Forms.Padding(5, 6, 5, 6)
         Me.txbCOD.Name = "txbCOD"
