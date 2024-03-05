@@ -276,9 +276,12 @@ Public Class Main
 
                 RefCount(vCC, Lever) += 1
                 Me.Controls.Item("lblReinforcers" & Lever + 1).Text = RefCount(vCC, Lever)
+
+
                 For p = 1 To MAXvCC
-                    If RefCount(p, 0) + RefCount(p, 1) >= AC(p).MaxRefs Then btnFinish.PerformClick()
+                    If RefCount(p, 0) + RefCount(p, 1) >= AC(p).MaxRefs And AC(p).MaxRefs > 0 Then btnFinish.PerformClick()
                 Next
+
             Next
 
             'This line activates the feeder through Arduino. "R" can mean any output connected to the Arduino.
