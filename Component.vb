@@ -68,6 +68,7 @@ Public Class Component
                     ReDim AC(vCC).ScheduleValue(1)
                     ReDim AC(vCC).Magnitude(1)
                     ReDim AC(vCC).Reinforcer(1)
+                    ReDim AC(vCC).PelletP(1)
                     ReDim AC(vCC).FeedbackDuration(1)
                     ReDim AC(vCC).FeedbackType(1)
                     ReDim AC(vCC).DelayDuration(1)
