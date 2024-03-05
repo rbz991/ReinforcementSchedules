@@ -80,8 +80,8 @@ Public Class Component
                     AC(vCC).Reinforcer(0) = cbbReinforcer1.Text
                     If txbMagL1.Text = "" Then txbMagL1.Text = 0
                     AC(vCC).Magnitude(0) = txbMagL1.Text
-                    If cbbReinforcer1.Text = "" Then cbbReinforcer1.Text = 0
-                    AC(vCC).PelletP(0) = cbbReinforcer1.Text
+                    If txbPelletProbability1.Text = "" Then txbPelletProbability1.Text = 0
+                    AC(vCC).PelletP(0) = txbPelletProbability1.Text
                     If txbStimDurL1.Text = "" Then txbStimDurL1.Text = 0
                     AC(vCC).FeedbackDuration(0) = txbStimDurL1.Text
                     AC(vCC).FeedbackType(0) = FeedbackType1
@@ -96,8 +96,8 @@ Public Class Component
                     AC(vCC).Reinforcer(1) = cbbReinforcer2.Text
                     If txbMagL2.Text = "" Then txbMagL2.Text = 0
                     AC(vCC).Magnitude(1) = txbMagL2.Text
-                    If cbbReinforcer2.Text = "" Then cbbReinforcer2.Text = 0
-                    AC(vCC).PelletP(1) = cbbReinforcer2.Text
+                    If txbPelletProbability2.Text = "" Then txbPelletProbability2.Text = 0
+                    AC(vCC).PelletP(1) = txbPelletProbability2.Text
                     If txbStimDurL2.Text = "" Then txbStimDurL2.Text = 0
                     AC(vCC).FeedbackDuration(1) = txbStimDurL2.Text
                     AC(vCC).FeedbackType(1) = FeedbackType2
