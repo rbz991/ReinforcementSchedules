@@ -12,6 +12,7 @@ Public Class Main
     Function ArduinoVB() As Integer 'This function starts the Arduino-VB communication.
         Arduino = New SerialPort(SetUp.txtCOM.Text, 9600) 'Assigns the Arduino to the selected port at a 9600 baud rate. 
         Arduino.Open() 'Starts the Arduino-VB communication.
+        Arduino.WriteLine("p")
         tmrStart.Interval = SetUp.txbStart.Text * 1000
         tmrICI.Interval = SetUp.txbICI.Text * 1000
         Countdown = Environment.TickCount + SetUp.txbStart.Text * 1000
@@ -70,6 +71,10 @@ Public Class Main
         WriteLine(1, "Components presented at random: " & CStr(RandomCPres))
         vTimeStart = Environment.TickCount 'Establishes a time index for timestamps.
         chartResponse(3) += 10
+        'Chart1.Series("Component 1").Color = Color.FromArgb(50, Color.Blue)
+        'Chart1.Series("Component 2").Color = Color.FromArgb(50, Color.Red)
+        'Chart1.Series("Component 3").Color = Color.FromArgb(50, Color.Yellow)
+        'Chart1.Series("Component 4").Color = Color.FromArgb(50, Color.Green)
         BeginPrograms() 'Set up for the schedules of reinforcement.
     End Sub
     Private Sub BeginPrograms() 'Llamar esto cada que inicie un componente.
@@ -483,25 +488,7 @@ Public Class Main
             End If
 
         End If
-        'If chartTime(3) > 500 And chartFlag(0) = False Then
-        '    chartFlag(0) = True
-        '    For i = 0 To MAXvCC
-
-        '        Chart1.Series("Component 1").Points.AddXY(i, 10)
-
-
-        '        Chart1.Series("Component 1").Points.AddXY(i, 10)
-        '        Chart1.Series("Component 1").Points.AddXY(i, 10)
-        '        Chart1.Series("Component 1").Points.AddXY(i, 10)
-        '        Chart1.Series("Component 1").Points.AddXY(i, 10)
-        '    Next
-
-        '    chartResponse(3) += 4
-        '    End If
-        '    If chartTime(3) > 1500 And chartFlag(1) = False Then
-        '    chartFlag(1) = True
-        '    chartResponse(3) += 5
-        'End If
+       
         If (chartResponse(0) > 200 Or chartResponse(1) > 200 Or chartResponse(2) > 200) And chartFlag(0) = False Then
             chartFlag(0) = True
             For Each pt As DataPoint In Chart1.Series("Component 1").Points
