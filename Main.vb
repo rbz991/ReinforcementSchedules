@@ -337,10 +337,10 @@ Public Class Main
         'FI schedules use a timer to check if the specified schedule value has elapsed.
         'Visual Basic manages time in miliseconds, so values are multiplied by 1000.
         If x = 0 Then
-            tmrLever1.Interval = AC(vCC).ScheduleValue(0) + 1 * 1000
+            tmrLever1.Interval = (AC(vCC).ScheduleValue(0) + 1) * 1000
             tmrLever1.Enabled = True
         ElseIf x = 1 Then
-            tmrLever2.Interval = AC(vCC).ScheduleValue(1) + 1 * 1000
+            tmrLever2.Interval = (AC(vCC).ScheduleValue(1) + 1) * 1000
             tmrLever2.Enabled = True
         End If
     End Sub
