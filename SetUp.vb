@@ -2,43 +2,49 @@
     Public LabelPreview(50) As Label
 
     Private Sub btnComenzar_Click(sender As Object, e As EventArgs) Handles btnComenzar.Click
-        'This checks for errors or missing data in the set up and prompts the user for corrections. If no problem is found the selected programs are initiated.
-        If txtSubject.Text = "" Or txtSession.Text = "" Or txtCOM.Text = "" Then
-            MessageBox.Show("Some session data is missing.")
-        Else
-
-            vFile = "C:\Data\Raw\" & txtSubject.Text & "_" & txtSession.Text & "_Raw.txt"
-            vFile2 = "C:\Data\Summary\" & txtSubject.Text & "_" & txtSession.Text & "Summary.txt"
-            FileOpen(1, vFile, OpenMode.Append)
-            FileOpen(2, vFile2, OpenMode.Append)
-            WriteLine(1, Format(Date.Now, "dd-MM-yyyy_hh-mm-ss"))
-            WriteLine(1, "Subject: " & txtSubject.Text)
-            WriteLine(1, "Session: " & txtSession.Text)
-            WriteLine(1, "COM Port: " & txtCOM.Text)
-            WriteLine(2, Format(Date.Now, "dd-MM-yyyy_hh-mm-ss"))
-            WriteLine(2, "Subject: " & txtSubject.Text)
-            WriteLine(2, "Session: " & txtSession.Text)
-            WriteLine(2, "COM Port: " & txtCOM.Text)
-            WriteLine(1, "Lever 1 response: 1")
-            WriteLine(1, "Lever 2 response: 2")
-            WriteLine(1, "Tray response: 3")
-            WriteLine(1, "Lever 1 reinforcer: R1")
-            WriteLine(1, "Lever 2 reinforcer: R2")
-            WriteLine(1, "Lever 1 r on Delay: D1")
-            WriteLine(1, "Lever 2 r on Delay: D2")
-            WriteLine(1, "Tray r on Delay: D3")
-            MAXvCC = vCC
-            vCC = 1
-            For i = 1 To MAXvCC
-                AC(i).IterationsLeft = AC(i).ComponentIteration
-            Next
+        Dim ask As MsgBoxResult = MsgBox("Did you test everything?", MsgBoxStyle.YesNo)
+        If ask = MsgBoxResult.Yes Then
 
 
-            Dim x As New Main
-            Me.WindowState = FormWindowState.Minimized
-            x.Show()
-            x.ArduinoVB()
 
+            'This checks for errors or missing data in the set up and prompts the user for corrections. If no problem is found the selected programs are initiated.
+            If txtSubject.Text = "" Or txtSession.Text = "" Or txtCOM.Text = "" Then
+                MessageBox.Show("Some session data is missing.")
+            Else
+
+                vFile = "C:\Data\Raw\" & txtSubject.Text & "_" & txtSession.Text & "_Raw.txt"
+                vFile2 = "C:\Data\Summary\" & txtSubject.Text & "_" & txtSession.Text & "Summary.txt"
+                FileOpen(1, vFile, OpenMode.Append)
+                FileOpen(2, vFile2, OpenMode.Append)
+                WriteLine(1, Format(Date.Now, "dd-MM-yyyy_hh-mm-ss"))
+                WriteLine(1, "Subject: " & txtSubject.Text)
+                WriteLine(1, "Session: " & txtSession.Text)
+                WriteLine(1, "COM Port: " & txtCOM.Text)
+                WriteLine(2, Format(Date.Now, "dd-MM-yyyy_hh-mm-ss"))
+                WriteLine(2, "Subject: " & txtSubject.Text)
+                WriteLine(2, "Session: " & txtSession.Text)
+                WriteLine(2, "COM Port: " & txtCOM.Text)
+                WriteLine(1, "Lever 1 response: 1")
+                WriteLine(1, "Lever 2 response: 2")
+                WriteLine(1, "Tray response: 3")
+                WriteLine(1, "Lever 1 reinforcer: R1")
+                WriteLine(1, "Lever 2 reinforcer: R2")
+                WriteLine(1, "Lever 1 r on Delay: D1")
+                WriteLine(1, "Lever 2 r on Delay: D2")
+                WriteLine(1, "Tray r on Delay: D3")
+                MAXvCC = vCC
+                vCC = 1
+                For i = 1 To MAXvCC
+                    AC(i).IterationsLeft = AC(i).ComponentIteration
+                Next
+
+
+                Dim x As New Main
+                Me.WindowState = FormWindowState.Minimized
+                x.Show()
+                x.ArduinoVB()
+
+            End If
         End If
     End Sub
 
