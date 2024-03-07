@@ -1,4 +1,5 @@
 ﻿Module Module1
+    Public TestsPerformed As Boolean
     Public CODL As Byte
     Public CompIndex As Byte = 10
     Public chartFlag(1) As Boolean
