@@ -108,7 +108,7 @@ Public Class Component
 
                     AC(vCC).HouselightOnOff = HouselightOnOff
                     If txbCOD.Text = "" Then txbCOD.Text = 0
-                    AC(vCC).COD = txbCOD.Text
+                    AC(vCC).COD = txbCOD.Text * 1000
                     If txbMaxRefs.Text = "" Then txbMaxRefs.Text = 0
                     AC(vCC).MaxRefs = txbMaxRefs.Text
 
