@@ -348,10 +348,9 @@ Partial Class Main
         Series2.MarkerColor = System.Drawing.Color.Black
         Series2.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Cross
         Series2.Name = "Reinforcers 1"
-        Series3.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash
         Series3.ChartArea = "ChartArea1"
         Series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StepLine
-        Series3.Color = System.Drawing.Color.Black
+        Series3.Color = System.Drawing.Color.DeepSkyBlue
         Series3.Legend = "Legend1"
         Series3.Name = "Lever 2"
         Series4.BorderColor = System.Drawing.Color.Black
@@ -363,7 +362,7 @@ Partial Class Main
         Series4.MarkerColor = System.Drawing.Color.Silver
         Series4.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Cross
         Series4.Name = "Reinforcers 2"
-        Series5.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot
+        Series5.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash
         Series5.ChartArea = "ChartArea1"
         Series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StepLine
         Series5.Color = System.Drawing.Color.Lime

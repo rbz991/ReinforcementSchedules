@@ -8,7 +8,7 @@ Public Class Tests
     Public blnLight
     Public blnPump
     Private WithEvents tmrChartTests As Timer = New Timer
-    Public resp(1)
+    Public resp(2)
     Public chrtTime
     Private Sub tmrStart_Tick(sender As Object, e As EventArgs) Handles tmrStart.Tick
         tmrStart.Enabled = False
@@ -31,7 +31,7 @@ Public Class Tests
                     TestResponse(1)
                 End If
                 If (Actual_Response(2) <> Previous_Response(2) And Actual_Response(2) <> 1) Then
-                    'Nosepoke(0)
+                    TestResponse(2)
                 End If
                 If (Actual_Response(3) <> Previous_Response(3) And Actual_Response(3) <> 1) Then
 
@@ -46,10 +46,11 @@ Public Class Tests
                 Previous_Response(4) = Actual_Response(4)
 
             Catch ex As Exception
+                If tmrChartTests.Enabled = False Then Exit Do
             End Try
             My.Application.DoEvents() 'This will enable the rest of the program to run while executing the code from above.
         Loop
-
+        Me.Close()
     End Sub
 
 
@@ -60,7 +61,10 @@ Public Class Tests
 
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
         Arduino.Close()
-        Close()
+        tmrChartTests.Enabled = False
+
+        'Me.Close()
+
     End Sub
 
     Private Sub btnFeeder_Click(sender As Object, e As EventArgs) Handles btnFeeder.Click
@@ -126,37 +130,7 @@ Public Class Tests
         chrtTime += 1
         Chart1.Series("Lever 1").Points.AddXY(chrtTime, resp(0))
         Chart1.Series("Lever 2").Points.AddXY(chrtTime, resp(1))
-        ' Chart1.Series("Tray").Points.AddXY(chartTime(2), chartResponse(2))
-        'If tmrICI.Enabled = True Then
-        '    Chart1.Series("Component 1").Points.AddXY(chartTime(3), chartResponse(3) - CompIndex)
-        '    Chart1.Series("Component 2").Points.AddXY(chartTime(3), chartResponse(3) - CompIndex)
-        '    Chart1.Series("Component 3").Points.AddXY(chartTime(3), chartResponse(3) - CompIndex)
-        '    Chart1.Series("Component 4").Points.AddXY(chartTime(3), chartResponse(3) - CompIndex)
-        'Else
-        '    If vCC = 1 Then
-        '        Chart1.Series("Component 1").Points.AddXY(chartTime(3), chartResponse(3))
-        '        Chart1.Series("Component 2").Points.AddXY(chartTime(3), chartResponse(3) - CompIndex)
-        '        Chart1.Series("Component 3").Points.AddXY(chartTime(3), chartResponse(3) - CompIndex)
-        '        Chart1.Series("Component 4").Points.AddXY(chartTime(3), chartResponse(3) - CompIndex)
-        '    ElseIf vCC = 2 Then
-        '        Chart1.Series("Component 1").Points.AddXY(chartTime(3), chartResponse(3) - CompIndex)
-        '        Chart1.Series("Component 2").Points.AddXY(chartTime(3), chartResponse(3))
-        '        Chart1.Series("Component 3").Points.AddXY(chartTime(3), chartResponse(3) - CompIndex)
-        '        Chart1.Series("Component 4").Points.AddXY(chartTime(3), chartResponse(3) - CompIndex)
-        '    ElseIf vCC = 3 Then
-        '        Chart1.Series("Component 1").Points.AddXY(chartTime(3), chartResponse(3) - CompIndex)
-        '        Chart1.Series("Component 2").Points.AddXY(chartTime(3), chartResponse(3) - CompIndex)
-        '        Chart1.Series("Component 3").Points.AddXY(chartTime(3), chartResponse(3))
-        '        Chart1.Series("Component 4").Points.AddXY(chartTime(3), chartResponse(3) - CompIndex)
-        '    ElseIf vCC = 4 Then
-        '        Chart1.Series("Component 1").Points.AddXY(chartTime(3), chartResponse(3) - CompIndex)
-        '        Chart1.Series("Component 2").Points.AddXY(chartTime(3), chartResponse(3) - CompIndex)
-        '        Chart1.Series("Component 3").Points.AddXY(chartTime(3), chartResponse(3) - CompIndex)
-        '        Chart1.Series("Component 4").Points.AddXY(chartTime(3), chartResponse(3))
-        '    End If
-
-        'End If
-
+        Chart1.Series("Tray").Points.AddXY(chrtTime, resp(2))
 
     End Sub
 

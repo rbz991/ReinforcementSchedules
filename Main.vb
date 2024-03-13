@@ -275,7 +275,7 @@ Public Class Main
 
             For i = 1 To AC(vCC).Magnitude(Lever)
                 Me.Controls("lblRfR" & Lever + 1).Text = refRdy(Lever)
-                Chart1.Series("Reinforcers " & Lever + 1).Points.AddXY(chartTime(Lever), chartResponse(Lever) + 1)
+                Chart1.Series("Reinforcers " & Lever + 1).Points.AddXY(chartTime(Lever), chartResponse(Lever) + 3)
 
                 ReinforcerDelivery(Lever)
 
