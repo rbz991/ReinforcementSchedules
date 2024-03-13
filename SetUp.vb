@@ -73,7 +73,7 @@
         WriteLine(3, txbPostSession.Text)
         WriteLine(3, txbICI.Text)
         WriteLine(3, CheckBox1.Checked)
-        For i = 0 To MAXvCC
+        For i = 1 To MAXvCC
             WriteLine(3, AC(i).HouselightOnOff)
             WriteLine(3, AC(i).COD)
             WriteLine(3, AC(i).MaxRefs)
