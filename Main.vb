@@ -682,4 +682,8 @@ Public Class Main
         tmrCOD.Enabled = False
         CODL = 0
     End Sub
+
+    Private Sub tmrChart_Tick(sender As Object, e As EventArgs) Handles tmrChart.Tick
+
+    End Sub
 End Class
