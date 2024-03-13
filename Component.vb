@@ -160,7 +160,7 @@ Public Class Component
                     SetUp.LabelPreview(PreviewCounter) = New Label With {
             .Location = New Point(SetUp.lblMagnitude1.Location.X + vPadding, SetUp.lblMagnitude1.Location.Y),
             .AutoSize = True,
-            .Text = AC(vCC).Magnitude(0) & " delivery",
+            .Text = AC(vCC).Magnitude(0) & " " & AC(vCC).Reinforcer(0) & " " & AC(vCC).PelletP(0),
             .Font = New Font("Microsoft Sans Serif", 11.0!)
             }
 
@@ -196,7 +196,7 @@ Public Class Component
                     SetUp.LabelPreview(PreviewCounter) = New Label With {
             .Location = New Point(SetUp.lblMagnitude2.Location.X + vPadding, SetUp.lblMagnitude2.Location.Y),
             .AutoSize = True,
-            .Text = AC(vCC).Magnitude(1) & " delivery",
+            .Text = AC(vCC).Magnitude(1) & " " & AC(vCC).Reinforcer(1) & " " & AC(vCC).PelletP(1),
             .Font = New Font("Microsoft Sans Serif", 11.0!)
             }
 

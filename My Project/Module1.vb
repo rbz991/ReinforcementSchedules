@@ -6,6 +6,7 @@
     Public ICIcounter As Integer
     Public vFile As String = ""
     Public vFile2 As String = ""
+    Public vFile3 As String = ""
     Public Lever1 As String = ""
     Public Lever2 As String = ""
     Public vTimeStart As Integer

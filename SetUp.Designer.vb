@@ -201,7 +201,7 @@ Partial Class SetUp
         '
         Me.lblDelay1.AutoSize = True
         Me.lblDelay1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDelay1.Location = New System.Drawing.Point(381, 328)
+        Me.lblDelay1.Location = New System.Drawing.Point(381, 287)
         Me.lblDelay1.Name = "lblDelay1"
         Me.lblDelay1.Size = New System.Drawing.Size(74, 29)
         Me.lblDelay1.TabIndex = 34
@@ -212,7 +212,7 @@ Partial Class SetUp
         '
         Me.lblFeedback1.AutoSize = True
         Me.lblFeedback1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFeedback1.Location = New System.Drawing.Point(381, 295)
+        Me.lblFeedback1.Location = New System.Drawing.Point(381, 254)
         Me.lblFeedback1.Name = "lblFeedback1"
         Me.lblFeedback1.Size = New System.Drawing.Size(121, 29)
         Me.lblFeedback1.TabIndex = 32
@@ -223,7 +223,7 @@ Partial Class SetUp
         '
         Me.lblComponent.AutoSize = True
         Me.lblComponent.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblComponent.Location = New System.Drawing.Point(381, 71)
+        Me.lblComponent.Location = New System.Drawing.Point(381, 30)
         Me.lblComponent.Name = "lblComponent"
         Me.lblComponent.Size = New System.Drawing.Size(168, 29)
         Me.lblComponent.TabIndex = 29
@@ -234,7 +234,7 @@ Partial Class SetUp
         '
         Me.lblMagnitude1.AutoSize = True
         Me.lblMagnitude1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMagnitude1.Location = New System.Drawing.Point(381, 265)
+        Me.lblMagnitude1.Location = New System.Drawing.Point(381, 224)
         Me.lblMagnitude1.Name = "lblMagnitude1"
         Me.lblMagnitude1.Size = New System.Drawing.Size(126, 29)
         Me.lblMagnitude1.TabIndex = 31
@@ -245,7 +245,7 @@ Partial Class SetUp
         '
         Me.lblSchedule1.AutoSize = True
         Me.lblSchedule1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSchedule1.Location = New System.Drawing.Point(381, 232)
+        Me.lblSchedule1.Location = New System.Drawing.Point(381, 191)
         Me.lblSchedule1.Name = "lblSchedule1"
         Me.lblSchedule1.Size = New System.Drawing.Size(115, 29)
         Me.lblSchedule1.TabIndex = 30
@@ -256,7 +256,7 @@ Partial Class SetUp
         '
         Me.lblComponentD.AutoSize = True
         Me.lblComponentD.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblComponentD.Location = New System.Drawing.Point(381, 105)
+        Me.lblComponentD.Location = New System.Drawing.Point(381, 64)
         Me.lblComponentD.Name = "lblComponentD"
         Me.lblComponentD.Size = New System.Drawing.Size(155, 29)
         Me.lblComponentD.TabIndex = 35
@@ -267,7 +267,7 @@ Partial Class SetUp
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(207, 105)
+        Me.Label3.Location = New System.Drawing.Point(207, 64)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(109, 29)
         Me.Label3.TabIndex = 38
@@ -277,7 +277,7 @@ Partial Class SetUp
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(207, 135)
+        Me.Label4.Location = New System.Drawing.Point(207, 94)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(117, 29)
         Me.Label4.TabIndex = 39
@@ -287,7 +287,7 @@ Partial Class SetUp
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(207, 200)
+        Me.Label5.Location = New System.Drawing.Point(207, 159)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(98, 29)
         Me.Label5.TabIndex = 40
@@ -297,7 +297,7 @@ Partial Class SetUp
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(228, 232)
+        Me.Label7.Location = New System.Drawing.Point(228, 191)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(121, 29)
         Me.Label7.TabIndex = 41
@@ -307,17 +307,17 @@ Partial Class SetUp
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(228, 265)
+        Me.Label8.Location = New System.Drawing.Point(228, 224)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(132, 29)
+        Me.Label8.Size = New System.Drawing.Size(131, 29)
         Me.Label8.TabIndex = 42
-        Me.Label8.Text = "Magnitude:"
+        Me.Label8.Text = "Reinforcer:"
         '
         'Label9
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(228, 295)
+        Me.Label9.Location = New System.Drawing.Point(228, 254)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(127, 29)
         Me.Label9.TabIndex = 43
@@ -327,7 +327,7 @@ Partial Class SetUp
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(225, 328)
+        Me.Label10.Location = New System.Drawing.Point(228, 287)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(80, 29)
         Me.Label10.TabIndex = 44
@@ -337,7 +337,7 @@ Partial Class SetUp
         '
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(207, 360)
+        Me.Label11.Location = New System.Drawing.Point(207, 319)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(98, 29)
         Me.Label11.TabIndex = 45
@@ -347,7 +347,7 @@ Partial Class SetUp
         '
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(231, 488)
+        Me.Label12.Location = New System.Drawing.Point(231, 447)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(80, 29)
         Me.Label12.TabIndex = 49
@@ -357,7 +357,7 @@ Partial Class SetUp
         '
         Me.Label13.AutoSize = True
         Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(231, 455)
+        Me.Label13.Location = New System.Drawing.Point(231, 414)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(127, 29)
         Me.Label13.TabIndex = 48
@@ -367,17 +367,17 @@ Partial Class SetUp
         '
         Me.Label14.AutoSize = True
         Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(231, 425)
+        Me.Label14.Location = New System.Drawing.Point(231, 384)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(132, 29)
+        Me.Label14.Size = New System.Drawing.Size(131, 29)
         Me.Label14.TabIndex = 47
-        Me.Label14.Text = "Magnitude:"
+        Me.Label14.Text = "Reinforcer:"
         '
         'Label15
         '
         Me.Label15.AutoSize = True
         Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(231, 392)
+        Me.Label15.Location = New System.Drawing.Point(231, 351)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(121, 29)
         Me.Label15.TabIndex = 46
@@ -387,7 +387,7 @@ Partial Class SetUp
         '
         Me.lblDelay2.AutoSize = True
         Me.lblDelay2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDelay2.Location = New System.Drawing.Point(381, 488)
+        Me.lblDelay2.Location = New System.Drawing.Point(381, 447)
         Me.lblDelay2.Name = "lblDelay2"
         Me.lblDelay2.Size = New System.Drawing.Size(74, 29)
         Me.lblDelay2.TabIndex = 53
@@ -398,7 +398,7 @@ Partial Class SetUp
         '
         Me.lblFeedback2.AutoSize = True
         Me.lblFeedback2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFeedback2.Location = New System.Drawing.Point(381, 455)
+        Me.lblFeedback2.Location = New System.Drawing.Point(381, 414)
         Me.lblFeedback2.Name = "lblFeedback2"
         Me.lblFeedback2.Size = New System.Drawing.Size(121, 29)
         Me.lblFeedback2.TabIndex = 52
@@ -409,7 +409,7 @@ Partial Class SetUp
         '
         Me.lblMagnitude2.AutoSize = True
         Me.lblMagnitude2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMagnitude2.Location = New System.Drawing.Point(381, 425)
+        Me.lblMagnitude2.Location = New System.Drawing.Point(381, 384)
         Me.lblMagnitude2.Name = "lblMagnitude2"
         Me.lblMagnitude2.Size = New System.Drawing.Size(126, 29)
         Me.lblMagnitude2.TabIndex = 51
@@ -420,7 +420,7 @@ Partial Class SetUp
         '
         Me.lblSchedule2.AutoSize = True
         Me.lblSchedule2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSchedule2.Location = New System.Drawing.Point(381, 392)
+        Me.lblSchedule2.Location = New System.Drawing.Point(381, 351)
         Me.lblSchedule2.Name = "lblSchedule2"
         Me.lblSchedule2.Size = New System.Drawing.Size(115, 29)
         Me.lblSchedule2.TabIndex = 50
@@ -431,7 +431,7 @@ Partial Class SetUp
         '
         Me.lblComponentI.AutoSize = True
         Me.lblComponentI.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblComponentI.Location = New System.Drawing.Point(381, 135)
+        Me.lblComponentI.Location = New System.Drawing.Point(381, 94)
         Me.lblComponentI.Name = "lblComponentI"
         Me.lblComponentI.Size = New System.Drawing.Size(144, 29)
         Me.lblComponentI.TabIndex = 54
@@ -442,7 +442,7 @@ Partial Class SetUp
         '
         Me.Label16.AutoSize = True
         Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.Location = New System.Drawing.Point(207, 168)
+        Me.Label16.Location = New System.Drawing.Point(207, 127)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(138, 29)
         Me.Label16.TabIndex = 55
@@ -452,7 +452,7 @@ Partial Class SetUp
         '
         Me.lblComponentS.AutoSize = True
         Me.lblComponentS.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblComponentS.Location = New System.Drawing.Point(381, 168)
+        Me.lblComponentS.Location = New System.Drawing.Point(381, 127)
         Me.lblComponentS.Name = "lblComponentS"
         Me.lblComponentS.Size = New System.Drawing.Size(154, 29)
         Me.lblComponentS.TabIndex = 56

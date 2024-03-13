@@ -64,4 +64,41 @@
         Dim f As New Tests
         f.ShowDialog()
     End Sub
+
+    Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
+        vFile3 = "C:\SavedPrograms\NewProgram(Rename me please).txt"
+        FileOpen(3, vFile3, OpenMode.Append)
+        WriteLine(3, Format(Date.Now, "dd-MM-yyyy_hh-mm-ss"))
+        WriteLine(3, txbStart.Text)
+        WriteLine(3, txbPostSession.Text)
+        WriteLine(3, txbICI.Text)
+        WriteLine(3, CheckBox1.Checked)
+        For i = 0 To MAXvCC
+            WriteLine(3, AC(i).HouselightOnOff)
+            WriteLine(3, AC(i).COD)
+            WriteLine(3, AC(i).MaxRefs)
+            WriteLine(3, AC(i).ComponentDuration)
+            WriteLine(3, AC(i).ComponentIteration)
+            WriteLine(3, AC(i).ComponentStimDuration)
+            WriteLine(3, AC(i).ComponentStimType)
+            WriteLine(3, AC(i).ScheduleType(0))
+            WriteLine(3, AC(i).ScheduleType(1))
+            WriteLine(3, AC(i).ScheduleValue(0))
+            WriteLine(3, AC(i).ScheduleValue(1))
+            WriteLine(3, AC(i).Magnitude(0))
+            WriteLine(3, AC(i).Magnitude(1))
+            WriteLine(3, AC(i).Reinforcer(0))
+            WriteLine(3, AC(i).Reinforcer(1))
+            WriteLine(3, AC(i).PelletP(0))
+            WriteLine(3, AC(i).PelletP(1))
+            WriteLine(3, AC(i).FeedbackDuration(0))
+            WriteLine(3, AC(i).FeedbackDuration(1))
+            WriteLine(3, AC(i).FeedbackType(0))
+            WriteLine(3, AC(i).FeedbackType(1))
+            WriteLine(3, AC(i).DelayDuration(0))
+            WriteLine(3, AC(i).DelayDuration(1))
+            WriteLine(3, AC(i).DelayType(0))
+            WriteLine(3, AC(i).DelayType(1))
+        Next
+    End Sub
 End Class
