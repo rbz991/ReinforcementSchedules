@@ -1,5 +1,5 @@
 ﻿Public Class SetUp
-    Public LabelPreview(50) As Label
+    Public LabelPreview(60) As Label
 
     Private Sub btnComenzar_Click(sender As Object, e As EventArgs) Handles btnComenzar.Click
         Dim ask As MsgBoxResult = MsgBox("Did you test everything?", MsgBoxStyle.YesNo)
@@ -12,10 +12,10 @@
                 MessageBox.Show("Some session data is missing.")
             Else
 
-                vFile = "C:\Data\Raw\" & txtSubject.Text & "_" & txtSession.Text & "_Raw.txt"
-                vFile2 = "C:\Data\Summary\" & txtSubject.Text & "_" & txtSession.Text & "Summary.txt"
-                FileOpen(1, vFile, OpenMode.Append)
-                FileOpen(2, vFile2, OpenMode.Append)
+                vFile(0) = "C:\Data\Raw\" & txtSubject.Text & "_" & txtSession.Text & "_Raw.txt"
+                vFile(1) = "C:\Data\Summary\" & txtSubject.Text & "_" & txtSession.Text & "Summary.txt"
+                FileOpen(1, vFile(0), OpenMode.Append)
+                FileOpen(2, vFile(1), OpenMode.Append)
                 WriteLine(1, Format(Date.Now, "dd-MM-yyyy_hh-mm-ss"))
                 WriteLine(1, "Subject: " & txtSubject.Text)
                 WriteLine(1, "Session: " & txtSession.Text)
@@ -40,7 +40,7 @@
 
 
                 Dim x As New Main
-                Me.WindowState = FormWindowState.Minimized
+                WindowState = FormWindowState.Minimized
                 x.Show()
                 x.ArduinoVB()
 
@@ -66,39 +66,153 @@
     End Sub
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-        vFile3 = "C:\SavedPrograms\NewProgram(Rename me please).txt"
-        FileOpen(3, vFile3, OpenMode.Append)
-        WriteLine(3, Format(Date.Now, "dd-MM-yyyy_hh-mm-ss"))
-        WriteLine(3, txbStart.Text)
-        WriteLine(3, txbPostSession.Text)
-        WriteLine(3, txbICI.Text)
-        WriteLine(3, CheckBox1.Checked)
-        For i = 1 To MAXvCC
-            WriteLine(3, AC(i).HouselightOnOff)
-            WriteLine(3, AC(i).COD)
-            WriteLine(3, AC(i).MaxRefs)
-            WriteLine(3, AC(i).ComponentDuration)
-            WriteLine(3, AC(i).ComponentIteration)
-            WriteLine(3, AC(i).ComponentStimDuration)
-            WriteLine(3, AC(i).ComponentStimType)
-            WriteLine(3, AC(i).ScheduleType(0))
-            WriteLine(3, AC(i).ScheduleType(1))
-            WriteLine(3, AC(i).ScheduleValue(0))
-            WriteLine(3, AC(i).ScheduleValue(1))
-            WriteLine(3, AC(i).Magnitude(0))
-            WriteLine(3, AC(i).Magnitude(1))
-            WriteLine(3, AC(i).Reinforcer(0))
-            WriteLine(3, AC(i).Reinforcer(1))
-            WriteLine(3, AC(i).PelletP(0))
-            WriteLine(3, AC(i).PelletP(1))
-            WriteLine(3, AC(i).FeedbackDuration(0))
-            WriteLine(3, AC(i).FeedbackDuration(1))
-            WriteLine(3, AC(i).FeedbackType(0))
-            WriteLine(3, AC(i).FeedbackType(1))
-            WriteLine(3, AC(i).DelayDuration(0))
-            WriteLine(3, AC(i).DelayDuration(1))
-            WriteLine(3, AC(i).DelayType(0))
-            WriteLine(3, AC(i).DelayType(1))
-        Next
+        If vCC > 0 Then
+            vFile(2) = "C:\SavedPrograms\NewProgram(Rename me please)_" & Strings.Right(CStr(Environment.TickCount), 5) & ".txt"
+            FileOpen(3, vFile(2), OpenMode.Append)
+            WriteLine(3, Format(Date.Now, "dd-MM-yyyy_hh-mm-ss"))
+            WriteLine(3, vCC)
+            WriteLine(3, txbStart.Text)
+            WriteLine(3, txbPostSession.Text)
+            WriteLine(3, txbICI.Text)
+            WriteLine(3, CheckBox1.Checked)
+            For i = 1 To vCC
+                WriteLine(3, AC(i).HouselightOnOff)
+                WriteLine(3, AC(i).COD)
+                WriteLine(3, AC(i).MaxRefs)
+                WriteLine(3, AC(i).ComponentDuration)
+                WriteLine(3, AC(i).ComponentIteration)
+                WriteLine(3, AC(i).ComponentStimDuration)
+                WriteLine(3, AC(i).ComponentStimType)
+                WriteLine(3, AC(i).ScheduleType(0))
+                WriteLine(3, AC(i).ScheduleType(1))
+                WriteLine(3, AC(i).ScheduleValue(0))
+                WriteLine(3, AC(i).ScheduleValue(1))
+                WriteLine(3, AC(i).Magnitude(0))
+                WriteLine(3, AC(i).Magnitude(1))
+                WriteLine(3, AC(i).Reinforcer(0))
+                WriteLine(3, AC(i).Reinforcer(1))
+                WriteLine(3, AC(i).PelletP(0))
+                WriteLine(3, AC(i).PelletP(1))
+                WriteLine(3, AC(i).FeedbackDuration(0))
+                WriteLine(3, AC(i).FeedbackDuration(1))
+                WriteLine(3, AC(i).FeedbackType(0))
+                WriteLine(3, AC(i).FeedbackType(1))
+                WriteLine(3, AC(i).DelayDuration(0))
+                WriteLine(3, AC(i).DelayDuration(1))
+                WriteLine(3, AC(i).DelayType(0))
+                WriteLine(3, AC(i).DelayType(1))
+            Next
+            FileClose(3)
+        Else
+            MessageBox.Show("Nothing to save.")
+        End If
     End Sub
+
+    Private Sub btnLoad_Click(sender As Object, e As EventArgs) Handles btnLoad.Click
+        Dim fd As OpenFileDialog = New OpenFileDialog()
+        fd.Title = "Select Macro"
+        fd.InitialDirectory = "C:\SavedPrograms\"
+        fd.Filter = "Text files (*.txt)|*.txt"
+        fd.FilterIndex = 1
+        fd.RestoreDirectory = False
+
+        If fd.ShowDialog() = DialogResult.OK Then
+            vFile(3) = fd.FileName
+            Dim fileReader = My.Computer.FileSystem.OpenTextFileReader(vFile(3))
+            Dim stringReader = fileReader.ReadLine()
+            stringReader = fileReader.ReadLine()
+            txbStart.Text = fileReader.ReadLine().Replace("""", "")
+            txbPostSession.Text = fileReader.ReadLine().Replace("""", "")
+            txbICI.Text = fileReader.ReadLine().Replace("""", "")
+            CheckBox1.Checked = fileReader.ReadLine().Replace("#", "")
+            For i = 1 To CInt(stringReader.Replace("""", ""))
+                ReDim AC(i).ScheduleType(1)
+                ReDim AC(i).ScheduleValue(1)
+                ReDim AC(i).Magnitude(1)
+                ReDim AC(i).Reinforcer(1)
+                ReDim AC(i).PelletP(1)
+                ReDim AC(i).FeedbackDuration(1)
+                ReDim AC(i).FeedbackType(1)
+                ReDim AC(i).DelayDuration(1)
+                ReDim AC(i).DelayType(1)
+                AC(i).HouselightOnOff = fileReader.ReadLine().Replace("#", "")
+                AC(i).COD = fileReader.ReadLine()
+                AC(i).MaxRefs = fileReader.ReadLine()
+                AC(i).ComponentDuration = fileReader.ReadLine()
+                AC(i).ComponentIteration = fileReader.ReadLine()
+                AC(i).ComponentStimDuration = fileReader.ReadLine()
+                AC(i).ComponentStimType = fileReader.ReadLine().Replace("""", "")
+                AC(i).ScheduleType(0) = fileReader.ReadLine().Replace("""", "")
+                AC(i).ScheduleType(1) = fileReader.ReadLine().Replace("""", "")
+                AC(i).ScheduleValue(0) = fileReader.ReadLine()
+                AC(i).ScheduleValue(1) = fileReader.ReadLine()
+                AC(i).Magnitude(0) = fileReader.ReadLine()
+                AC(i).Magnitude(1) = fileReader.ReadLine()
+                AC(i).Reinforcer(0) = fileReader.ReadLine().Replace("""", "")
+                AC(i).Reinforcer(1) = fileReader.ReadLine().Replace("""", "")
+                AC(i).PelletP(0) = fileReader.ReadLine()
+                AC(i).PelletP(1) = fileReader.ReadLine()
+                AC(i).FeedbackDuration(0) = fileReader.ReadLine()
+                AC(i).FeedbackDuration(1) = fileReader.ReadLine()
+                AC(i).FeedbackType(0) = fileReader.ReadLine().Replace("""", "")
+                AC(i).FeedbackType(1) = fileReader.ReadLine().Replace("""", "")
+                AC(i).DelayDuration(0) = fileReader.ReadLine()
+                AC(i).DelayDuration(1) = fileReader.ReadLine()
+                AC(i).DelayType(0) = fileReader.ReadLine().Replace("""", "")
+                AC(i).DelayType(1) = fileReader.ReadLine().Replace("""", "")
+
+                PrintInfo(lblComponent.Location.X, lblComponent.Location.Y, "Component " & i)
+                PrintInfo(lblComponentD.Location.X, lblComponentD.Location.Y, AC(i).ComponentDuration & " seconds")
+                PrintInfo(lblComponentI.Location.X, lblComponentI.Location.Y, AC(i).ComponentIteration & " times")
+                PrintInfo(lblComponentS.Location.X, lblComponentS.Location.Y, AC(i).ComponentStimDuration & " seconds")
+
+                PrintInfo(lblSchedule1.Location.X, lblSchedule1.Location.Y, AC(i).ScheduleType(0) & " " & AC(i).ScheduleValue(0))
+                PrintInfo(lblMagnitude1.Location.X, lblMagnitude1.Location.Y, AC(i).Magnitude(0) & " " & AC(i).Reinforcer(0) & " " & AC(i).PelletP(0))
+                PrintInfo(lblFeedback1.Location.X, lblFeedback1.Location.Y, AC(i).FeedbackType(0) & ": " & AC(i).FeedbackDuration(0) & " seconds")
+                PrintInfo(lblDelay1.Location.X, lblDelay1.Location.Y, AC(i).DelayType(0) & ": " & AC(i).DelayDuration(0) & " seconds")
+
+                PrintInfo(lblSchedule2.Location.X, lblSchedule2.Location.Y, AC(i).ScheduleType(1) & " " & AC(i).ScheduleValue(1))
+                PrintInfo(lblMagnitude2.Location.X, lblMagnitude2.Location.Y, AC(i).Magnitude(1) & " " & AC(i).Reinforcer(1) & " " & AC(i).PelletP(1))
+                PrintInfo(lblFeedback2.Location.X, lblFeedback2.Location.Y, AC(i).FeedbackType(1) & ": " & AC(i).FeedbackDuration(1) & " seconds")
+                PrintInfo(lblDelay2.Location.X, lblDelay2.Location.Y, AC(i).DelayType(1) & ": " & AC(i).DelayDuration(1) & " seconds")
+
+                For Each lb In Me.Controls
+                    If lb.Text.Contains("Component ") Then
+                        lb.Font = New Font("Microsoft Sans Serif", 11.0!, FontStyle.Bold)
+                    End If
+                Next
+
+                Me.Controls.Add(Me.LabelPreview(PreviewCounter))
+                PreviewCounter += 1
+
+                vPadding += 180
+
+
+
+
+            Next
+
+
+            'PrintInfo(lblComponent.Location.X, lblComponent.Location.Y, "Component " & vCC)
+            'PrintInfo(lblComponentD.Location.X, lblComponentD.Location.Y, AC(vCC).ComponentDuration & " seconds")
+            'PrintInfo(lblComponentI.Location.X, lblComponentI.Location.Y, AC(vCC).ComponentIteration & " times")
+            'PrintInfo(lblComponentS.Location.X, lblComponentS.Location.Y, AC(vCC).ComponentStimDuration & " seconds")
+
+            'PrintInfo(lblSchedule1.Location.X, lblSchedule1.Location.Y, AC(vCC).ScheduleType(0) & " " & AC(vCC).ScheduleValue(0))
+            'PrintInfo(lblMagnitude1.Location.X, lblMagnitude1.Location.Y, AC(vCC).Magnitude(0) & " " & AC(vCC).Reinforcer(0) & " " & AC(vCC).PelletP(0))
+            'PrintInfo(lblFeedback1.Location.X, lblFeedback1.Location.Y, AC(vCC).FeedbackType(0) & ": " & AC(vCC).FeedbackDuration(0) & " seconds")
+            'PrintInfo(lblDelay1.Location.X, lblDelay1.Location.Y, AC(vCC).DelayType(0) & ": " & AC(vCC).DelayDuration(0) & " seconds")
+
+            'PrintInfo(lblSchedule2.Location.X, lblSchedule2.Location.Y, AC(vCC).ScheduleType(1) & " " & AC(vCC).ScheduleValue(1))
+            'PrintInfo(lblMagnitude2.Location.X, lblMagnitude2.Location.Y, AC(vCC).Magnitude(1) & " " & AC(vCC).Reinforcer(1) & " " & AC(vCC).PelletP(1))
+            'PrintInfo(lblFeedback2.Location.X, lblFeedback2.Location.Y, AC(vCC).FeedbackType(1) & ": " & AC(vCC).FeedbackDuration(1) & " seconds")
+            'PrintInfo(lblDelay2.Location.X, lblDelay2.Location.Y, AC(vCC).DelayType(1) & ": " & AC(vCC).DelayDuration(1) & " seconds")
+
+
+        End If
+    End Sub
+
+
+
+
 End Class

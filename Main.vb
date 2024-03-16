@@ -71,10 +71,10 @@ Public Class Main
         WriteLine(1, "Components presented at random: " & CStr(RandomCPres))
         vTimeStart = Environment.TickCount 'Establishes a time index for timestamps.
         chartResponse(3) += 10
-        'Chart1.Series("Component 1").Color = Color.FromArgb(50, Color.Blue)
-        'Chart1.Series("Component 2").Color = Color.FromArgb(50, Color.Red)
-        'Chart1.Series("Component 3").Color = Color.FromArgb(50, Color.Yellow)
-        'Chart1.Series("Component 4").Color = Color.FromArgb(50, Color.Green)
+        Chart1.Series("Component 1").Color = Color.FromArgb(100, Color.Blue)
+        Chart1.Series("Component 2").Color = Color.FromArgb(100, Color.Red)
+        Chart1.Series("Component 3").Color = Color.FromArgb(100, Color.Yellow)
+        Chart1.Series("Component 4").Color = Color.FromArgb(100, Color.Green)
         BeginPrograms() 'Set up for the schedules of reinforcement.
     End Sub
     Private Sub BeginPrograms() 'Llamar esto cada que inicie un componente.

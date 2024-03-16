@@ -4,9 +4,8 @@
     Public CompIndex As Byte = 10
     Public chartFlag(1) As Boolean
     Public ICIcounter As Integer
-    Public vFile As String = ""
-    Public vFile2 As String = ""
-    Public vFile3 As String = ""
+    Public vFile(3) As String
+
     Public Lever1 As String = ""
     Public Lever2 As String = ""
     Public vTimeStart As Integer
@@ -59,7 +58,18 @@
         Dim IterationsLeft As Byte
     End Structure
 
+    Public Sub PrintInfo(X, Y, Text)
 
+        SetUp.Controls.Add(SetUp.LabelPreview(PreviewCounter))
+        PreviewCounter += 1
+        SetUp.LabelPreview(PreviewCounter) = New Label With {
+         .Location = New Point(X + vPadding, Y),
+         .AutoSize = True,
+         .Text = Text,
+         .Font = New Font("Microsoft Sans Serif", 11.0!)
+         }
+
+    End Sub
 
 
 
