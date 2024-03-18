@@ -121,11 +121,12 @@
             Dim fileReader = My.Computer.FileSystem.OpenTextFileReader(vFile(3))
             Dim stringReader = fileReader.ReadLine()
             stringReader = fileReader.ReadLine()
+            vCC = stringReader.Replace("""", "")
             txbStart.Text = fileReader.ReadLine().Replace("""", "")
             txbPostSession.Text = fileReader.ReadLine().Replace("""", "")
             txbICI.Text = fileReader.ReadLine().Replace("""", "")
             CheckBox1.Checked = fileReader.ReadLine().Replace("#", "")
-            For i = 1 To CInt(stringReader.Replace("""", ""))
+            For i = 1 To vCC
                 ReDim AC(i).ScheduleType(1)
                 ReDim AC(i).ScheduleValue(1)
                 ReDim AC(i).Magnitude(1)
@@ -189,7 +190,10 @@
 
             Next
 
-            If vCC >= 2 Then CheckBox1.Enabled = True
+            If vCC >= 2 Then
+                CheckBox1.Enabled = True
+                CheckBox1.Checked = True
+            End If
 
         End If
     End Sub
