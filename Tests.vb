@@ -60,6 +60,7 @@ Public Class Tests
     End Sub
 
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
+        Arduino.WriteLine("abhtlm")
         Arduino.Close()
         tmrChartTests.Enabled = False
 
