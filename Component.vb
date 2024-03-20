@@ -116,7 +116,7 @@ Public Class Component
                     PrintInfo(SetUp.lblComponent.Location.X, SetUp.lblComponent.Location.Y, "Component " & vCC)
                     PrintInfo(SetUp.lblComponentD.Location.X, SetUp.lblComponentD.Location.Y, AC(vCC).ComponentDuration & " seconds")
                     PrintInfo(SetUp.lblComponentI.Location.X, SetUp.lblComponentI.Location.Y, AC(vCC).ComponentIteration & " times")
-                    PrintInfo(SetUp.lblComponentS.Location.X, SetUp.lblComponentS.Location.Y, AC(vCC).ComponentStimDuration & " seconds")
+                    PrintInfo(SetUp.lblComponentS.Location.X, SetUp.lblComponentS.Location.Y, AC(vCC).ComponentStimType & ": " & AC(vCC).ComponentStimDuration & " seconds")
 
                     PrintInfo(SetUp.lblSchedule1.Location.X, SetUp.lblSchedule1.Location.Y, AC(vCC).ScheduleType(0) & " " & AC(vCC).ScheduleValue(0))
                     PrintInfo(SetUp.lblMagnitude1.Location.X, SetUp.lblMagnitude1.Location.Y, AC(vCC).Magnitude(0) & " " & AC(vCC).Reinforcer(0) & " " & AC(vCC).PelletP(0))

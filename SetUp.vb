@@ -165,7 +165,7 @@
                 PrintInfo(lblComponent.Location.X, lblComponent.Location.Y, "Component " & i)
                 PrintInfo(lblComponentD.Location.X, lblComponentD.Location.Y, AC(i).ComponentDuration & " seconds")
                 PrintInfo(lblComponentI.Location.X, lblComponentI.Location.Y, AC(i).ComponentIteration & " times")
-                PrintInfo(lblComponentS.Location.X, lblComponentS.Location.Y, AC(i).ComponentStimDuration & " seconds")
+                PrintInfo(lblComponentS.Location.X, lblComponentS.Location.Y, AC(i).ComponentStimType & ": " & AC(i).ComponentStimDuration & " seconds")
 
                 PrintInfo(lblSchedule1.Location.X, lblSchedule1.Location.Y, AC(i).ScheduleType(0) & " " & AC(i).ScheduleValue(0))
                 PrintInfo(lblMagnitude1.Location.X, lblMagnitude1.Location.Y, AC(i).Magnitude(0) & " " & AC(i).Reinforcer(0) & " " & AC(i).PelletP(0))
