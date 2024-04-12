@@ -84,9 +84,14 @@ Public Class Main
 
 1:          Dim q As Byte = Rond.Next(CompList.Count)
             If CompList.Item(q) = PreviousComp(0) And PreviousComp(0) = PreviousComp(1) Then
-                GoTo 1
+                If CompList.Count = 1 Then
+                    GoTo 2
+                Else
+                    GoTo 1
+                End If
+
             End If
-            vCC = CompList.Item(q)
+2:          vCC = CompList.Item(q)
             PreviousComp(1) = PreviousComp(0)
             PreviousComp(0) = CompList.Item(q)
 
