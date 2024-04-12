@@ -294,21 +294,21 @@ Public Class Main
 
             Next
 
-            'This line activates the feeder through Arduino. "R" can mean any output connected to the Arduino.
-            WriteLine(1, vTimeNow, "R" & Lever + 1)
+            If AC(vCC).Magnitude(Lever) > 0 Then WriteLine(1, vTimeNow, "R" & Lever + 1)
+
 
             If Lever = 0 Then
-                If AC(vCC).ScheduleType(0) = "Fixed Ratio" Then FRGen(0)
-                If AC(vCC).ScheduleType(0) = "Variable Ratio" Then VRGen(0)
-                If AC(vCC).ScheduleType(0) = "Fixed Interval" Then FIGen(0)
-                If AC(vCC).ScheduleType(0).Contains("Variable Interval") Then VIGen(0) ' Verificar que esto funcione tanto con strings como con strings()
-            ElseIf Lever = 1 Then
-                If AC(vCC).ScheduleType(1) = "Fixed Ratio" Then FRGen(1)
-                If AC(vCC).ScheduleType(1) = "Variable Ratio" Then VRGen(1)
-                If AC(vCC).ScheduleType(1) = "Fixed Interval" Then FIGen(1)
-                If AC(vCC).ScheduleType(1).Contains("Variable Interval") Then VIGen(1)
+                    If AC(vCC).ScheduleType(0) = "Fixed Ratio" Then FRGen(0)
+                    If AC(vCC).ScheduleType(0) = "Variable Ratio" Then VRGen(0)
+                    If AC(vCC).ScheduleType(0) = "Fixed Interval" Then FIGen(0)
+                    If AC(vCC).ScheduleType(0).Contains("Variable Interval") Then VIGen(0) ' Verificar que esto funcione tanto con strings como con strings()
+                ElseIf Lever = 1 Then
+                    If AC(vCC).ScheduleType(1) = "Fixed Ratio" Then FRGen(1)
+                    If AC(vCC).ScheduleType(1) = "Variable Ratio" Then VRGen(1)
+                    If AC(vCC).ScheduleType(1) = "Fixed Interval" Then FIGen(1)
+                    If AC(vCC).ScheduleType(1).Contains("Variable Interval") Then VIGen(1)
+                End If
             End If
-        End If
     End Sub
     Private Sub ReinforcerDelivery(Lever)
 
