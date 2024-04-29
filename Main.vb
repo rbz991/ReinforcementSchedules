@@ -14,7 +14,11 @@ Public Class Main
         Arduino.Open() 'Starts the Arduino-VB communication.
         Arduino.WriteLine("p")
         tmrStart.Interval = SetUp.txbStart.Text * 1000
-        If SetUp.txbICI.Text <> 0 Then tmrICI.Interval = SetUp.txbICI.Text * 1000
+        If SetUp.txbICI.Text <> 0 Then
+            tmrICI.Interval = SetUp.txbICI.Text * 1000
+        Else
+            tmrICI.Interval = 1
+        End If
         Countdown = Environment.TickCount + SetUp.txbStart.Text * 1000
         tmrStart.Enabled = True
 
