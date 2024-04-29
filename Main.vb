@@ -623,8 +623,6 @@ Public Class Main
     Private Sub tmrComponentDuration_Tick(sender As Object, e As EventArgs) Handles tmrComponentDuration.Tick
         tmrComponentDuration.Enabled = False
         WriteLine(1, vTimeNow, "EndComponent" & vCC)
-
-
         lblActiveComponent.Text = "ICI"
         lblComponentDuration.Text = SetUp.txbICI.Text
         lblComponentStim.Text = ""
@@ -634,9 +632,12 @@ Public Class Main
         lblRfR1.Text = ""
         lblRfR2.Text = ""
         tmrComponentStim.Enabled = False
-        Arduino.WriteLine("abhtlm")
+        If SetUp.txbICI.Text <> 0 Then
+            Arduino.WriteLine("abhtlm")
+        Else
+            Arduino.WriteLine("abht")
+        End If
         tmrICI.Enabled = True
-
     End Sub
 
     Private Sub tmrComponentStim_Tick(sender As Object, e As EventArgs) Handles tmrComponentStim.Tick
