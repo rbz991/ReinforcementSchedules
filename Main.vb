@@ -289,13 +289,14 @@ Public Class Main
                 ReinforcerDelivery(Lever)
 
                 RefCount(vCC, Lever) += 1
+                RefCount_i(Lever) += 1
                 Me.Controls.Item("lblReinforcers" & Lever + 1).Text = RefCount(vCC, Lever)
 
 
                 'For p = 1 To MAXvCC
                 '    If RefCount(p, 0) + RefCount(p, 1) >= AC(p).MaxRefs And AC(p).MaxRefs > 0 Then btnFinish.PerformClick()
                 'Next
-                If (RefCount(vCC, 0) + RefCount(vCC, 1)) >= AC(vCC).MaxRefs And AC(vCC).MaxRefs > 0 Then ComponentDuration_Code()
+                If (RefCount_i(0) + RefCount_i(1)) > AC(vCC).MaxRefs And AC(vCC).MaxRefs > 0 Then ComponentDuration_Code()
 
 
 
@@ -629,6 +630,8 @@ Public Class Main
 
     Private Sub ComponentDuration_Code()
         tmrComponentDuration.Enabled = False
+        RefCount_i(0) = 0
+        RefCount_i(1) = 0
         WriteLine(1, vTimeNow, "EndComponent" & vCC)
         lblActiveComponent.Text = "ICI"
         lblComponentDuration.Text = SetUp.txbICI.Text

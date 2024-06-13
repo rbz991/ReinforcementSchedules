@@ -16,6 +16,7 @@
     Public Actual_Response(4) As String
     Public Previous_Response(4) As String
     Public RefCount(4, 1) As Integer
+    Public RefCount_i(1) As Integer
     Public refRdy(1) As Boolean
     Public VIList(1) As List(Of Integer)
     Public ObtainedDelays(1) As List(Of Integer)
