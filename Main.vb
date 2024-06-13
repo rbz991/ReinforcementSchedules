@@ -296,7 +296,7 @@ Public Class Main
                 'For p = 1 To MAXvCC
                 '    If RefCount(p, 0) + RefCount(p, 1) >= AC(p).MaxRefs And AC(p).MaxRefs > 0 Then btnFinish.PerformClick()
                 'Next
-                If (RefCount_i(0) + RefCount_i(1)) > AC(vCC).MaxRefs And AC(vCC).MaxRefs > 0 Then ComponentDuration_Code()
+
 
 
 
@@ -306,17 +306,20 @@ Public Class Main
 
 
             If Lever = 0 Then
-                    If AC(vCC).ScheduleType(0) = "Fixed Ratio" Then FRGen(0)
-                    If AC(vCC).ScheduleType(0) = "Variable Ratio" Then VRGen(0)
-                    If AC(vCC).ScheduleType(0) = "Fixed Interval" Then FIGen(0)
-                    If AC(vCC).ScheduleType(0).Contains("Variable Interval") Then VIGen(0) ' Verificar que esto funcione tanto con strings como con strings()
-                ElseIf Lever = 1 Then
-                    If AC(vCC).ScheduleType(1) = "Fixed Ratio" Then FRGen(1)
-                    If AC(vCC).ScheduleType(1) = "Variable Ratio" Then VRGen(1)
-                    If AC(vCC).ScheduleType(1) = "Fixed Interval" Then FIGen(1)
-                    If AC(vCC).ScheduleType(1).Contains("Variable Interval") Then VIGen(1)
-                End If
+                If AC(vCC).ScheduleType(0) = "Fixed Ratio" Then FRGen(0)
+                If AC(vCC).ScheduleType(0) = "Variable Ratio" Then VRGen(0)
+                If AC(vCC).ScheduleType(0) = "Fixed Interval" Then FIGen(0)
+                If AC(vCC).ScheduleType(0).Contains("Variable Interval") Then VIGen(0) ' Verificar que esto funcione tanto con strings como con strings()
+            ElseIf Lever = 1 Then
+                If AC(vCC).ScheduleType(1) = "Fixed Ratio" Then FRGen(1)
+                If AC(vCC).ScheduleType(1) = "Variable Ratio" Then VRGen(1)
+                If AC(vCC).ScheduleType(1) = "Fixed Interval" Then FIGen(1)
+                If AC(vCC).ScheduleType(1).Contains("Variable Interval") Then VIGen(1)
             End If
+        End If
+
+
+        If (RefCount_i(0) + RefCount_i(1)) > AC(vCC).MaxRefs And AC(vCC).MaxRefs > 0 Then ComponentDuration_Code()
     End Sub
     Private Sub ReinforcerDelivery(Lever)
 
