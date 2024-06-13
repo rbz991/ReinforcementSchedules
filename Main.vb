@@ -292,9 +292,12 @@ Public Class Main
                 Me.Controls.Item("lblReinforcers" & Lever + 1).Text = RefCount(vCC, Lever)
 
 
-                For p = 1 To MAXvCC
-                    If RefCount(p, 0) + RefCount(p, 1) >= AC(p).MaxRefs And AC(p).MaxRefs > 0 Then btnFinish.PerformClick()
-                Next
+                'For p = 1 To MAXvCC
+                '    If RefCount(p, 0) + RefCount(p, 1) >= AC(p).MaxRefs And AC(p).MaxRefs > 0 Then btnFinish.PerformClick()
+                'Next
+                If (RefCount(vCC, 0) + RefCount(vCC, 1)) >= AC(vCC).MaxRefs And AC(vCC).MaxRefs > 0 Then ComponentDuration_Code()
+
+
 
             Next
 
@@ -621,6 +624,10 @@ Public Class Main
     End Sub
 
     Private Sub tmrComponentDuration_Tick(sender As Object, e As EventArgs) Handles tmrComponentDuration.Tick
+        ComponentDuration_Code()
+    End Sub
+
+    Private Sub ComponentDuration_Code()
         tmrComponentDuration.Enabled = False
         WriteLine(1, vTimeNow, "EndComponent" & vCC)
         lblActiveComponent.Text = "ICI"
@@ -693,7 +700,5 @@ Public Class Main
         CODL = 0
     End Sub
 
-    Private Sub tmrChart_Tick(sender As Object, e As EventArgs) Handles tmrChart.Tick
 
-    End Sub
 End Class
