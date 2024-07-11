@@ -44,6 +44,7 @@
         Dim COD As Double
         Dim MaxRefs As Integer
         Dim ComponentDuration As Integer
+        Dim ComponentDuration_measured() As Integer
         Dim ComponentIteration As Byte
         Dim ComponentStimDuration As Double
         Dim ComponentStimType As String

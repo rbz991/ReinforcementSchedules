@@ -128,6 +128,9 @@ Public Class Main
         Arduino.WriteLine("t")
         WriteLine(1, vTimeNow, "StartComponent" & vCC)
         tmrComponentDuration.Interval = AC(vCC).ComponentDuration * 1000
+
+        AC(vCC).ComponentDuration_measured(AC(vCC).IterationsLeft) = lblTime.Text
+
         tmrComponentDuration.Enabled = True
         VIList(0) = New List(Of Integer)
         VIList(1) = New List(Of Integer)
@@ -420,6 +423,15 @@ Public Class Main
             WriteLine(i, "Lever 1 Component 4: " & ResponseCount(4, 0))
             WriteLine(i, "Lever 2 Component 4: " & ResponseCount(4, 1))
             WriteLine(i, "Response rates:")
+
+            For s = 1 To 4
+                Dim o = 0
+                For g = 1 To AC(s).ComponentIteration
+                    o += AC(s).ComponentDuration_measured(g)
+                Next
+                AC(s).ComponentDuration = o
+            Next
+
             WriteLine(i, "Lever 1 Component 1: " & ResponseCount(1, 0) / ((AC(1).ComponentDuration / 60) * AC(1).ComponentIteration))
             WriteLine(i, "Lever 2 Component 1: " & ResponseCount(1, 1) / ((AC(1).ComponentDuration / 60) * AC(1).ComponentIteration))
             WriteLine(i, "Lever 1 Component 2: " & ResponseCount(2, 0) / ((AC(2).ComponentDuration / 60) * AC(2).ComponentIteration))
@@ -628,6 +640,9 @@ Public Class Main
         RefCount_i(0) = 0
         RefCount_i(1) = 0
         WriteLine(1, vTimeNow, "EndComponent" & vCC)
+
+        AC(vCC).ComponentDuration_measured(AC(vCC).IterationsLeft) = lblTime.Text - AC(vCC).ComponentDuration_measured(AC(vCC).IterationsLeft)
+
         lblActiveComponent.Text = "ICI"
         lblComponentDuration.Text = SetUp.txbICI.Text
         lblComponentStim.Text = ""

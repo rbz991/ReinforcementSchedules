@@ -73,6 +73,7 @@ Public Class Component
                     ReDim AC(vCC).FeedbackType(1)
                     ReDim AC(vCC).DelayDuration(1)
                     ReDim AC(vCC).DelayType(1)
+                    ReDim AC(vCC).ComponentDuration_measured(AC(vCC).ComponentIteration)
 
                     AC(vCC).ScheduleType(0) = ScheduleType1
                     If txbValueL1.Text = "" Then txbValueL1.Text = 0
