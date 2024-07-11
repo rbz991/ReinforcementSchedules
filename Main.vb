@@ -281,25 +281,17 @@ Public Class Main
         Else
             refRdy(Lever) = False
 
+            RefCount(vCC, Lever) += 1
+            RefCount_i(Lever) += 1
+            Me.Controls.Item("lblReinforcers" & Lever + 1).Text = RefCount(vCC, Lever)
 
             For i = 1 To AC(vCC).Magnitude(Lever)
                 Me.Controls("lblRfR" & Lever + 1).Text = refRdy(Lever)
                 Chart1.Series("Reinforcers " & Lever + 1).Points.AddXY(chartTime(Lever), chartResponse(Lever) + 3)
-
                 ReinforcerDelivery(Lever)
-
-                RefCount(vCC, Lever) += 1
-                RefCount_i(Lever) += 1
-                Me.Controls.Item("lblReinforcers" & Lever + 1).Text = RefCount(vCC, Lever)
-
-
                 'For p = 1 To MAXvCC
                 '    If RefCount(p, 0) + RefCount(p, 1) >= AC(p).MaxRefs And AC(p).MaxRefs > 0 Then btnFinish.PerformClick()
                 'Next
-
-
-
-
             Next
 
             If AC(vCC).Magnitude(Lever) > 0 Then WriteLine(1, vTimeNow, "R" & Lever + 1)
