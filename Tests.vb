@@ -7,6 +7,7 @@ Public Class Tests
     Public blnLeverR
     Public blnLight
     Public blnPump
+    Public blnFeeder
     Private WithEvents tmrChartTests As Timer = New Timer
     Public resp(2)
     Public chrtTime
@@ -70,7 +71,17 @@ Public Class Tests
 
     Private Sub btnFeeder_Click(sender As Object, e As EventArgs) Handles btnFeeder.Click
         sender.backColor = Color.Green
-        Arduino.WriteLine("R")
+
+
+        If blnFeeder = False Then
+            blnFeeder = True
+            tmrFeeder.Enabled = True
+        Else
+            blnFeeder = False
+            tmrFeeder.Enabled = False
+        End If
+
+
     End Sub
 
     Private Sub btnLeverLeft_Click(sender As Object, e As EventArgs) Handles btnLeverLeft.Click
@@ -135,5 +146,7 @@ Public Class Tests
 
     End Sub
 
-
+    Private Sub tmrFeeder_Tick(sender As Object, e As EventArgs) Handles tmrFeeder.Tick
+        Arduino.WriteLine("R")
+    End Sub
 End Class
