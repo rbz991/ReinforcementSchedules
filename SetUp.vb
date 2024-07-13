@@ -136,6 +136,7 @@
                 ReDim AC(i).FeedbackType(1)
                 ReDim AC(i).DelayDuration(1)
                 ReDim AC(i).DelayType(1)
+                ReDim AC(i).ComponentDuration_measured(AC(i).ComponentIteration)
                 AC(i).HouselightOnOff = fileReader.ReadLine().Replace("#", "")
                 AC(i).COD = fileReader.ReadLine()
                 AC(i).MaxRefs = fileReader.ReadLine()
