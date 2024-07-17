@@ -424,9 +424,9 @@ Public Class Main
             WriteLine(i, "Lever 2 Component 4: " & ResponseCount(4, 1))
             WriteLine(i, "Response rates:")
 
-            For s = 1 To 4
+            For s = 0 To 3
                 Dim o = 0
-                For g = 1 To AC(s).ComponentIteration
+                For g = 0 To AC(s).ComponentIteration
                     o += AC(s).ComponentDuration_measured(g)
                 Next
                 AC(s).ComponentDuration = o
@@ -625,6 +625,7 @@ Public Class Main
         Reinforce(3, False)
     End Sub
     Private Sub tmrPostSession_Tick(sender As Object, e As EventArgs) Handles tmrPostSession.Tick
+        tmrPostSession.Enabled = False
         Finish()
     End Sub
     Private Sub tmrNosepoke_Tick(sender As Object, e As EventArgs) Handles tmrNosepoke.Tick
