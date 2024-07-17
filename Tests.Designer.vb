@@ -131,7 +131,7 @@ Partial Class Tests
         Legend1.TitleFont = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Chart1.Legends.Add(Legend1)
         Me.Chart1.Location = New System.Drawing.Point(351, 22)
-        Me.Chart1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Chart1.Margin = New System.Windows.Forms.Padding(4)
         Me.Chart1.Name = "Chart1"
         Series1.ChartArea = "ChartArea1"
         Series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StepLine
@@ -157,7 +157,7 @@ Partial Class Tests
         '
         'tmrFeeder
         '
-        Me.tmrFeeder.Interval = 200
+        Me.tmrFeeder.Interval = 500
         '
         'Tests
         '
