@@ -239,12 +239,20 @@ Public Class Main
             If AC(vCC).FeedbackType(0).Contains("Light 2") = True Then Arduino.WriteLine("B")
             If AC(vCC).FeedbackType(0).Contains("Tone") = True Then Arduino.WriteLine("T")
             If AC(vCC).FeedbackType(0).Contains("Houselight") = True Then Arduino.WriteLine("H")
+            If AC(vCC).FeedbackType(0).Contains("Time Out") = True Then
+                tmrComponentStim.Enabled = False
+                Arduino.WriteLine("abthl")
+            End If
             tmrStim1.Enabled = True
         ElseIf Lever = 1 Then
             If AC(vCC).FeedbackType(1).Contains("Light 1") = True Then Arduino.WriteLine("A")
             If AC(vCC).FeedbackType(1).Contains("Light 2") = True Then Arduino.WriteLine("B")
             If AC(vCC).FeedbackType(1).Contains("Tone") = True Then Arduino.WriteLine("T")
             If AC(vCC).FeedbackType(1).Contains("Houselight") = True Then Arduino.WriteLine("H")
+            If AC(vCC).FeedbackType(1).Contains("Time Out") = True Then
+                tmrComponentStim.Enabled = False
+                Arduino.WriteLine("abthm")
+            End If
             tmrStim2.Enabled = True
         End If
     End Sub
@@ -576,6 +584,10 @@ Public Class Main
         If AC(vCC).FeedbackType(0).Contains("Light 2") = True Then Arduino.WriteLine("b")
         If AC(vCC).FeedbackType(0).Contains("Tone") = True Then Arduino.WriteLine("t")
         If AC(vCC).FeedbackType(0).Contains("Houselight") = True Then Arduino.WriteLine("h")
+        If AC(vCC).FeedbackType(0).Contains("Houselight") = True Then
+            tmrComponentStim.Enabled = True
+            Arduino.WriteLine("L")
+        End If
     End Sub
     Private Sub tmrStim2_Tick(sender As Object, e As EventArgs) Handles tmrStim2.Tick
         tmrStim2.Enabled = False
@@ -583,6 +595,10 @@ Public Class Main
         If AC(vCC).FeedbackType(1).Contains("Light 2") = True Then Arduino.WriteLine("b")
         If AC(vCC).FeedbackType(1).Contains("Tone") = True Then Arduino.WriteLine("t")
         If AC(vCC).FeedbackType(1).Contains("Houselight") = True Then Arduino.WriteLine("h")
+        If AC(vCC).FeedbackType(1).Contains("Houselight") = True Then
+            tmrComponentStim.Enabled = True
+            Arduino.WriteLine("M")
+        End If
     End Sub
     Private Sub btnFinish_Click(sender As Object, e As EventArgs) Handles btnFinish.Click
         'This controls the 'Finish' button on the main form. Used to end the session by hand.

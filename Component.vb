@@ -48,10 +48,12 @@ Public Class Component
                     If rdoLight2L1.Checked = True Then FeedbackType1 = "Light 2"
                     If rdoToneL1.Checked = True Then FeedbackType1 = "Tone"
                     If rdoHouselightL1.Checked = True Then FeedbackType1 = "Houselight"
+                    If rdoTOL1.Checked = True Then FeedbackType1 = "Time Out"
                     If rdoLight1L2.Checked = True Then FeedbackType2 = "Light 1"
                     If rdoLight2L2.Checked = True Then FeedbackType2 = "Light 2"
                     If rdoToneL2.Checked = True Then FeedbackType2 = "Tone"
                     If rdoHouselightL2.Checked = True Then FeedbackType2 = "Houselight"
+                    If rdoTOL2.Checked = True Then FeedbackType2 = "Time Out"
 
                     If rdoLightDelay1L1.Checked = True Then DelayStimType1 = "Light 1"
                     If rdoLightDelay2L1.Checked = True Then DelayStimType1 = "Light 2"
@@ -187,8 +189,6 @@ Public Class Component
             txbPelletProbability2.Enabled = False
         End If
     End Sub
-
-
 
 
 End Class
