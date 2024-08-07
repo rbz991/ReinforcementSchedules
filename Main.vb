@@ -730,7 +730,16 @@ Public Class Main
             tmrICI.Enabled = False
             If RandomCPres = False Then
                 If vCC = MAXvCC Then
-                    vCC = 1
+                    If AC(1).IterationsLeft > 0 Then
+                        vCC = 1
+                    ElseIf AC(2).IterationsLeft > 0 Then
+                        vCC = 2
+                    ElseIf AC(3).IterationsLeft > 0 Then
+                        vCC = 3
+                    ElseIf AC(4).IterationsLeft > 0 Then
+                        vCC = 4
+                    End If
+
                 Else
                     vCC += 1
                 End If
