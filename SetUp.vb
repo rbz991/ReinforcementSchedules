@@ -101,6 +101,8 @@
                 WriteLine(3, AC(i).DelayDuration(1))
                 WriteLine(3, AC(i).DelayType(0))
                 WriteLine(3, AC(i).DelayType(1))
+                WriteLine(3, AC(i).DelayRetract(0))
+                WriteLine(3, AC(i).DelayRetract(1))
             Next
             FileClose(3)
         Else

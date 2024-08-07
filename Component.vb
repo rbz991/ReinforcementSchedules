@@ -10,6 +10,8 @@ Public Class Component
     Dim DelayStimType2 = ""
     Dim HouselightOnOff = False
     Dim COD = False
+    Dim DelayRetract1 = False
+    Dim DelayRetract2 = False
 
 
     Private Sub btnSubmit_Click(sender As Object, e As EventArgs) Handles btnSubmit.Click
@@ -55,95 +57,100 @@ Public Class Component
                     If rdoHouselightL2.Checked = True Then FeedbackType2 = "Houselight"
                     If rdoTOL2.Checked = True Then FeedbackType2 = "Time Out"
 
+                    If chkRetractL1.Checked = True Then DelayRetract1 = True
                     If rdoLightDelay1L1.Checked = True Then DelayStimType1 = "Light 1"
                     If rdoLightDelay2L1.Checked = True Then DelayStimType1 = "Light 2"
                     If rdoToneDelayL1.Checked = True Then DelayStimType1 = "Tone"
                     If rdoHouselightDelayL1.Checked = True Then DelayStimType1 = "Houselight"
+                    If chkRetractL2.Checked = True Then DelayRetract2 = True
                     If rdoLightDelay1L2.Checked = True Then DelayStimType2 = "Light 1"
                     If rdoLightDelay2L2.Checked = True Then DelayStimType2 = "Light 2"
                     If rdoToneDelayL2.Checked = True Then DelayStimType2 = "Tone"
                     If rdoHouselightDelayL2.Checked = True Then DelayStimType2 = "Houselight"
 
                     AC(vCC).ComponentStimDuration = txbComponentStimulation.Text
-                    AC(vCC).ComponentStimType = ComponentStimType
-                    ReDim AC(vCC).ScheduleType(1)
-                    ReDim AC(vCC).ScheduleValue(1)
-                    ReDim AC(vCC).Magnitude(1)
-                    ReDim AC(vCC).Reinforcer(1)
-                    ReDim AC(vCC).PelletP(1)
-                    ReDim AC(vCC).FeedbackDuration(1)
-                    ReDim AC(vCC).FeedbackType(1)
-                    ReDim AC(vCC).DelayDuration(1)
-                    ReDim AC(vCC).DelayType(1)
-                    ReDim AC(vCC).ComponentDuration_measured(AC(vCC).ComponentIteration)
+                        AC(vCC).ComponentStimType = ComponentStimType
+                        ReDim AC(vCC).ScheduleType(1)
+                        ReDim AC(vCC).ScheduleValue(1)
+                        ReDim AC(vCC).Magnitude(1)
+                        ReDim AC(vCC).Reinforcer(1)
+                        ReDim AC(vCC).PelletP(1)
+                        ReDim AC(vCC).FeedbackDuration(1)
+                        ReDim AC(vCC).FeedbackType(1)
+                        ReDim AC(vCC).DelayDuration(1)
+                        ReDim AC(vCC).DelayType(1)
+                        ReDim AC(vCC).ComponentDuration_measured(AC(vCC).ComponentIteration)
+                    ReDim AC(vCC).DelayRetract(1)
 
                     AC(vCC).ScheduleType(0) = ScheduleType1
-                    If txbValueL1.Text = "" Then txbValueL1.Text = 0
-                    AC(vCC).ScheduleValue(0) = txbValueL1.Text
-                    If cbbReinforcer1.Text = "" Then cbbReinforcer1.Text = "Pellet"
-                    AC(vCC).Reinforcer(0) = cbbReinforcer1.Text
-                    If txbMagL1.Text = "" Then txbMagL1.Text = 0
-                    AC(vCC).Magnitude(0) = txbMagL1.Text
-                    If txbPelletProbability1.Text = "" Then txbPelletProbability1.Text = 0
-                    AC(vCC).PelletP(0) = txbPelletProbability1.Text
-                    If txbStimDurL1.Text = "" Then txbStimDurL1.Text = 0
-                    AC(vCC).FeedbackDuration(0) = txbStimDurL1.Text
-                    AC(vCC).FeedbackType(0) = FeedbackType1
-                    If txbDelayDurL1.Text = "" Then txbDelayDurL1.Text = 0
-                    AC(vCC).DelayDuration(0) = txbDelayDurL1.Text
-                    AC(vCC).DelayType(0) = DelayStimType1
+                        If txbValueL1.Text = "" Then txbValueL1.Text = 0
+                        AC(vCC).ScheduleValue(0) = txbValueL1.Text
+                        If cbbReinforcer1.Text = "" Then cbbReinforcer1.Text = "Pellet"
+                        AC(vCC).Reinforcer(0) = cbbReinforcer1.Text
+                        If txbMagL1.Text = "" Then txbMagL1.Text = 0
+                        AC(vCC).Magnitude(0) = txbMagL1.Text
+                        If txbPelletProbability1.Text = "" Then txbPelletProbability1.Text = 0
+                        AC(vCC).PelletP(0) = txbPelletProbability1.Text
+                        If txbStimDurL1.Text = "" Then txbStimDurL1.Text = 0
+                        AC(vCC).FeedbackDuration(0) = txbStimDurL1.Text
+                        AC(vCC).FeedbackType(0) = FeedbackType1
+                        If txbDelayDurL1.Text = "" Then txbDelayDurL1.Text = 0
+                        AC(vCC).DelayDuration(0) = txbDelayDurL1.Text
+                        AC(vCC).DelayType(0) = DelayStimType1
+                    AC(vCC).DelayRetract(0) = DelayRetract1
 
                     AC(vCC).ScheduleType(1) = ScheduleType2
-                    If txbValueL2.Text = "" Then txbValueL2.Text = 0
-                    AC(vCC).ScheduleValue(1) = txbValueL2.Text
-                    If cbbReinforcer2.Text = "" Then cbbReinforcer2.Text = "Pellet"
-                    AC(vCC).Reinforcer(1) = cbbReinforcer2.Text
-                    If txbMagL2.Text = "" Then txbMagL2.Text = 0
-                    AC(vCC).Magnitude(1) = txbMagL2.Text
-                    If txbPelletProbability2.Text = "" Then txbPelletProbability2.Text = 0
-                    AC(vCC).PelletP(1) = txbPelletProbability2.Text
-                    If txbStimDurL2.Text = "" Then txbStimDurL2.Text = 0
-                    AC(vCC).FeedbackDuration(1) = txbStimDurL2.Text
-                    AC(vCC).FeedbackType(1) = FeedbackType2
-                    If txbDelayDurL2.Text = "" Then txbDelayDurL2.Text = 0
-                    AC(vCC).DelayDuration(1) = txbDelayDurL2.Text
+                        If txbValueL2.Text = "" Then txbValueL2.Text = 0
+                        AC(vCC).ScheduleValue(1) = txbValueL2.Text
+                        If cbbReinforcer2.Text = "" Then cbbReinforcer2.Text = "Pellet"
+                        AC(vCC).Reinforcer(1) = cbbReinforcer2.Text
+                        If txbMagL2.Text = "" Then txbMagL2.Text = 0
+                        AC(vCC).Magnitude(1) = txbMagL2.Text
+                        If txbPelletProbability2.Text = "" Then txbPelletProbability2.Text = 0
+                        AC(vCC).PelletP(1) = txbPelletProbability2.Text
+                        If txbStimDurL2.Text = "" Then txbStimDurL2.Text = 0
+                        AC(vCC).FeedbackDuration(1) = txbStimDurL2.Text
+                        AC(vCC).FeedbackType(1) = FeedbackType2
+                        If txbDelayDurL2.Text = "" Then txbDelayDurL2.Text = 0
+                        AC(vCC).DelayDuration(1) = txbDelayDurL2.Text
                     AC(vCC).DelayType(1) = DelayStimType2
+                    AC(vCC).DelayRetract(1) = DelayRetract2
 
                     AC(vCC).HouselightOnOff = HouselightOnOff
-                    If txbCOD.Text = "" Then txbCOD.Text = 0
-                    AC(vCC).COD = txbCOD.Text * 1000
-                    If txbMaxRefs.Text = "" Then txbMaxRefs.Text = 0
-                    AC(vCC).MaxRefs = txbMaxRefs.Text
+                        If txbCOD.Text = "" Then txbCOD.Text = 0
+                        AC(vCC).COD = txbCOD.Text * 1000
+                        If txbMaxRefs.Text = "" Then txbMaxRefs.Text = 0
+                        AC(vCC).MaxRefs = txbMaxRefs.Text
 
 
-                    PrintInfo(SetUp.lblComponent.Location.X, SetUp.lblComponent.Location.Y, "Component " & vCC)
-                    PrintInfo(SetUp.lblComponentD.Location.X, SetUp.lblComponentD.Location.Y, AC(vCC).ComponentDuration & " seconds")
-                    PrintInfo(SetUp.lblComponentI.Location.X, SetUp.lblComponentI.Location.Y, AC(vCC).ComponentIteration & " times")
-                    PrintInfo(SetUp.lblComponentS.Location.X, SetUp.lblComponentS.Location.Y, AC(vCC).ComponentStimType & ": " & AC(vCC).ComponentStimDuration & " seconds")
+                        PrintInfo(SetUp.lblComponent.Location.X, SetUp.lblComponent.Location.Y, "Component " & vCC)
+                        PrintInfo(SetUp.lblComponentD.Location.X, SetUp.lblComponentD.Location.Y, AC(vCC).ComponentDuration & " seconds")
+                        PrintInfo(SetUp.lblComponentI.Location.X, SetUp.lblComponentI.Location.Y, AC(vCC).ComponentIteration & " times")
+                        PrintInfo(SetUp.lblComponentS.Location.X, SetUp.lblComponentS.Location.Y, AC(vCC).ComponentStimType & ": " & AC(vCC).ComponentStimDuration & " seconds")
 
-                    PrintInfo(SetUp.lblSchedule1.Location.X, SetUp.lblSchedule1.Location.Y, AC(vCC).ScheduleType(0) & " " & AC(vCC).ScheduleValue(0))
-                    PrintInfo(SetUp.lblMagnitude1.Location.X, SetUp.lblMagnitude1.Location.Y, AC(vCC).Magnitude(0) & " " & AC(vCC).Reinforcer(0) & " " & AC(vCC).PelletP(0))
-                    PrintInfo(SetUp.lblFeedback1.Location.X, SetUp.lblFeedback1.Location.Y, AC(vCC).FeedbackType(0) & ": " & AC(vCC).FeedbackDuration(0) & " seconds")
-                    PrintInfo(SetUp.lblDelay1.Location.X, SetUp.lblDelay1.Location.Y, AC(vCC).DelayType(0) & ": " & AC(vCC).DelayDuration(0) & " seconds")
+                        PrintInfo(SetUp.lblSchedule1.Location.X, SetUp.lblSchedule1.Location.Y, AC(vCC).ScheduleType(0) & " " & AC(vCC).ScheduleValue(0))
+                        PrintInfo(SetUp.lblMagnitude1.Location.X, SetUp.lblMagnitude1.Location.Y, AC(vCC).Magnitude(0) & " " & AC(vCC).Reinforcer(0) & " " & AC(vCC).PelletP(0))
+                        PrintInfo(SetUp.lblFeedback1.Location.X, SetUp.lblFeedback1.Location.Y, AC(vCC).FeedbackType(0) & ": " & AC(vCC).FeedbackDuration(0) & " seconds")
+                    PrintInfo(SetUp.lblDelay1.Location.X, SetUp.lblDelay1.Location.Y, AC(vCC).DelayType(0) & ": " & AC(vCC).DelayDuration(0) & " seconds - Ret: " & AC(vCC).DelayRetract(0))
 
                     PrintInfo(SetUp.lblSchedule2.Location.X, SetUp.lblSchedule2.Location.Y, AC(vCC).ScheduleType(1) & " " & AC(vCC).ScheduleValue(1))
-                    PrintInfo(SetUp.lblMagnitude2.Location.X, SetUp.lblMagnitude2.Location.Y, AC(vCC).Magnitude(1) & " " & AC(vCC).Reinforcer(1) & " " & AC(vCC).PelletP(1))
-                    PrintInfo(SetUp.lblFeedback2.Location.X, SetUp.lblFeedback2.Location.Y, AC(vCC).FeedbackType(1) & ": " & AC(vCC).FeedbackDuration(1) & " seconds")
-                    PrintInfo(SetUp.lblDelay2.Location.X, SetUp.lblDelay2.Location.Y, AC(vCC).DelayType(1) & ": " & AC(vCC).DelayDuration(1) & " seconds")
+                        PrintInfo(SetUp.lblMagnitude2.Location.X, SetUp.lblMagnitude2.Location.Y, AC(vCC).Magnitude(1) & " " & AC(vCC).Reinforcer(1) & " " & AC(vCC).PelletP(1))
+                        PrintInfo(SetUp.lblFeedback2.Location.X, SetUp.lblFeedback2.Location.Y, AC(vCC).FeedbackType(1) & ": " & AC(vCC).FeedbackDuration(1) & " seconds")
+                    PrintInfo(SetUp.lblDelay2.Location.X, SetUp.lblDelay2.Location.Y, AC(vCC).DelayType(1) & ": " & AC(vCC).DelayDuration(1) & " seconds - Ret: " & AC(vCC).DelayRetract(1))
 
                     For Each lb In SetUp.Controls
-                        If lb.Text.Contains("Component ") Then
-                            lb.Font = New Font("Microsoft Sans Serif", 11.0!, FontStyle.Bold)
-                        End If
-                    Next
+                            If lb.Text.Contains("Component ") Then
+                                lb.Font = New Font("Microsoft Sans Serif", 11.0!, FontStyle.Bold)
+                            End If
+                        Next
 
-                    SetUp.Controls.Add(SetUp.LabelPreview(PreviewCounter))
-                    PreviewCounter += 1
+                        SetUp.Controls.Add(SetUp.LabelPreview(PreviewCounter))
+                        PreviewCounter += 1
 
-                    vPadding += 180
+                        vPadding += 180
 
+                    End If
                 End If
-            End If
         End If
         If vCC >= 2 Then SetUp.CheckBox1.Enabled = True
         Me.Close()

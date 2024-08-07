@@ -25,7 +25,7 @@
     Public ResponseCount(4, 1) As Integer
     Public ResponseCountDel(4, 1) As Integer
     Public NosepokeCount(2) As Integer
-    Public NosepokeCountDel(2) As Integer
+    Public NosepokeCountDel(4) As Integer
     Public chartTime(3) As Integer
     Public chartResponse(3) As Integer
     Public vPadding As Integer
@@ -57,6 +57,7 @@
         Dim FeedbackType() As String
         Dim DelayDuration() As Integer
         Dim DelayType() As String
+        Dim DelayRetract() As Boolean
         Dim IterationsLeft As Byte
     End Structure
 

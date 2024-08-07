@@ -106,6 +106,8 @@ Partial Class Component
         Me.Label14 = New System.Windows.Forms.Label()
         Me.txbCOD = New System.Windows.Forms.TextBox()
         Me.Label15 = New System.Windows.Forms.Label()
+        Me.chkRetractL1 = New System.Windows.Forms.CheckBox()
+        Me.chkRetractL2 = New System.Windows.Forms.CheckBox()
         Me.GroupBox9.SuspendLayout()
         Me.grpStimL2.SuspendLayout()
         Me.grpStimL1.SuspendLayout()
@@ -250,7 +252,7 @@ Partial Class Component
         Me.grpStimL1.Controls.Add(Me.txbStimDurL1)
         Me.grpStimL1.Location = New System.Drawing.Point(6, 298)
         Me.grpStimL1.Name = "grpStimL1"
-        Me.grpStimL1.Size = New System.Drawing.Size(189, 243)
+        Me.grpStimL1.Size = New System.Drawing.Size(189, 233)
         Me.grpStimL1.TabIndex = 4
         Me.grpStimL1.TabStop = False
         Me.grpStimL1.Text = "Response Feedback"
@@ -371,15 +373,16 @@ Partial Class Component
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.chkRetractL1)
         Me.GroupBox2.Controls.Add(Me.rdoHouselightDelayL1)
         Me.GroupBox2.Controls.Add(Me.rdoToneDelayL1)
         Me.GroupBox2.Controls.Add(Me.rdoLightDelay2L1)
         Me.GroupBox2.Controls.Add(Me.rdoLightDelay1L1)
         Me.GroupBox2.Controls.Add(Me.Label9)
         Me.GroupBox2.Controls.Add(Me.txbDelayDurL1)
-        Me.GroupBox2.Location = New System.Drawing.Point(6, 547)
+        Me.GroupBox2.Location = New System.Drawing.Point(6, 537)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(189, 202)
+        Me.GroupBox2.Size = New System.Drawing.Size(189, 212)
         Me.GroupBox2.TabIndex = 26
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Delay"
@@ -387,7 +390,7 @@ Partial Class Component
         'rdoHouselightDelayL1
         '
         Me.rdoHouselightDelayL1.AutoSize = True
-        Me.rdoHouselightDelayL1.Location = New System.Drawing.Point(9, 146)
+        Me.rdoHouselightDelayL1.Location = New System.Drawing.Point(6, 182)
         Me.rdoHouselightDelayL1.Name = "rdoHouselightDelayL1"
         Me.rdoHouselightDelayL1.Size = New System.Drawing.Size(110, 24)
         Me.rdoHouselightDelayL1.TabIndex = 27
@@ -398,7 +401,7 @@ Partial Class Component
         'rdoToneDelayL1
         '
         Me.rdoToneDelayL1.AutoSize = True
-        Me.rdoToneDelayL1.Location = New System.Drawing.Point(9, 117)
+        Me.rdoToneDelayL1.Location = New System.Drawing.Point(6, 153)
         Me.rdoToneDelayL1.Name = "rdoToneDelayL1"
         Me.rdoToneDelayL1.Size = New System.Drawing.Size(70, 24)
         Me.rdoToneDelayL1.TabIndex = 26
@@ -409,7 +412,7 @@ Partial Class Component
         'rdoLightDelay2L1
         '
         Me.rdoLightDelay2L1.AutoSize = True
-        Me.rdoLightDelay2L1.Location = New System.Drawing.Point(9, 86)
+        Me.rdoLightDelay2L1.Location = New System.Drawing.Point(6, 122)
         Me.rdoLightDelay2L1.Name = "rdoLightDelay2L1"
         Me.rdoLightDelay2L1.Size = New System.Drawing.Size(82, 24)
         Me.rdoLightDelay2L1.TabIndex = 25
@@ -420,7 +423,7 @@ Partial Class Component
         'rdoLightDelay1L1
         '
         Me.rdoLightDelay1L1.AutoSize = True
-        Me.rdoLightDelay1L1.Location = New System.Drawing.Point(9, 58)
+        Me.rdoLightDelay1L1.Location = New System.Drawing.Point(6, 94)
         Me.rdoLightDelay1L1.Name = "rdoLightDelay1L1"
         Me.rdoLightDelay1L1.Size = New System.Drawing.Size(82, 24)
         Me.rdoLightDelay1L1.TabIndex = 24
@@ -558,7 +561,7 @@ Partial Class Component
         Me.GroupBox4.Controls.Add(Me.txbStimDurL2)
         Me.GroupBox4.Location = New System.Drawing.Point(6, 298)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(189, 243)
+        Me.GroupBox4.Size = New System.Drawing.Size(189, 233)
         Me.GroupBox4.TabIndex = 4
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Response Feedback"
@@ -679,15 +682,16 @@ Partial Class Component
         '
         'GroupBox5
         '
+        Me.GroupBox5.Controls.Add(Me.chkRetractL2)
         Me.GroupBox5.Controls.Add(Me.rdoHouselightDelayL2)
         Me.GroupBox5.Controls.Add(Me.rdoToneDelayL2)
         Me.GroupBox5.Controls.Add(Me.rdoLightDelay2L2)
         Me.GroupBox5.Controls.Add(Me.rdoLightDelay1L2)
         Me.GroupBox5.Controls.Add(Me.Label3)
         Me.GroupBox5.Controls.Add(Me.txbDelayDurL2)
-        Me.GroupBox5.Location = New System.Drawing.Point(6, 547)
+        Me.GroupBox5.Location = New System.Drawing.Point(6, 537)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(189, 202)
+        Me.GroupBox5.Size = New System.Drawing.Size(189, 212)
         Me.GroupBox5.TabIndex = 26
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Delay"
@@ -695,7 +699,7 @@ Partial Class Component
         'rdoHouselightDelayL2
         '
         Me.rdoHouselightDelayL2.AutoSize = True
-        Me.rdoHouselightDelayL2.Location = New System.Drawing.Point(9, 146)
+        Me.rdoHouselightDelayL2.Location = New System.Drawing.Point(6, 182)
         Me.rdoHouselightDelayL2.Name = "rdoHouselightDelayL2"
         Me.rdoHouselightDelayL2.Size = New System.Drawing.Size(110, 24)
         Me.rdoHouselightDelayL2.TabIndex = 27
@@ -706,7 +710,7 @@ Partial Class Component
         'rdoToneDelayL2
         '
         Me.rdoToneDelayL2.AutoSize = True
-        Me.rdoToneDelayL2.Location = New System.Drawing.Point(9, 117)
+        Me.rdoToneDelayL2.Location = New System.Drawing.Point(6, 153)
         Me.rdoToneDelayL2.Name = "rdoToneDelayL2"
         Me.rdoToneDelayL2.Size = New System.Drawing.Size(70, 24)
         Me.rdoToneDelayL2.TabIndex = 26
@@ -717,7 +721,7 @@ Partial Class Component
         'rdoLightDelay2L2
         '
         Me.rdoLightDelay2L2.AutoSize = True
-        Me.rdoLightDelay2L2.Location = New System.Drawing.Point(9, 86)
+        Me.rdoLightDelay2L2.Location = New System.Drawing.Point(6, 122)
         Me.rdoLightDelay2L2.Name = "rdoLightDelay2L2"
         Me.rdoLightDelay2L2.Size = New System.Drawing.Size(82, 24)
         Me.rdoLightDelay2L2.TabIndex = 25
@@ -728,7 +732,7 @@ Partial Class Component
         'rdoLightDelay1L2
         '
         Me.rdoLightDelay1L2.AutoSize = True
-        Me.rdoLightDelay1L2.Location = New System.Drawing.Point(9, 58)
+        Me.rdoLightDelay1L2.Location = New System.Drawing.Point(6, 94)
         Me.rdoLightDelay1L2.Name = "rdoLightDelay1L2"
         Me.rdoLightDelay1L2.Size = New System.Drawing.Size(82, 24)
         Me.rdoLightDelay1L2.TabIndex = 24
@@ -1017,6 +1021,26 @@ Partial Class Component
         Me.Label15.TabIndex = 41
         Me.Label15.Text = "Change over delay:"
         '
+        'chkRetractL1
+        '
+        Me.chkRetractL1.AutoSize = True
+        Me.chkRetractL1.Location = New System.Drawing.Point(6, 60)
+        Me.chkRetractL1.Name = "chkRetractL1"
+        Me.chkRetractL1.Size = New System.Drawing.Size(88, 24)
+        Me.chkRetractL1.TabIndex = 28
+        Me.chkRetractL1.Text = "Retract"
+        Me.chkRetractL1.UseVisualStyleBackColor = True
+        '
+        'chkRetractL2
+        '
+        Me.chkRetractL2.AutoSize = True
+        Me.chkRetractL2.Location = New System.Drawing.Point(7, 60)
+        Me.chkRetractL2.Name = "chkRetractL2"
+        Me.chkRetractL2.Size = New System.Drawing.Size(88, 24)
+        Me.chkRetractL2.TabIndex = 29
+        Me.chkRetractL2.Text = "Retract"
+        Me.chkRetractL2.UseVisualStyleBackColor = True
+        '
         'Component
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -1169,4 +1193,6 @@ Partial Class Component
     Friend WithEvents txbPelletProbability2 As TextBox
     Friend WithEvents rdoTOL1 As RadioButton
     Friend WithEvents rdoTOL2 As RadioButton
+    Friend WithEvents chkRetractL1 As CheckBox
+    Friend WithEvents chkRetractL2 As CheckBox
 End Class

@@ -222,7 +222,7 @@ Public Class Main
                 tmrNosepoke.Enabled = True
                 If tmrDelay1.Enabled = True Or tmrDelay2.Enabled = True Then
                     WriteLine(1, vTimeNow, "D" & Nose + 3)
-                    NosepokeCountDel(Nose) += 1
+                    NosepokeCountDel(vCC) += 1
                 Else
                     NosepokeCount(Nose) += 1
                     lblTrayRs.Text = NosepokeCount(Nose)
@@ -271,6 +271,7 @@ Public Class Main
     Private Sub Reinforce(Lever As Integer, Delay As Boolean) 'This registers reinforcer deliveries and sets up the next reinforcer conditions.
         If Lever = 0 And AC(vCC).DelayDuration(0) > 0 And Delay = False Then
             tmrDelay1.Enabled = True
+            If AC(vCC).DelayRetract(Lever) = True Then Arduino.WriteLine("l")
             ObtainedDelays(0).Add(vTimeNow) 'The reponse that onsets the delay adds this time
             If AC(vCC).DelayType(0) <> "" Then
                 If AC(vCC).DelayType(0).Contains("Light 1") = True Then Arduino.WriteLine("A")
@@ -280,6 +281,7 @@ Public Class Main
             End If
         ElseIf Lever = 1 And AC(vCC).DelayDuration(1) > 0 = True And Delay = False Then
             tmrDelay2.Enabled = True
+            If AC(vCC).DelayRetract(Lever) = True Then Arduino.WriteLine("m")
             ObtainedDelays(1).Add(vTimeNow)
             If AC(vCC).DelayType(1) <> "" Then
                 If AC(vCC).DelayType(1).Contains("Light 1") = True Then Arduino.WriteLine("A")
@@ -467,6 +469,17 @@ Public Class Main
             WriteLine(i, "Lever 2 Component 3: " & RefCount(3, 1) / ((AC(3).ComponentDuration / 60)))
             WriteLine(i, "Lever 1 Component 4: " & RefCount(4, 0) / ((AC(4).ComponentDuration / 60)))
             WriteLine(i, "Lever 2 Component 4: " & RefCount(4, 1) / ((AC(4).ComponentDuration / 60)))
+            WriteLine(i, "Nosepoke responses during delay:")
+            WriteLine(i, "Component 1: " & NosepokeCountDel(1))
+            WriteLine(i, "Component 2: " & NosepokeCountDel(2))
+            WriteLine(i, "Component 3: " & NosepokeCountDel(3))
+            WriteLine(i, "Component 4: " & NosepokeCountDel(4))
+            WriteLine(i, "Nosepoke rates during delay:")
+            WriteLine(i, "Component 1: " & NosepokeCountDel(1) / ((AC(1).ComponentDuration / 60)))
+            WriteLine(i, "Component 2: " & NosepokeCountDel(2) / ((AC(2).ComponentDuration / 60)))
+            WriteLine(i, "Component 3: " & NosepokeCountDel(3) / ((AC(3).ComponentDuration / 60)))
+            WriteLine(i, "Component 4: " & NosepokeCountDel(4) / ((AC(4).ComponentDuration / 60)))
+
             WriteLine(i, "Total time in minutes: " & lblTime.Text / 60)
             WriteLine(i, Format(Date.Now, "dd-MM-yyyy_hh-mm-ss"))
             WriteLine(i, "END") 'Signals that the session has ended on the data file.
@@ -562,6 +575,7 @@ Public Class Main
             If AC(vCC).DelayType(0).Contains("Houselight") = True Then Arduino.WriteLine("h")
         End If
         Reinforce(0, True)
+        If AC(vCC).DelayRetract(0) = True Then Arduino.WriteLine("L")
         'aqui va el marcador para calcular la demora obtenida
         ObtainedDelays(0).Item(DelayIndex(0)) = vTimeNow - ObtainedDelays(0).Item(DelayIndex(0))
         DelayIndex(0) += 1
@@ -575,6 +589,7 @@ Public Class Main
             If AC(vCC).DelayType(1).Contains("Houselight") = True Then Arduino.WriteLine("h")
         End If
         Reinforce(1, True)
+        If AC(vCC).DelayRetract(1) = True Then Arduino.WriteLine("M")
         ObtainedDelays(1).Item(DelayIndex(1)) = vTimeNow - ObtainedDelays(1).Item(DelayIndex(1))
         DelayIndex(1) += 1
     End Sub
