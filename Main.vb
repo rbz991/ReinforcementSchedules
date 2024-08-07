@@ -129,7 +129,7 @@ Public Class Main
         WriteLine(1, vTimeNow, "StartComponent" & vCC)
         tmrComponentDuration.Interval = AC(vCC).ComponentDuration * 1000
 
-        AC(vCC).ComponentDuration_measured(AC(vCC).IterationsLeft) = lblTime.Text
+        AC(vCC).ComponentDuration_measured(AC(vCC).IterationsLeft) = lblTime.Text 'Registra el tiempo al inicio del componente
 
         tmrComponentDuration.Enabled = True
         VIList(0) = New List(Of Integer)
@@ -424,7 +424,7 @@ Public Class Main
             WriteLine(i, "Lever 2 Component 4: " & ResponseCount(4, 1))
             WriteLine(i, "Response rates:")
 
-            For s = 0 To 3
+            For s = 1 To MAXvCC
                 Dim o = 0
                 For g = 0 To AC(s).ComponentIteration
                     o += AC(s).ComponentDuration_measured(g)
@@ -432,14 +432,15 @@ Public Class Main
                 AC(s).ComponentDuration = o
             Next
 
-            WriteLine(i, "Lever 1 Component 1: " & ResponseCount(1, 0) / ((AC(1).ComponentDuration / 60) * AC(1).ComponentIteration))
-            WriteLine(i, "Lever 2 Component 1: " & ResponseCount(1, 1) / ((AC(1).ComponentDuration / 60) * AC(1).ComponentIteration))
-            WriteLine(i, "Lever 1 Component 2: " & ResponseCount(2, 0) / ((AC(2).ComponentDuration / 60) * AC(2).ComponentIteration))
-            WriteLine(i, "Lever 2 Component 2: " & ResponseCount(2, 1) / ((AC(2).ComponentDuration / 60) * AC(2).ComponentIteration))
-            WriteLine(i, "Lever 1 Component 3: " & ResponseCount(3, 0) / ((AC(3).ComponentDuration / 60) * AC(3).ComponentIteration))
-            WriteLine(i, "Lever 2 Component 3: " & ResponseCount(3, 1) / ((AC(3).ComponentDuration / 60) * AC(3).ComponentIteration))
-            WriteLine(i, "Lever 1 Component 4: " & ResponseCount(4, 0) / ((AC(4).ComponentDuration / 60) * AC(4).ComponentIteration))
-            WriteLine(i, "Lever 2 Component 4: " & ResponseCount(4, 1) / ((AC(4).ComponentDuration / 60) * AC(4).ComponentIteration))
+            WriteLine(i, "Lever 1 Component 1: " & ResponseCount(1, 0) / ((AC(1).ComponentDuration / 60)))
+            WriteLine(i, "Lever 2 Component 1: " & ResponseCount(1, 1) / ((AC(1).ComponentDuration / 60)))
+            WriteLine(i, "Lever 1 Component 2: " & ResponseCount(2, 0) / ((AC(2).ComponentDuration / 60)))
+            WriteLine(i, "Lever 2 Component 2: " & ResponseCount(2, 1) / ((AC(2).ComponentDuration / 60)))
+            WriteLine(i, "Lever 1 Component 3: " & ResponseCount(3, 0) / ((AC(3).ComponentDuration / 60)))
+            WriteLine(i, "Lever 2 Component 3: " & ResponseCount(3, 1) / ((AC(3).ComponentDuration / 60)))
+            WriteLine(i, "Lever 1 Component 4: " & ResponseCount(4, 0) / ((AC(4).ComponentDuration / 60)))
+            WriteLine(i, "Lever 2 Component 4: " & ResponseCount(4, 1) / ((AC(4).ComponentDuration / 60)))
+            '   WriteLine(i, "Lever 2 Component 4: " & ResponseCount(4, 1) / ((AC(4).ComponentDuration / 60) * AC(4).ComponentIteration))
             WriteLine(i, "Reinforcers:")
             WriteLine(i, "Lever 1 Component 1: " & RefCount(1, 0))
             WriteLine(i, "Lever 2 Component 1: " & RefCount(1, 1))
@@ -450,14 +451,14 @@ Public Class Main
             WriteLine(i, "Lever 1 Component 4: " & RefCount(4, 0))
             WriteLine(i, "Lever 2 Component 4: " & RefCount(4, 1))
             WriteLine(i, "Reinforcer rates:")
-            WriteLine(i, "Lever 1 Component 1: " & RefCount(1, 0) / ((AC(1).ComponentDuration / 60) * AC(1).ComponentIteration))
-            WriteLine(i, "Lever 2 Component 1: " & RefCount(1, 1) / ((AC(1).ComponentDuration / 60) * AC(1).ComponentIteration))
-            WriteLine(i, "Lever 1 Component 2: " & RefCount(2, 0) / ((AC(2).ComponentDuration / 60) * AC(2).ComponentIteration))
-            WriteLine(i, "Lever 2 Component 2: " & RefCount(2, 1) / ((AC(2).ComponentDuration / 60) * AC(2).ComponentIteration))
-            WriteLine(i, "Lever 1 Component 3: " & RefCount(3, 0) / ((AC(3).ComponentDuration / 60) * AC(3).ComponentIteration))
-            WriteLine(i, "Lever 2 Component 3: " & RefCount(3, 1) / ((AC(3).ComponentDuration / 60) * AC(3).ComponentIteration))
-            WriteLine(i, "Lever 1 Component 4: " & RefCount(4, 0) / ((AC(4).ComponentDuration / 60) * AC(4).ComponentIteration))
-            WriteLine(i, "Lever 2 Component 4: " & RefCount(4, 1) / ((AC(4).ComponentDuration / 60) * AC(4).ComponentIteration))
+            WriteLine(i, "Lever 1 Component 1: " & RefCount(1, 0) / ((AC(1).ComponentDuration / 60)))
+            WriteLine(i, "Lever 2 Component 1: " & RefCount(1, 1) / ((AC(1).ComponentDuration / 60)))
+            WriteLine(i, "Lever 1 Component 2: " & RefCount(2, 0) / ((AC(2).ComponentDuration / 60)))
+            WriteLine(i, "Lever 2 Component 2: " & RefCount(2, 1) / ((AC(2).ComponentDuration / 60)))
+            WriteLine(i, "Lever 1 Component 3: " & RefCount(3, 0) / ((AC(3).ComponentDuration / 60)))
+            WriteLine(i, "Lever 2 Component 3: " & RefCount(3, 1) / ((AC(3).ComponentDuration / 60)))
+            WriteLine(i, "Lever 1 Component 4: " & RefCount(4, 0) / ((AC(4).ComponentDuration / 60)))
+            WriteLine(i, "Lever 2 Component 4: " & RefCount(4, 1) / ((AC(4).ComponentDuration / 60)))
             WriteLine(i, "Total time in minutes: " & lblTime.Text / 60)
             WriteLine(i, Format(Date.Now, "dd-MM-yyyy_hh-mm-ss"))
             WriteLine(i, "END") 'Signals that the session has ended on the data file.
@@ -642,7 +643,7 @@ Public Class Main
         RefCount_i(1) = 0
         WriteLine(1, vTimeNow, "EndComponent" & vCC)
 
-        AC(vCC).ComponentDuration_measured(AC(vCC).IterationsLeft) = lblTime.Text - AC(vCC).ComponentDuration_measured(AC(vCC).IterationsLeft)
+        AC(vCC).ComponentDuration_measured(AC(vCC).IterationsLeft) = lblTime.Text - AC(vCC).ComponentDuration_measured(AC(vCC).IterationsLeft) ' Resta el tiempo registrado al inicio del componente del tiempo ahora
 
         lblActiveComponent.Text = "ICI"
         lblComponentDuration.Text = SetUp.txbICI.Text
