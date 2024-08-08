@@ -241,7 +241,7 @@ Public Class Main
             If AC(vCC).FeedbackType(0).Contains("Houselight") = True Then Arduino.WriteLine("H")
             If AC(vCC).FeedbackType(0).Contains("Time Out") = True Then
                 tmrComponentStim.Enabled = False
-                Arduino.WriteLine("abthl")
+                Arduino.WriteLine("abthlm")
             End If
             tmrStim1.Enabled = True
         ElseIf Lever = 1 Then
@@ -251,7 +251,7 @@ Public Class Main
             If AC(vCC).FeedbackType(1).Contains("Houselight") = True Then Arduino.WriteLine("H")
             If AC(vCC).FeedbackType(1).Contains("Time Out") = True Then
                 tmrComponentStim.Enabled = False
-                Arduino.WriteLine("abthm")
+                Arduino.WriteLine("abthlm")
             End If
             tmrStim2.Enabled = True
         End If
@@ -599,9 +599,9 @@ Public Class Main
         If AC(vCC).FeedbackType(0).Contains("Light 2") = True Then Arduino.WriteLine("b")
         If AC(vCC).FeedbackType(0).Contains("Tone") = True Then Arduino.WriteLine("t")
         If AC(vCC).FeedbackType(0).Contains("Houselight") = True Then Arduino.WriteLine("h")
-        If AC(vCC).FeedbackType(0).Contains("Houselight") = True Then
+        If AC(vCC).FeedbackType(0).Contains("Time Out") = True Then
             tmrComponentStim.Enabled = True
-            Arduino.WriteLine("L")
+            Arduino.WriteLine("ML")
         End If
     End Sub
     Private Sub tmrStim2_Tick(sender As Object, e As EventArgs) Handles tmrStim2.Tick
@@ -610,9 +610,9 @@ Public Class Main
         If AC(vCC).FeedbackType(1).Contains("Light 2") = True Then Arduino.WriteLine("b")
         If AC(vCC).FeedbackType(1).Contains("Tone") = True Then Arduino.WriteLine("t")
         If AC(vCC).FeedbackType(1).Contains("Houselight") = True Then Arduino.WriteLine("h")
-        If AC(vCC).FeedbackType(1).Contains("Houselight") = True Then
+        If AC(vCC).FeedbackType(1).Contains("Time Out") = True Then
             tmrComponentStim.Enabled = True
-            Arduino.WriteLine("M")
+            Arduino.WriteLine("ML")
         End If
     End Sub
     Private Sub btnFinish_Click(sender As Object, e As EventArgs) Handles btnFinish.Click
