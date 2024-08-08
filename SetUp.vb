@@ -164,6 +164,8 @@
                 AC(i).DelayDuration(1) = fileReader.ReadLine()
                 AC(i).DelayType(0) = fileReader.ReadLine().Replace("""", "")
                 AC(i).DelayType(1) = fileReader.ReadLine().Replace("""", "")
+                AC(i).DelayRetract(0) = fileReader.ReadLine().Replace("#", "")
+                AC(i).DelayRetract(1) = fileReader.ReadLine().Replace("#", "")
 
                 PrintInfo(lblComponent.Location.X, lblComponent.Location.Y, "Component " & i)
                 PrintInfo(lblComponentD.Location.X, lblComponentD.Location.Y, AC(i).ComponentDuration & " seconds")
@@ -173,12 +175,12 @@
                 PrintInfo(lblSchedule1.Location.X, lblSchedule1.Location.Y, AC(i).ScheduleType(0) & " " & AC(i).ScheduleValue(0))
                 PrintInfo(lblMagnitude1.Location.X, lblMagnitude1.Location.Y, AC(i).Magnitude(0) & " " & AC(i).Reinforcer(0) & " " & AC(i).PelletP(0))
                 PrintInfo(lblFeedback1.Location.X, lblFeedback1.Location.Y, AC(i).FeedbackType(0) & ": " & AC(i).FeedbackDuration(0) & " seconds")
-                PrintInfo(lblDelay1.Location.X, lblDelay1.Location.Y, AC(i).DelayType(0) & ": " & AC(i).DelayDuration(0) & " seconds")
+                PrintInfo(lblDelay1.Location.X, lblDelay1.Location.Y, AC(i).DelayType(0) & ": " & AC(i).DelayDuration(0) & " seconds - Ret: " & AC(i).DelayRetract(0))
 
                 PrintInfo(lblSchedule2.Location.X, lblSchedule2.Location.Y, AC(i).ScheduleType(1) & " " & AC(i).ScheduleValue(1))
                 PrintInfo(lblMagnitude2.Location.X, lblMagnitude2.Location.Y, AC(i).Magnitude(1) & " " & AC(i).Reinforcer(1) & " " & AC(i).PelletP(1))
                 PrintInfo(lblFeedback2.Location.X, lblFeedback2.Location.Y, AC(i).FeedbackType(1) & ": " & AC(i).FeedbackDuration(1) & " seconds")
-                PrintInfo(lblDelay2.Location.X, lblDelay2.Location.Y, AC(i).DelayType(1) & ": " & AC(i).DelayDuration(1) & " seconds")
+                PrintInfo(lblDelay2.Location.X, lblDelay2.Location.Y, AC(i).DelayType(1) & ": " & AC(i).DelayDuration(1) & " seconds - Ret: " & AC(i).DelayRetract(1))
 
                 For Each lb In Me.Controls
                     If lb.Text.Contains("Component ") Then
