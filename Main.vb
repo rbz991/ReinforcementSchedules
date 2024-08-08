@@ -324,7 +324,7 @@ Public Class Main
         End If
 
 
-        If (RefCount_i(0) + RefCount_i(1)) > AC(vCC).MaxRefs And AC(vCC).MaxRefs > 0 Then ComponentDuration_Code()
+        If (RefCount_i(0) + RefCount_i(1)) >= AC(vCC).MaxRefs And AC(vCC).MaxRefs > 0 Then ComponentDuration_Code()
     End Sub
     Private Sub ReinforcerDelivery(Lever)
 
