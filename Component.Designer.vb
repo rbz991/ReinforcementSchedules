@@ -46,6 +46,7 @@ Partial Class Component
         Me.Label7 = New System.Windows.Forms.Label()
         Me.txbMagL1 = New System.Windows.Forms.TextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.chkRetractL1 = New System.Windows.Forms.CheckBox()
         Me.rdoHouselightDelayL1 = New System.Windows.Forms.RadioButton()
         Me.rdoToneDelayL1 = New System.Windows.Forms.RadioButton()
         Me.rdoLightDelay2L1 = New System.Windows.Forms.RadioButton()
@@ -73,6 +74,7 @@ Partial Class Component
         Me.rdoFIL2 = New System.Windows.Forms.RadioButton()
         Me.rdoVIL2 = New System.Windows.Forms.RadioButton()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.chkRetractL2 = New System.Windows.Forms.CheckBox()
         Me.rdoHouselightDelayL2 = New System.Windows.Forms.RadioButton()
         Me.rdoToneDelayL2 = New System.Windows.Forms.RadioButton()
         Me.rdoLightDelay2L2 = New System.Windows.Forms.RadioButton()
@@ -106,8 +108,6 @@ Partial Class Component
         Me.Label14 = New System.Windows.Forms.Label()
         Me.txbCOD = New System.Windows.Forms.TextBox()
         Me.Label15 = New System.Windows.Forms.Label()
-        Me.chkRetractL1 = New System.Windows.Forms.CheckBox()
-        Me.chkRetractL2 = New System.Windows.Forms.CheckBox()
         Me.GroupBox9.SuspendLayout()
         Me.grpStimL2.SuspendLayout()
         Me.grpStimL1.SuspendLayout()
@@ -387,6 +387,16 @@ Partial Class Component
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Delay"
         '
+        'chkRetractL1
+        '
+        Me.chkRetractL1.AutoSize = True
+        Me.chkRetractL1.Location = New System.Drawing.Point(6, 60)
+        Me.chkRetractL1.Name = "chkRetractL1"
+        Me.chkRetractL1.Size = New System.Drawing.Size(88, 24)
+        Me.chkRetractL1.TabIndex = 28
+        Me.chkRetractL1.Text = "Retract"
+        Me.chkRetractL1.UseVisualStyleBackColor = True
+        '
         'rdoHouselightDelayL1
         '
         Me.rdoHouselightDelayL1.AutoSize = True
@@ -459,7 +469,7 @@ Partial Class Component
         Me.GroupBox1.Controls.Add(Me.grpMagnitude)
         Me.GroupBox1.Controls.Add(Me.rdoVRL1)
         Me.GroupBox1.Controls.Add(Me.rdoFRL1)
-        Me.GroupBox1.Location = New System.Drawing.Point(9, 157)
+        Me.GroupBox1.Location = New System.Drawing.Point(23, 157)
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -541,7 +551,7 @@ Partial Class Component
         Me.GroupBox3.Controls.Add(Me.GroupBox6)
         Me.GroupBox3.Controls.Add(Me.rdoVRL2)
         Me.GroupBox3.Controls.Add(Me.rdoFRL2)
-        Me.GroupBox3.Location = New System.Drawing.Point(249, 157)
+        Me.GroupBox3.Location = New System.Drawing.Point(263, 157)
         Me.GroupBox3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -696,6 +706,16 @@ Partial Class Component
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Delay"
         '
+        'chkRetractL2
+        '
+        Me.chkRetractL2.AutoSize = True
+        Me.chkRetractL2.Location = New System.Drawing.Point(7, 60)
+        Me.chkRetractL2.Name = "chkRetractL2"
+        Me.chkRetractL2.Size = New System.Drawing.Size(88, 24)
+        Me.chkRetractL2.TabIndex = 29
+        Me.chkRetractL2.Text = "Retract"
+        Me.chkRetractL2.UseVisualStyleBackColor = True
+        '
         'rdoHouselightDelayL2
         '
         Me.rdoHouselightDelayL2.AutoSize = True
@@ -830,7 +850,7 @@ Partial Class Component
         '
         'btnClose
         '
-        Me.btnClose.Location = New System.Drawing.Point(9, 915)
+        Me.btnClose.Location = New System.Drawing.Point(26, 918)
         Me.btnClose.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.Size = New System.Drawing.Size(234, 42)
@@ -840,7 +860,7 @@ Partial Class Component
         '
         'btnSubmit
         '
-        Me.btnSubmit.Location = New System.Drawing.Point(249, 915)
+        Me.btnSubmit.Location = New System.Drawing.Point(263, 918)
         Me.btnSubmit.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnSubmit.Name = "btnSubmit"
         Me.btnSubmit.Size = New System.Drawing.Size(234, 42)
@@ -851,7 +871,7 @@ Partial Class Component
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(9, 23)
+        Me.Label5.Location = New System.Drawing.Point(23, 23)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(161, 20)
         Me.Label5.TabIndex = 29
@@ -859,7 +879,7 @@ Partial Class Component
         '
         'txbComponentDuration
         '
-        Me.txbComponentDuration.Location = New System.Drawing.Point(177, 20)
+        Me.txbComponentDuration.Location = New System.Drawing.Point(191, 20)
         Me.txbComponentDuration.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.txbComponentDuration.Name = "txbComponentDuration"
         Me.txbComponentDuration.Size = New System.Drawing.Size(73, 26)
@@ -869,7 +889,7 @@ Partial Class Component
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(276, 78)
+        Me.Label6.Location = New System.Drawing.Point(290, 78)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(141, 20)
         Me.Label6.TabIndex = 31
@@ -877,7 +897,7 @@ Partial Class Component
         '
         'txbComponentStimulation
         '
-        Me.txbComponentStimulation.Location = New System.Drawing.Point(420, 75)
+        Me.txbComponentStimulation.Location = New System.Drawing.Point(434, 75)
         Me.txbComponentStimulation.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.txbComponentStimulation.Name = "txbComponentStimulation"
         Me.txbComponentStimulation.Size = New System.Drawing.Size(67, 26)
@@ -887,7 +907,7 @@ Partial Class Component
         'rdoComponentHouselight
         '
         Me.rdoComponentHouselight.AutoSize = True
-        Me.rdoComponentHouselight.Location = New System.Drawing.Point(375, 45)
+        Me.rdoComponentHouselight.Location = New System.Drawing.Point(389, 45)
         Me.rdoComponentHouselight.Name = "rdoComponentHouselight"
         Me.rdoComponentHouselight.Size = New System.Drawing.Size(110, 24)
         Me.rdoComponentHouselight.TabIndex = 27
@@ -898,7 +918,7 @@ Partial Class Component
         'rdoComponentTone
         '
         Me.rdoComponentTone.AutoSize = True
-        Me.rdoComponentTone.Location = New System.Drawing.Point(375, 14)
+        Me.rdoComponentTone.Location = New System.Drawing.Point(389, 14)
         Me.rdoComponentTone.Name = "rdoComponentTone"
         Me.rdoComponentTone.Size = New System.Drawing.Size(70, 24)
         Me.rdoComponentTone.TabIndex = 26
@@ -909,7 +929,7 @@ Partial Class Component
         'rdoComponentStimLight2
         '
         Me.rdoComponentStimLight2.AutoSize = True
-        Me.rdoComponentStimLight2.Location = New System.Drawing.Point(288, 42)
+        Me.rdoComponentStimLight2.Location = New System.Drawing.Point(302, 42)
         Me.rdoComponentStimLight2.Name = "rdoComponentStimLight2"
         Me.rdoComponentStimLight2.Size = New System.Drawing.Size(82, 24)
         Me.rdoComponentStimLight2.TabIndex = 25
@@ -920,7 +940,7 @@ Partial Class Component
         'rdoComponentStimLight1
         '
         Me.rdoComponentStimLight1.AutoSize = True
-        Me.rdoComponentStimLight1.Location = New System.Drawing.Point(288, 14)
+        Me.rdoComponentStimLight1.Location = New System.Drawing.Point(302, 14)
         Me.rdoComponentStimLight1.Name = "rdoComponentStimLight1"
         Me.rdoComponentStimLight1.Size = New System.Drawing.Size(82, 24)
         Me.rdoComponentStimLight1.TabIndex = 24
@@ -930,7 +950,7 @@ Partial Class Component
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(450, 3)
+        Me.Button1.Location = New System.Drawing.Point(464, 3)
         Me.Button1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(39, 40)
@@ -959,7 +979,7 @@ Partial Class Component
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(9, 55)
+        Me.Label8.Location = New System.Drawing.Point(23, 55)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(167, 20)
         Me.Label8.TabIndex = 35
@@ -967,7 +987,7 @@ Partial Class Component
         '
         'txbComponentIterations
         '
-        Me.txbComponentIterations.Location = New System.Drawing.Point(177, 52)
+        Me.txbComponentIterations.Location = New System.Drawing.Point(191, 52)
         Me.txbComponentIterations.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.txbComponentIterations.Name = "txbComponentIterations"
         Me.txbComponentIterations.Size = New System.Drawing.Size(73, 26)
@@ -977,7 +997,7 @@ Partial Class Component
         'chkHouselightOnOff
         '
         Me.chkHouselightOnOff.AutoSize = True
-        Me.chkHouselightOnOff.Location = New System.Drawing.Point(14, 122)
+        Me.chkHouselightOnOff.Location = New System.Drawing.Point(28, 122)
         Me.chkHouselightOnOff.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.chkHouselightOnOff.Name = "chkHouselightOnOff"
         Me.chkHouselightOnOff.Size = New System.Drawing.Size(156, 24)
@@ -987,7 +1007,7 @@ Partial Class Component
         '
         'txbMaxRefs
         '
-        Me.txbMaxRefs.Location = New System.Drawing.Point(177, 88)
+        Me.txbMaxRefs.Location = New System.Drawing.Point(191, 88)
         Me.txbMaxRefs.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.txbMaxRefs.Name = "txbMaxRefs"
         Me.txbMaxRefs.Size = New System.Drawing.Size(73, 26)
@@ -997,7 +1017,7 @@ Partial Class Component
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(9, 89)
+        Me.Label14.Location = New System.Drawing.Point(23, 89)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(128, 20)
         Me.Label14.TabIndex = 38
@@ -1005,7 +1025,7 @@ Partial Class Component
         '
         'txbCOD
         '
-        Me.txbCOD.Location = New System.Drawing.Point(420, 109)
+        Me.txbCOD.Location = New System.Drawing.Point(434, 109)
         Me.txbCOD.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.txbCOD.Name = "txbCOD"
         Me.txbCOD.Size = New System.Drawing.Size(67, 26)
@@ -1015,37 +1035,18 @@ Partial Class Component
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(267, 112)
+        Me.Label15.Location = New System.Drawing.Point(281, 112)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(144, 20)
         Me.Label15.TabIndex = 41
         Me.Label15.Text = "Change over delay:"
         '
-        'chkRetractL1
-        '
-        Me.chkRetractL1.AutoSize = True
-        Me.chkRetractL1.Location = New System.Drawing.Point(6, 60)
-        Me.chkRetractL1.Name = "chkRetractL1"
-        Me.chkRetractL1.Size = New System.Drawing.Size(88, 24)
-        Me.chkRetractL1.TabIndex = 28
-        Me.chkRetractL1.Text = "Retract"
-        Me.chkRetractL1.UseVisualStyleBackColor = True
-        '
-        'chkRetractL2
-        '
-        Me.chkRetractL2.AutoSize = True
-        Me.chkRetractL2.Location = New System.Drawing.Point(7, 60)
-        Me.chkRetractL2.Name = "chkRetractL2"
-        Me.chkRetractL2.Size = New System.Drawing.Size(88, 24)
-        Me.chkRetractL2.TabIndex = 29
-        Me.chkRetractL2.Text = "Retract"
-        Me.chkRetractL2.UseVisualStyleBackColor = True
-        '
         'Component
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(495, 968)
+        Me.AutoSize = True
+        Me.ClientSize = New System.Drawing.Size(515, 971)
         Me.ControlBox = False
         Me.Controls.Add(Me.Label15)
         Me.Controls.Add(Me.txbCOD)
