@@ -54,6 +54,7 @@ Partial Class Component
         Me.Label9 = New System.Windows.Forms.Label()
         Me.txbDelayDurL1 = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.rdoExt1 = New System.Windows.Forms.RadioButton()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.txbValueL1 = New System.Windows.Forms.TextBox()
         Me.rdoFIL1 = New System.Windows.Forms.RadioButton()
@@ -61,6 +62,7 @@ Partial Class Component
         Me.rdoVRL1 = New System.Windows.Forms.RadioButton()
         Me.rdoFRL1 = New System.Windows.Forms.RadioButton()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.rdoExt2 = New System.Windows.Forms.RadioButton()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.rdoTOL2 = New System.Windows.Forms.RadioButton()
         Me.rdoHouselightL2 = New System.Windows.Forms.RadioButton()
@@ -250,9 +252,9 @@ Partial Class Component
         Me.grpStimL1.Controls.Add(Me.rdoLight1L1)
         Me.grpStimL1.Controls.Add(Me.Label12)
         Me.grpStimL1.Controls.Add(Me.txbStimDurL1)
-        Me.grpStimL1.Location = New System.Drawing.Point(6, 298)
+        Me.grpStimL1.Location = New System.Drawing.Point(6, 323)
         Me.grpStimL1.Name = "grpStimL1"
-        Me.grpStimL1.Size = New System.Drawing.Size(189, 233)
+        Me.grpStimL1.Size = New System.Drawing.Size(189, 208)
         Me.grpStimL1.TabIndex = 4
         Me.grpStimL1.TabStop = False
         Me.grpStimL1.Text = "Response Feedback"
@@ -330,7 +332,7 @@ Partial Class Component
         Me.grpMagnitude.Controls.Add(Me.cbbReinforcer1)
         Me.grpMagnitude.Controls.Add(Me.Label7)
         Me.grpMagnitude.Controls.Add(Me.txbMagL1)
-        Me.grpMagnitude.Location = New System.Drawing.Point(6, 191)
+        Me.grpMagnitude.Location = New System.Drawing.Point(6, 217)
         Me.grpMagnitude.Name = "grpMagnitude"
         Me.grpMagnitude.Size = New System.Drawing.Size(189, 98)
         Me.grpMagnitude.TabIndex = 27
@@ -460,6 +462,7 @@ Partial Class Component
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.rdoExt1)
         Me.GroupBox1.Controls.Add(Me.grpStimL1)
         Me.GroupBox1.Controls.Add(Me.Label13)
         Me.GroupBox1.Controls.Add(Me.txbValueL1)
@@ -478,10 +481,21 @@ Partial Class Component
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Lever 1"
         '
+        'rdoExt1
+        '
+        Me.rdoExt1.AutoSize = True
+        Me.rdoExt1.Location = New System.Drawing.Point(16, 21)
+        Me.rdoExt1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.rdoExt1.Name = "rdoExt1"
+        Me.rdoExt1.Size = New System.Drawing.Size(103, 24)
+        Me.rdoExt1.TabIndex = 28
+        Me.rdoExt1.Text = "Extinction"
+        Me.rdoExt1.UseVisualStyleBackColor = True
+        '
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(15, 162)
+        Me.Label13.Location = New System.Drawing.Point(15, 175)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(54, 20)
         Me.Label13.TabIndex = 12
@@ -489,7 +503,7 @@ Partial Class Component
         '
         'txbValueL1
         '
-        Me.txbValueL1.Location = New System.Drawing.Point(75, 158)
+        Me.txbValueL1.Location = New System.Drawing.Point(75, 171)
         Me.txbValueL1.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.txbValueL1.Name = "txbValueL1"
         Me.txbValueL1.Size = New System.Drawing.Size(109, 26)
@@ -499,7 +513,7 @@ Partial Class Component
         'rdoFIL1
         '
         Me.rdoFIL1.AutoSize = True
-        Me.rdoFIL1.Location = New System.Drawing.Point(15, 97)
+        Me.rdoFIL1.Location = New System.Drawing.Point(15, 109)
         Me.rdoFIL1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.rdoFIL1.Name = "rdoFIL1"
         Me.rdoFIL1.Size = New System.Drawing.Size(128, 24)
@@ -510,7 +524,7 @@ Partial Class Component
         'rdoVIL1
         '
         Me.rdoVIL1.AutoSize = True
-        Me.rdoVIL1.Location = New System.Drawing.Point(15, 128)
+        Me.rdoVIL1.Location = New System.Drawing.Point(15, 140)
         Me.rdoVIL1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.rdoVIL1.Name = "rdoVIL1"
         Me.rdoVIL1.Size = New System.Drawing.Size(148, 24)
@@ -521,7 +535,7 @@ Partial Class Component
         'rdoVRL1
         '
         Me.rdoVRL1.AutoSize = True
-        Me.rdoVRL1.Location = New System.Drawing.Point(15, 68)
+        Me.rdoVRL1.Location = New System.Drawing.Point(15, 80)
         Me.rdoVRL1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.rdoVRL1.Name = "rdoVRL1"
         Me.rdoVRL1.Size = New System.Drawing.Size(134, 24)
@@ -532,7 +546,7 @@ Partial Class Component
         'rdoFRL1
         '
         Me.rdoFRL1.AutoSize = True
-        Me.rdoFRL1.Location = New System.Drawing.Point(15, 38)
+        Me.rdoFRL1.Location = New System.Drawing.Point(15, 50)
         Me.rdoFRL1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.rdoFRL1.Name = "rdoFRL1"
         Me.rdoFRL1.Size = New System.Drawing.Size(114, 24)
@@ -542,6 +556,7 @@ Partial Class Component
         '
         'GroupBox3
         '
+        Me.GroupBox3.Controls.Add(Me.rdoExt2)
         Me.GroupBox3.Controls.Add(Me.GroupBox4)
         Me.GroupBox3.Controls.Add(Me.Label2)
         Me.GroupBox3.Controls.Add(Me.txbValueL2)
@@ -560,6 +575,18 @@ Partial Class Component
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Lever 2"
         '
+        'rdoExt2
+        '
+        Me.rdoExt2.AutoSize = True
+        Me.rdoExt2.Location = New System.Drawing.Point(15, 21)
+        Me.rdoExt2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.rdoExt2.Name = "rdoExt2"
+        Me.rdoExt2.Size = New System.Drawing.Size(103, 24)
+        Me.rdoExt2.TabIndex = 28
+        Me.rdoExt2.TabStop = True
+        Me.rdoExt2.Text = "Extinction"
+        Me.rdoExt2.UseVisualStyleBackColor = True
+        '
         'GroupBox4
         '
         Me.GroupBox4.Controls.Add(Me.rdoTOL2)
@@ -569,9 +596,9 @@ Partial Class Component
         Me.GroupBox4.Controls.Add(Me.rdoLight1L2)
         Me.GroupBox4.Controls.Add(Me.Label1)
         Me.GroupBox4.Controls.Add(Me.txbStimDurL2)
-        Me.GroupBox4.Location = New System.Drawing.Point(6, 298)
+        Me.GroupBox4.Location = New System.Drawing.Point(6, 323)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(189, 233)
+        Me.GroupBox4.Size = New System.Drawing.Size(189, 208)
         Me.GroupBox4.TabIndex = 4
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Response Feedback"
@@ -651,7 +678,7 @@ Partial Class Component
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(15, 162)
+        Me.Label2.Location = New System.Drawing.Point(11, 175)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(54, 20)
         Me.Label2.TabIndex = 12
@@ -659,7 +686,7 @@ Partial Class Component
         '
         'txbValueL2
         '
-        Me.txbValueL2.Location = New System.Drawing.Point(75, 158)
+        Me.txbValueL2.Location = New System.Drawing.Point(71, 171)
         Me.txbValueL2.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.txbValueL2.Name = "txbValueL2"
         Me.txbValueL2.Size = New System.Drawing.Size(97, 26)
@@ -669,7 +696,7 @@ Partial Class Component
         'rdoFIL2
         '
         Me.rdoFIL2.AutoSize = True
-        Me.rdoFIL2.Location = New System.Drawing.Point(15, 97)
+        Me.rdoFIL2.Location = New System.Drawing.Point(15, 109)
         Me.rdoFIL2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.rdoFIL2.Name = "rdoFIL2"
         Me.rdoFIL2.Size = New System.Drawing.Size(128, 24)
@@ -681,7 +708,7 @@ Partial Class Component
         'rdoVIL2
         '
         Me.rdoVIL2.AutoSize = True
-        Me.rdoVIL2.Location = New System.Drawing.Point(15, 128)
+        Me.rdoVIL2.Location = New System.Drawing.Point(15, 140)
         Me.rdoVIL2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.rdoVIL2.Name = "rdoVIL2"
         Me.rdoVIL2.Size = New System.Drawing.Size(148, 24)
@@ -783,7 +810,7 @@ Partial Class Component
         Me.GroupBox6.Controls.Add(Me.cbbReinforcer2)
         Me.GroupBox6.Controls.Add(Me.Label4)
         Me.GroupBox6.Controls.Add(Me.txbMagL2)
-        Me.GroupBox6.Location = New System.Drawing.Point(6, 191)
+        Me.GroupBox6.Location = New System.Drawing.Point(6, 217)
         Me.GroupBox6.Name = "GroupBox6"
         Me.GroupBox6.Size = New System.Drawing.Size(189, 98)
         Me.GroupBox6.TabIndex = 27
@@ -827,7 +854,7 @@ Partial Class Component
         'rdoVRL2
         '
         Me.rdoVRL2.AutoSize = True
-        Me.rdoVRL2.Location = New System.Drawing.Point(15, 68)
+        Me.rdoVRL2.Location = New System.Drawing.Point(15, 80)
         Me.rdoVRL2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.rdoVRL2.Name = "rdoVRL2"
         Me.rdoVRL2.Size = New System.Drawing.Size(134, 24)
@@ -839,7 +866,7 @@ Partial Class Component
         'rdoFRL2
         '
         Me.rdoFRL2.AutoSize = True
-        Me.rdoFRL2.Location = New System.Drawing.Point(15, 38)
+        Me.rdoFRL2.Location = New System.Drawing.Point(15, 50)
         Me.rdoFRL2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.rdoFRL2.Name = "rdoFRL2"
         Me.rdoFRL2.Size = New System.Drawing.Size(114, 24)
@@ -1196,4 +1223,6 @@ Partial Class Component
     Friend WithEvents rdoTOL2 As RadioButton
     Friend WithEvents chkRetractL1 As CheckBox
     Friend WithEvents chkRetractL2 As CheckBox
+    Friend WithEvents rdoExt1 As RadioButton
+    Friend WithEvents rdoExt2 As RadioButton
 End Class

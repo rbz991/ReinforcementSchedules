@@ -181,6 +181,8 @@ Public Class Main
                 'lblResponses1.Text = ResponseCount(vCC, Lever)
             Else
 
+
+
                 If tmrCOD.Interval > 0 And tmrCOD.Enabled = False Then
                     tmrCOD.Enabled = True
                     CODL = Lever + 1
@@ -189,23 +191,30 @@ Public Class Main
                 If Lever + 1 = CODL Or CODL = 0 Then
 
                     If AC(vCC).FeedbackDuration(Lever) > 0 Then Stimulus(Lever)
-                    If tmrDelay1.Enabled = False And tmrDelay2.Enabled = False Then
-                        ' If tmrDelay1.Enabled = False Then
-                        WriteLine(1, vTimeNow, vCC & Lever + 1)
+
+                    If (AC(vCC).ScheduleType(0) = "Extinction" And Lever = 0) Or (AC(vCC).ScheduleType(1) = "Extinction" And Lever = 1) Then
                         ResponseCount(vCC, Lever) += 1
                         Me.Controls("lblResponses" & Lever + 1).Text = ResponseCount(vCC, Lever)
-                        If refRdy(Lever) = True Then Reinforce(Lever, False)
-                        Ratio(Lever)
-                    ElseIf tmrDelay1.Enabled = True Then
-                        WriteLine(1, vTimeNow, "D" & 1)
-                        ResponseCountDel(vCC, Lever) += 1
-                        'lblDelayR1.Text = ResponseCountDel(Lever)
-                        ObtainedDelays(Lever).Item(DelayIndex(Lever)) = vTimeNow
-                    ElseIf tmrDelay2.Enabled = True Then
-                        WriteLine(1, vTimeNow, "D" & 2)
-                        ResponseCountDel(vCC, Lever) += 1
-                        'lblDelayR1.Text = ResponseCountDel(Lever)
-                        ObtainedDelays(Lever).Item(DelayIndex(Lever)) = vTimeNow
+                        WriteLine(1, vTimeNow, "E" & Lever + 1)
+                    Else
+                        If tmrDelay1.Enabled = False And tmrDelay2.Enabled = False Then
+                            ' If tmrDelay1.Enabled = False Then
+                            WriteLine(1, vTimeNow, vCC & Lever + 1)
+                            ResponseCount(vCC, Lever) += 1
+                            Me.Controls("lblResponses" & Lever + 1).Text = ResponseCount(vCC, Lever)
+                            If refRdy(Lever) = True Then Reinforce(Lever, False)
+                            Ratio(Lever)
+                        ElseIf tmrDelay1.Enabled = True Then
+                            WriteLine(1, vTimeNow, "D" & 1)
+                            ResponseCountDel(vCC, Lever) += 1
+                            'lblDelayR1.Text = ResponseCountDel(Lever)
+                            ObtainedDelays(Lever).Item(DelayIndex(Lever)) = vTimeNow
+                        ElseIf tmrDelay2.Enabled = True Then
+                            WriteLine(1, vTimeNow, "D" & 2)
+                            ResponseCountDel(vCC, Lever) += 1
+                            'lblDelayR1.Text = ResponseCountDel(Lever)
+                            ObtainedDelays(Lever).Item(DelayIndex(Lever)) = vTimeNow
+                        End If
                     End If
 
                 Else
