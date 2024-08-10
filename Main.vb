@@ -112,7 +112,7 @@ Public Class Main
             tmrComponentStim.Interval = AC(vCC).ComponentStimDuration * 1000
             tmrComponentStim.Enabled = True
         ElseIf AC(vCC).ComponentStimDuration = 0 Then
-            tmrComponentStim.Interval = 1
+            tmrComponentStim.Interval = 1 'Se pone en 1 para que se enciendan de inmediato 
             tmrComponentStim.Enabled = True
         End If
         If AC(vCC).COD > 0 Then tmrCOD.Interval = AC(vCC).COD
@@ -602,6 +602,10 @@ Public Class Main
         If AC(vCC).FeedbackType(0).Contains("Time Out") = True Then
             tmrComponentStim.Enabled = True
             Arduino.WriteLine("ML")
+            If AC(vCC).ComponentStimType.Contains("Light 1") = True Then Arduino.WriteLine("A") 'Reanuda la estimulación
+            If AC(vCC).ComponentStimType.Contains("Light 2") = True Then Arduino.WriteLine("B")
+            If AC(vCC).ComponentStimType.Contains("Tone") = True Then Arduino.WriteLine("T")
+            If AC(vCC).ComponentStimType.Contains("Houselight") = True Then Arduino.WriteLine("H")
         End If
     End Sub
     Private Sub tmrStim2_Tick(sender As Object, e As EventArgs) Handles tmrStim2.Tick
@@ -613,6 +617,10 @@ Public Class Main
         If AC(vCC).FeedbackType(1).Contains("Time Out") = True Then
             tmrComponentStim.Enabled = True
             Arduino.WriteLine("ML")
+            If AC(vCC).ComponentStimType.Contains("Light 1") = True Then Arduino.WriteLine("A") ' Sospecho que hay que tomar estas cuatro lineas y poegarlas odnde termina el TO para que se reanude laestimulación
+            If AC(vCC).ComponentStimType.Contains("Light 2") = True Then Arduino.WriteLine("B")
+            If AC(vCC).ComponentStimType.Contains("Tone") = True Then Arduino.WriteLine("T")
+            If AC(vCC).ComponentStimType.Contains("Houselight") = True Then Arduino.WriteLine("H")
         End If
     End Sub
     Private Sub btnFinish_Click(sender As Object, e As EventArgs) Handles btnFinish.Click
@@ -696,7 +704,7 @@ Public Class Main
     Private Sub tmrComponentStim_Tick(sender As Object, e As EventArgs) Handles tmrComponentStim.Tick
         If AC(vCC).ComponentStimDuration = 0 Then
             tmrComponentStim.Enabled = False
-            If AC(vCC).ComponentStimType.Contains("Light 1") = True Then Arduino.WriteLine("A")
+            If AC(vCC).ComponentStimType.Contains("Light 1") = True Then Arduino.WriteLine("A") ' Sospecho que hay que tomar estas cuatro lineas y poegarlas odnde termina el TO para que se reanude laestimulación
             If AC(vCC).ComponentStimType.Contains("Light 2") = True Then Arduino.WriteLine("B")
             If AC(vCC).ComponentStimType.Contains("Tone") = True Then Arduino.WriteLine("T")
             If AC(vCC).ComponentStimType.Contains("Houselight") = True Then Arduino.WriteLine("H")
