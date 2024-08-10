@@ -606,6 +606,8 @@ Public Class Main
             If AC(vCC).ComponentStimType.Contains("Light 2") = True Then Arduino.WriteLine("B")
             If AC(vCC).ComponentStimType.Contains("Tone") = True Then Arduino.WriteLine("T")
             If AC(vCC).ComponentStimType.Contains("Houselight") = True Then Arduino.WriteLine("H")
+            If AC(vCC).HouselightOnOff = True Then Arduino.WriteLine("H")
+
         End If
     End Sub
     Private Sub tmrStim2_Tick(sender As Object, e As EventArgs) Handles tmrStim2.Tick
@@ -621,6 +623,8 @@ Public Class Main
             If AC(vCC).ComponentStimType.Contains("Light 2") = True Then Arduino.WriteLine("B")
             If AC(vCC).ComponentStimType.Contains("Tone") = True Then Arduino.WriteLine("T")
             If AC(vCC).ComponentStimType.Contains("Houselight") = True Then Arduino.WriteLine("H")
+            If AC(vCC).HouselightOnOff = True Then Arduino.WriteLine("H")
+
         End If
     End Sub
     Private Sub btnFinish_Click(sender As Object, e As EventArgs) Handles btnFinish.Click
