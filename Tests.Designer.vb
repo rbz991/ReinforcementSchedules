@@ -43,70 +43,70 @@ Partial Class Tests
         '
         'btnClose
         '
-        Me.btnClose.Location = New System.Drawing.Point(17, 698)
-        Me.btnClose.Margin = New System.Windows.Forms.Padding(5, 6, 5, 6)
+        Me.btnClose.Location = New System.Drawing.Point(13, 558)
+        Me.btnClose.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnClose.Name = "btnClose"
-        Me.btnClose.Size = New System.Drawing.Size(307, 100)
+        Me.btnClose.Size = New System.Drawing.Size(230, 80)
         Me.btnClose.TabIndex = 0
         Me.btnClose.Text = "Close"
         Me.btnClose.UseVisualStyleBackColor = True
         '
         'btnFeeder
         '
-        Me.btnFeeder.Location = New System.Drawing.Point(17, 472)
-        Me.btnFeeder.Margin = New System.Windows.Forms.Padding(5, 6, 5, 6)
+        Me.btnFeeder.Location = New System.Drawing.Point(13, 378)
+        Me.btnFeeder.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnFeeder.Name = "btnFeeder"
-        Me.btnFeeder.Size = New System.Drawing.Size(307, 100)
+        Me.btnFeeder.Size = New System.Drawing.Size(230, 80)
         Me.btnFeeder.TabIndex = 1
         Me.btnFeeder.Text = "Feeder"
         Me.btnFeeder.UseVisualStyleBackColor = True
         '
         'btnPumpOn
         '
-        Me.btnPumpOn.Location = New System.Drawing.Point(17, 585)
-        Me.btnPumpOn.Margin = New System.Windows.Forms.Padding(5, 6, 5, 6)
+        Me.btnPumpOn.Location = New System.Drawing.Point(13, 468)
+        Me.btnPumpOn.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnPumpOn.Name = "btnPumpOn"
-        Me.btnPumpOn.Size = New System.Drawing.Size(307, 100)
+        Me.btnPumpOn.Size = New System.Drawing.Size(230, 80)
         Me.btnPumpOn.TabIndex = 4
         Me.btnPumpOn.Text = "Pump"
         Me.btnPumpOn.UseVisualStyleBackColor = True
         '
         'btnLeverLeft
         '
-        Me.btnLeverLeft.Location = New System.Drawing.Point(17, 248)
-        Me.btnLeverLeft.Margin = New System.Windows.Forms.Padding(5, 6, 5, 6)
+        Me.btnLeverLeft.Location = New System.Drawing.Point(13, 198)
+        Me.btnLeverLeft.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnLeverLeft.Name = "btnLeverLeft"
-        Me.btnLeverLeft.Size = New System.Drawing.Size(307, 100)
+        Me.btnLeverLeft.Size = New System.Drawing.Size(230, 80)
         Me.btnLeverLeft.TabIndex = 5
         Me.btnLeverLeft.Text = "Lever Left"
         Me.btnLeverLeft.UseVisualStyleBackColor = True
         '
         'btnLeverRight
         '
-        Me.btnLeverRight.Location = New System.Drawing.Point(17, 360)
-        Me.btnLeverRight.Margin = New System.Windows.Forms.Padding(5, 6, 5, 6)
+        Me.btnLeverRight.Location = New System.Drawing.Point(13, 288)
+        Me.btnLeverRight.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnLeverRight.Name = "btnLeverRight"
-        Me.btnLeverRight.Size = New System.Drawing.Size(307, 100)
+        Me.btnLeverRight.Size = New System.Drawing.Size(230, 80)
         Me.btnLeverRight.TabIndex = 6
         Me.btnLeverRight.Text = "Lever Right"
         Me.btnLeverRight.UseVisualStyleBackColor = True
         '
         'btnLights
         '
-        Me.btnLights.Location = New System.Drawing.Point(17, 22)
-        Me.btnLights.Margin = New System.Windows.Forms.Padding(5, 6, 5, 6)
+        Me.btnLights.Location = New System.Drawing.Point(13, 18)
+        Me.btnLights.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnLights.Name = "btnLights"
-        Me.btnLights.Size = New System.Drawing.Size(307, 100)
+        Me.btnLights.Size = New System.Drawing.Size(230, 80)
         Me.btnLights.TabIndex = 7
         Me.btnLights.Text = "Lights"
         Me.btnLights.UseVisualStyleBackColor = True
         '
         'btnTone
         '
-        Me.btnTone.Location = New System.Drawing.Point(17, 135)
-        Me.btnTone.Margin = New System.Windows.Forms.Padding(5, 6, 5, 6)
+        Me.btnTone.Location = New System.Drawing.Point(13, 108)
+        Me.btnTone.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnTone.Name = "btnTone"
-        Me.btnTone.Size = New System.Drawing.Size(307, 100)
+        Me.btnTone.Size = New System.Drawing.Size(230, 80)
         Me.btnTone.TabIndex = 8
         Me.btnTone.Text = "Tone"
         Me.btnTone.UseVisualStyleBackColor = True
@@ -130,8 +130,7 @@ Partial Class Tests
         Legend1.Name = "Legend1"
         Legend1.TitleFont = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Chart1.Legends.Add(Legend1)
-        Me.Chart1.Location = New System.Drawing.Point(351, 22)
-        Me.Chart1.Margin = New System.Windows.Forms.Padding(4)
+        Me.Chart1.Location = New System.Drawing.Point(263, 18)
         Me.Chart1.Name = "Chart1"
         Series1.ChartArea = "ChartArea1"
         Series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StepLine
@@ -152,18 +151,18 @@ Partial Class Tests
         Me.Chart1.Series.Add(Series1)
         Me.Chart1.Series.Add(Series2)
         Me.Chart1.Series.Add(Series3)
-        Me.Chart1.Size = New System.Drawing.Size(1109, 775)
+        Me.Chart1.Size = New System.Drawing.Size(832, 620)
         Me.Chart1.TabIndex = 33
         '
         'tmrFeeder
         '
-        Me.tmrFeeder.Interval = 500
+        Me.tmrFeeder.Interval = 1000
         '
         'Tests
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1476, 819)
+        Me.ClientSize = New System.Drawing.Size(1107, 655)
         Me.Controls.Add(Me.Chart1)
         Me.Controls.Add(Me.btnTone)
         Me.Controls.Add(Me.btnLights)
@@ -172,7 +171,7 @@ Partial Class Tests
         Me.Controls.Add(Me.btnPumpOn)
         Me.Controls.Add(Me.btnFeeder)
         Me.Controls.Add(Me.btnClose)
-        Me.Margin = New System.Windows.Forms.Padding(5, 6, 5, 6)
+        Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "Tests"
         Me.Text = "Tests"
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).EndInit()

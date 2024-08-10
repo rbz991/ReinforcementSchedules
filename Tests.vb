@@ -60,14 +60,7 @@ Public Class Tests
         Me.Text = resp(x)
     End Sub
 
-    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
-        Arduino.WriteLine("abhtlm")
-        Arduino.Close()
-        tmrChartTests.Enabled = False
 
-        'Me.Close()
-
-    End Sub
 
     Private Sub btnFeeder_Click(sender As Object, e As EventArgs) Handles btnFeeder.Click
         sender.backColor = Color.Green
@@ -76,14 +69,16 @@ Public Class Tests
         If blnFeeder = False Then
             blnFeeder = True
             tmrFeeder.Enabled = True
-        Else
+        ElseIf blnFeeder = True Then
             blnFeeder = False
             tmrFeeder.Enabled = False
         End If
 
 
     End Sub
-
+    Private Sub tmrFeeder_Tick(sender As Object, e As EventArgs) Handles tmrFeeder.Tick
+        Arduino.WriteLine("R")
+    End Sub
     Private Sub btnLeverLeft_Click(sender As Object, e As EventArgs) Handles btnLeverLeft.Click
         sender.backColor = Color.Green
         If blnLeverL = False Then
@@ -145,8 +140,14 @@ Public Class Tests
         Chart1.Series("Tray").Points.AddXY(chrtTime, resp(2))
 
     End Sub
+    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
+        Arduino.WriteLine("abhtlm")
+        Arduino.Close()
+        tmrFeeder.Enabled = False
+        tmrChartTests.Enabled = False
 
-    Private Sub tmrFeeder_Tick(sender As Object, e As EventArgs) Handles tmrFeeder.Tick
-        Arduino.WriteLine("R")
+        'Me.Close()
+
     End Sub
+
 End Class
