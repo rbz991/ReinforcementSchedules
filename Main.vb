@@ -511,7 +511,7 @@ Public Class Main
             End If
 
         End If
-       
+
         If (chartResponse(0) > 200 Or chartResponse(1) > 200 Or chartResponse(2) > 200) And chartFlag(0) = False Then
             chartFlag(0) = True
             For Each pt As DataPoint In Chart1.Series("Component 1").Points
@@ -589,6 +589,7 @@ Public Class Main
     Private Sub btnFinish_Click(sender As Object, e As EventArgs) Handles btnFinish.Click
         'This controls the 'Finish' button on the main form. Used to end the session by hand.
         lblActiveComponent.Text = "Session End"
+        PictureBox1.Image = My.Resources.tbc
         tmrComponentDuration.Enabled = False
         tmrComponentStim.Enabled = False
         btnFinish.Enabled = False
