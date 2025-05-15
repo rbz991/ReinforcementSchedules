@@ -103,9 +103,9 @@ Partial Class Main
         Me.lblSujeto.Location = New System.Drawing.Point(8, 4)
         Me.lblSujeto.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblSujeto.Name = "lblSujeto"
-        Me.lblSujeto.Size = New System.Drawing.Size(132, 37)
+        Me.lblSujeto.Size = New System.Drawing.Size(179, 37)
         Me.lblSujeto.TabIndex = 6
-        Me.lblSujeto.Text = "Subject:"
+        Me.lblSujeto.Text = "Rat Queen:"
         '
         'lblSesion
         '
@@ -470,14 +470,15 @@ Partial Class Main
         '
         'btnFinish
         '
+        Me.btnFinish.BackColor = System.Drawing.Color.Brown
         Me.btnFinish.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnFinish.Location = New System.Drawing.Point(1215, 474)
         Me.btnFinish.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.btnFinish.Name = "btnFinish"
         Me.btnFinish.Size = New System.Drawing.Size(328, 54)
         Me.btnFinish.TabIndex = 37
-        Me.btnFinish.Text = "Finish"
-        Me.btnFinish.UseVisualStyleBackColor = True
+        Me.btnFinish.Text = "Abortar Misión"
+        Me.btnFinish.UseVisualStyleBackColor = False
         '
         'btnLever1
         '

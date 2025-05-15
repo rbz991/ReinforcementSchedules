@@ -466,7 +466,9 @@ Public Class Main
             WriteLine(i, "END") 'Signals that the session has ended on the data file.
             FileClose(i) 'Closes data file.
         Next
-        End
+        Dim x As New Resumen
+        x.ShowDialog()
+
     End Sub
 
 
