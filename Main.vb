@@ -35,7 +35,8 @@ Public Class Main
                     Response(1) 'The same happens for operanda 2.
                 End If
                 If (Actual_Response(2) <> Previous_Response(2) And Actual_Response(2) <> 1) Then
-                    Nosepoke(0) 'The same happens for operanda 3.
+                    ' Nosepoke(0) 'The same happens for operanda 3.
+                    'Response(2)
                 End If
                 If (Actual_Response(3) <> Previous_Response(3) And Actual_Response(3) <> 1) Then
                     'Response(3) 'The same happens for operanda 4.
@@ -318,9 +319,11 @@ Public Class Main
     End Sub
     Private Sub ReinforcerDelivery(Lever)
 
-        If AC(vCC).Reinforcer(Lever) = "Pellet" Then
+        If AC(vCC).Reinforcer(Lever) = "Pelleta" Then
             Arduino.WriteLine("R")
-        ElseIf AC(vCC).Reinforcer(Lever) = "Liquid" Then
+        ElseIf AC(vCC).Reinforcer(Lever) = "Azulito" Then
+            Arduino.WriteLine("P")
+        ElseIf AC(vCC).Reinforcer(Lever) = "Lechita" Then
             Arduino.WriteLine("W")
         ElseIf AC(vCC).Reinforcer(Lever) = "Random" Then
             Dim Rand As New Random
@@ -667,20 +670,20 @@ Public Class Main
             If AC(vCC).ComponentStimType.Contains("Light 1") = True Then Arduino.WriteLine("A")
             If AC(vCC).ComponentStimType.Contains("Light 2") = True Then Arduino.WriteLine("B")
             If AC(vCC).ComponentStimType.Contains("Tone") = True Then Arduino.WriteLine("T")
-            If AC(vCC).ComponentStimType.Contains("Houselight") = True Then Arduino.WriteLine("H")
+            'If AC(vCC).ComponentStimType.Contains("Houselight") = True Then Arduino.WriteLine("H")
         Else
             If StimInt = False Then
                 StimInt = True
                 If AC(vCC).ComponentStimType.Contains("Light 1") = True Then Arduino.WriteLine("A")
                 If AC(vCC).ComponentStimType.Contains("Light 2") = True Then Arduino.WriteLine("B")
                 If AC(vCC).ComponentStimType.Contains("Tone") = True Then Arduino.WriteLine("T")
-                If AC(vCC).ComponentStimType.Contains("Houselight") = True Then Arduino.WriteLine("H")
+                'If AC(vCC).ComponentStimType.Contains("Houselight") = True Then Arduino.WriteLine("H")
             ElseIf StimInt = True Then
                 StimInt = False
                 If AC(vCC).ComponentStimType.Contains("Light 1") = True Then Arduino.WriteLine("a")
                 If AC(vCC).ComponentStimType.Contains("Light 2") = True Then Arduino.WriteLine("b")
                 If AC(vCC).ComponentStimType.Contains("Tone") = True Then Arduino.WriteLine("t")
-                If AC(vCC).ComponentStimType.Contains("Houselight") = True Then Arduino.WriteLine("h")
+                'If AC(vCC).ComponentStimType.Contains("Houselight") = True Then Arduino.WriteLine("h")
             End If
         End If
     End Sub

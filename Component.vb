@@ -30,10 +30,10 @@ Public Class Component
                     Exit Sub
                 Else
 
-                    If rdoComponentStimLight1.Checked = True Then ComponentStimType = "Light 1"
-                    If rdoComponentStimLight2.Checked = True Then ComponentStimType = "Light 2"
-                    If rdoComponentTone.Checked = True Then ComponentStimType = "Tone"
-                    If rdoComponentHouselight.Checked = True Then ComponentStimType = "Houselight"
+                    If chkComponentStimLight1.Checked = True Then ComponentStimType += "Light 1 "
+                    If chkComponentStimLight2.Checked = True Then ComponentStimType += "Light 2 "
+                    If chkComponentTone.Checked = True Then ComponentStimType += "Tone "
+
 
                     If rdoFRL1.Checked = True Then ScheduleType1 = "Fixed Ratio"
                     If rdoVRL1.Checked = True Then ScheduleType1 = "Variable Ratio"
