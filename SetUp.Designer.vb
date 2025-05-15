@@ -534,13 +534,14 @@ Partial Class SetUp
         '
         'btnLoad
         '
+        Me.btnLoad.BackColor = System.Drawing.SystemColors.GradientActiveCaption
         Me.btnLoad.Location = New System.Drawing.Point(136, 644)
         Me.btnLoad.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.btnLoad.Name = "btnLoad"
         Me.btnLoad.Size = New System.Drawing.Size(114, 100)
         Me.btnLoad.TabIndex = 61
         Me.btnLoad.Text = "Cargar Programa"
-        Me.btnLoad.UseVisualStyleBackColor = True
+        Me.btnLoad.UseVisualStyleBackColor = False
         '
         'SetUp
         '
