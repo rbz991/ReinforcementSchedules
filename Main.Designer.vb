@@ -615,6 +615,7 @@ Partial Class Main
         Me.PictureBox1.Location = New System.Drawing.Point(1203, 12)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(341, 277)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 57
         Me.PictureBox1.TabStop = False
         '
