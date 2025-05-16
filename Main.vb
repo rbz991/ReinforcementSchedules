@@ -176,47 +176,55 @@ Public Class Main
     Private Sub Response(Lever As Integer) 'This registers responses and checks if the reinforcer is available for both ratio and interval schedules.
         If tmrStart.Enabled = False Then
             chartResponse(Lever) += 1
+
             If tmrICI.Enabled = True Then
                 WriteLine(1, vTimeNow, Lever + 1, "ICIResponse")
-                'ResponseCount(vCC, Lever) += 1
-                'lblResponses1.Text = ResponseCount(vCC, Lever)
+                Exit Sub
+            End If
+
+            ' 🔹 Evaluar si COD está activo
+            Dim isCODActive As Boolean = tmrCOD.Enabled
+
+            ' 🔹 Si el COD no está corriendo, lo iniciamos y registramos la palanca
+            If tmrCOD.Interval > 0 And Not isCODActive Then
+                CODL = Lever + 1
+                tmrCOD.Enabled = True
+            End If
+
+            ' 🔹 Evaluar si esta respuesta es válida
+            If CODL = 0 OrElse Lever + 1 = CODL Then
+
+                If AC(vCC).FeedbackDuration(Lever) > 0 Then Stimulus(Lever)
+
+                If Not tmrDelay1.Enabled And Not tmrDelay2.Enabled Then
+                    WriteLine(1, vTimeNow, vCC & (Lever + 1))
+                    ResponseCount(vCC, Lever) += 1
+                    Me.Controls("lblResponses" & Lever + 1).Text = ResponseCount(vCC, Lever)
+                    If refRdy(Lever) = True Then Reinforce(Lever, False)
+                    Ratio(Lever)
+                ElseIf tmrDelay1.Enabled Then
+                    WriteLine(1, vTimeNow, "D1")
+                    ResponseCountDel(vCC, Lever) += 1
+                    ObtainedDelays(Lever).Item(DelayIndex(Lever)) = vTimeNow
+                ElseIf tmrDelay2.Enabled Then
+                    WriteLine(1, vTimeNow, "D2")
+                    ResponseCountDel(vCC, Lever) += 1
+                    ObtainedDelays(Lever).Item(DelayIndex(Lever)) = vTimeNow
+                End If
+
             Else
-
-                If tmrCOD.Interval > 0 And tmrCOD.Enabled = False Then
-                    tmrCOD.Enabled = True
-                    CODL = Lever + 1
-                End If
-
-                If Lever + 1 = CODL Or CODL = 0 Then
-
-                    If AC(vCC).FeedbackDuration(Lever) > 0 Then Stimulus(Lever)
-                    If tmrDelay1.Enabled = False And tmrDelay2.Enabled = False Then
-                        ' If tmrDelay1.Enabled = False Then
-                        WriteLine(1, vTimeNow, vCC & Lever + 1)
-                        ResponseCount(vCC, Lever) += 1
-                        Me.Controls("lblResponses" & Lever + 1).Text = ResponseCount(vCC, Lever)
-                        If refRdy(Lever) = True Then Reinforce(Lever, False)
-                        Ratio(Lever)
-                    ElseIf tmrDelay1.Enabled = True Then
-                        WriteLine(1, vTimeNow, "D" & 1)
-                        ResponseCountDel(vCC, Lever) += 1
-                        'lblDelayR1.Text = ResponseCountDel(Lever)
-                        ObtainedDelays(Lever).Item(DelayIndex(Lever)) = vTimeNow
-                    ElseIf tmrDelay2.Enabled = True Then
-                        WriteLine(1, vTimeNow, "D" & 2)
-                        ResponseCountDel(vCC, Lever) += 1
-                        'lblDelayR1.Text = ResponseCountDel(Lever)
-                        ObtainedDelays(Lever).Item(DelayIndex(Lever)) = vTimeNow
-                    End If
-
-                Else
-                    WriteLine(1, vTimeNow, Lever + 1, "CODResponse")
-                End If
-
-
+                ' 🔸 Respuesta en la otra opción durante COD
+                WriteLine(1, vTimeNow, Lever + 1, "CODResponse")
             End If
         End If
+
     End Sub
+
+    Private Sub tmrCOD_Tick(sender As Object, e As EventArgs) Handles tmrCOD.Tick
+        tmrCOD.Enabled = False
+        CODL = 0
+    End Sub
+
     Private Sub Nosepoke(Nose As Integer)
         If tmrStart.Enabled = False Then
             If tmrNosepoke.Enabled = False Then
@@ -261,26 +269,43 @@ Public Class Main
             End If
         End If
     End Sub
+    Private Sub tmrParpadeo_Tick(sender As Object, e As EventArgs) Handles tmrParpadeoA.Tick
+        tmrParpadeoA.Enabled = False
+        Arduino.WriteLine("A")
+    End Sub
+    Private Sub tmrParpadeo2_Tick(sender As Object, e As EventArgs) Handles tmrParpadeoB.Tick
+        tmrParpadeoB.Enabled = False
+        Arduino.WriteLine("B")
+    End Sub
     Private Sub Reinforce(Lever As Integer, Delay As Boolean) 'This registers reinforcer deliveries and sets up the next reinforcer conditions.
-        If Lever = 0 And AC(vCC).DelayDuration(0) > 0 And Delay = False Then
-            tmrDelay1.Enabled = True
-            ObtainedDelays(0).Add(vTimeNow) 'The reponse that onsets the delay adds this time
-            If AC(vCC).DelayType(0) <> "" Then
-                If AC(vCC).DelayType(0).Contains("Light 1") = True Then Arduino.WriteLine("A")
-                If AC(vCC).DelayType(0).Contains("Light 2") = True Then Arduino.WriteLine("B")
-                If AC(vCC).DelayType(0).Contains("Tone") = True Then Arduino.WriteLine("T")
-                If AC(vCC).DelayType(0).Contains("Houselight") = True Then Arduino.WriteLine("H")
+        If Lever = 0 Then
+            Arduino.WriteLine("a")
+            tmrParpadeoA.Enabled = True
+            If AC(vCC).DelayDuration(0) > 0 And Delay = False Then
+                tmrDelay1.Enabled = True
+                ObtainedDelays(0).Add(vTimeNow) 'The reponse that onsets the delay adds this time
+                If AC(vCC).DelayType(0) <> "" Then
+                    If AC(vCC).DelayType(0).Contains("Light 1") = True Then Arduino.WriteLine("A")
+                    If AC(vCC).DelayType(0).Contains("Light 2") = True Then Arduino.WriteLine("B")
+                    If AC(vCC).DelayType(0).Contains("Tone") = True Then Arduino.WriteLine("T")
+                    If AC(vCC).DelayType(0).Contains("Houselight") = True Then Arduino.WriteLine("H")
+                End If
             End If
-        ElseIf Lever = 1 And AC(vCC).DelayDuration(1) > 0 = True And Delay = False Then
-            tmrDelay2.Enabled = True
-            ObtainedDelays(1).Add(vTimeNow)
-            If AC(vCC).DelayType(1) <> "" Then
-                If AC(vCC).DelayType(1).Contains("Light 1") = True Then Arduino.WriteLine("A")
-                If AC(vCC).DelayType(1).Contains("Light 2") = True Then Arduino.WriteLine("B")
-                If AC(vCC).DelayType(1).Contains("Tone") = True Then Arduino.WriteLine("T")
-                If AC(vCC).DelayType(1).Contains("Houselight") = True Then Arduino.WriteLine("H")
+        ElseIf Lever = 1 Then
+            Arduino.WriteLine("b")
+            tmrParpadeoB.Enabled = True
+            If AC(vCC).DelayDuration(1) > 0 = True And Delay = False Then
+                tmrDelay2.Enabled = True
+                ObtainedDelays(1).Add(vTimeNow)
+                If AC(vCC).DelayType(1) <> "" Then
+                    If AC(vCC).DelayType(1).Contains("Light 1") = True Then Arduino.WriteLine("A")
+                    If AC(vCC).DelayType(1).Contains("Light 2") = True Then Arduino.WriteLine("B")
+                    If AC(vCC).DelayType(1).Contains("Tone") = True Then Arduino.WriteLine("T")
+                    If AC(vCC).DelayType(1).Contains("Houselight") = True Then Arduino.WriteLine("H")
+                End If
             End If
-        ElseIf Lever = 3 Then
+        End If
+        If Lever = 3 Then
             Arduino.WriteLine("R")
         Else
             refRdy(Lever) = False
@@ -715,10 +740,7 @@ Public Class Main
         End If
     End Sub
 
-    Private Sub tmrCOD_Tick(sender As Object, e As EventArgs) Handles tmrCOD.Tick
-        tmrCOD.Enabled = False
-        CODL = 0
-    End Sub
+
 
 
 End Class
