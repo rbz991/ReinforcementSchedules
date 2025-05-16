@@ -261,26 +261,44 @@ Public Class Main
             End If
         End If
     End Sub
+    Private Sub tmrParpadeo_Tick(sender As Object, e As EventArgs) Handles tmrParpadeoA.Tick
+        tmrParpadeoA.Enabled = False
+        Arduino.WriteLine("A")
+    End Sub
+    Private Sub tmrParpadeo2_Tick(sender As Object, e As EventArgs) Handles tmrParpadeoB.Tick
+        tmrParpadeoB.Enabled = False
+        Arduino.WriteLine("B")
+    End Sub
     Private Sub Reinforce(Lever As Integer, Delay As Boolean) 'This registers reinforcer deliveries and sets up the next reinforcer conditions.
-        If Lever = 0 And AC(vCC).DelayDuration(0) > 0 And Delay = False Then
-            tmrDelay1.Enabled = True
-            ObtainedDelays(0).Add(vTimeNow) 'The reponse that onsets the delay adds this time
-            If AC(vCC).DelayType(0) <> "" Then
-                If AC(vCC).DelayType(0).Contains("Light 1") = True Then Arduino.WriteLine("A")
-                If AC(vCC).DelayType(0).Contains("Light 2") = True Then Arduino.WriteLine("B")
-                If AC(vCC).DelayType(0).Contains("Tone") = True Then Arduino.WriteLine("T")
-                If AC(vCC).DelayType(0).Contains("Houselight") = True Then Arduino.WriteLine("H")
+        If Lever = 0 Then
+            Arduino.WriteLine("a")
+            tmrParpadeoA.Enabled = True
+            If AC(vCC).DelayDuration(0) > 0 And Delay = False Then
+                tmrDelay1.Enabled = True
+                ObtainedDelays(0).Add(vTimeNow) 'The reponse that onsets the delay adds this time
+                If AC(vCC).DelayType(0) <> "" Then
+                    If AC(vCC).DelayType(0).Contains("Light 1") = True Then Arduino.WriteLine("A")
+                    If AC(vCC).DelayType(0).Contains("Light 2") = True Then Arduino.WriteLine("B")
+                    If AC(vCC).DelayType(0).Contains("Tone") = True Then Arduino.WriteLine("T")
+                    If AC(vCC).DelayType(0).Contains("Houselight") = True Then Arduino.WriteLine("H")
+                End If
             End If
-        ElseIf Lever = 1 And AC(vCC).DelayDuration(1) > 0 = True And Delay = False Then
-            tmrDelay2.Enabled = True
-            ObtainedDelays(1).Add(vTimeNow)
-            If AC(vCC).DelayType(1) <> "" Then
-                If AC(vCC).DelayType(1).Contains("Light 1") = True Then Arduino.WriteLine("A")
-                If AC(vCC).DelayType(1).Contains("Light 2") = True Then Arduino.WriteLine("B")
-                If AC(vCC).DelayType(1).Contains("Tone") = True Then Arduino.WriteLine("T")
-                If AC(vCC).DelayType(1).Contains("Houselight") = True Then Arduino.WriteLine("H")
+        End If
+        If Lever = 1 Then
+            Arduino.WriteLine("b")
+            tmrParpadeoB.Enabled = True
+            If AC(vCC).DelayDuration(1) > 0 = True And Delay = False Then
+                tmrDelay2.Enabled = True
+                ObtainedDelays(1).Add(vTimeNow)
+                If AC(vCC).DelayType(1) <> "" Then
+                    If AC(vCC).DelayType(1).Contains("Light 1") = True Then Arduino.WriteLine("A")
+                    If AC(vCC).DelayType(1).Contains("Light 2") = True Then Arduino.WriteLine("B")
+                    If AC(vCC).DelayType(1).Contains("Tone") = True Then Arduino.WriteLine("T")
+                    If AC(vCC).DelayType(1).Contains("Houselight") = True Then Arduino.WriteLine("H")
+                End If
             End If
-        ElseIf Lever = 3 Then
+        End If
+        If Lever = 3 Then
             Arduino.WriteLine("R")
         Else
             refRdy(Lever) = False
