@@ -154,7 +154,7 @@ Partial Class SetUp
         Me.txbStart.Name = "txbStart"
         Me.txbStart.Size = New System.Drawing.Size(120, 31)
         Me.txbStart.TabIndex = 16
-        Me.txbStart.Text = "0"
+        Me.txbStart.Text = "1"
         '
         'btnAddComponent
         '
@@ -192,7 +192,7 @@ Partial Class SetUp
         Me.txbPostSession.Name = "txbPostSession"
         Me.txbPostSession.Size = New System.Drawing.Size(120, 31)
         Me.txbPostSession.TabIndex = 28
-        Me.txbPostSession.Text = "0"
+        Me.txbPostSession.Text = "1"
         '
         'Label1
         '
