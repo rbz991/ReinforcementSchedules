@@ -5,7 +5,7 @@
     Public chartFlag(1) As Boolean
     Public ICIcounter As Integer
     Public vFile(3) As String
-
+    Public rep(10) As Integer
     Public Lever1 As String = ""
     Public Lever2 As String = ""
     Public vTimeStart As Integer

@@ -88,6 +88,8 @@ Public Class Main
 
 1:          Dim q As Byte = Rond.Next(CompList.Count)
             If CompList.Item(q) = PreviousComp(0) And PreviousComp(0) = PreviousComp(1) Then
+                rep(CompList.Item(q)) += 1 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''' ver si no sale mejor solo copiarle a gpt
+
                 If CompList.Count = 1 Then
                     GoTo 2
                 Else
