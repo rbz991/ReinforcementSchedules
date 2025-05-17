@@ -616,7 +616,7 @@ Public Class Main
     Private Sub btnFinish_Click(sender As Object, e As EventArgs) Handles btnFinish.Click
         'This controls the 'Finish' button on the main form. Used to end the session by hand.
         lblActiveComponent.Text = "Session End"
-        PictureBox1.Image = My.Resources.tbc
+        'PictureBox1.Image = My.Resources.tbc
         tmrComponentDuration.Enabled = False
         tmrComponentStim.Enabled = False
         btnFinish.Enabled = False

@@ -40,7 +40,7 @@
 
 
                 Dim x As New Main
-                WindowState = FormWindowState.Minimized
+                ' WindowState = FormWindowState.Minimized
                 x.Show()
                 x.ArduinoVB()
 
@@ -126,6 +126,14 @@
             txbPostSession.Text = fileReader.ReadLine().Replace("""", "")
             txbICI.Text = fileReader.ReadLine().Replace("""", "")
             CheckBox1.Checked = fileReader.ReadLine().Replace("#", "")
+
+
+            For i = 0 To 4
+                ReDim AC(i).ComponentDuration_measured(4)
+            Next
+
+
+
             For i = 1 To vCC
                 ReDim AC(i).ScheduleType(1)
                 ReDim AC(i).ScheduleValue(1)
@@ -136,7 +144,8 @@
                 ReDim AC(i).FeedbackType(1)
                 ReDim AC(i).DelayDuration(1)
                 ReDim AC(i).DelayType(1)
-                ReDim AC(i).ComponentDuration_measured(AC(i).ComponentIteration)
+
+                'ReDim AC(i).ComponentDuration_measured(4)
                 AC(i).HouselightOnOff = fileReader.ReadLine().Replace("#", "")
                 AC(i).COD = fileReader.ReadLine()
                 AC(i).MaxRefs = fileReader.ReadLine()
