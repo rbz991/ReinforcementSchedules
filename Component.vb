@@ -99,6 +99,7 @@ Public Class Component
                     ReDim AC(vCC).DelayType(1)
                     ReDim AC(vCC).ComponentDuration_measured(AC(vCC).ComponentIteration)
                     ReDim AC(vCC).DelayRetract(1)
+                    ReDim AC(vCC).DelaySignalDuration(1)
 
                     ' === Lever 1 schedule parameters ===
                     AC(vCC).ScheduleType(0) = ScheduleType1
@@ -170,12 +171,12 @@ Public Class Component
                     PrintInfo(SetUp.lblSchedule1.Location.X, SetUp.lblSchedule1.Location.Y, AC(vCC).ScheduleType(0) & " " & AC(vCC).ScheduleValue(0))
                     PrintInfo(SetUp.lblMagnitude1.Location.X, SetUp.lblMagnitude1.Location.Y, AC(vCC).Magnitude(0) & " " & AC(vCC).Reinforcer(0) & " " & AC(vCC).PelletP(0))
                     PrintInfo(SetUp.lblFeedback1.Location.X, SetUp.lblFeedback1.Location.Y, AC(vCC).FeedbackType(0) & ": " & AC(vCC).FeedbackDuration(0) & " seconds")
-                    PrintInfo(SetUp.lblDelay1.Location.X, SetUp.lblDelay1.Location.Y, AC(vCC).DelayType(0) & ": " & AC(vCC).DelayDuration(0) & " seconds - Ret: " & AC(vCC).DelayRetract(0) & "/ signal: " & AC(vCC).DelaySignalDuration(0) & " seconds")
+                    PrintInfo(SetUp.lblDelay1.Location.X, SetUp.lblDelay1.Location.Y, AC(vCC).DelayType(0) & ": " & AC(vCC).DelayDuration(0) & " seconds - Ret: " & AC(vCC).DelayRetract(0) & vbCrLf & "/ signal: " & AC(vCC).DelaySignalDuration(0) & " seconds")
 
                     PrintInfo(SetUp.lblSchedule2.Location.X, SetUp.lblSchedule2.Location.Y, AC(vCC).ScheduleType(1) & " " & AC(vCC).ScheduleValue(1))
                     PrintInfo(SetUp.lblMagnitude2.Location.X, SetUp.lblMagnitude2.Location.Y, AC(vCC).Magnitude(1) & " " & AC(vCC).Reinforcer(1) & " " & AC(vCC).PelletP(1))
                     PrintInfo(SetUp.lblFeedback2.Location.X, SetUp.lblFeedback2.Location.Y, AC(vCC).FeedbackType(1) & ": " & AC(vCC).FeedbackDuration(1) & " seconds")
-                    PrintInfo(SetUp.lblDelay2.Location.X, SetUp.lblDelay2.Location.Y, AC(vCC).DelayType(1) & ": " & AC(vCC).DelayDuration(1) & " seconds - Ret: " & AC(vCC).DelayRetract(1) & "/ signal: " & AC(vCC).DelaySignalDuration(1) & " seconds")
+                    PrintInfo(SetUp.lblDelay2.Location.X, SetUp.lblDelay2.Location.Y, AC(vCC).DelayType(1) & ": " & AC(vCC).DelayDuration(1) & " seconds - Ret: " & AC(vCC).DelayRetract(1) & vbCrLf & " signal: " & AC(vCC).DelaySignalDuration(1) & " seconds")
 
                     ' === Highlight component labels in preview ===
                     For Each lb In SetUp.Controls
