@@ -39,6 +39,8 @@
     Public PalIO(1) As Boolean
     Public CompList As List(Of Integer)
     Public AC(4) As ComponentBlueprint ' ActualComponent
+    Public PreviewStartByComponent(60) As Integer  '1..60 components (ajusta si quieres)
+
     Public Structure ComponentBlueprint
         Dim HouselightOnOff As Boolean
         Dim COD As Double
@@ -56,6 +58,7 @@
         Dim FeedbackDuration() As Integer
         Dim FeedbackType() As String
         Dim DelayDuration() As Integer
+        Dim DelaySignalDuration() As Integer
         Dim DelayType() As String
         Dim DelayRetract() As Boolean
         Dim IterationsLeft As Byte

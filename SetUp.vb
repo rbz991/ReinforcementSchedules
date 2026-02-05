@@ -5,6 +5,18 @@
         Dim ask As MsgBoxResult = MsgBox("Did you test everything?", MsgBoxStyle.YesNo)
         If ask = MsgBoxResult.Yes Then
 
+            'Do not start if no components were configured
+            If vCC <= 0 Then
+                MessageBox.Show("No components have been added. Please add at least one component before starting.")
+                Exit Sub
+            End If
+
+            For i = 1 To vCC
+                If AC(i).ComponentDuration <= 0 Then
+                    MessageBox.Show("Component " & i & " has a duration of 0. Please set a valid duration before starting.")
+                    Exit Sub
+                End If
+            Next
 
 
             'This checks for errors or missing data in the set up and prompts the user for corrections. If no problem is found the selected programs are initiated.
@@ -19,10 +31,12 @@
                 WriteLine(1, Format(Date.Now, "dd-MM-yyyy_hh-mm-ss"))
                 WriteLine(1, "Subject: " & txtSubject.Text)
                 WriteLine(1, "Session: " & txtSession.Text)
+                WriteLine(1, "Weight: " & txtWeight.Text)
                 WriteLine(1, "COM Port: " & txtCOM.Text)
                 WriteLine(2, Format(Date.Now, "dd-MM-yyyy_hh-mm-ss"))
                 WriteLine(2, "Subject: " & txtSubject.Text)
                 WriteLine(2, "Session: " & txtSession.Text)
+                WriteLine(2, "Weight: " & txtWeight.Text)
                 WriteLine(2, "COM Port: " & txtCOM.Text)
                 WriteLine(1, "Lever 1 response: 1")
                 WriteLine(1, "Lever 2 response: 2")
@@ -104,6 +118,8 @@
                 WriteLine(3, AC(i).DelayType(1))
                 WriteLine(3, AC(i).DelayRetract(0))
                 WriteLine(3, AC(i).DelayRetract(1))
+                WriteLine(3, AC(i).DelaySignalDuration(0))
+                WriteLine(3, AC(i).DelaySignalDuration(1))
             Next
             FileClose(3)
         Else
@@ -140,6 +156,7 @@
                 ReDim AC(i).DelayDuration(1)
                 ReDim AC(i).DelayType(1)
                 ReDim AC(i).DelayRetract(1)
+                ReDim AC(i).DelaySignalDuration(1)
                 '
                 AC(i).HouselightOnOff = fileReader.ReadLine().Replace("#", "")
                 AC(i).COD = fileReader.ReadLine()
@@ -168,21 +185,24 @@
                 AC(i).DelayType(1) = fileReader.ReadLine().Replace("""", "")
                 AC(i).DelayRetract(0) = fileReader.ReadLine().Replace("#", "")
                 AC(i).DelayRetract(1) = fileReader.ReadLine().Replace("#", "")
+                AC(i).DelaySignalDuration(0) = fileReader.ReadLine()
+                AC(i).DelaySignalDuration(1) = fileReader.ReadLine()
 
                 PrintInfo(lblComponent.Location.X, lblComponent.Location.Y, "Component " & i)
                 PrintInfo(lblComponentD.Location.X, lblComponentD.Location.Y, AC(i).ComponentDuration & " seconds")
                 PrintInfo(lblComponentI.Location.X, lblComponentI.Location.Y, AC(i).ComponentIteration & " times")
                 PrintInfo(lblComponentS.Location.X, lblComponentS.Location.Y, AC(i).ComponentStimType & ": " & AC(i).ComponentStimDuration & " seconds")
+                PrintInfo(lblCOD.Location.X, lblCOD.Location.Y, AC(i).COD & " seconds")
 
                 PrintInfo(lblSchedule1.Location.X, lblSchedule1.Location.Y, AC(i).ScheduleType(0) & " " & AC(i).ScheduleValue(0))
                 PrintInfo(lblMagnitude1.Location.X, lblMagnitude1.Location.Y, AC(i).Magnitude(0) & " " & AC(i).Reinforcer(0) & " " & AC(i).PelletP(0))
                 PrintInfo(lblFeedback1.Location.X, lblFeedback1.Location.Y, AC(i).FeedbackType(0) & ": " & AC(i).FeedbackDuration(0) & " seconds")
-                PrintInfo(lblDelay1.Location.X, lblDelay1.Location.Y, AC(i).DelayType(0) & ": " & AC(i).DelayDuration(0) & " seconds - Ret: " & AC(i).DelayRetract(0))
+                PrintInfo(lblDelay1.Location.X, lblDelay1.Location.Y, AC(i).DelayType(0) & ": " & AC(i).DelayDuration(0) & " seconds - Ret: " & AC(i).DelayRetract(0) & "/ signal: " & AC(i).DelaySignalDuration(0) & " seconds")
 
                 PrintInfo(lblSchedule2.Location.X, lblSchedule2.Location.Y, AC(i).ScheduleType(1) & " " & AC(i).ScheduleValue(1))
                 PrintInfo(lblMagnitude2.Location.X, lblMagnitude2.Location.Y, AC(i).Magnitude(1) & " " & AC(i).Reinforcer(1) & " " & AC(i).PelletP(1))
                 PrintInfo(lblFeedback2.Location.X, lblFeedback2.Location.Y, AC(i).FeedbackType(1) & ": " & AC(i).FeedbackDuration(1) & " seconds")
-                PrintInfo(lblDelay2.Location.X, lblDelay2.Location.Y, AC(i).DelayType(1) & ": " & AC(i).DelayDuration(1) & " seconds - Ret: " & AC(i).DelayRetract(1))
+                PrintInfo(lblDelay2.Location.X, lblDelay2.Location.Y, AC(i).DelayType(1) & ": " & AC(i).DelayDuration(1) & " seconds - Ret: " & AC(i).DelayRetract(1) & "/ signal: " & AC(i).DelaySignalDuration(1) & " seconds")
 
                 For Each lb In Me.Controls
                     If lb.Text.Contains("Component ") Then
@@ -205,7 +225,71 @@
         End If
     End Sub
 
+    Private Sub btnRemoveLast_Click(sender As Object, e As EventArgs) Handles btnRemoveLast.Click
 
+        ' Nothing to remove
+        If vCC <= 0 Then Exit Sub
+        If PreviewCounter <= 0 Then
+            vCC = 0
+            Exit Sub
+        End If
 
+        ' Where the last component's preview block starts
+        Dim startIndex As Integer = PreviewStartByComponent(vCC)
 
+        ' Safety clamps
+        If startIndex < 0 Then startIndex = 0
+        If startIndex > PreviewCounter Then startIndex = PreviewCounter
+
+        ' Remove ALL labels created for that component
+        For idx As Integer = PreviewCounter - 1 To startIndex Step -1
+            If idx >= 0 AndAlso idx <= LabelPreview.Length - 1 Then
+                Dim lb As Label = LabelPreview(idx)
+                If lb IsNot Nothing Then
+                    If Me.Controls.Contains(lb) Then Me.Controls.Remove(lb)
+                    lb.Dispose()
+                    LabelPreview(idx) = Nothing
+                End If
+            End If
+            PreviewCounter -= 1
+        Next
+
+        ' Reset the removed component slot (Structure)
+        AC(vCC) = New ComponentBlueprint
+        AC(vCC).ComponentDuration_measured = Nothing
+        AC(vCC).ScheduleType = Nothing
+        AC(vCC).ScheduleValue = Nothing
+        AC(vCC).Magnitude = Nothing
+        AC(vCC).Reinforcer = Nothing
+        AC(vCC).PelletP = Nothing
+        AC(vCC).FeedbackDuration = Nothing
+        AC(vCC).FeedbackType = Nothing
+        AC(vCC).DelayDuration = Nothing
+        AC(vCC).DelayType = Nothing
+        AC(vCC).DelayRetract = Nothing
+        AC(vCC).DelaySignalDuration = Nothing
+
+        ' Clear stored start index
+        PreviewStartByComponent(vCC) = 0
+
+        ' Update component count & layout
+        vCC -= 1
+        If vPadding >= 180 Then vPadding -= 180
+
+        ' Randomization only makes sense with 2+ components
+        If vCC < 2 Then
+            CheckBox1.Checked = False
+            CheckBox1.Enabled = False
+            RandomCPres = False
+        End If
+
+    End Sub
+
+    Private Sub btnAuthorInfo_Click(sender As Object, e As EventArgs) Handles btnAuthorInfo.Click
+        ' Displays a dialog with author information
+
+        MsgBox("Made by XXXXX" & vbCrLf & vbCrLf &
+           "• Intentionally left blank during peer-review.",
+           MsgBoxStyle.Information)
+    End Sub
 End Class
