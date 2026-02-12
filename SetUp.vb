@@ -18,6 +18,8 @@
                 End If
             Next
 
+            If txbPostSession.Text = "" Then txbPostSession.Text = 0
+            If txbStart.Text = "" Then txbStart.Text = 0
 
             'This checks for errors or missing data in the set up and prompts the user for corrections. If no problem is found the selected programs are initiated.
             If txtSubject.Text = "" Or txtSession.Text = "" Or txtCOM.Text = "" Then

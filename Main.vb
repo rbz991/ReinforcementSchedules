@@ -15,7 +15,7 @@ Public Class Main
         Arduino = New SerialPort(SetUp.txtCOM.Text, 9600) 'Assigns the Arduino to the selected port at a 9600 baud rate. 
         Arduino.Open() 'Starts the Arduino-VB communication.
         Arduino.WriteLine("p")
-        tmrStart.Interval = SetUp.txbStart.Text * 1000
+        tmrStart.Interval = Max(1, SetUp.txbStart.Text * 1000)
         If SetUp.txbICI.Text <> 0 Then
             tmrICI.Interval = SetUp.txbICI.Text * 1000
         Else
@@ -1004,7 +1004,7 @@ Public Class Main
         btnReinforce.Enabled = False
 
         'Start the post-session timer (e.g., to allow animals to consume the last reinforcer).
-        tmrPostSession.Interval = SetUp.txbPostSession.Text * 1000
+        tmrPostSession.Interval = Max(1, SetUp.txbPostSession.Text * 1000)
         tmrPostSession.Enabled = True
     End Sub
 
