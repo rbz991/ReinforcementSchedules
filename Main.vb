@@ -332,19 +332,21 @@ Public Class Main
                             ' ---------------------------------------------------------
                             ' Responses during reinforcement delay
                             ' ---------------------------------------------------------
-                        ElseIf tmrDelay1.Enabled = True Then
-
-                            WriteLine(1, vTimeNow, "D" & 1)
+                        ElseIf tmrDelay1.Enabled Then
+                            WriteLine(1, vTimeNow, "D1")
                             ResponseCountDel(vCC, Lever) += 1
-                            ObtainedDelays(Lever).Item(DelayIndex(Lever)) = vTimeNow
+                            If DelayIndex(0) < ObtainedDelays(0).Count Then
+                                ObtainedDelays(0)(DelayIndex(0)) = vTimeNow
+                            End If
 
-                        ElseIf tmrDelay2.Enabled = True Then
-
-                            WriteLine(1, vTimeNow, "D" & 2)
+                        ElseIf tmrDelay2.Enabled Then
+                            WriteLine(1, vTimeNow, "D2")
                             ResponseCountDel(vCC, Lever) += 1
-                            ObtainedDelays(Lever).Item(DelayIndex(Lever)) = vTimeNow
-
+                            If DelayIndex(1) < ObtainedDelays(1).Count Then
+                                ObtainedDelays(1)(DelayIndex(1)) = vTimeNow
+                            End If
                         End If
+
                     End If
 
                 Else
