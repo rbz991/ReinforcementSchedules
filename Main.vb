@@ -792,7 +792,8 @@ Public Class Main
             FileClose(i) 'Closes data file.
         Next
 
-        End
+        Application.Exit()
+
     End Sub
 
 
