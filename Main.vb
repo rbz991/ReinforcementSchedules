@@ -225,18 +225,23 @@ Public Class Main
         If AC(vCC).FeedbackDuration(1) <> 0 Then tmrStim2.Interval = AC(vCC).FeedbackDuration(1) * 1000
 
         ' Lever 1
-        If AC(vCC).ScheduleType(0) <> "" Then
-            Arduino.WriteLine("L") 'extiende
+        If AC(vCC).ScheduleType(0) <> "" AndAlso
+   AC(vCC).ScheduleType(0).ToLower() <> "extinction" Then
+
+            Arduino.WriteLine("L") ' extiende
         Else
-            Arduino.WriteLine("l") 'retrae
+            Arduino.WriteLine("l") ' retrae
         End If
 
         ' Lever 2
-        If AC(vCC).ScheduleType(1) <> "" Then
-            Arduino.WriteLine("M") 'extiende
+        If AC(vCC).ScheduleType(1) <> "" AndAlso
+   AC(vCC).ScheduleType(1).ToLower() <> "extinction" Then
+
+            Arduino.WriteLine("M") ' extiende
         Else
-            Arduino.WriteLine("m") 'retrae
+            Arduino.WriteLine("m") ' retrae
         End If
+
 
 
 
