@@ -224,8 +224,20 @@ Public Class Main
         If AC(vCC).FeedbackDuration(0) <> 0 Then tmrStim1.Interval = AC(vCC).FeedbackDuration(0) * 1000
         If AC(vCC).FeedbackDuration(1) <> 0 Then tmrStim2.Interval = AC(vCC).FeedbackDuration(1) * 1000
 
-        If AC(vCC).ScheduleType(0) <> "" Then Arduino.WriteLine("L")
-        If AC(vCC).ScheduleType(1) <> "" Then Arduino.WriteLine("M")
+        ' Lever 1
+        If AC(vCC).ScheduleType(0) <> "" Then
+            Arduino.WriteLine("L") 'extiende
+        Else
+            Arduino.WriteLine("l") 'retrae
+        End If
+
+        ' Lever 2
+        If AC(vCC).ScheduleType(1) <> "" Then
+            Arduino.WriteLine("M") 'extiende
+        Else
+            Arduino.WriteLine("m") 'retrae
+        End If
+
 
 
         ' =========================================================
@@ -358,6 +370,7 @@ Public Class Main
         End If
     End Sub
 
+
     Private Sub Nosepoke(Nose As Integer)
 
         ' Registers only the ONSET of the nosepoke (entry), not sustained contact.
@@ -368,35 +381,35 @@ Public Class Main
             ' Current raw state coming from Arduino stream:
             ' In your code: value <> 1 means "active" (beam broken / nosepoke present),
             ' value = 1 means "inactive".
-            Dim isActive As Boolean = (Actual_Response(2) <> 1)
+            'Dim isActive As Boolean = (Actual_Response(2) <> 1)
 
-            ' 1) ONSET: active now, but previously OUT -> register once
-            If isActive = True AndAlso NosepokeIn(Nose) = False Then
-                NosepokeIn(Nose) = True
+            '' 1) ONSET: active now, but previously OUT -> register once
+            ' If isActive = True AndAlso NosepokeIn(Nose) = False Then
+            'NosepokeIn(Nose) = True
 
-                ' Optional debounce window (keeps your original timer logic)
-                If tmrNosepoke.Enabled = False Then
-                    tmrNosepoke.Enabled = True
+            ' Optional debounce window (keeps your original timer logic)
+            ' If tmrNosepoke.Enabled = False Then
+            'tmrNosepoke.Enabled = True
 
-                    If tmrDelay1.Enabled = True Or tmrDelay2.Enabled = True Then
-                        WriteLine(1, vTimeNow, "D" & Nose + 3)
-                        NosepokeCountDel(vCC) += 1
-                    Else
-                        NosepokeCount(Nose) += 1
-                        lblTrayRs.Text = NosepokeCount(Nose)
-                        chartResponse(2) += 1
-                        WriteLine(1, vTimeNow, Nose + 3)
-                    End If
-                End If
-
+            If tmrDelay1.Enabled = True Or tmrDelay2.Enabled = True Then
+                WriteLine(1, vTimeNow, "D" & Nose + 3)
+                NosepokeCountDel(vCC) += 1
+            Else
+                NosepokeCount(Nose) += 1
+                lblTrayRs.Text = NosepokeCount(Nose)
+                chartResponse(2) += 1
+                WriteLine(1, vTimeNow, Nose + 3)
             End If
-
-            ' 2) OFFSET: inactive now -> re-arm for the next entry
-            If isActive = False Then
-                NosepokeIn(Nose) = False
-            End If
-
         End If
+
+        '  End If
+
+        ' 2) OFFSET: inactive now -> re-arm for the next entry
+        '  If isActive = False Then
+        'NosepokeIn(Nose) = False
+        'End If
+
+        ' End If
 
     End Sub
 
